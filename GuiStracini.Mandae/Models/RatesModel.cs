@@ -34,7 +34,7 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The declared value.
         /// </value>
-        public String DeclaredValue { get; set; }
+        public Decimal DeclaredValue { get; set; }
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>

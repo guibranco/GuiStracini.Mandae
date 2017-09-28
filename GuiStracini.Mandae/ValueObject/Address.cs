@@ -40,7 +40,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The number.
         /// </value>
-        public String Number { get; set; }
+        public Int32 Number { get; set; }
         /// <summary>
         /// Gets or sets the address line2.
         /// </summary>

@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-// ***********************************************************************
+﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
 // Created          : 28/09/2017
@@ -12,24 +11,25 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Tests
+namespace GuiStracini.Mandae.Test
 {
     using Enums;
     using GoodPractices;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using Transport;
     using Utils;
 
     /// <summary>
-    /// Performs tests in the <see cref="GuiStracini.Mandae.Utils.RequestHelpers"/> class method's
+    /// The request helpers test class
     /// </summary>
     [TestClass]
-    public class RequestHelpersTests
+    public class RequestHelpersTest
     {
         /// <summary>
         /// Validates the request end point.
         /// </summary>
-        public void ValidateRequestEndPoint()
+        public void RequestEndPoint()
         {
             const String expected = "tracking/SV123456789BR";
             var tracking = new TrackingRequest
@@ -39,12 +39,12 @@ namespace GuiStracini.Mandae.Tests
             var result = tracking.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
-        
+
         /// <summary>
         /// Validates the request end point with multiple parameters.
         /// </summary>
         [TestMethod]
-        public void ValidateRequestEndPointWithMultipleParameters()
+        public void RequestEndPointWithMultipleParameters()
         {
             const String expected = "orders/123456/items/987654";
             var cancelItem = new CancelItemRequest
@@ -60,20 +60,20 @@ namespace GuiStracini.Mandae.Tests
         /// Validates the request end point with null values.
         /// </summary>
         [TestMethod]
-        public void ValidateRequestEndPointWithNullValues()
+        public void RequestEndPointWithNullValues()
         {
             const String expected = "trackings";
             var tracking = new TrackingRequest();
             var result = tracking.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
-        
+
         /// <summary>
         /// Validates the request end point with multiple parameters with invalid data.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(InvalidRequestEndPointException), "The endpoint was resolved with incorrect format")]
-        public void ValidateRequestEndPointWithMultipleParametersWithInvalidData()
+        public void RequestEndPointWithMultipleParametersWithInvalidData()
         {
             var cancelItem = new CancelItemRequest
             {
@@ -83,7 +83,7 @@ namespace GuiStracini.Mandae.Tests
         }
 
         [TestMethod]
-        public void ValidateRequestAdditionalParameter()
+        public void RequestAdditionalParameter()
         {
             const String expected = "/123456789";
             var order = new OrderRequest
@@ -99,7 +99,7 @@ namespace GuiStracini.Mandae.Tests
         /// Validates the request additional parameter as query string.
         /// </summary>
         [TestMethod]
-        public void ValidateRequestAdditionalParameterAsQueryString()
+        public void RequestAdditionalParameterAsQueryString()
         {
             const String expected = "/?async=true";
             var order = new OrderRequest
@@ -114,7 +114,7 @@ namespace GuiStracini.Mandae.Tests
         /// Validates the request additional parameter incorrect action method.
         /// </summary>
         [TestMethod]
-        public void ValidateRequestAdditionalParameterIncorrectActionMethod()
+        public void RequestAdditionalParameterIncorrectActionMethod()
         {
             var order = new OrderRequest
             {

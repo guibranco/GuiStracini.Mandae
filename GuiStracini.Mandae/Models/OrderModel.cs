@@ -45,7 +45,7 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The items.
         /// </value>
-        public NewItem[] Items { get; set; }
+        public Item[] Items { get; set; }
 
         /// <summary>
         /// Gets or sets the sender.

@@ -19,7 +19,7 @@ namespace GuiStracini.Mandae.ValueObject
     /// <summary>
     /// The new item class
     /// </summary>
-    public sealed class NewItem
+    public sealed class Item
     {
         /// <summary>
         /// Gets or sets the recipient.

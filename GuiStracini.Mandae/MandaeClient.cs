@@ -153,13 +153,44 @@ namespace GuiStracini.Mandae
             {
                 Token = _token,
                 PostalCode = model.PostalCode,
-                DeclaredValue = model.DeclaredValue,
+                DeclaredValue = model.DeclaredValue.ToString(CultureInfo.InvariantCulture),
                 Height = model.Dimensions.Height.ToString(CultureInfo.InvariantCulture),
                 Length = model.Dimensions.Length.ToString(CultureInfo.InvariantCulture),
                 Weight = model.Dimensions.Weight.ToString(CultureInfo.InvariantCulture),
                 Width = model.Dimensions.Width.ToString(CultureInfo.InvariantCulture)
             };
             return await _service.Post<RatesResponse, RatesRequest>(data, token).ConfigureAwait(_configureAwait);
+        }
+
+        #endregion
+
+        #region Schedulings 
+
+        /// <summary>
+        /// Gets the available hours.
+        /// </summary>
+        /// <param name="date">The date.</param>
+        /// <returns></returns>
+        public AvailableHoursResponse GetAvailableHours(DateTime date)
+        {
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            return GetAvailableHoursAsync(date, source.Token).Result;
+        }
+
+        /// <summary>
+        /// Gets the available hours for collect request asynchronous.
+        /// </summary>
+        /// <param name="date">The date of the collect.</param>
+        /// <param name="token">The cancellation token.</param>
+        /// <returns>A task of <see cref="AvailableHoursResponse"/></returns>
+        public async Task<AvailableHoursResponse> GetAvailableHoursAsync(DateTime date, CancellationToken token)
+        {
+            var data = new AvailableHoursRequest
+            {
+                Token = _token,
+                Date = date.ToString("yyyy-mm-dd")
+            };
+            return await _service.Get<AvailableHoursResponse, AvailableHoursRequest>(data, token).ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -354,37 +385,6 @@ namespace GuiStracini.Mandae
                 TrackingCode = trackingCode
             };
             return await _service.Get<TrackingResponse, TrackingRequest>(data, token).ConfigureAwait(_configureAwait);
-        }
-
-        #endregion
-
-        #region Schedulings 
-
-        /// <summary>
-        /// Gets the available hours.
-        /// </summary>
-        /// <param name="date">The date.</param>
-        /// <returns></returns>
-        public AvailableHoursResponse GetAvailableHours(DateTime date)
-        {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetAvailableHoursAsync(date, source.Token).Result;
-        }
-
-        /// <summary>
-        /// Gets the available hours for collect request asynchronous.
-        /// </summary>
-        /// <param name="date">The date of the collect.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="AvailableHoursResponse"/></returns>
-        public async Task<AvailableHoursResponse> GetAvailableHoursAsync(DateTime date, CancellationToken token)
-        {
-            var data = new AvailableHoursRequest
-            {
-                Token = _token,
-                Date = date.ToString("yyyy-mm-dd")
-            };
-            return await _service.Get<AvailableHoursResponse, AvailableHoursRequest>(data, token).ConfigureAwait(_configureAwait);
         }
 
         #endregion

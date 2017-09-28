@@ -80,9 +80,8 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
                 if (!String.IsNullOrEmpty(requestObject.Token))
-                    client.DefaultRequestHeaders.Add("X-LISTADECOMPRAS-KEY", requestObject.Token);
+                    client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
 
                 var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
                 try

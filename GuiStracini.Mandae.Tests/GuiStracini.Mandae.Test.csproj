@@ -7,8 +7,8 @@
     <ProjectGuid>{D91F4051-B4C2-4BB0-9B90-685643DD3F63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GuiStracini.Mandae.Tests</RootNamespace>
-    <AssemblyName>GuiStracini.Mandae.Tests</AssemblyName>
+    <RootNamespace>GuiStracini.Mandae.Test</RootNamespace>
+    <AssemblyName>GuiStracini.Mandae.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,8 +49,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlowTest.cs" />
+    <Compile Include="VehiclesTest.cs" />
+    <Compile Include="RatesTest.cs" />
+    <Compile Include="SchedulingTest.cs" />
+    <Compile Include="OrdersTest.cs" />
+    <Compile Include="TrackingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestHelpersTests.cs" />
+    <Compile Include="RequestHelpersTest.cs" />
+    <Compile Include="CustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
