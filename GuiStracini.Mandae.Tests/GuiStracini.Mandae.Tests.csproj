@@ -49,9 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestHelpersTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GuiStracini.Mandae\GuiStracini.Mandae.csproj">
+      <Project>{d83ae6a7-43ce-4805-8ba7-9b6d1602cca1}</Project>
+      <Name>GuiStracini.Mandae</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,7 +16,7 @@ namespace GuiStracini.Mandae.Transport
     using System;
 
     /// <summary>
-    /// The class that all classes in Transport namespace must inherit
+    /// All classes that performs a direct request to the Mandaê API must inherit from this class.
     /// </summary>
     public abstract class BaseTransport
     {

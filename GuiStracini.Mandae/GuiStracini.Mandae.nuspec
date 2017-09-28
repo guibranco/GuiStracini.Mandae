@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GuiStracini.Mandae</id>
+    <version>$version$</version>
+    <title>Unnoficial Mandaê API SDK</title>
+    <authors>Guilherme Branco Stracini</authors>
+    <owners>Guilherme Branco Stracini</owners>
+	<licenseUrl>https://github.com/guibranco/GuiStracini.Mandae/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://guibranco.github.io/GuiStracini.Mandae/</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/guibranco</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Mandae API Client. Mandaê is an intermediate order delivery company. It mediates between e-commerce and various freight companies, offering the lowest price and providing an API to schedule pick-ups and track deliveries from the vendor's distribution center to delivery to the end consumer. </description>
+    <copyright>Copyright &#00A9; 2017 Guilherme Branco Stracini. All rights reserved.</copyright>
+    <tags>Mandae Carrier Courier Shipping API Wrapper Correios SDK</tags>
+  </metadata>
+  <files>
+	<file src="GuiStracini.Mandae\bin\$configuration$\GuiStracini.Mandae.dll" target="lib\net47\" />
+  </files>
+</package>
