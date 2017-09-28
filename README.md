@@ -3,6 +3,7 @@ The **(unnoficial)** Mandaê API client
 
 [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg)](https://nuget.com/GuiStracini.Mandae/)
 [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg)](https://nuget.com/GuiStracini.Mandae/)
+[![Documentation Status](https://readthedocs.org/projects/guistracinimandae/badge/?version=latest)](http://guistracinimandae.readthedocs.io/en/latest/?badge=latest)
 
 This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
