@@ -1,0 +1,106 @@
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 28/09/2017
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 28/09/2017
+// ***********************************************************************
+// <copyright file="RequestHelpers.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Utils
+{
+    using Attributes;
+    using Enums;
+    using GoodPractices;
+    using ListaDeCompras.Commons.GoodPractices;
+    using System;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Transport;
+
+    /// <summary>
+    /// Class Extensions.
+    /// </summary>
+    public static class RequestHelpers
+    {
+        /// <summary>
+        /// Gets the request end point.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>String.</returns>
+        /// <exception cref="RequestEndPointBadFormatException"></exception>
+        /// <exception cref="InvalidRequestEndPointException"></exception>
+        public static String GetRequestEndPoint(this BaseTransport request)
+        {
+            var type = request.GetType();
+            if (!(type.GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[] endpoints) || !endpoints.Any())
+                return type.Name.ToUpper();
+            var originalEndpoint = endpoints.Single().EndPoint;
+            var endpoint = originalEndpoint;
+            var regex = new Regex(@"/?(?<pattern>{(?<propertyName>\w+?)})/?");
+            if (!regex.IsMatch(endpoint))
+                return endpoint;
+            var used = 0;
+            var skiped = 0;
+            var counter = 0;
+            foreach (Match match in regex.Matches(endpoint))
+            {
+                counter++;
+                var propertyName = match.Groups["propertyName"].Value;
+                var property = type.GetProperty(propertyName);
+                if (property == null)
+                    throw new RequestEndPointBadFormatException(originalEndpoint);
+                var propertyType = property.PropertyType;
+                var propertyValue = property.GetValue(request, null);
+                if (propertyValue == null ||
+                    (propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) == 0) ||
+                    (propertyType == typeof(Decimal) && Convert.ToDecimal(propertyValue) == new Decimal(0)) ||
+                    (propertyType == typeof(String) && String.IsNullOrEmpty(propertyValue.ToString())))
+                {
+                    endpoint = endpoint.Replace(match.Value, "");
+                    if (skiped == 0)
+                        skiped = counter;
+                    continue;
+                }
+                used = counter;
+                endpoint = endpoint.Replace(match.Groups["pattern"].Value, propertyValue.ToString());
+            }
+            if (skiped != 0 && skiped < used)
+                throw new InvalidRequestEndPointException(originalEndpoint, endpoint);
+            return endpoint.Trim('/');
+        }
+
+        /// <summary>
+        /// Gets the request additional parameter.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="requestMethod">The request method.</param>
+        /// <returns>String.</returns>
+        public static String GetRequestAdditionalParameter(this BaseTransport request, ActionMethod requestMethod)
+        {
+            var type = request.GetType();
+            var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(RequestAdditionalParameterAttribute), false)).ToList();
+            if (!properties.Any())
+                return String.Empty;
+            var builder = new StringBuilder();
+            foreach (var property in properties)
+            {
+                var attributes = property.GetCustomAttributes(typeof(RequestAdditionalParameterAttribute), false) as RequestAdditionalParameterAttribute[];
+                if (attributes == null || attributes.All(a => a.Type != requestMethod))
+                    continue;
+                var propertyType = property.PropertyType;
+                var propertyValue = property.GetValue(request);
+                if (propertyValue == null)
+                    continue;
+                if (propertyType == typeof(String) || (propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0))
+                    builder.Append("/").Append(propertyValue);
+            }
+            return builder.ToString();
+        }
+    }
+}
