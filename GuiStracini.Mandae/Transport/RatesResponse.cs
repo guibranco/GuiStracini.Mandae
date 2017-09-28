@@ -19,7 +19,7 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// Represents the rates response. With the postal code and the rates available for that postal code
     /// </summary>
-    public sealed class RatesResponse
+    public sealed class RatesResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets the postal code.

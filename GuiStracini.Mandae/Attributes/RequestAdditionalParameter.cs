@@ -17,14 +17,14 @@ namespace GuiStracini.Mandae.Attributes
     using System;
 
     /// <summary>
-    /// Use this attribute to include a queryString in the request endpoint for specificThis class is used as attribute to flag a property to use it as EndPoint parameter for specific action method.
+    /// Use this attribute to include the value os the property in the request endpoint for specific action method.
     /// E.g. A GET/PUT request should include the field "Name" of a entity in the URL, so add this attribute to the Name property in the transport class, and set the ActionMethod to GET and PUT (2 attributes)
     /// </summary>
     /// <example>
-    /// Using a generic transport class, inherited from <see cref="GuiStracini.Mandae.Transport.BaseTransport"/>
+    /// Using a generic transport class, inherited from <see cref="GuiStracini.Mandae.Transport.BaseRequest"/>
     /// <code>
     /// [RequestEndPoint("/Sample/{id}")] //The id property is used in all requests if it's populated
-    /// public class SampleTransport : BaseTransport 
+    /// public class SampleTransport :BaseRequest 
     /// {
     ///     public Int32 Id { get; set; }
     /// 
@@ -35,8 +35,26 @@ namespace GuiStracini.Mandae.Attributes
     /// 
     /// var sample = new SampleTransport { Id = 1, Name = "Sample" };
     /// var endPointResult = sample.GetRequestEndPoint();
-    /// Assert.AreEqual("/Sample/1/?name=Sample", endpointResult);
+    /// Assert.AreEqual("/Sample/1/Sample", endpointResult);
     /// </code>
+    /// 
+    /// If the name of the property and its value should be added as query string to the url, so set the second constructor parameter to <c>true</c>
+    /// <code>
+    /// [RequestEndPoint("/Sample/{id}")] //The id property is used in all requests if it's populated
+    /// public class SampleTransport :BaseRequest 
+    /// {
+    ///     public Int32 Id { get; set; }
+    /// 
+    ///     [RequestAdditionalParameterAttribute(ActionMethod.GET, true)]
+    ///     [RequestAdditionalParameterAttribute(ActionMethod.PUT, true)]
+    ///     public String Name { get; set; } //The property Name is included in the url as querystring only in GET or PUT requests.
+    /// }
+    /// 
+    /// var sample = new SampleTransport { Id = 1, Name = "Sample" };
+    /// var endPointResult = sample.GetRequestEndPoint();
+    /// Assert.AreEqual("/Sample/1?Name=Sample", endpointResult);
+    /// </code>
+    /// 
     /// </example>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
@@ -46,14 +64,24 @@ namespace GuiStracini.Mandae.Attributes
         /// Gets or sets the type.
         /// </summary>
         /// <value>The action type of t he request.</value>
-        public ActionMethod Type { get; set; }
+        public ActionMethod Type { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestAdditionalParameterAttribute"/> class.
+        /// Gets or sets a value indicating whether the additional parameter should be added as query string to the url.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [as query string]; otherwise, <c>false</c>.
+        /// </value>
+        public Boolean AsQueryString { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequestAdditionalParameterAttribute" /> class.
         /// </summary>
         /// <param name="type">The type of request.</param>
-        public RequestAdditionalParameterAttribute(ActionMethod type)
+        /// <param name="asQueryString">if set to <c>true</c> the additional parameter is added in the url as query string.</param>
+        public RequestAdditionalParameterAttribute(ActionMethod type, Boolean asQueryString = false)
         {
+            AsQueryString = asQueryString;
             Type = type;
         }
     }

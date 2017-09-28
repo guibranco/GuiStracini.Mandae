@@ -19,7 +19,7 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// The tracking response class
     /// </summary>
-    public sealed class TrackingResponse
+    public sealed class TrackingResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets the tracking code.

@@ -1,0 +1,41 @@
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 28/09/2017
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 28/09/2017
+// ***********************************************************************
+// <copyright file="Error.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.ValueObject
+{
+    using System;
+    using Newtonsoft.Json;
+
+    /// <summary>
+    /// The error model
+    /// </summary>
+    public sealed class Error
+    {
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
+        [JsonProperty("code")]
+        public String Code { get; set; }
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        [JsonProperty("message")]
+        public String Message { get; set; }
+    }
+}

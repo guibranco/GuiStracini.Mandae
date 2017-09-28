@@ -15,10 +15,11 @@ namespace GuiStracini.Mandae.Transport
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
     /// The latest response
     /// </summary>
-    public sealed class LatestResponse
+    public sealed class LatestResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets the identifier.

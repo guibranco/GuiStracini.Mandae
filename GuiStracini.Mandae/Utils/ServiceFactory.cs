@@ -24,7 +24,7 @@ namespace GuiStracini.Mandae.Utils
     using Environment = Enums.Environment;
 
     /// <summary>
-    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "BaseTransport" /> class
+    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "BaseRequest" /> class
     /// </summary>
     internal sealed class ServiceFactory
     {
@@ -68,7 +68,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the response as <typeparamref name="TOut"/></returns>
-        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : BaseTransport
+        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : BaseRequest
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
                                    ? ProductionServiceEndPoint
@@ -101,7 +101,7 @@ namespace GuiStracini.Mandae.Utils
                             break;
                         case ActionMethod.DELETE:
                             response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
-                            break;
+                            return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
                         default:
                             throw new HttpRequestException("Requested method not implemented");
                     }
@@ -112,6 +112,106 @@ namespace GuiStracini.Mandae.Utils
                     throw new MandaeAPIException(requestObject.GetRequestEndPoint(), e);
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the specified request object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;T&gt;.</returns>
+        public async Task<T> Get<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        {
+            return await Execute<T, T>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Gets the specified request object.
+        /// </summary>
+        /// <typeparam name="TOut">The type of the t out.</typeparam>
+        /// <typeparam name="TIn">The type of the t in.</typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;TOut&gt;.</returns>
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        {
+            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Posts the specified request object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;T&gt;.</returns>
+        public async Task<T> Post<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        {
+            return await Execute<T, T>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Posts the specified request object.
+        /// </summary>
+        /// <typeparam name="TOut">The type of the t out.</typeparam>
+        /// <typeparam name="TIn">The type of the t in.</typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;TOut&gt;.</returns>
+        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        {
+            return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Puts the specified request object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;T&gt;.</returns>
+        public async Task<T> Put<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        {
+            return await Execute<T, T>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Puts the specified request object.
+        /// </summary>
+        /// <typeparam name="TOut">The type of the t out.</typeparam>
+        /// <typeparam name="TIn">The type of the t in.</typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;TOut&gt;.</returns>
+        public async Task<TOut> Put<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        {
+            return await Execute<TOut, TIn>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Deletes the specified request object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;T&gt;.</returns>
+        public async Task<T> Delete<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        {
+            return await Execute<T, T>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
+        }
+
+        /// <summary>
+        /// Deletes the specified request object.
+        /// </summary>
+        /// <typeparam name="TOut">The type of the t out.</typeparam>
+        /// <typeparam name="TIn">The type of the t in.</typeparam>
+        /// <param name="requestObject">The request object.</param>
+        /// <param name="token">The token.</param>
+        /// <returns>Task&lt;TOut&gt;.</returns>
+        public async Task<TOut> Delete<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        {
+            return await Execute<TOut, TIn>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
         }
     }
 }

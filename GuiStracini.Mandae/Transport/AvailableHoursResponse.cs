@@ -15,10 +15,11 @@ namespace GuiStracini.Mandae.Transport
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
     /// The available hours response class
     /// </summary>
-    public sealed class AvailableHoursResponse
+    public sealed class AvailableHoursResponse : BaseResponse
     {
         /// <summary>
         /// Gets or sets the hours.

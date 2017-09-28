@@ -34,7 +34,7 @@ namespace GuiStracini.Mandae.Utils
         /// <returns>String.</returns>
         /// <exception cref="RequestEndPointBadFormatException"></exception>
         /// <exception cref="InvalidRequestEndPointException"></exception>
-        public static String GetRequestEndPoint(this BaseTransport request)
+        public static String GetRequestEndPoint(this BaseRequest request)
         {
             var type = request.GetType();
             if (!(type.GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[] endpoints) || !endpoints.Any())
@@ -57,9 +57,10 @@ namespace GuiStracini.Mandae.Utils
                 var propertyType = property.PropertyType;
                 var propertyValue = property.GetValue(request, null);
                 if (propertyValue == null ||
-                    (propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) == 0) ||
-                    (propertyType == typeof(Decimal) && Convert.ToDecimal(propertyValue) == new Decimal(0)) ||
-                    (propertyType == typeof(String) && String.IsNullOrEmpty(propertyValue.ToString())))
+                    propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) == 0 ||
+                    propertyType == typeof(Int64) && Convert.ToInt64(propertyValue) == 0 ||
+                    propertyType == typeof(Decimal) && Convert.ToDecimal(propertyValue) == new Decimal(0) ||
+                    propertyType == typeof(String) && String.IsNullOrEmpty(propertyValue.ToString()))
                 {
                     endpoint = endpoint.Replace(match.Value, "");
                     if (skiped == 0)
@@ -80,7 +81,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="request">The request.</param>
         /// <param name="requestMethod">The request method.</param>
         /// <returns>String.</returns>
-        public static String GetRequestAdditionalParameter(this BaseTransport request, ActionMethod requestMethod)
+        public static String GetRequestAdditionalParameter(this BaseRequest request, ActionMethod requestMethod)
         {
             var type = request.GetType();
             var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(RequestAdditionalParameterAttribute), false)).ToList();
@@ -89,15 +90,19 @@ namespace GuiStracini.Mandae.Utils
             var builder = new StringBuilder();
             foreach (var property in properties)
             {
-                var attributes = property.GetCustomAttributes(typeof(RequestAdditionalParameterAttribute), false) as RequestAdditionalParameterAttribute[];
-                if (attributes == null || attributes.All(a => a.Type != requestMethod))
+                if (!(property.GetCustomAttributes(typeof(RequestAdditionalParameterAttribute), false) is RequestAdditionalParameterAttribute[] attributes) || attributes.All(a => a.Type != requestMethod))
                     continue;
-                var propertyType = property.PropertyType;
+                var addAsQueryString = attributes.Single(a => a.Type == requestMethod).AsQueryString;
                 var propertyValue = property.GetValue(request);
                 if (propertyValue == null)
                     continue;
-                if (propertyType == typeof(String) || (propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0))
-                    builder.Append("/").Append(propertyValue);
+                if (property.PropertyType == typeof(Boolean))
+                    propertyValue = propertyValue.ToString().ToLower();
+                if (property.PropertyType == typeof(String) ||
+                    property.PropertyType == typeof(Boolean) ||
+                    property.PropertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0 ||
+                    property.PropertyType == typeof(Int64) && Convert.ToInt64(propertyValue) > 0)
+                    builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{property.Name.ToLower()}=" : String.Empty).Append(propertyValue);
             }
             return builder.ToString();
         }

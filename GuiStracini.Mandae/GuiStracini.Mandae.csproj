@@ -58,23 +58,28 @@
     <Compile Include="GoodPractices\MandaeAPIException.cs" />
     <Compile Include="GoodPractices\RequestEndPointBadFormatException.cs" />
     <Compile Include="MandaeClient.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transport\AvailableHours.cs" />
+    <Compile Include="Transport\AvailableHoursRequest.cs" />
     <Compile Include="Transport\AvailableHoursResponse.cs" />
-    <Compile Include="Transport\CancelItem.cs" />
-    <Compile Include="Transport\Latest.cs" />
+    <Compile Include="Transport\CancelItemRequest.cs" />
+    <Compile Include="Transport\CustomerResponse.cs" />
+    <Compile Include="Transport\VehiclesResponse.cs" />
+    <Compile Include="ValueObject\Error.cs" />
+    <Compile Include="Transport\BaseResponse.cs" />
+    <Compile Include="Transport\LatestRequest.cs" />
     <Compile Include="Transport\LatestResponse.cs" />
-    <Compile Include="Transport\Tracking.cs" />
+    <Compile Include="Transport\TrackingRequest.cs" />
     <Compile Include="Transport\TrackingResponse.cs" />
     <Compile Include="ValueObject\Address.cs" />
-    <Compile Include="Transport\Customer.cs" />
+    <Compile Include="Transport\CustomerRequest.cs" />
     <Compile Include="ValueObject\Dimensions.cs" />
     <Compile Include="ValueObject\Event.cs" />
     <Compile Include="ValueObject\Invoice.cs" />
     <Compile Include="ValueObject\NewItem.cs" />
-    <Compile Include="Transport\Order.cs" />
+    <Compile Include="Transport\OrderRequest.cs" />
     <Compile Include="ValueObject\Phone.cs" />
-    <Compile Include="Transport\Rates.cs" />
+    <Compile Include="Transport\RatesRequest.cs" />
     <Compile Include="Transport\RatesResponse.cs" />
     <Compile Include="ValueObject\Recipient.cs" />
     <Compile Include="ValueObject\Sender.cs" />
@@ -82,9 +87,9 @@
     <Compile Include="ValueObject\Sku.cs" />
     <Compile Include="ValueObject\Store.cs" />
     <Compile Include="ValueObject\ValueAddedService.cs" />
-    <Compile Include="Transport\Vehicles.cs" />
+    <Compile Include="Transport\VehiclesRequest.cs" />
     <Compile Include="Utils\ServiceFactory.cs" />
-    <Compile Include="Transport\BaseTransport.cs" />
+    <Compile Include="Transport\BaseRequest.cs" />
     <Compile Include="Utils\RequestHelpers.cs" />
     <Compile Include="WebHook\OrderPickup.cs" />
     <Compile Include="WebHook\ProcessedItem.cs" />
@@ -96,5 +101,6 @@
   <ItemGroup>
     <Content Include="Properties\Version.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
