@@ -6,33 +6,29 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="AvailableHours.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Transport
 {
+    using Attributes;
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// This service gets the collection hours available for the informed day.
     /// </summary>
-    public enum ActionMethod
+    /// <seealso cref="GuiStracini.Mandae.Transport.BaseTransport" />
+    [RequestEndPoint("schedulings/available-hours/{Date}")]
+    public sealed class AvailableHours : BaseTransport
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the date.
         /// </summary>
-        GET,
-        /// <summary>
-        /// The HTTP method POST
-        /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The date.
+        /// </value>
+        public String Date { get; set; }
     }
 }

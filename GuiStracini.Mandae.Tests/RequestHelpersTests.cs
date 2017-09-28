@@ -1,4 +1,5 @@
-﻿// ***********************************************************************
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
 // Created          : 28/09/2017
@@ -6,24 +7,22 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="BaseTransport.cs" company="Guilherme Branco Stracini">
+// <copyright file="RequestHelpersTests" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Transport
+namespace GuiStracini.Mandae.Tests
 {
-    using System;
-
     /// <summary>
-    /// The class that all classes in Transport namespace must inherit
+    /// Performs tests in the <see cref="GuiStracini.Mandae.Utils.RequestHelpers"/> class method's
     /// </summary>
-    public abstract class BaseTransport
+    [TestClass]
+    public class RequestHelpersTests
     {
-        /// <summary>
-        /// Gets or sets the token.
-        /// </summary>
-        /// <value>The token.</value>
-        public String Token { get; set; }
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
     }
 }

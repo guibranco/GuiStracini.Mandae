@@ -6,7 +6,7 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="Vehicle.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
@@ -14,25 +14,24 @@
 namespace GuiStracini.Mandae.Enums
 {
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// The vehicle enumeration.
+    /// Represents which vehicles are available for withdrawal
     /// </summary>
-    public enum ActionMethod
+    public enum Vehicle
     {
         /// <summary>
-        /// The HTTP method GET
+        /// The car
         /// </summary>
-        GET,
+        CAR,
+
         /// <summary>
-        /// The HTTP method POST
+        /// The motorcycle
         /// </summary>
-        POST,
+        MOTORCYCLE,
+
         /// <summary>
-        /// The HTTP method PUT
+        /// The dropoff
         /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        DROPOFF
     }
 }

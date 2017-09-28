@@ -6,33 +6,33 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="Store.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.ValueObject
 {
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// The store entity
     /// </summary>
-    public enum ActionMethod
+    public sealed class Store
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the name.
         /// </summary>
-        GET,
+        /// <value>
+        /// The name.
+        /// </value>
+        public String Name { get; set; }
         /// <summary>
-        /// The HTTP method POST
+        /// Gets or sets the URL.
         /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The URL.
+        /// </value>
+        public String Url { get; set; }
     }
 }

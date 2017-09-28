@@ -6,33 +6,33 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="Sender.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.ValueObject
 {
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// The sender class
     /// </summary>
-    public enum ActionMethod
+    public sealed class Sender
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the full name.
         /// </summary>
-        GET,
+        /// <value>
+        /// The full name.
+        /// </value>
+        public String FullName { get; set; }
         /// <summary>
-        /// The HTTP method POST
+        /// Gets or sets the address.
         /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The address.
+        /// </value>
+        public Address Address { get; set; }
     }
 }

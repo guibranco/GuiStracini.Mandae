@@ -6,33 +6,34 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="RatesResponse" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Transport
 {
+    using System;
+    using ValueObject;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// Represents the rates response. With the postal code and the rates available for that postal code
     /// </summary>
-    public enum ActionMethod
+    public sealed class RatesResponse
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the postal code.
         /// </summary>
-        GET,
+        /// <value>
+        /// The postal code.
+        /// </value>
+        public String PostalCode { get; set; }
         /// <summary>
-        /// The HTTP method POST
+        /// Gets or sets the shipping services.
         /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The shipping services.
+        /// </value>
+        public ShippingServices[] ShippingServices { get; set; }
     }
 }

@@ -6,33 +6,26 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="AvailableHoursResponse.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Transport
 {
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// The available hours response class
     /// </summary>
-    public enum ActionMethod
+    public sealed class AvailableHoursResponse
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the hours.
         /// </summary>
-        GET,
-        /// <summary>
-        /// The HTTP method POST
-        /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The hours.
+        /// </value>
+        public DateTime[] Hours { get; set; }
     }
 }

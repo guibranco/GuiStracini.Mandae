@@ -15,7 +15,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("GuiStracini.Mandae.Tests")]
-[assembly: AssemblyDescription("The Mandaê API Wrapper")]
+[assembly: AssemblyDescription("The Mandaê API Wrapper tests project")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("GuiStracini.Mandae.Tests")]

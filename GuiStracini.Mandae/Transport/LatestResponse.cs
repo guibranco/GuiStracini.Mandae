@@ -6,33 +6,40 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="LatestResponse.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Transport
 {
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// The latest response
     /// </summary>
-    public enum ActionMethod
+    public sealed class LatestResponse
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the identifier.
         /// </summary>
-        GET,
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public Int32 Id { get; set; }
         /// <summary>
-        /// The HTTP method POST
+        /// Gets or sets the number.
         /// </summary>
-        POST,
+        /// <value>
+        /// The number.
+        /// </value>
+        public String Number { get; set; }
         /// <summary>
-        /// The HTTP method PUT
+        /// Gets or sets the URL.
         /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The URL.
+        /// </value>
+        public String Url { get; set; }
     }
 }

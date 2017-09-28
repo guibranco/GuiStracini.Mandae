@@ -16,7 +16,6 @@ namespace GuiStracini.Mandae.Utils
     using Attributes;
     using Enums;
     using GoodPractices;
-    using ListaDeCompras.Commons.GoodPractices;
     using System;
     using System.Linq;
     using System.Text;

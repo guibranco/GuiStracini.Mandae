@@ -6,33 +6,29 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 28/09/2017
 // ***********************************************************************
-// <copyright file="ActionType.cs" company="Guilherme Branco Stracini">
+// <copyright file="Tracking.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Transport
 {
+    using Attributes;
+    using System;
+
     /// <summary>
-    /// The request action method (An alias to HTTP method) enumeration
+    /// This service allows you to get the complete listing of tracking events from the tracking code.
     /// </summary>
-    public enum ActionMethod
+    /// <seealso cref="GuiStracini.Mandae.Transport.BaseTransport" />
+    [RequestEndPoint("trackings/{TrackingCode}")]
+    public sealed class Tracking : BaseTransport
     {
         /// <summary>
-        /// The HTTP method GET
+        /// Gets or sets the tracking code.
         /// </summary>
-        GET,
-        /// <summary>
-        /// The HTTP method POST
-        /// </summary>
-        POST,
-        /// <summary>
-        /// The HTTP method PUT
-        /// </summary>
-        PUT,
-        /// <summary>
-        /// The HTTP method DELETE
-        /// </summary>
-        DELETE
+        /// <value>
+        /// The tracking code.
+        /// </value>
+        public String TrackingCode { get; set; }
     }
 }
