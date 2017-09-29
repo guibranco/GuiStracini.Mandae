@@ -29,7 +29,7 @@ namespace GuiStracini.Mandae
     /// The unofficial Mandaê API client class.
     /// Implementation based on https://dev.mandae.com.br/api/index.html
     /// </summary>
-    public sealed class MandaeClient
+    public sealed class MandaeClient : IMandaeClient
     {
         #region Private fields
 
