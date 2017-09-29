@@ -30,7 +30,7 @@ This client supports the following operations/features of the API:
 
 ## Setup the MandaeClient ##
 
-How to create a new MandaeClient instance:
+Initializes a new instance of **MandaeClient** class.
 
 Example:
 ```csharp
@@ -39,17 +39,18 @@ Example:
 var apiToken = "my API token";
 
 //Call the constructor with the API token and de API environment (SANDBOX | PRODUCTION).
-var client = new MandaeClient(apiToken,Environment.SANDBOX);
+//var client = new MandaeClient(apiTOken); //<= Environment.SANDBOX is the default environment.
+var client = new MandaeClient(apiToken, Environment.PRODUCTION);
 ```
 
 ## Register a customer (pickup/collect location) ##
 
-How to register a customer (pickup/collect location):
+How to register a customer (pickup/collect location).
 
 Example:
 ```csharp
 //The MandaeClient
-var clieent = new MandaeClient("my API token", Environment.SANDBOX)
+var clieent = new MandaeClient("my API token")
 
 //The CustomerModel
 var model = new CustomerModel 
@@ -75,12 +76,12 @@ var customer = client.RegisterCustomer(model);
 
 ## Get available vehicles ##
 
-Get all available vehicles for a pickup in a source postal code (distribution center / origin location)
+Get all available vehicles for a pickup in a source postal code (distribution center / origin location).
 
 Example:
 ```csharp
 //The MandaeClient
-var client = new MandaeClient("my API token", Environment.SANDBOX);
+var client = new MandaeClient("my API token");
 
 var vehicles = client.GetVehicles("03137020");
 if(vehicles.Any(v=>v.CAR))
@@ -91,12 +92,12 @@ if(vehicles.Any(v=>v.CAR))
 
 ## Get rates for a package/delivery ##
 
-Get the rates (Rápido & Econômico) values and delivery time for a specified postal code and package dimensions
+Get the rates (Rápido & Econômico) values and delivery time for a specified postal code and package dimensions.
 
 Example:
 ```csharp
 //The MandaeClient
-var client = new MandaeClient("my API token", Environment.SANDBOX);
+var client = new MandaeClient("my API token");
 
 //The RatesModel
 var delivery = new RatesModel {
@@ -104,8 +105,8 @@ var delivery = new RatesModel {
 	...
 }
 var rates = client.GetRates(delivery);
-var fast = rates.ShippingServices.Single(s => s.Id == "Rápido");
-var economic = rates.ShippingServices.Single(s => s.Id == "Econômico");
+var fast = rates.ShippingServices.Single(s => s.Name == "Rápido");
+var economic = rates.ShippingServices.Single(s => s.Name == "Econômico");
 var option = ShippingService.ECONOMICO;
 if(fast.Price < economic.Price)
     option = ShippingService.RAPIDO;
@@ -129,7 +130,7 @@ Gets the available hours for pickup/collect packages in the distribuiton center 
 Example:
 ```csharp
 //The MandaeClient
-var client = new MandaeClient("my API token", Environment.SANDBOX);
+var client = new MandaeClient("my API token");
 
 //Check the available hours for tomorrow
 var date= DateTime.Now.AddDays(1);
@@ -144,18 +145,36 @@ Schedule a collect request (pickup in distribution center / origin location).
 
 Inform which type of Vehicle (GetVehicles), when (GetAvailableHours), which rate (Rapido | Economico) and the order items (a.k.a packages or clients orders).
 
-Each package means a order/volume, that can have one or more items (SKUs)
+Each package means a order/volume, that can have one or more items (SKUs).
 
-Example: [[TODO]]
+Example: [TODO: Pending test result]
+
+## Get the latest order collect request status ##
+
+Gets the last order collect request for a customer (by customerId).
+
+Example:
+```csharp
+//The MandaeClient
+var client = new MandaeClient("my API token");
+
+//The customerId 
+var customerId = "";
+var status = client.GetLatestOrderCollectStatus(customerId);
+
+//Tracking url for the order collect request
+var url = status.Url;
+
+```
 
 ## Cancel a schedule collect request ##
 
-[TODO]
+Example: [TODO | Pending test result]
 
 ## Cancel a schedule item (package) collect request ##
 
-[TODO]
+Example: [TODO | Pending test result]
 
 ## Get tracking of a package ##
 
-[TODO]
+Example: [TODO | Pending test result]
