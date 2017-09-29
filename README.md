@@ -10,6 +10,15 @@ The **(unnoficial)** Mandaê API client
 This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
 
+----------
+
+NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
+
+```ps
+Install-Package GuiStracini.Mandae
+```
+----------
+
 ## Features ##
 
 This client supports the following operations/features of the API:
