@@ -14,19 +14,28 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Enums;
+    using Newtonsoft.Json;
     using System;
+    using Utils;
 
     /// <summary>
     /// The new item class
     /// </summary>
     public sealed class Item
     {
+        #region Private fields 
+
+        private ShippingService _shippingService;
+
+        #endregion
+
         /// <summary>
         /// Gets or sets the recipient.
         /// </summary>
         /// <value>
         /// The recipient.
         /// </value>
+        [JsonProperty("recipient")]
         public Recipient Recipient { get; set; }
 
         /// <summary>
@@ -35,7 +44,25 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The shipping service.
         /// </value>
-        public ShippingService ShippingService { get; set; }
+        [JsonIgnore]
+        public ShippingService ShippingService
+        {
+            get => _shippingService;
+            set => _shippingService = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the shipping service internal.
+        /// </summary>
+        /// <value>
+        /// The shipping service internal.
+        /// </value>
+        [JsonProperty("shippingService")]
+        public String ShippingServiceInternal
+        {
+            get => _shippingService.ToString().ToCamelCase();
+            set => _shippingService = (ShippingService)Enum.Parse(typeof(ShippingService), value.ToUpper());
+        }
 
         /// <summary>
         /// Gets or sets the value added services.
@@ -43,6 +70,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The value added services.
         /// </value>
+        [JsonProperty("valueAddedServices")]
         public ValueAddedService[] ValueAddedServices { get; set; }
 
         /// <summary>
@@ -51,6 +79,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The observation.
         /// </value>
+        [JsonProperty("observation")]
         public String Observation { get; set; }
 
         /// <summary>
@@ -59,6 +88,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The qr codes.
         /// </value>
+        [JsonProperty("qrCodes")]
         public String[] QrCodes { get; set; }
 
         /// <summary>
@@ -67,6 +97,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The partner item identifier.
         /// </value>
+        [JsonProperty("partnerItemId")]
         public String PartnerItemId { get; set; }
         /// <summary>
         /// Gets or sets the skus.
@@ -74,6 +105,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The skus.
         /// </value>
+        [JsonProperty("skus")]
         public Sku[] Skus { get; set; }
 
         /// <summary>
@@ -82,6 +114,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The invoice.
         /// </value>
+        [JsonProperty("invoice")]
         public Invoice Invoice { get; set; }
 
         /// <summary>
@@ -90,6 +123,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The tracking identifier.
         /// </value>
+        [JsonProperty("trackingId")]
         public String TrackingId { get; set; }
 
         /// <summary>
@@ -98,6 +132,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The dimensions.
         /// </value>
+        [JsonProperty("dimensions")]
         public Dimensions Dimensions { get; set; }
     }
 }

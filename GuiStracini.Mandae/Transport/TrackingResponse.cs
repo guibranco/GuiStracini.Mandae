@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
+    using Newtonsoft.Json;
     using System;
     using ValueObject;
 
@@ -27,6 +28,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The tracking code.
         /// </value>
+        [JsonProperty("trackingCode")]
         public String TrackingCode { get; set; }
         /// <summary>
         /// Gets or sets the carrier code.
@@ -34,6 +36,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The carrier code.
         /// </value>
+        [JsonProperty("carrierCode")]
         public String CarrierCode { get; set; }
         /// <summary>
         /// Gets or sets the name of the carrier.
@@ -41,6 +44,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The name of the carrier.
         /// </value>
+        [JsonProperty("carrierName")]
         public String CarrierName { get; set; }
         /// <summary>
         /// Gets or sets the events.
@@ -48,6 +52,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The events.
         /// </value>
+        [JsonProperty("events")]
         public Event[] Events { get; set; }
     }
 }

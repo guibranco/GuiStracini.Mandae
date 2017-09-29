@@ -13,8 +13,9 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
-    using System;
     using Attributes;
+    using Newtonsoft.Json;
+    using System;
 
     /// <summary>
     /// This service allows you to check the status of the last collection requested by the customer. 
@@ -30,6 +31,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The customer identifier.
         /// </value>
+        [JsonProperty("customerId")]
         public String CustomerId { get; set; }
     }
 }

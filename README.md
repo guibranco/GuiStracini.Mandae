@@ -2,7 +2,6 @@
 The **(unnoficial)** Mandaê API client
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
-[![Documentation Status](https://readthedocs.org/projects/guistracinimandae/badge/?version=latest)](http://guistracinimandae.readthedocs.io/en/latest/?badge=latest)
 [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg)](https://nuget.com/GuiStracini.Mandae/)
 [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg)](https://nuget.com/GuiStracini.Mandae/)
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=plastic)](https://github.com/guibranco/GuiStracini.Mandae)

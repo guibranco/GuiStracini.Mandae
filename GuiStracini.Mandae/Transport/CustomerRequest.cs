@@ -14,6 +14,7 @@
 namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
+    using Newtonsoft.Json;
     using System;
     using ValueObject;
 
@@ -31,6 +32,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The identifier.
         /// </value>
+        [JsonProperty("id")]
         public String Id { get; set; }
         /// <summary>
         /// Gets or sets the email.
@@ -38,6 +40,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The email.
         /// </value>
+        [JsonProperty("email")]
         public String Email { get; set; }
         /// <summary>
         /// Gets or sets the full name.
@@ -45,6 +48,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The full name.
         /// </value>
+        [JsonProperty("fullName")]
         public String FullName { get; set; }
         /// <summary>
         /// Gets or sets the document.
@@ -52,6 +56,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The document.
         /// </value>
+        [JsonProperty("document")]
         public String Document { get; set; }
         /// <summary>
         /// Gets or sets the phone.
@@ -59,6 +64,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The phone.
         /// </value>
+        [JsonProperty("phone")]
         public Phone Phone { get; set; }
         /// <summary>
         /// Gets or sets the store.
@@ -66,6 +72,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The store.
         /// </value>
+        [JsonProperty("store")]
         public Store Store { get; set; }
 
     }

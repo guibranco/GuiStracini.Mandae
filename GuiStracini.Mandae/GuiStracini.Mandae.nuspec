@@ -3,10 +3,10 @@
   <metadata>
     <id>GuiStracini.Mandae</id>
     <version>$version$</version>
-    <title>Unnoficial Mandaê API SDK</title>
+    <title>Unnoficial Mandaê API Client</title>
     <authors>Guilherme Branco Stracini</authors>
     <owners>Guilherme Branco Stracini</owners>
-	<licenseUrl>https://github.com/guibranco/GuiStracini.Mandae/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/guibranco/GuiStracini.Mandae/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://guibranco.github.io/GuiStracini.Mandae/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +14,4 @@
     <copyright>Copyright 2017 Guilherme Branco Stracini. All rights reserved.</copyright>
     <tags>Mandae Carrier Courier Shipping API Wrapper Correios SDK</tags>
   </metadata>
-  <files>
-	<file src="bin\$configuration$\GuiStracini.Mandae.dll" target="lib\net47\" />
-  </files>
 </package>

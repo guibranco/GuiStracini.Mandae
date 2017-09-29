@@ -13,9 +13,13 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae
 {
+    using Enums;
     using Models;
+    using Newtonsoft.Json.Linq;
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Transport;
@@ -103,8 +107,8 @@ namespace GuiStracini.Mandae
         /// Gets the vehicles availables for the supplied postal code.
         /// </summary>
         /// <param name="postalCode">The postal code of the collect location.</param>
-        /// <returns><see cref="VehiclesResponse"/></returns>
-        public VehiclesResponse GetVehicles(String postalCode)
+        /// <returns>A list of <see cref="GuiStracini.Mandae.Enums.Vehicle"/></returns>
+        public List<Vehicle> GetVehicles(String postalCode)
         {
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             return GetVehiclesAsync(postalCode, source.Token).Result;
@@ -115,15 +119,17 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="postalCode">The postal code of the collect location.</param>
         /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="VehiclesResponse"/></returns>
-        public async Task<VehiclesResponse> GetVehiclesAsync(String postalCode, CancellationToken token)
+        /// <returns>A task of list of <see cref="GuiStracini.Mandae.Enums.Vehicle"/></returns>
+        public async Task<List<Vehicle>> GetVehiclesAsync(String postalCode, CancellationToken token)
         {
             var data = new VehiclesRequest
             {
                 Token = _token,
                 PostalCode = postalCode
             };
-            return await _service.Get<VehiclesResponse, VehiclesRequest>(data, token).ConfigureAwait(_configureAwait);
+            var result = await _service.Get<Object, VehiclesRequest>(data, token).ConfigureAwait(_configureAwait);
+            var array = JArray.Parse(result.ToString());
+            return array.Select(v => (Vehicle)Enum.Parse(typeof(Vehicle), v.ToString().ToUpper())).ToList();
         }
 
         #endregion
@@ -188,7 +194,7 @@ namespace GuiStracini.Mandae
             var data = new AvailableHoursRequest
             {
                 Token = _token,
-                Date = date.ToString("yyyy-mm-dd")
+                Date = date.ToString("yyyy-MM-dd")
             };
             return await _service.Get<AvailableHoursResponse, AvailableHoursRequest>(data, token).ConfigureAwait(_configureAwait);
         }

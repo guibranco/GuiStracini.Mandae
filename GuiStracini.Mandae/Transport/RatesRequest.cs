@@ -13,8 +13,9 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
-    using System;
     using Attributes;
+    using Newtonsoft.Json;
+    using System;
 
     /// <summary>
     /// This entity allows a simulation of the value of a freight for a given ZIP code. 
@@ -24,6 +25,7 @@ namespace GuiStracini.Mandae.Transport
     [RequestEndPoint("/postalcodes/{PostalCode}/rates")]
     public sealed class RatesRequest : BaseRequest
     {
+        [JsonProperty("postalCode")]
         public String PostalCode { get; set; }
         /// <summary>
         /// Gets or sets the declared value.
@@ -31,6 +33,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The declared value.
         /// </value>
+        [JsonProperty("declaredValue")]
         public String DeclaredValue { get; set; }
 
         /// <summary>
@@ -39,6 +42,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The weight.
         /// </value>
+        [JsonProperty("weight")]
         public String Weight { get; set; }
 
         /// <summary>
@@ -47,6 +51,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The height.
         /// </value>
+        [JsonProperty("height")]
         public String Height { get; set; }
 
         /// <summary>
@@ -55,6 +60,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The width.
         /// </value>
+        [JsonProperty("width")]
         public String Width { get; set; }
 
         /// <summary>
@@ -63,6 +69,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The length.
         /// </value>
+        [JsonProperty("length")]
         public String Length { get; set; }
     }
 }

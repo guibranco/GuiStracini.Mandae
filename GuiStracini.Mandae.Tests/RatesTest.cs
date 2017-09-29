@@ -52,8 +52,8 @@ namespace GuiStracini.Mandae.Test
 
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
-            var fast = rates.ShippingServices.SingleOrDefault(r => r.Id.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
-            var slow = rates.ShippingServices.SingleOrDefault(r => r.Id.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
+            var fast = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
+            var slow = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
 
             Assert.IsNotNull(fast);
             Assert.IsNotNull(slow);
@@ -64,6 +64,7 @@ namespace GuiStracini.Mandae.Test
         /// Validate the get rates asynchronous method.
         /// </summary>
         /// <returns></returns>
+        [TestMethod]
         public async Task GetRatesAsync()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
@@ -86,8 +87,8 @@ namespace GuiStracini.Mandae.Test
 
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
-            var fast = rates.ShippingServices.SingleOrDefault(r => r.Id.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
-            var slow = rates.ShippingServices.SingleOrDefault(r => r.Id.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
+            var fast = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
+            var slow = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
 
             Assert.IsNotNull(fast);
             Assert.IsNotNull(slow);

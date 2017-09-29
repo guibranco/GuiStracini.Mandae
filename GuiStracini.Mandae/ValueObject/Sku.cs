@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
+    using Newtonsoft.Json;
     using System;
 
     /// <summary>
@@ -26,6 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The sku identifier.
         /// </value>
+        [JsonProperty("skuId")]
         public String SkuId { get; set; }
         /// <summary>
         /// Gets or sets the description.
@@ -33,6 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The description.
         /// </value>
+        [JsonProperty("description")]
         public String Description { get; set; }
         /// <summary>
         /// Gets or sets the ean.
@@ -40,6 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The ean.
         /// </value>
+        [JsonProperty("ean")]
         public String Ean { get; set; }
         /// <summary>
         /// Gets or sets the price.
@@ -47,6 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The price.
         /// </value>
+        [JsonProperty("price")]
         public Decimal Price { get; set; }
         /// <summary>
         /// Gets or sets the freight.
@@ -54,6 +59,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The freight.
         /// </value>
+        [JsonProperty("freight")]
         public Decimal Freight { get; set; }
         /// <summary>
         /// Gets or sets the quantity.
@@ -61,6 +67,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The quantity.
         /// </value>
+        [JsonProperty("quantity")]
         public Decimal Quantity { get; set; }
     }
 }

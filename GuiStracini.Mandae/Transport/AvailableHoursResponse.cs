@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
+    using Newtonsoft.Json;
     using System;
 
     /// <inheritdoc />
@@ -27,6 +28,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The hours.
         /// </value>
+        [JsonProperty("hours")]
         public DateTime[] Hours { get; set; }
     }
 }

@@ -13,8 +13,9 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
-    using System;
     using Attributes;
+    using Newtonsoft.Json;
+    using System;
 
     /// <summary>
     /// This service allows a collection item to be canceled. 
@@ -31,6 +32,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The order identifier.
         /// </value>
+        [JsonProperty("orderId")]
         public Int64 OrderId { get; set; }
 
         /// <summary>
@@ -39,6 +41,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The item identifier.
         /// </value>
+        [JsonProperty("itemId")]
         public Int64 ItemId { get; set; }
     }
 }

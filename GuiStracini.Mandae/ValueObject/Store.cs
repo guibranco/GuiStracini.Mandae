@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
+    using Newtonsoft.Json;
     using System;
 
     /// <summary>
@@ -26,6 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The name.
         /// </value>
+        [JsonProperty("name")]
         public String Name { get; set; }
         /// <summary>
         /// Gets or sets the URL.
@@ -33,6 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The URL.
         /// </value>
+        [JsonProperty("url")]
         public String Url { get; set; }
     }
 }

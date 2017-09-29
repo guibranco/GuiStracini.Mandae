@@ -47,7 +47,6 @@ namespace GuiStracini.Mandae.Test
                         City = "São Paulo",
                         Country = "BR",
                         Neighborhood = "Vila Prudente",
-                        Reference = "Travessa da Av. Salin Farah Maluf",
                         State = "SP",
                         Street = "Rua Itanháem"
                     },
@@ -124,7 +123,8 @@ namespace GuiStracini.Mandae.Test
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var orderModel = GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNotNull(order.Id);
+            Assert.IsNotNull(order.OrderId);
+            Assert.IsTrue(order.OrderId > 0);
         }
 
         /// <summary>
@@ -138,7 +138,8 @@ namespace GuiStracini.Mandae.Test
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var orderModel = GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
-            Assert.IsNotNull(order.Id);
+            Assert.IsNotNull(order.OrderId);
+            Assert.IsTrue(order.OrderId > 0);
         }
 
 
@@ -152,6 +153,7 @@ namespace GuiStracini.Mandae.Test
             var orderModel = GetSampleOrderModel();
             var jobId = client.CreateLargeOrderCollectRequest(orderModel);
             Assert.IsNotNull(jobId);
+            Assert.AreNotEqual(new Guid(), jobId);
 
         }
 
@@ -167,6 +169,7 @@ namespace GuiStracini.Mandae.Test
             var orderModel = GetSampleOrderModel();
             var jobId = await client.CreateLargeOrderCollectRequestAsync(orderModel, source.Token);
             Assert.IsNotNull(jobId);
+            Assert.AreNotEqual(new Guid(), jobId);
         }
 
         /// <summary>

@@ -15,6 +15,7 @@ namespace GuiStracini.Mandae.Test
 {
     using Enums;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -34,11 +35,11 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
 
-            var vehicles = client.GetVehicles("03237020");
+            var vehicles = client.GetVehicles("03137020");
 
-            Assert.IsTrue(vehicles.Vehicles.Length == 2);
-            Assert.IsTrue(vehicles.Vehicles.Any(v => v == Vehicle.CAR));
-            Assert.IsTrue(vehicles.Vehicles.Any(v => v == Vehicle.MOTORCYCLE));
+            Assert.IsTrue(vehicles.Count == 2);
+            Assert.IsTrue(vehicles.Any(v => v == Vehicle.CAR));
+            Assert.IsTrue(vehicles.Any(v => v == Vehicle.MOTORCYCLE));
         }
 
         /// <summary>
@@ -50,12 +51,12 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
 
-            var source = new CancellationTokenSource();
-            var vehicles = await client.GetVehiclesAsync("03237020", source.Token);
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            var vehicles = await client.GetVehiclesAsync("03137020", source.Token);
 
-            Assert.IsTrue(vehicles.Vehicles.Length == 2);
-            Assert.IsTrue(vehicles.Vehicles.Any(v => v == Vehicle.CAR));
-            Assert.IsTrue(vehicles.Vehicles.Any(v => v == Vehicle.MOTORCYCLE));
+            Assert.IsTrue(vehicles.Count == 2);
+            Assert.IsTrue(vehicles.Any(v => v == Vehicle.CAR));
+            Assert.IsTrue(vehicles.Any(v => v == Vehicle.MOTORCYCLE));
         }
     }
 }

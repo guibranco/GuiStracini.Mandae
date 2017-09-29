@@ -13,8 +13,9 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
-    using System;
     using Attributes;
+    using Newtonsoft.Json;
+    using System;
 
     /// <summary>
     /// This service gets the collection hours available for the informed day.
@@ -29,6 +30,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The date.
         /// </value>
+        [JsonProperty("date")]
         public String Date { get; set; }
     }
 }

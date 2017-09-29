@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
+    using Newtonsoft.Json;
     using System;
 
     /// <summary>
@@ -26,6 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The postal code.
         /// </value>
+        [JsonProperty("postalCode")]
         public String PostalCode { get; set; }
         /// <summary>
         /// Gets or sets the street.
@@ -33,6 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The street.
         /// </value>
+        [JsonProperty("street")]
         public String Street { get; set; }
         /// <summary>
         /// Gets or sets the number.
@@ -40,6 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The number.
         /// </value>
+        [JsonProperty("number")]
         public Int32 Number { get; set; }
         /// <summary>
         /// Gets or sets the address line2.
@@ -47,6 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The address line2.
         /// </value>
+        [JsonProperty("addressLine2")]
         public String AddressLine2 { get; set; }
         /// <summary>
         /// Gets or sets the neighborhood.
@@ -54,6 +59,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The neighborhood.
         /// </value>
+        [JsonProperty("neighborhood")]
         public String Neighborhood { get; set; }
         /// <summary>
         /// Gets or sets the city.
@@ -61,6 +67,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The city.
         /// </value>
+        [JsonProperty("city")]
         public String City { get; set; }
         /// <summary>
         /// Gets or sets the state.
@@ -68,6 +75,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The state.
         /// </value>
+        [JsonProperty("state")]
         public String State { get; set; }
         /// <summary>
         /// Gets or sets the country.
@@ -75,6 +83,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The country.
         /// </value>
+        [JsonProperty("country")]
         public String Country { get; set; }
         /// <summary>
         /// Gets or sets the reference.
@@ -82,6 +91,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The reference.
         /// </value>
+        [JsonProperty("reference")]
         public String Reference { get; set; }
     }
 }

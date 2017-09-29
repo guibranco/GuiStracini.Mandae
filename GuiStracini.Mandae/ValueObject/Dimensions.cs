@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
+    using Newtonsoft.Json;
     using System;
 
     /// <summary>
@@ -26,6 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The type.
         /// </value>
+        [JsonProperty("type")]
         public String Type { get; set; }
         /// <summary>
         /// Gets or sets the height.
@@ -33,6 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The height.
         /// </value>
+        [JsonProperty("height")]
         public Decimal Height { get; set; }
         /// <summary>
         /// Gets or sets the width.
@@ -40,6 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The width.
         /// </value>
+        [JsonProperty("width")]
         public Decimal Width { get; set; }
         /// <summary>
         /// Gets or sets the length.
@@ -47,6 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The length.
         /// </value>
+        [JsonProperty("length")]
         public Decimal Length { get; set; }
         /// <summary>
         /// Gets or sets the weight.
@@ -54,6 +59,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The weight.
         /// </value>
+        [JsonProperty("weight")]
         public Decimal Weight { get; set; }
         /// <summary>
         /// Gets or sets the volume.
@@ -61,6 +67,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The volume.
         /// </value>
+        [JsonProperty("volume")]
         public Decimal Volume { get; set; }
     }
 }

@@ -37,15 +37,18 @@
                 }
             };
             var rates = client.GetRates(ratesModel);
-            var cheapDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
+            Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
+            Assert.AreEqual(2, rates.ShippingServices.Length);
+            var cheapAndFastDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
             var schedulerDate = DateTime.Now.AddDays(1);
             var availableHours = client.GetAvailableHours(schedulerDate);
+            Assert.IsTrue(availableHours.Hours.Any());
             var orderModel = new OrderModel
             {
                 CustomerId = customerId,
-                Vehicle = vehicles.Vehicles.Any(v => v == Vehicle.CAR)
+                Vehicle = vehicles.Any(v => v == Vehicle.CAR)
                               ? Vehicle.CAR
-                              : vehicles.Vehicles.First(),
+                              : vehicles.First(),
                 Observation = "Full flow validation test",
                 Scheduling = availableHours.Hours.First(),
                 PartnerOrderId = "1234567890",
@@ -87,7 +90,7 @@
                             Document = "05944298000101"
                         },
                         PartnerItemId = "12345",
-                        ShippingService = cheapDelivery.Name == "Rápido"
+                        ShippingService = cheapAndFastDelivery.Name == "Rápido"
                                               ? ShippingService.RAPIDO
                                               : ShippingService.ECONOMICO,
                         Invoice = new Invoice
@@ -120,7 +123,11 @@
 
             };
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNotNull(order.Id);
+            Assert.IsNotNull(order.OrderId);
+            Assert.IsTrue(order.OrderId > 0);
+            var status = client.GetLatestOrderCollectStatus(customerId);
+            Assert.IsNotNull(status.Url);
+
         }
     }
 }

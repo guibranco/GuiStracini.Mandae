@@ -16,6 +16,7 @@ namespace GuiStracini.Mandae.Utils
     using Attributes;
     using Enums;
     using GoodPractices;
+    using Newtonsoft.Json;
     using System;
     using System.Linq;
     using System.Text;
@@ -96,13 +97,18 @@ namespace GuiStracini.Mandae.Utils
                 var propertyValue = property.GetValue(request);
                 if (propertyValue == null)
                     continue;
+
                 if (property.PropertyType == typeof(Boolean))
                     propertyValue = propertyValue.ToString().ToLower();
+                var propertyName = property.Name;
+                if (property.GetCustomAttributes(typeof(JsonPropertyAttribute), false) is JsonPropertyAttribute[] attributesJson &&
+                    attributesJson.Any())
+                    propertyName = attributesJson.Single().PropertyName;
                 if (property.PropertyType == typeof(String) ||
                     property.PropertyType == typeof(Boolean) ||
                     property.PropertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0 ||
                     property.PropertyType == typeof(Int64) && Convert.ToInt64(propertyValue) > 0)
-                    builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{property.Name.ToLower()}=" : String.Empty).Append(propertyValue);
+                    builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : String.Empty).Append(propertyValue);
             }
             return builder.ToString();
         }

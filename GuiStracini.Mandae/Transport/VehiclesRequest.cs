@@ -13,8 +13,9 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
-    using System;
     using Attributes;
+    using Newtonsoft.Json;
+    using System;
 
     /// <summary>
     /// This service makes it possible to verify that the Mandaê collection service is available in a particular ZIP code and which vehicles are available for withdrawal. 
@@ -32,6 +33,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The postal code.
         /// </value>
+        [JsonProperty("postalCode")]
         public String PostalCode { get; set; }
     }
 }
