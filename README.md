@@ -28,7 +28,7 @@ This client supports the following operations/features of the API:
  4. Get the available hours to pickup order(s) in a selected date
  5. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
  5. Cancel the whole collect schedule (Cancel a previous collect scheduler)
- 6. Cancel a schedule item (Cancel a package from a collect order)
+ 6. Cancel a schedule item (Cancel a item/package from a collect order)
  7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is supplied via WebHook)
  8. WebHooks schema ready (The web hooks models/schemas)
 
@@ -59,7 +59,7 @@ How to register a customer (pickup/collect location).
 Example:
 ```csharp
 //The MandaeClient
-var clieent = new MandaeClient("my API token")
+var client = new MandaeClient("my API token")
 
 //The CustomerModel
 var model = new CustomerModel 
@@ -168,7 +168,7 @@ Example:
 var client = new MandaeClient("my API token");
 
 //The customerId 
-var customerId = "";
+var customerId = "sampleCustomerId";
 var status = client.GetLatestOrderCollectStatus(customerId);
 
 //Tracking url for the order collect request
