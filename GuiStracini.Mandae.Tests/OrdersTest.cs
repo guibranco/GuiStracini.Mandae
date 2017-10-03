@@ -123,8 +123,9 @@ namespace GuiStracini.Mandae.Test
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var orderModel = GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNotNull(order.OrderId);
-            Assert.IsTrue(order.OrderId > 0);
+            Assert.IsNull(order.Error);
+            Assert.IsNotNull(order.Id);
+            Assert.IsTrue(order.Id > 0);
         }
 
         /// <summary>
@@ -138,8 +139,9 @@ namespace GuiStracini.Mandae.Test
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var orderModel = GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
-            Assert.IsNotNull(order.OrderId);
-            Assert.IsTrue(order.OrderId > 0);
+            Assert.IsNull(order.Error);
+            Assert.IsNotNull(order.Id);
+            Assert.IsTrue(order.Id > 0);
         }
 
 
@@ -180,6 +182,7 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var status = client.GetLatestOrderCollectStatus("182AC0ECDE0CA08A8B729733EBE8197D");
+            Assert.IsNull(status.Error);
             Assert.IsNotNull(status.Url);
         }
 
@@ -194,6 +197,7 @@ namespace GuiStracini.Mandae.Test
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var status = await client.GetLatestOrderCollectStatusAsync("182AC0ECDE0CA08A8B729733EBE8197D", source.Token);
+            Assert.IsNull(status.Error);
             Assert.IsNotNull(status.Url);
         }
 

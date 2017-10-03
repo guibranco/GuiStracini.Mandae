@@ -207,8 +207,8 @@ namespace GuiStracini.Mandae
         /// Creates the order collect request.
         /// </summary>
         /// <param name="model">The order collect model.</param>
-        /// <returns>The <see cref="OrderRequest"/> with the property id populated</returns>
-        public OrderRequest CreateOrderCollectRequest(OrderModel model)
+        /// <returns>The <see cref="OrderResponse"/> with the property id populated</returns>
+        public OrderResponse CreateOrderCollectRequest(OrderModel model)
         {
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             return CreateOrderCollectRequestAsync(model, source.Token).Result;
@@ -219,8 +219,8 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The order collect model.</param>
         /// <param name="token">The cancellation token.</param>
-        /// <returns>A task with the <see cref="OrderRequest"/> with the property id populated</returns>
-        public async Task<OrderRequest> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token)
+        /// <returns>A task with the <see cref="OrderResponse"/> with the property id populated</returns>
+        public async Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token)
         {
             var data = new OrderRequest
             {
@@ -235,7 +235,7 @@ namespace GuiStracini.Mandae
                 Sender = model.Sender,
                 Vehicle = model.Vehicle
             };
-            return await _service.Post(data, token).ConfigureAwait(_configureAwait);
+            return await _service.Post<OrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace GuiStracini.Mandae
                 Sender = model.Sender,
                 Vehicle = model.Vehicle
             };
-            var response = await _service.Post(data, token).ConfigureAwait(_configureAwait);
+            var response = await _service.Post<LargeOrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
             return response.JobId;
         }
 
@@ -322,12 +322,12 @@ namespace GuiStracini.Mandae
         /// <returns>A task of <see cref="Boolean"/> indicating whetever the order collect request was canceled or not</returns>
         public async Task<Boolean> CancelOrderCollectRequestAsync(Int64 orderId, CancellationToken token)
         {
-            var data = new OrderRequest
+            var data = new CancelOrderRequest
             {
                 Token = _token,
                 OrderId = orderId
             };
-            var response = await _service.Delete<Int32, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
+            var response = await _service.Delete<Int32, CancelOrderRequest>(data, token).ConfigureAwait(_configureAwait);
             return response == 204;
         }
 

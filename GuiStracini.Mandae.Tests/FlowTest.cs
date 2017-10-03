@@ -37,11 +37,13 @@
                 }
             };
             var rates = client.GetRates(ratesModel);
+            Assert.IsNull(rates.Error);
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
             var cheapAndFastDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
             var schedulerDate = DateTime.Now.AddDays(1);
             var availableHours = client.GetAvailableHours(schedulerDate);
+            Assert.IsNull(availableHours.Error);
             Assert.IsTrue(availableHours.Hours.Any());
             var orderModel = new OrderModel
             {
@@ -123,9 +125,10 @@
 
             };
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNotNull(order.OrderId);
-            Assert.IsTrue(order.OrderId > 0);
+            Assert.IsNull(order.Error);
+            Assert.IsTrue(order.Id > 0);
             var status = client.GetLatestOrderCollectStatus(customerId);
+            Assert.IsNull(status.Error);
             Assert.IsNotNull(status.Url);
 
         }

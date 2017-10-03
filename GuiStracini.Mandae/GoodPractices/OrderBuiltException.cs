@@ -1,13 +1,33 @@
-﻿namespace GuiStracini.Mandae.GoodPractices
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 29/09/2017
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 29/09/2017
+// ***********************************************************************
+// <copyright file="OrderBuildException.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.GoodPractices
 {
     using System;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// Throws when an order build instance was already built
+    /// </summary>
+
     [Serializable]
     public class OrderBuiltException : Exception
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderBuiltException"/> class.
+        /// </summary>
         public OrderBuiltException()
-            : base($"The order was already built")
+            : base("The order was already built")
         { }
 
         /// <summary>Initializes a new instance of the <see cref="T:System.Exception" /> class with serialized data.</summary>

@@ -36,7 +36,6 @@ namespace GuiStracini.Mandae.Test
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
 
             var vehicles = client.GetVehicles("03137020");
-
             Assert.IsTrue(vehicles.Count == 2);
             Assert.IsTrue(vehicles.Any(v => v == Vehicle.CAR));
             Assert.IsTrue(vehicles.Any(v => v == Vehicle.MOTORCYCLE));

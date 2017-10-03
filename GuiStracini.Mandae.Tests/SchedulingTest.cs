@@ -34,6 +34,7 @@ namespace GuiStracini.Mandae.Test
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var date = DateTime.Now.AddDays(1);
             var availableHours = client.GetAvailableHours(date);
+            Assert.IsNull(availableHours.Error);
             Assert.IsTrue(availableHours.Hours.Any());
 
         }
@@ -49,6 +50,7 @@ namespace GuiStracini.Mandae.Test
             var date = DateTime.Now.AddDays(1);
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var availableHours = await client.GetAvailableHoursAsync(date, source.Token);
+            Assert.IsNull(availableHours.Error);
             Assert.IsTrue(availableHours.Hours.Any());
         }
     }

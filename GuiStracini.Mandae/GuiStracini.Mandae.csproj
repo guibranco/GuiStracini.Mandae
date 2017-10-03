@@ -71,6 +71,9 @@
     <Compile Include="Transport\AvailableHoursResponse.cs" />
     <Compile Include="Transport\CancelItemRequest.cs" />
     <Compile Include="Transport\CustomerResponse.cs" />
+    <Compile Include="Transport\LargeOrderResponse.cs" />
+    <Compile Include="Transport\CancelOrderRequest.cs" />
+    <Compile Include="Transport\OrderResponse.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
     <Compile Include="ValueObject\Error.cs" />
     <Compile Include="Transport\BaseResponse.cs" />

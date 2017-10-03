@@ -82,19 +82,6 @@ namespace GuiStracini.Mandae.Test
             cancelItem.GetRequestEndPoint();
         }
 
-        [TestMethod]
-        public void RequestAdditionalParameter()
-        {
-            const String expected = "/123456789";
-            var order = new OrderRequest
-            {
-                OrderId = 123456789
-
-            };
-            var result = order.GetRequestAdditionalParameter(ActionMethod.DELETE);
-            Assert.AreEqual(expected, result, "");
-        }
-
         /// <summary>
         /// Validates the request additional parameter as query string.
         /// </summary>
@@ -108,21 +95,6 @@ namespace GuiStracini.Mandae.Test
             };
             var result = order.GetRequestAdditionalParameter(ActionMethod.POST);
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
-        }
-
-        /// <summary>
-        /// Validates the request additional parameter incorrect action method.
-        /// </summary>
-        [TestMethod]
-        public void RequestAdditionalParameterIncorrectActionMethod()
-        {
-            var order = new OrderRequest
-            {
-                Async = true,
-                OrderId = 123456789
-            };
-            var result = order.GetRequestAdditionalParameter(ActionMethod.GET);
-            Assert.AreEqual(String.Empty, result);
         }
     }
 }

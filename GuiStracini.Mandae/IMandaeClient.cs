@@ -78,21 +78,26 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns></returns>
-        OrderRequest CreateOrderCollectRequest(OrderModel model);
+        OrderResponse CreateOrderCollectRequest(OrderModel model);
         /// <summary>
         /// Creates the order collect request asynchronous.
         /// </summary>
         /// <param name="model">The model.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<OrderRequest> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
+        Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
+        /// <summary>
+        /// Creates the large order collect request
+        /// </summary>
+        /// <param name="model">The order request collect data</param>
+        /// <returns>A <see cref="Guid"/> identifier of the job id on the Mandaê platform</returns>
         Guid CreateLargeOrderCollectRequest(OrderModel model);
         /// <summary>
         /// Creates the large order collect request asynchronous.
         /// </summary>
         /// <param name="model">The model.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>A task containing the <see cref="Guid"/> identifier of the job id in the Mandaê platform</returns>
         Task<Guid> CreateLargeOrderCollectRequestAsync(OrderModel model, CancellationToken token);
         /// <summary>
         /// Gets the latest order collect status.

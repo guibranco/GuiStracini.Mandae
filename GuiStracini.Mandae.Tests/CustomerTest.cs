@@ -51,6 +51,7 @@ namespace GuiStracini.Mandae.Test
                 }
             };
             var customer = client.RegisterCustomer(customerModel);
+            Assert.IsNull(customer.Error);
             Assert.IsNotNull(customer.Id);
         }
 
@@ -83,6 +84,7 @@ namespace GuiStracini.Mandae.Test
 
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var customer = await client.RegisterCustomerAsync(customerModel, source.Token);
+            Assert.IsNull(customer.Error);
             Assert.IsNotNull(customer.Id);
         }
     }

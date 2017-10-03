@@ -32,24 +32,6 @@ namespace GuiStracini.Mandae.Transport
         #region Private fields 
 
         /// <summary>
-        /// The identifier
-        /// </summary>
-        private Int64 _id;
-        /// <summary>
-        /// The identifier setted
-        /// </summary>
-        private Boolean _idSetted;
-        /// <summary>
-        /// The job identifier
-        /// </summary>
-        private Guid _jobId;
-
-        /// <summary>
-        /// The job identifier setted
-        /// </summary>
-        private Boolean _jobIdSetted;
-
-        /// <summary>
         /// The vehicle
         /// </summary>
         private Vehicle _vehicle;
@@ -66,87 +48,6 @@ namespace GuiStracini.Mandae.Transport
         [JsonProperty("async")]
         [JsonIgnore]
         public Boolean Async { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        [JsonProperty("id")]
-        public Int64 Id
-        {
-            set
-            {
-                _id = value;
-                _idSetted = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the order identifier.
-        /// </summary>
-        /// <value>
-        /// The order identifier.
-        /// </value>
-        [RequestAdditionalParameter(ActionMethod.DELETE)]
-        [JsonIgnore]
-        public Int64 OrderId
-        {
-            get => _id;
-            set => _id = value;
-        }
-
-        /// <summary>
-        /// Gets or sets the order identifier internal.
-        /// </summary>
-        /// <value>
-        /// The order identifier internal.
-        /// </value>
-        [JsonProperty("orderId")]
-        public String OrderIdInternal
-        {
-            get => _idSetted ? _id.ToString() : null;
-            set
-            {
-                _id = Int64.Parse(value);
-                _idSetted = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the job identifier.
-        /// </summary>
-        /// <value>
-        /// The job identifier.
-        /// </value>
-        [JsonIgnore]
-        public Guid JobId
-        {
-            get => _jobId;
-            set
-            {
-                _jobId = value;
-                _jobIdSetted = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the job identifier internal.
-        /// </summary>
-        /// <value>
-        /// The job identifier internal.
-        /// </value>
-        [JsonProperty("jobId")]
-        public String JobIdInternal
-        {
-            get => _jobIdSetted ? _jobId.ToString() : null;
-            set
-            {
-                _jobId = new Guid(value);
-                _jobIdSetted = true;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the customer identifier.

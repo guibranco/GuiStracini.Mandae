@@ -1,35 +1,30 @@
 ﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
-// Created          : 29/09/2017
+// Created          : 03/10/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 29/09/2017
+// Last Modified On : 03/10/2017
 // ***********************************************************************
-// <copyright file="ItemModel" company="Guilherme Branco Stracini">
+// <copyright file="LargeOrderResponse.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Models
+namespace GuiStracini.Mandae.Transport
 {
+    using Newtonsoft.Json;
     using System;
-    using ValueObject;
 
     /// <summary>
-    /// The item model class for the <see cref="OrderBuilder"/> class method <see cref="M:OrderBuilder.AddItem"/>
+    /// The large order collect response
     /// </summary>
-
-    internal sealed class ItemModel
+    public sealed class LargeOrderResponse : BaseResponse
     {
         /// <summary>
-        /// The item identifier
+        /// The job identifier
         /// </summary>
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// The item itself
-        /// </summary>
-        public Item Item { get; set; }
+        [JsonProperty("jobId")]
+        public Guid JobId { get; set; }
     }
 }

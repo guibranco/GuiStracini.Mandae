@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Test
 {
+    using Enums;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Models;
     using System;
@@ -49,15 +50,14 @@ namespace GuiStracini.Mandae.Test
             };
 
             var rates = client.GetRates(ratesModel);
-
+            Assert.IsNull(rates.Error);
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
-            var fast = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
-            var slow = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
-
+            var fast = rates.ShippingServices.SingleOrDefault(r => r.Service == ShippingService.RAPIDO);
+            var cheap = rates.ShippingServices.SingleOrDefault(r => r.Service == ShippingService.ECONOMICO);
             Assert.IsNotNull(fast);
-            Assert.IsNotNull(slow);
-            Assert.IsTrue(fast.Days < slow.Days);
+            Assert.IsNotNull(cheap);
+            Assert.IsTrue(fast.Days <= cheap.Days);
         }
 
         /// <summary>
@@ -87,12 +87,12 @@ namespace GuiStracini.Mandae.Test
 
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
-            var fast = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase));
-            var slow = rates.ShippingServices.SingleOrDefault(r => r.Name.Equals("Econômico", StringComparison.InvariantCultureIgnoreCase));
+            var fast = rates.ShippingServices.SingleOrDefault(r => r.Service == ShippingService.RAPIDO);
+            var cheap = rates.ShippingServices.SingleOrDefault(r => r.Service == ShippingService.ECONOMICO);
 
             Assert.IsNotNull(fast);
-            Assert.IsNotNull(slow);
-            Assert.IsTrue(fast.Days < slow.Days);
+            Assert.IsNotNull(cheap);
+            Assert.IsTrue(fast.Days <= cheap.Days);
         }
     }
 }

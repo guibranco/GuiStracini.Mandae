@@ -17,7 +17,7 @@ namespace GuiStracini.Mandae.GoodPractices
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// Throws when a request format is in a bad format
+    /// Throws when a request end point is in a bad format
     /// </summary>
     /// <seealso cref="System.Exception" />
     [Serializable]
