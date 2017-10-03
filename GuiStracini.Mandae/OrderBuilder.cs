@@ -1,8 +1,11 @@
 ﻿namespace GuiStracini.Mandae
 {
     using Enums;
+    using GoodPractices;
     using Models;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Transport;
     using ValueObject;
 
@@ -13,11 +16,15 @@
         /// <summary>
         /// The model
         /// </summary>
-        private OrderModel _model;
+        private readonly OrderModel _model;
         /// <summary>
         /// The client
         /// </summary>
-        private IMandaeClient _client;
+        private readonly IMandaeClient _client;
+
+        private readonly ICollection<ItemModel> _items;
+
+        private Boolean _built;
 
         #endregion
 
@@ -30,6 +37,8 @@
         public OrderBuilder(IMandaeClient client)
         {
             _client = client;
+            _model = new OrderModel();
+            _items = new List<ItemModel>();
         }
 
         #endregion
@@ -38,32 +47,59 @@
 
         public void SetSender(Sender sender)
         {
-            throw new NotImplementedException();
+            _model.Sender = sender;
         }
 
         public void SetVehicle(Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            _model.Vehicle = vehicle;
         }
 
         public RatesResponse GetRates(RatesModel model)
         {
-            throw new NotImplementedException();
+            return _client.GetRates(model);
         }
 
-        public Guid AddItem(ItemModel model)
+        public Guid AddItem(Item model)
         {
-            throw new NotImplementedException();
+            var item = new ItemModel
+            {
+                Identifier = Guid.NewGuid(),
+                Item = model
+            };
+            _items.Add(item);
+            return item.Identifier;
         }
 
         public void AddSku(Sku sku, Guid guid)
         {
-            throw new NotImplementedException();
+            var item = _items.Single(i => i.Identifier == guid);
+            var skuList = item.Item.Skus.ToList();
+            skuList.Add(sku);
+            item.Item.Skus = skuList.ToArray();
         }
 
         public OrderRequest Build()
         {
-            throw new NotImplementedException();
+            if (_built)
+                throw new OrderBuiltException();
+            PrepareModel();
+            return _client.CreateOrderCollectRequest(_model);
+        }
+
+
+        public Guid BuildDelayed()
+        {
+            if (_built)
+                throw new OrderBuiltException();
+            PrepareModel();
+            return _client.CreateLargeOrderCollectRequest(_model);
+        }
+
+        private void PrepareModel()
+        {
+            _model.Items = _items.Select(i => i.Item).ToArray();
+            _built = true;
         }
 
         #endregion

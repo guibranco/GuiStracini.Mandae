@@ -56,6 +56,7 @@
     <Compile Include="Enums\Vehicle.cs" />
     <Compile Include="GoodPractices\InvalidRequestEndPointException.cs" />
     <Compile Include="GoodPractices\MandaeAPIException.cs" />
+    <Compile Include="GoodPractices\OrderBuiltException.cs" />
     <Compile Include="GoodPractices\RequestEndPointBadFormatException.cs" />
     <Compile Include="IMandaeClient.cs" />
     <Compile Include="IOrderBuilder.cs" />

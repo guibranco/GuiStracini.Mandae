@@ -48,7 +48,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns></returns>
-        Guid AddItem(ItemModel model);
+        Guid AddItem(Item model);
 
         /// <summary>
         /// Adds the sku.
@@ -62,5 +62,11 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <returns></returns>
         OrderRequest Build();
+
+        /// <summary>
+        /// Builds this instance delayed.
+        /// </summary>
+        /// <returns></returns>
+        Guid BuildDelayed();
     }
 }
