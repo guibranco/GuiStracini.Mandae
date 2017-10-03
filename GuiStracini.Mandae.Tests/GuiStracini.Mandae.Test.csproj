@@ -65,14 +65,10 @@
     <Compile Include="CustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="orders.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Properties\Version.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GuiStracini.Mandae\GuiStracini.Mandae.csproj">
