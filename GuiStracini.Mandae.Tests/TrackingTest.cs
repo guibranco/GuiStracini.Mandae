@@ -32,7 +32,10 @@ namespace GuiStracini.Mandae.Test
         public void GetTracking()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var tracking = client.GetTracking("1");
+            var status = client.GetLatestOrderCollectStatus("182AC0ECDE0CA08A8B729733EBE8197D");
+            Assert.IsNull(status.Error);
+            Assert.IsNotNull(status.Url);
+            var tracking = client.GetTracking(status.Id.ToString());
             Assert.IsNull(tracking.Error);
             Assert.IsNotNull(tracking.CarrierName);
             Assert.IsNotNull(tracking.CarrierCode);
@@ -48,7 +51,8 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            var tracking = await client.GetTrackingAsync("1", source.Token);
+            var status = await client.GetLatestOrderCollectStatusAsync("182AC0ECDE0CA08A8B729733EBE8197D", source.Token);
+            var tracking = await client.GetTrackingAsync(status.Id.ToString(), source.Token);
             Assert.IsNull(tracking.Error);
             Assert.IsNotNull(tracking.CarrierName);
             Assert.IsNotNull(tracking.CarrierCode);

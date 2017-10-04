@@ -231,7 +231,7 @@ namespace GuiStracini.Mandae
                 Label = model.Label,
                 Observation = model.Observation,
                 PartnerOrderId = model.PartnerOrderId,
-                Scheduling = model.Scheduling.ToString("O"),
+                Scheduling = model.Scheduling,
                 Sender = model.Sender,
                 Vehicle = model.Vehicle
             };
@@ -268,7 +268,7 @@ namespace GuiStracini.Mandae
                 Label = model.Label,
                 Observation = model.Observation,
                 PartnerOrderId = model.PartnerOrderId,
-                Scheduling = model.Scheduling.ToString("O"),
+                Scheduling = model.Scheduling,
                 Sender = model.Sender,
                 Vehicle = model.Vehicle
             };

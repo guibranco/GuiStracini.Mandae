@@ -95,7 +95,7 @@ namespace GuiStracini.Mandae.Test
                                               {
                                                   PostalCode = order.ZipCode,
                                                   Street = order.Street,
-                                                  Number = order.Number,
+                                                  Number = order.Number.ToString(),
                                                   Reference = order.Complement,
                                                   Neighborhood = order.Neighborhood,
                                                   City = order.City,
@@ -144,6 +144,7 @@ namespace GuiStracini.Mandae.Test
 
             Assert.IsNull(response.Error);
             Assert.IsTrue(response.Id > 0);
+            Assert.IsTrue(response.Items.First().Id > 0);
         }
     }
 }

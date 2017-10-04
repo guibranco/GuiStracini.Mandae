@@ -76,10 +76,10 @@ namespace GuiStracini.Mandae.Test
             public Decimal Value { get; set; }
             public String InvoiceNumber { get; set; }
             public String InvoiceKey { get; set; }
-            public Decimal Weight { get; set; }
-            public Decimal Width { get; set; }
-            public Decimal Height { get; set; }
-            public Decimal Length { get; set; }
+            public Int32 Weight { get; set; }
+            public Int32 Width { get; set; }
+            public Int32 Height { get; set; }
+            public Int32 Length { get; set; }
             public String FullName { get; set; }
             public String Document { get; set; }
             public String Telephone { get; set; }

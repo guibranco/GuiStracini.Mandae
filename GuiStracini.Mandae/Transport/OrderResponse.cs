@@ -49,10 +49,22 @@ namespace GuiStracini.Mandae.Transport
         public Item[] Items { get; set; }
 
         /// <summary>
-        /// The sender data
+        /// Gets or sets the sender data
         /// </summary>
+        /// <value>
+        /// The sender.
+        /// </value>
         [JsonProperty("sender")]
         public Sender Sender { get; set; }
+
+        /// <summary>
+        /// Gets or sets the label.
+        /// </summary>
+        /// <value>
+        /// The label.
+        /// </value>
+        [JsonProperty("label")]
+        public Sender Label { get; set; }
 
         /// <summary>
         /// The observation
@@ -65,5 +77,29 @@ namespace GuiStracini.Mandae.Transport
         /// </summary>
         [JsonIgnore]
         public Vehicle Vehicle { get; set; }
+
+        [JsonProperty("partnerId")]
+        public String PartnerId { get; set; }
+
+        [JsonProperty("partnerOrderId")]
+        public String PartnerOrderId { get; set; }
+
+        [JsonIgnore]
+        public DateTime PickupDate { get; set; }
+
+        [JsonProperty("pickupDate")]
+        public Int64 PickupDateInternal
+        {
+            set => PickupDate = new DateTime(1970, 1, 1).AddMilliseconds(value);
+        }
+
+        [JsonIgnore]
+        public DateTime ProcessingDate { get; set; }
+
+        [JsonProperty("processingDate")]
+        public Int64 ProcessingDateInternal
+        {
+            set => ProcessingDate = new DateTime(1970, 1, 1).AddMilliseconds(value);
+        }
     }
 }

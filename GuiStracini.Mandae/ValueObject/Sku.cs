@@ -68,6 +68,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The quantity.
         /// </value>
         [JsonProperty("quantity")]
-        public Decimal Quantity { get; set; }
+        public Int32 Quantity { get; set; }
     }
 }

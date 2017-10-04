@@ -44,7 +44,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The number.
         /// </value>
         [JsonProperty("number")]
-        public Int32 Number { get; set; }
+        public String Number { get; set; }
         /// <summary>
         /// Gets or sets the address line2.
         /// </summary>

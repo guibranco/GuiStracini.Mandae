@@ -45,7 +45,7 @@ namespace GuiStracini.Mandae.Test
                     Height = 60,
                     Length = 60,
                     Width = 40,
-                    Weight = new Decimal(1.2)
+                    Weight = 1
                 }
             };
 
@@ -78,7 +78,7 @@ namespace GuiStracini.Mandae.Test
                     Height = 60,
                     Length = 60,
                     Width = 40,
-                    Weight = new Decimal(1.2)
+                    Weight = 1
                 }
             };
 

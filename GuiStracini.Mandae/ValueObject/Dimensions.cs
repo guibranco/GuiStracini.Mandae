@@ -36,7 +36,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The height.
         /// </value>
         [JsonProperty("height")]
-        public Decimal Height { get; set; }
+        public Int32 Height { get; set; }
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
@@ -44,7 +44,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The width.
         /// </value>
         [JsonProperty("width")]
-        public Decimal Width { get; set; }
+        public Int32 Width { get; set; }
         /// <summary>
         /// Gets or sets the length.
         /// </summary>
@@ -52,7 +52,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The length.
         /// </value>
         [JsonProperty("length")]
-        public Decimal Length { get; set; }
+        public Int32 Length { get; set; }
         /// <summary>
         /// Gets or sets the weight.
         /// </summary>
@@ -60,7 +60,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The weight.
         /// </value>
         [JsonProperty("weight")]
-        public Decimal Weight { get; set; }
+        public Int32 Weight { get; set; }
         /// <summary>
         /// Gets or sets the volume.
         /// </summary>
@@ -68,6 +68,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The volume.
         /// </value>
         [JsonProperty("volume")]
-        public Decimal Volume { get; set; }
+        public Int32 Volume { get; set; }
     }
 }

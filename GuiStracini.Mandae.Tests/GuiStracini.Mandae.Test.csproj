@@ -65,6 +65,7 @@
     <Compile Include="CustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="orders.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>

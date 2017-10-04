@@ -64,8 +64,20 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The scheduling.
         /// </value>
+        [JsonIgnore]
+        public DateTime Scheduling { get; set; }
+
+        /// <summary>
+        /// Gets or sets the scheduling internal
+        /// </summary>
+        /// <value>
+        /// The scheduling internal
+        /// </value>
+
         [JsonProperty("scheduling")]
-        public String Scheduling { get; set; }
+        public String SchedulingInternal => Scheduling != DateTime.MinValue
+                                                ? Scheduling.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")
+                                                : null;
 
         /// <summary>
         /// Gets or sets the items.

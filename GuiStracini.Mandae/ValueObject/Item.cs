@@ -30,6 +30,15 @@ namespace GuiStracini.Mandae.ValueObject
         #endregion
 
         /// <summary>
+        /// Gets or sets the identifier
+        /// </summary>
+        /// <value>
+        /// The identifier
+        /// </value>
+        [JsonProperty("id")]
+        public Int32 Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the recipient.
         /// </summary>
         /// <value>
@@ -61,7 +70,11 @@ namespace GuiStracini.Mandae.ValueObject
         public String ShippingServiceInternal
         {
             get => _shippingService.ToString().ToCamelCase();
-            set => _shippingService = (ShippingService)Enum.Parse(typeof(ShippingService), value.ToUpper());
+            set
+            {
+                var val = value.ToUpper().Replace("MANDAEEXPRESS", "RAPIDO").Replace("MANDAEECONOMICO", "ECONOMICO").ToUpper();
+                _shippingService = (ShippingService)Enum.Parse(typeof(ShippingService), val);
+            }
         }
 
         /// <summary>

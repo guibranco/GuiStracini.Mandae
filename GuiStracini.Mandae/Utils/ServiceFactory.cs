@@ -15,8 +15,11 @@ namespace GuiStracini.Mandae.Utils
 {
     using Enums;
     using GoodPractices;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using System;
     using System.Net.Http;
+    using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
@@ -83,6 +86,16 @@ namespace GuiStracini.Mandae.Utils
                 if (!String.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
 
+                var formatter = new JsonMediaTypeFormatter
+                {
+                    SerializerSettings = new JsonSerializerSettings
+                    {
+                        Formatting = Formatting.Indented,
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        NullValueHandling = NullValueHandling.Ignore
+                    }
+                };
+
                 var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
                 try
                 {
@@ -93,10 +106,10 @@ namespace GuiStracini.Mandae.Utils
                             response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.POST:
-                            response = await client.PostAsJsonAsync(endpoint, requestObject, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client.PostAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.PUT:
-                            response = await client.PutAsJsonAsync(endpoint, requestObject, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client.PutAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.DELETE:
                             response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);

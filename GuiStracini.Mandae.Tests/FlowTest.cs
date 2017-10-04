@@ -33,7 +33,7 @@
                     Height = 60,
                     Length = 60,
                     Width = 40,
-                    Weight = new Decimal(1.2)
+                    Weight = 1
                 }
             };
             var rates = client.GetRates(ratesModel);
@@ -58,7 +58,7 @@
                 {
                     Address = new Address
                     {
-                        Number = 527,
+                        Number = "527",
                         PostalCode = "03137020",
                         Neighborhood = "Vila Prudente",
                         City = "São Paulo",
@@ -79,7 +79,7 @@
                             Address = new Address
                             {
                                 PostalCode = "22041080",
-                                Number = 110,
+                                Number = "110",
                                 Neighborhood = "Copacabana",
                                 City = "Rio de Janeiro",
                                 State = "RJ",
@@ -127,9 +127,11 @@
             var order = client.CreateOrderCollectRequest(orderModel);
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
+            Assert.IsTrue(order.Items.First().Id > 0);
             var status = client.GetLatestOrderCollectStatus(customerId);
             Assert.IsNull(status.Error);
             Assert.IsNotNull(status.Url);
+            Assert.AreEqual(order.Id, status.Id);
 
         }
     }
