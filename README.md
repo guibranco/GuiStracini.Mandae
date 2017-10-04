@@ -6,7 +6,6 @@ The **(unnoficial)** Mandaê API client
 [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg)](https://www.nuget.org/packages/GuiStracini.Mandae/)
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=plastic)](https://github.com/guibranco/GuiStracini.Mandae)
 
-
 This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
 
@@ -18,6 +17,15 @@ NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
 Install-Package GuiStracini.Mandae
 ```
 ----------
+
+
+PostMan collection available!
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e80bd97b648d747820da)
+
+----------
+
+
 
 ## Features ##
 

@@ -110,8 +110,7 @@ namespace GuiStracini.Mandae.Test
                                 Quantity = 2,
                                 SkuId = "7522"
                             }
-                        },
-                        TrackingId = $"{DateTime.Now:HHmmss}"
+                        }
                     }
                 },
                 Vehicle = Vehicle.CAR,
