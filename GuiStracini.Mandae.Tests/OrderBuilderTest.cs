@@ -112,7 +112,8 @@ namespace GuiStracini.Mandae.Test
                                           {
                                               Id = order.InvoiceNumber,
                                               Key = order.InvoiceKey
-                                          }
+                                          },
+                                          TrackingId = $"GBS{order.OrderId}"
                                       };
                                       var id = builder.AddItem(model);
                                       Parallel.ForEach(ordersRepository.GetOrderItems(orderId),
@@ -142,9 +143,9 @@ namespace GuiStracini.Mandae.Test
 
             var response = builder.Build(); //builds the order and get the response
 
-            Assert.IsNull(response.Error);
-            Assert.IsTrue(response.Id > 0);
-            Assert.IsTrue(response.Items.First().Id > 0);
+            Assert.IsNull(response.Error); //asserts no error response
+            Assert.IsTrue(response.Id > 0); //asserts the collect order is populated
+            Assert.IsTrue(response.Items.First().Id > 0); //asserts the item id is populated
         }
     }
 }
