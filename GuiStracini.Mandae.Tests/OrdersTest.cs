@@ -13,14 +13,11 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Test
 {
-    using Enums;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Models;
     using System;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using ValueObject;
 
     /// <summary>
     /// The orders test class
@@ -30,105 +27,15 @@ namespace GuiStracini.Mandae.Test
     {
 
         /// <summary>
-        /// Gets the sample order model for test proposes.
-        /// </summary>
-        /// <returns>An <see cref="OrderModel"/> instance populated with fake information</returns>
-        private OrderModel GetSampleOrderModel()
-        {
-            return new OrderModel
-            {
-                CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
-                PartnerOrderId = "teste-123456789",
-                Observation = "Test order - GuiStracini.Mandae.Test assembly",
-                Sender = new Sender
-                {
-                    Address = new Address
-                    {
-                        PostalCode = "03137020",
-                        Number = "527",
-                        City = "São Paulo",
-                        Country = "BR",
-                        Neighborhood = "Vila Prudente",
-                        State = "SP",
-                        Street = "Rua Itanháem"
-                    },
-                    FullName = "Editora Inovação"
-                },
-                Items = new[]
-                {
-                    new Item
-                    {
-                        Dimensions = new Dimensions
-                        {
-                            Length = 30,
-                            Width = 30,
-                            Weight = 2000,
-                            Height = 30
-                        },
-                        Invoice = new Invoice
-                        {
-                            Id = "606620",
-                            Key = "35170805944298000101550010006066201623434877"
-                        },
-                        PartnerItemId = "5607547",
-                        Recipient = new Recipient
-                        {
-                            Address = new Address
-                            {
-                                PostalCode = "22041080",
-                                Number = "110",
-                                Neighborhood = "Copacabana",
-                                City = "Rio de Janeiro",
-                                State = "RJ",
-                                Street = "Rua Anita Garibaild",
-                                Country = "BR"
-                            },
-                            FullName = "João destinatário",
-                            Email = "exemplo-contato@mandae.com.br",
-                            Phone = "(11) 3382-2031",
-                            Document = "24580580001"
-                        },
-                        Observation = "Sample order test - 5607547",
-                        ShippingService = ShippingService.RAPIDO,
-                        Skus = new[]
-                        {
-                            new Sku
-                            {
-                                Description = "Caneta Acrilpen",
-                                Ean = "7891153044392",
-                                Price = new Decimal(4.47),
-                                Freight = new Decimal(1.2),
-                                Quantity = 2,
-                                SkuId = "3583"
-                            },
-                            new Sku
-                            {
-                                Description = "Tecido algodão crú sem risco",
-                                Ean = "789100031550",
-                                Price = new Decimal(15.43),
-                                Freight = new Decimal(6.8),
-                                Quantity = 2,
-                                SkuId = "7522"
-                            }
-                        }
-                    }
-                },
-                Vehicle = Vehicle.CAR,
-                Scheduling = DateTime.Today.AddDays(1)
-            };
-        }
-
-        /// <summary>
         /// Validates register order collect request method.
         /// </summary>
         [TestMethod]
         public void RegisterOrderCollectRequest()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
             Assert.IsNull(order.Error);
-            Assert.IsNotNull(order.Id);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
         }
@@ -142,10 +49,9 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
             Assert.IsNull(order.Error);
-            Assert.IsNotNull(order.Id);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
         }
@@ -157,7 +63,7 @@ namespace GuiStracini.Mandae.Test
         public void RegisterLargeOrderCollectRequest()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var jobId = client.CreateLargeOrderCollectRequest(orderModel);
             Assert.IsNotNull(jobId);
             Assert.AreNotEqual(new Guid(), jobId);
@@ -173,7 +79,7 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var jobId = await client.CreateLargeOrderCollectRequestAsync(orderModel, source.Token);
             Assert.IsNotNull(jobId);
             Assert.AreNotEqual(new Guid(), jobId);
@@ -238,10 +144,9 @@ namespace GuiStracini.Mandae.Test
         public void CancelOrderItemCollectRequest()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
             Assert.IsNull(order.Error);
-            Assert.IsNotNull(order.Id);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
             var status = client.GetLatestOrderCollectStatus(order.CustomerId);
@@ -258,10 +163,9 @@ namespace GuiStracini.Mandae.Test
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            var orderModel = GetSampleOrderModel();
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
             Assert.IsNull(order.Error);
-            Assert.IsNotNull(order.Id);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
             var status = await client.GetLatestOrderCollectStatusAsync(order.CustomerId, source.Token);

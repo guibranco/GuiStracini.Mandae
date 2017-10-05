@@ -13,12 +13,15 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Test
 {
+    using Enums;
+    using Models;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using ValueObject;
 
     internal sealed class MockOrdersRepository
     {
@@ -58,6 +61,96 @@ namespace GuiStracini.Mandae.Test
         public IEnumerable<MockOrderItem> GetOrderItems(Int32 orderId)
         {
             return _ordersItems.Items.Where(i => i.OrderId == orderId);
+        }
+
+        /// <summary>
+        /// Gets the sample order model for test proposes.
+        /// </summary>
+        /// <returns>An <see cref="OrderModel"/> instance populated with fake information</returns>
+        public static OrderModel GetSampleOrderModel()
+        {
+            return new OrderModel
+            {
+                CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
+                PartnerOrderId = "teste-123456789",
+                Observation = "Test order - GuiStracini.Mandae.Test assembly",
+                Sender = new Sender
+                {
+                    Address = new Address
+                    {
+                        PostalCode = "03137020",
+                        Number = "527",
+                        City = "São Paulo",
+                        Country = "BR",
+                        Neighborhood = "Vila Prudente",
+                        State = "SP",
+                        Street = "Rua Itanháem"
+                    },
+                    FullName = "Editora Inovação"
+                },
+                Items = new[]
+                {
+                    new Item
+                    {
+                        TrackingId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}", //The VTR prefix must be registred with Mandaê (sending null trackingId will force Mandaê to use it's onw tracking id sequence)
+                        Dimensions = new Dimensions
+                        {
+                            Length = 30,
+                            Width = 30,
+                            Weight = 2000,
+                            Height = 30
+                        },
+                        Invoice = new Invoice
+                        {
+                            Id = "606620",
+                            Key = "35170805944298000101550010006066201623434877"
+                        },
+                        PartnerItemId = "5607547",
+                        Recipient = new Recipient
+                        {
+                            Address = new Address
+                            {
+                                PostalCode = "22041080",
+                                Number = "110",
+                                Neighborhood = "Copacabana",
+                                City = "Rio de Janeiro",
+                                State = "RJ",
+                                Street = "Rua Anita Garibaild",
+                                Country = "BR"
+                            },
+                            FullName = "João destinatário",
+                            Email = "exemplo-contato@mandae.com.br",
+                            Phone = "(11) 3382-2031",
+                            Document = "24580580001"
+                        },
+                        Observation = "Sample order test - 5607547",
+                        ShippingService = ShippingService.RAPIDO,
+                        Skus = new[]
+                        {
+                            new Sku
+                            {
+                                Description = "Caneta Acrilpen",
+                                Ean = "7891153044392",
+                                Price = new Decimal(4.47),
+                                Freight = new Decimal(1.2),
+                                Quantity = 2,
+                                SkuId = "3583"
+                            },
+                            new Sku
+                            {
+                                Description = "Tecido algodão crú sem risco",
+                                Ean = "789100031550",
+                                Price = new Decimal(15.43),
+                                Freight = new Decimal(6.8),
+                                Quantity = 2,
+                                SkuId = "7522"
+                            }
+                        }
+                    }
+                },
+                Vehicle = Vehicle.CAR,
+                Scheduling = DateTime.Today.AddDays(1)
+            };
         }
 
         public sealed class MockOrders
