@@ -78,28 +78,28 @@ namespace GuiStracini.Mandae.Transport
         [JsonIgnore]
         public Vehicle Vehicle { get; set; }
 
+        /// <summary>
+        /// The partner identifier
+        /// </summary>
         [JsonProperty("partnerId")]
         public String PartnerId { get; set; }
 
+        /// <summary>
+        /// The partner order identifier
+        /// </summary>
         [JsonProperty("partnerOrderId")]
         public String PartnerOrderId { get; set; }
 
-        [JsonIgnore]
+        /// <summary>
+        /// The pickup date
+        /// </summary>
+        [JsonProperty("pickupDate")]
         public DateTime PickupDate { get; set; }
 
-        [JsonProperty("pickupDate")]
-        public Int64 PickupDateInternal
-        {
-            set => PickupDate = new DateTime(1970, 1, 1).AddMilliseconds(value);
-        }
-
-        [JsonIgnore]
-        public DateTime ProcessingDate { get; set; }
-
+        /// <summary>
+        /// The processing date
+        /// </summary>
         [JsonProperty("processingDate")]
-        public Int64 ProcessingDateInternal
-        {
-            set => ProcessingDate = new DateTime(1970, 1, 1).AddMilliseconds(value);
-        }
+        public DateTime ProcessingDate { get; set; }
     }
 }

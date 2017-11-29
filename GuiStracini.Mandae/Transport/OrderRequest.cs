@@ -27,7 +27,7 @@ namespace GuiStracini.Mandae.Transport
     /// </summary>
     /// <seealso cref="BaseRequest" />
     [RequestEndPoint("orders/add-parcel")]
-    public sealed class OrderRequest : BaseRequest
+    public class OrderRequest : BaseRequest
     {
         #region Private fields 
 
@@ -37,17 +37,6 @@ namespace GuiStracini.Mandae.Transport
         private Vehicle _vehicle;
 
         #endregion
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="OrderRequest"/> is asynchronous.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if asynchronous; otherwise, <c>false</c>.
-        /// </value>
-        [RequestAdditionalParameter(ActionMethod.POST, true)]
-        [JsonProperty("async")]
-        [JsonIgnore]
-        public Boolean Async { get; set; }
 
         /// <summary>
         /// Gets or sets the customer identifier.

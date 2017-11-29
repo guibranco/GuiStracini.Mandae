@@ -89,10 +89,7 @@ namespace GuiStracini.Mandae.Test
         public void RequestAdditionalParameterAsQueryString()
         {
             const String expected = "/?async=true";
-            var order = new OrderRequest
-            {
-                Async = true
-            };
+            var order = new LargeOrderRequest();
             var result = order.GetRequestAdditionalParameter(ActionMethod.POST);
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
         }

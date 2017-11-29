@@ -147,5 +147,41 @@ namespace GuiStracini.Mandae.ValueObject
         /// </value>
         [JsonProperty("dimensions")]
         public Dimensions Dimensions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the channel
+        /// </summary>
+        /// <value>
+        /// The sales channel (eg.: e-commerce, telemarketing, crm, etc)
+        /// </value>
+        [JsonProperty("channel")]
+        public String Channel { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the store name
+        /// </summary>
+        /// <value>The store name</value>
+        [JsonProperty("store")]
+        public String Store { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the total value
+        /// </summary>
+        /// <value>The total value of the item/order without freight value</value>
+        [JsonProperty("totalValue")]
+        public String TotalValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total freight value
+        /// </summary>
+        /// <value>The total freight value</value>
+        /// <remarks>
+        /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
+        /// </remarks>
+        [JsonProperty("totalFreight")]
+        public String TotalFreight { get; set; }
+
     }
 }

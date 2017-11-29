@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerTest.cs" />
     <Compile Include="FlowTest.cs" />
     <Compile Include="MockOrdersRepository.cs" />
     <Compile Include="OrderBuilderTest.cs" />
@@ -62,7 +63,6 @@
     <Compile Include="TrackingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestHelpersTest.cs" />
-    <Compile Include="CustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

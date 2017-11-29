@@ -225,7 +225,6 @@ namespace GuiStracini.Mandae
             var data = new OrderRequest
             {
                 Token = _token,
-                Async = false,
                 CustomerId = model.CustomerId,
                 Items = model.Items,
                 Label = model.Label,
@@ -259,10 +258,9 @@ namespace GuiStracini.Mandae
         /// <returns>A task with the <see cref="Guid"/> job identifier></returns>
         public async Task<Guid> CreateLargeOrderCollectRequestAsync(OrderModel model, CancellationToken token)
         {
-            var data = new OrderRequest
+            var data = new LargeOrderRequest
             {
                 Token = _token,
-                Async = true,
                 CustomerId = model.CustomerId,
                 Items = model.Items,
                 Label = model.Label,
