@@ -61,7 +61,6 @@
     <Compile Include="IMandaeClient.cs" />
     <Compile Include="IOrderBuilder.cs" />
     <Compile Include="MandaeClient.cs" />
-    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\RatesModel.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Transport\AvailableHoursRequest.cs" />
     <Compile Include="Transport\AvailableHoursResponse.cs" />
     <Compile Include="Transport\CancelItemRequest.cs" />
-    <Compile Include="Transport\CustomerResponse.cs" />
     <Compile Include="Transport\LargeOrderRequest.cs" />
     <Compile Include="Transport\LargeOrderResponse.cs" />
     <Compile Include="Transport\CancelOrderRequest.cs" />
@@ -83,7 +81,6 @@
     <Compile Include="Transport\TrackingRequest.cs" />
     <Compile Include="Transport\TrackingResponse.cs" />
     <Compile Include="ValueObject\Address.cs" />
-    <Compile Include="Transport\CustomerRequest.cs" />
     <Compile Include="ValueObject\Dimensions.cs" />
     <Compile Include="ValueObject\Event.cs" />
     <Compile Include="ValueObject\Invoice.cs" />

@@ -16,6 +16,7 @@ namespace GuiStracini.Mandae.ValueObject
     using Enums;
     using Newtonsoft.Json;
     using System;
+    using System.Globalization;
     using Utils;
 
     /// <summary>
@@ -26,6 +27,10 @@ namespace GuiStracini.Mandae.ValueObject
         #region Private fields 
 
         private ShippingService _shippingService;
+
+        private Decimal _totalValue;
+
+        private Decimal _totalFreight;
 
         #endregion
 
@@ -165,13 +170,53 @@ namespace GuiStracini.Mandae.ValueObject
         [JsonProperty("store")]
         public String Store { get; set; }
 
-
         /// <summary>
-        /// Gets or sets the total value
+        /// Gets or sets the total value internally
         /// </summary>
         /// <value>The total value of the item/order without freight value</value>
         [JsonProperty("totalValue")]
-        public String TotalValue { get; set; }
+        public String TotalValueInternal
+        {
+            get => _totalValue.ToString(CultureInfo.InvariantCulture);
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value))
+                    return;
+                if (Decimal.TryParse(value, out var v))
+                    _totalValue = v;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the total value 
+        /// </summary>
+        /// <value>The total value of the item/order without freight value</value>
+        [JsonIgnore]
+        public Decimal TotalValue
+        {
+            get => _totalValue;
+            set => _totalValue = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the total freight value internally
+        /// </summary>
+        /// <value>The total freight value</value>
+        /// <remarks>
+        /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
+        /// </remarks>
+        [JsonProperty("totalFreight")]
+        public String TotalFreightInternal
+        {
+            get => _totalFreight.ToString(CultureInfo.InvariantCulture);
+            set
+            {
+                if (value == null)
+                    return;
+                if (Decimal.TryParse(value, out var v))
+                    _totalFreight = v;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the total freight value
@@ -180,8 +225,13 @@ namespace GuiStracini.Mandae.ValueObject
         /// <remarks>
         /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
         /// </remarks>
-        [JsonProperty("totalFreight")]
-        public String TotalFreight { get; set; }
+
+        [JsonIgnore]
+        public Decimal TotalFreight
+        {
+            get => _totalFreight;
+            set => _totalFreight = value;
+        }
 
     }
 }

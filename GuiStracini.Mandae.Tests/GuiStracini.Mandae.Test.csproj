@@ -52,7 +52,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerTest.cs" />
     <Compile Include="FlowTest.cs" />
     <Compile Include="MockOrdersRepository.cs" />
     <Compile Include="OrderBuilderTest.cs" />

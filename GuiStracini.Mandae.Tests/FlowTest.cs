@@ -131,8 +131,6 @@
             var status = client.GetLatestOrderCollectStatus(customerId);
             Assert.IsNull(status.Error);
             Assert.IsNotNull(status.Url);
-            Assert.AreEqual(order.Id, status.Id);
-
         }
     }
 }

@@ -26,14 +26,6 @@ namespace GuiStracini.Mandae
     /// </summary>
     public interface IMandaeClient
     {
-        CustomerResponse RegisterCustomer(CustomerModel model);
-        /// <summary>
-        /// Registers the customer asynchronous.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<CustomerResponse> RegisterCustomerAsync(CustomerModel model, CancellationToken token);
         /// <summary>
         /// Gets the vehicles.
         /// </summary>

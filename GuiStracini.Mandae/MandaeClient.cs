@@ -65,42 +65,6 @@ namespace GuiStracini.Mandae
 
         #endregion
 
-        #region Customers 
-
-        /// <summary>
-        /// Registers the customer.
-        /// </summary>
-        /// <param name="model">The customer model.</param>
-        /// <returns><see cref="CustomerResponse"/></returns>
-        public CustomerResponse RegisterCustomer(CustomerModel model)
-        {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return RegisterCustomerAsync(model, source.Token).Result;
-        }
-
-        /// <summary>
-        /// Registers the customer asynchronous.
-        /// </summary>
-        /// <param name="model">The customer model.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="CustomerResponse"/></returns>
-        public async Task<CustomerResponse> RegisterCustomerAsync(CustomerModel model, CancellationToken token)
-        {
-            var data = new CustomerRequest
-            {
-                Token = _token,
-                Document = model.Document,
-                Email = model.Email,
-                FullName = model.FullName,
-                Id = model.Id,
-                Phone = model.Phone,
-                Store = model.Store
-            };
-            return await _service.Post<CustomerResponse, CustomerRequest>(data, token).ConfigureAwait(_configureAwait);
-        }
-
-        #endregion
-
         #region Vehicles
 
         /// <summary>

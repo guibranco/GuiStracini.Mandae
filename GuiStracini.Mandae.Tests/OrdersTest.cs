@@ -150,8 +150,7 @@ namespace GuiStracini.Mandae.Test
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
             var status = client.GetLatestOrderCollectStatus(order.CustomerId);
-            Assert.AreEqual(order.Id, status.Id);
-            var canceled = client.CancelOrderItemCollectRequest(status.Id, order.Items.First().Id);
+            var canceled = client.CancelOrderItemCollectRequest(order.Id, order.Items.First().Id);
             Assert.IsTrue(canceled);
         }
 
@@ -169,8 +168,7 @@ namespace GuiStracini.Mandae.Test
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
             var status = await client.GetLatestOrderCollectStatusAsync(order.CustomerId, source.Token);
-            Assert.AreEqual(order.Id, status.Id);
-            var canceled = await client.CancelOrderItemCollectRequestAsync(status.Id, order.Items.First().Id, source.Token);
+            var canceled = await client.CancelOrderItemCollectRequestAsync(order.Id, order.Items.First().Id, source.Token);
             Assert.IsTrue(canceled);
         }
     }

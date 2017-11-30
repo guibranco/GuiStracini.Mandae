@@ -16,29 +16,19 @@ NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
 ```ps
 Install-Package GuiStracini.Mandae
 ```
-----------
-
-
-PostMan collection available!
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e80bd97b648d747820da)
-
-----------
-
-
 
 ## Features ##
 
 This client supports the following operations/features of the API:
- 1. Register customer (collect location - distribution center)
- 2. Get available vehicles for a collect location (pickup packages from collect location based on postal code) 
- 3. Get rates for a delivery (postal code and package dimensions)
- 4. Get the available hours to pickup order(s) in a selected date
- 5. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
+ 1. Get available vehicles for a collect location (pickup packages from collect location based on postal code) 
+ 2. Get rates for a delivery (postal code and package dimensions)
+ 3. Get the available hours to pickup order(s) in a selected date
+ 4. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
  5. Cancel the whole collect schedule (Cancel a previous collect scheduler)
  6. Cancel a schedule item (Cancel a item/package from a collect order)
  7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is supplied via WebHook)
  8. WebHooks schema ready (The web hooks models/schemas)
+ 9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
 
  All operations supports sync and async!
 
@@ -56,39 +46,8 @@ Example:
 var apiToken = "my API token";
 
 //Call the constructor with the API token and de API environment (SANDBOX | PRODUCTION).
-//var client = new MandaeClient(apiTOken); //<= Environment.SANDBOX is the default environment.
+//var client = new MandaeClient(apiToken); //<= Environment.SANDBOX is the default environment.
 var client = new MandaeClient(apiToken, Environment.PRODUCTION);
-```
-
-## Register a customer (pickup/collect location) ##
-
-How to register a customer (pickup/collect location).
-
-Example:
-```csharp
-//The MandaeClient
-var client = new MandaeClient("my API token")
-
-//The CustomerModel
-var model = new CustomerModel 
-{
-    Document = "00000000000191", //CPF or CNPJ
-    Email = "example@example.com",
-    FullName = "Guilherme Branco Stracini",
-    Phone = new Phone 
-    {
-        AreaCode = "11",
-        Number = "33445566"
-    },
-    Store = new Store 
-    {
-        Name = "Sample store",
-        Url = "https://example.com"
-    }
-};
-
-//The response id should be stored anywhere for future use (where the packages will be collected). This id is used in the RegisterOrder method
-var customer = client.RegisterCustomer(model);   
 ```
 
 ## Get available vehicles ##
@@ -164,7 +123,7 @@ Inform which type of Vehicle (GetVehicles), when (GetAvailableHours), which rate
 
 Each package means a order/volume, that can have one or more items (SKUs).
 
-Example: [TODO: Pending test result]
+Example: **[TODO]**
 
 ## Get the latest order collect request status ##
 
@@ -186,12 +145,39 @@ var url = status.Url;
 
 ## Cancel a schedule collect request ##
 
-Example: [TODO | Pending test result]
+Example: **[TODO]**
 
 ## Cancel a schedule item (package) collect request ##
 
-Example: [TODO | Pending test result]
+Example:
+```csharp
+//The MandaeClient
+var client = new MandaeClient("my API token");
+
+//The order identifier 
+var orderId = 1;
+var canceled = client.CancelOrderCollectRequest(orderId);
+
+//if(canceled)
+//  Debug.WriteLine("order canceled");
+
+```
 
 ## Get tracking of a package ##
 
-Example: [TODO | Pending test result]
+Example:
+```csharp
+//The MandaeClient
+var client = new MandaeClient("my API token");
+
+//The tracking identifier (Generate by the Mandae or sent by the order collect request
+var trackingId = "MyCompany-00001";
+var tracking = client.GetTracking(trackingId);
+//tracking.CarrierName;
+//tracking.CarrierCode;
+//tracking.Events;
+```
+
+## Collect Builder
+
+Example: **[TODO]**
