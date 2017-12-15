@@ -15,9 +15,12 @@ build:
   include_nuget_references: true
   parallel: true
   verbosity: normal
-artifacts:
-- path: GuiStracini.Mandae\bin\Release\*.*
-  name: BinFiles
+ after_build:
+ - xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\src\
+ - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
+ - cd C:\projects\guistracini.mandae\
+ - 7z a -tzip -mx9 "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip" src
+ - appveyor PushArtifact "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%%.zip"
 deploy:
 - provider: Environment
   name: NuGet
@@ -25,5 +28,4 @@ deploy:
   tag: v$(appveyor_build_version)
   auth_token:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
-  artifact: BinFiles
   force_update: true
