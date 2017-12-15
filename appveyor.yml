@@ -1,4 +1,5 @@
 version: 1.3.{build}
+skip_tags: true
 image: Visual Studio 2017
 configuration: Release
 assembly_info:
@@ -20,12 +21,15 @@ after_build:
 - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
 - cd C:\projects\guistracini-mandae\
 - 7z a -tzip -mx9 "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip" src
-- appveyor PushArtifact "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%%.zip"
+artifacts:
+- path: GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip
+  name: ZipFile
 deploy:
 - provider: Environment
   name: NuGet
 - provider: GitHub
-  tag: v$(appveyor_build_version)
+  tag: $(appveyor_build_version)
   auth_token:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
   force_update: true
+  artifact: ZipFile
