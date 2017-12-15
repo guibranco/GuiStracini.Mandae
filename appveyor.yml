@@ -18,7 +18,7 @@ build:
 after_build:
 - xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\src\
 - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
-- cd C:\projects\guistracini.mandae\
+- cd C:\projects\guistracini-mandae\
 - 7z a -tzip -mx9 "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip" src
 - appveyor PushArtifact "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%%.zip"
 deploy:
