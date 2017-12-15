@@ -1,0 +1,28 @@
+version: 1.3.{build}
+image: Visual Studio 2017
+configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+before_build:
+- cmd: nuget restore
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  parallel: true
+  verbosity: normal
+artifacts:
+- path: GuiStracini.Mandae\bin\Release\*.*
+  name: BinFiles
+deploy:
+- provider: Environment
+  name: NuGet
+- provider: GitHub
+  auth_token:
+    secure: rMbkinbh4eek3VvUvP1vT3Oq506NMgivUZ2rauZq0/7Awd4X5nedo70BA5NVJQ8+G6ngrKrYdUrHHwychaJiBXnPPfTaom78tVHbC3DhMUc=
+  artifact: BinFiles
+  force_update: true
