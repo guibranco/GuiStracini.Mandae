@@ -28,7 +28,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The date.
         /// </value>
         [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
