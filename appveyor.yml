@@ -14,13 +14,13 @@ build:
   publish_nuget_symbols: true
   include_nuget_references: true
   parallel: true
- verbosity: normal
+  verbosity: normal
 after_build:
- - xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\src\
- - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
- - cd C:\projects\guistracini.mandae\
- - 7z a -tzip -mx9 "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip" src
- - appveyor PushArtifact "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%%.zip"
+- xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\src\
+- rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
+- cd C:\projects\guistracini.mandae\
+- 7z a -tzip -mx9 "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%.zip" src
+- appveyor PushArtifact "GuiStracini.Mandae.v%APPVEYOR_BUILD_VERSION%%.zip"
 deploy:
 - provider: Environment
   name: NuGet
