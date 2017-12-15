@@ -23,6 +23,6 @@ deploy:
   name: NuGet
 - provider: GitHub
   auth_token:
-    secure: rMbkinbh4eek3VvUvP1vT3Oq506NMgivUZ2rauZq0/7Awd4X5nedo70BA5NVJQ8+G6ngrKrYdUrHHwychaJiBXnPPfTaom78tVHbC3DhMUc=
+    secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
   artifact: BinFiles
   force_update: true
