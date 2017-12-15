@@ -22,6 +22,7 @@ deploy:
 - provider: Environment
   name: NuGet
 - provider: GitHub
+  tag: v$(appveyor_build_version)
   auth_token:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
   artifact: BinFiles
