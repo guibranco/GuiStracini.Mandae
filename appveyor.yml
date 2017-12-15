@@ -14,8 +14,8 @@ build:
   publish_nuget_symbols: true
   include_nuget_references: true
   parallel: true
-  verbosity: normal
- after_build:
+ verbosity: normal
+after_build:
  - xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\src\
  - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
  - cd C:\projects\guistracini.mandae\
