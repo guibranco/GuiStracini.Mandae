@@ -7,6 +7,7 @@ The **(unnoficial)** Mandaê API client
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=plastic)](https://github.com/guibranco/GuiStracini.Mandae)
 
 <img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png" alt="GuiStracini.Mandae" width="150" height="150" />
+
 This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
 
@@ -27,8 +28,8 @@ This client supports the following operations/features of the API:
  4. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
  5. Cancel the whole collect schedule (Cancel a previous collect scheduler)
  6. Cancel a schedule item (Cancel a item/package from a collect order)
- 7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is supplied via WebHook)
- 8. WebHooks schema ready (The web hooks models/schemas)
+ 7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
+ 8. WebHooks schema ready (The web hooks models/, ready for implementation)
  9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
 
  All operations supports sync and async!

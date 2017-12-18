@@ -23,18 +23,34 @@ namespace GuiStracini.Mandae.Test
     using System.Threading.Tasks;
     using ValueObject;
 
+    /// <summary>
+    /// The mock orders repository
+    /// </summary>
     internal sealed class MockOrdersRepository
     {
+        /// <summary>
+        /// The orders
+        /// </summary>
         private MockOrders _orders;
 
+        /// <summary>
+        /// The orders items
+        /// </summary>
         private MockOrdersItems _ordersItems;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MockOrdersRepository"/> class.
+        /// </summary>
         public MockOrdersRepository()
         {
             _orders = JsonConvert.DeserializeObject<MockOrders>(File.ReadAllText("orders.json"));
             _ordersItems = JsonConvert.DeserializeObject<MockOrdersItems>(File.ReadAllText("items.json"));
         }
 
+        /// <summary>
+        /// Gets the orders ids pending shipping asynchronous.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<Int32>> GetOrdersIdsPendingShippingAsync()
         {
             await Task.Delay(5000);
@@ -53,11 +69,21 @@ namespace GuiStracini.Mandae.Test
             };
         }
 
+        /// <summary>
+        /// Gets the order.
+        /// </summary>
+        /// <param name="orderId">The order identifier.</param>
+        /// <returns></returns>
         public MockOrder GetOrder(Int32 orderId)
         {
             return _orders.Orders.SingleOrDefault(o => o.OrderId == orderId);
         }
 
+        /// <summary>
+        /// Gets the order items.
+        /// </summary>
+        /// <param name="orderId">The order identifier.</param>
+        /// <returns></returns>
         public IEnumerable<MockOrderItem> GetOrderItems(Int32 orderId)
         {
             return _ordersItems.Items.Where(i => i.OrderId == orderId);
@@ -97,7 +123,7 @@ namespace GuiStracini.Mandae.Test
                         {
                             Length = 30,
                             Width = 30,
-                            Weight = 2000,
+                            Weight = 2.6,
                             Height = 30
                         },
                         Invoice = new Invoice
@@ -153,47 +179,225 @@ namespace GuiStracini.Mandae.Test
             };
         }
 
+        /// <summary>
+        /// The mock orders class
+        /// </summary>
         public sealed class MockOrders
         {
+            /// <summary>
+            /// Gets or sets the orders.
+            /// </summary>
+            /// <value>
+            /// The orders.
+            /// </value>
             public MockOrder[] Orders { get; set; }
         }
 
+        /// <summary>
+        /// The mock orders items class
+        /// </summary>
         public sealed class MockOrdersItems
         {
+            /// <summary>
+            /// Gets or sets the items.
+            /// </summary>
+            /// <value>
+            /// The items.
+            /// </value>
             public MockOrderItem[] Items { get; set; }
         }
-
+        /// <summary>
+        /// The mock order class
+        /// </summary>
         public sealed class MockOrder
         {
+            /// <summary>
+            /// Gets or sets the order identifier.
+            /// </summary>
+            /// <value>
+            /// The order identifier.
+            /// </value>
             public Int32 OrderId { get; set; }
+            /// <summary>
+            /// Gets or sets the value.
+            /// </summary>
+            /// <value>
+            /// The value.
+            /// </value>
             public Decimal Value { get; set; }
+            /// <summary>
+            /// Gets or sets the invoice number.
+            /// </summary>
+            /// <value>
+            /// The invoice number.
+            /// </value>
             public String InvoiceNumber { get; set; }
+            /// <summary>
+            /// Gets or sets the invoice key.
+            /// </summary>
+            /// <value>
+            /// The invoice key.
+            /// </value>
             public String InvoiceKey { get; set; }
+            /// <summary>
+            /// Gets or sets the weight.
+            /// </summary>
+            /// <value>
+            /// The weight.
+            /// </value>
             public Int32 Weight { get; set; }
+            /// <summary>
+            /// Gets or sets the width.
+            /// </summary>
+            /// <value>
+            /// The width.
+            /// </value>
             public Int32 Width { get; set; }
+            /// <summary>
+            /// Gets or sets the height.
+            /// </summary>
+            /// <value>
+            /// The height.
+            /// </value>
             public Int32 Height { get; set; }
+            /// <summary>
+            /// Gets or sets the length.
+            /// </summary>
+            /// <value>
+            /// The length.
+            /// </value>
             public Int32 Length { get; set; }
+            /// <summary>
+            /// Gets or sets the full name.
+            /// </summary>
+            /// <value>
+            /// The full name.
+            /// </value>
             public String FullName { get; set; }
+            /// <summary>
+            /// Gets or sets the document.
+            /// </summary>
+            /// <value>
+            /// The document.
+            /// </value>
             public String Document { get; set; }
+            /// <summary>
+            /// Gets or sets the telephone.
+            /// </summary>
+            /// <value>
+            /// The telephone.
+            /// </value>
             public String Telephone { get; set; }
+            /// <summary>
+            /// Gets or sets the email.
+            /// </summary>
+            /// <value>
+            /// The email.
+            /// </value>
             public String Email { get; set; }
+            /// <summary>
+            /// Gets or sets the zip code.
+            /// </summary>
+            /// <value>
+            /// The zip code.
+            /// </value>
             public String ZipCode { get; set; }
+            /// <summary>
+            /// Gets or sets the street.
+            /// </summary>
+            /// <value>
+            /// The street.
+            /// </value>
             public String Street { get; set; }
+            /// <summary>
+            /// Gets or sets the neighborhood.
+            /// </summary>
+            /// <value>
+            /// The neighborhood.
+            /// </value>
             public String Neighborhood { get; set; }
+            /// <summary>
+            /// Gets or sets the number.
+            /// </summary>
+            /// <value>
+            /// The number.
+            /// </value>
             public Int32 Number { get; set; }
+            /// <summary>
+            /// Gets or sets the complement.
+            /// </summary>
+            /// <value>
+            /// The complement.
+            /// </value>
             public String Complement { get; set; }
+            /// <summary>
+            /// Gets or sets the city.
+            /// </summary>
+            /// <value>
+            /// The city.
+            /// </value>
             public String City { get; set; }
+            /// <summary>
+            /// Gets or sets the state initials.
+            /// </summary>
+            /// <value>
+            /// The state initials.
+            /// </value>
             public String StateInitials { get; set; }
         }
-
+        /// <summary>
+        /// The mock order item class
+        /// </summary>
         public sealed class MockOrderItem
         {
+            /// <summary>
+            /// Gets or sets the order identifier.
+            /// </summary>
+            /// <value>
+            /// The order identifier.
+            /// </value>
             public Int32 OrderId { get; set; }
+            /// <summary>
+            /// Gets or sets the sku identifier.
+            /// </summary>
+            /// <value>
+            /// The sku identifier.
+            /// </value>
             public Int32 SkuId { get; set; }
+            /// <summary>
+            /// Gets or sets the price.
+            /// </summary>
+            /// <value>
+            /// The price.
+            /// </value>
             public Decimal Price { get; set; }
+            /// <summary>
+            /// Gets or sets the price freight.
+            /// </summary>
+            /// <value>
+            /// The price freight.
+            /// </value>
             public Decimal PriceFreight { get; set; }
+            /// <summary>
+            /// Gets or sets the ean.
+            /// </summary>
+            /// <value>
+            /// The ean.
+            /// </value>
             public String Ean { get; set; }
+            /// <summary>
+            /// Gets or sets the name.
+            /// </summary>
+            /// <value>
+            /// The name.
+            /// </value>
             public String Name { get; set; }
+            /// <summary>
+            /// Gets or sets the quantity.
+            /// </summary>
+            /// <value>
+            /// The quantity.
+            /// </value>
             public Int32 Quantity { get; set; }
         }
     }

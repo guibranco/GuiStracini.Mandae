@@ -33,7 +33,7 @@
                     Height = 60,
                     Length = 60,
                     Width = 40,
-                    Weight = 1
+                    Weight = 1.3
                 }
             };
             var rates = client.GetRates(ratesModel);

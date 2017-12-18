@@ -60,7 +60,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The weight.
         /// </value>
         [JsonProperty("weight")]
-        public Int32 Weight { get; set; }
+        public Double Weight { get; set; }
         /// <summary>
         /// Gets or sets the volume.
         /// </summary>
