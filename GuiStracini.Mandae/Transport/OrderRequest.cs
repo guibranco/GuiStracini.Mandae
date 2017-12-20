@@ -105,7 +105,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The vehicle internal.
         /// </value>
-        [JsonProperty("vehicle")]
+        [JsonProperty("Vehicle")]
         public String VehicleInternal
         {
             get => _vehicle.ToString().ToCamelCase();
