@@ -1,13 +1,13 @@
 ﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
-// Created          : 28/09/2017
+// Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 05/01/2018
 // ***********************************************************************
-// <copyright file="BaseTransport.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="BaseTransportV1.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2018 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -17,15 +17,17 @@ namespace GuiStracini.Mandae.Transport
     using System;
 
     /// <summary>
-    /// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
+    /// All classes that performs a direct request to the Mandaê API V1 must inherit from this class
     /// </summary>
-    public abstract class BaseRequest
+    public abstract class BaseRequestV1 : BaseRequest
     {
         /// <summary>
-        /// Gets or sets the token.
+        /// Gets or sets the API key.
         /// </summary>
-        /// <value>The token.</value>
+        /// <value>
+        /// The API key.
+        /// </value>
         [JsonIgnore]
-        public String Token { get; set; }
+        public String APIKey { get; set; }
     }
 }

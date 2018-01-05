@@ -26,10 +26,19 @@ namespace GuiStracini.Mandae.ValueObject
     {
         #region Private fields 
 
+        /// <summary>
+        /// The shipping service
+        /// </summary>
         private ShippingService _shippingService;
 
+        /// <summary>
+        /// The total value
+        /// </summary>
         private Decimal _totalValue;
 
+        /// <summary>
+        /// The total freight
+        /// </summary>
         private Decimal _totalFreight;
 
         #endregion

@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae", "GuiStracini.Mandae\GuiStracini.Mandae.csproj", "{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae.Test", "GuiStracini.Mandae.Tests\GuiStracini.Mandae.Test.csproj", "{D91F4051-B4C2-4BB0-9B90-685643DD3F63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7164135-F036-4268-BED2-8FE87553DB1E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

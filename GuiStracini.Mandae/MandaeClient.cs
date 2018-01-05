@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 05/01/2018
 // ***********************************************************************
 // <copyright file="MandaeClient.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -48,10 +48,31 @@ namespace GuiStracini.Mandae
         /// </summary>
         private readonly Boolean _configureAwait;
 
+        /// <summary>
+        /// The service factory (V1) instance
+        /// </summary>
+        private ServiceFactoryV1 _serviceV1;
+
+        /// <summary>
+        /// The API key (V1)
+        /// </summary>
+        private String _apiKeyV1;
+
+        /// <summary>
+        /// The token (V1)
+        /// </summary>
+        private String _tokenV1;
+
         #endregion
 
-        #region ~Ctors
+        #region ~Ctor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MandaeClient"/> class.
+        /// </summary>
+        /// <param name="token">The token.</param>
+        /// <param name="environment">The environment.</param>
+        /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
         public MandaeClient(
             String token,
             Enums.Environment environment = Enums.Environment.SANDBOX,
@@ -60,7 +81,6 @@ namespace GuiStracini.Mandae
             _token = token;
             _configureAwait = configureAwait;
             _service = new ServiceFactory(environment, _configureAwait);
-
         }
 
         #endregion
@@ -353,6 +373,71 @@ namespace GuiStracini.Mandae
                 TrackingCode = trackingCode
             };
             return await _service.Get<TrackingResponse, TrackingRequest>(data, token).ConfigureAwait(_configureAwait);
+        }
+
+        #endregion
+
+        #region Authentication (V1)
+
+        /// <summary>
+        /// Configures the v1 authentication.
+        /// </summary>
+        /// <param name="apiKey">The API key.</param>
+        /// <param name="token">The token.</param>
+        public void ConfigureV1Authentication(String apiKey, String token)
+        {
+            _serviceV1 = new ServiceFactoryV1();
+            _apiKeyV1 = apiKey;
+            _tokenV1 = token;
+        }
+
+        #endregion
+
+        #region Search (V1)
+
+        /// <summary>
+        /// Searches the specified method for the specified value.
+        /// </summary>
+        /// <param name="method">The searched method/parameter.</param>
+        /// <param name="value">The searched value.</param>
+        /// <param name="limit">The results limit per page.</param>
+        /// <param name="offset">The pagination offset (zero based index).</param>
+        /// <returns>
+        /// The search result
+        /// </returns>
+        public SearchResponse Search(SearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
+        {
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            return SearchAsync(method, value, source.Token, limit, offset).Result;
+        }
+
+        /// <summary>
+        /// Searches the specified method for the specified value asynchronous.
+        /// </summary>
+        /// <param name="method">The searched method/parameter.</param>
+        /// <param name="value">The searched value.</param>
+        /// <param name="token">The cancellation token</param>
+        /// <param name="limit">The results limit per page.</param>
+        /// <param name="offset">The pagination offset (zero based index).</param>
+        /// <returns></returns>
+        public async Task<SearchResponse> SearchAsync(
+            SearchMethod method,
+            String value,
+            CancellationToken token,
+            Int32 limit = 10,
+            Int32 offset = 0)
+        {
+            var data = new SearchRequest
+            {
+                APIKey = _apiKeyV1,
+                Method = method,
+                Value = value,
+                Limit = limit,
+                Offset = offset,
+                Token = _tokenV1
+            };
+
+            return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token);
         }
 
         #endregion

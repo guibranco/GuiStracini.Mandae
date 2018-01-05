@@ -12,6 +12,12 @@ This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
 
 ----------
+Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search (the same interface on the Mandaê adminstration panel)
+(see the docs of usage in the end of this readme).
+
+**The API V1 is not officially public, so there is no warranty that it will still working**
+
+----------
 
 NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
 
@@ -31,7 +37,7 @@ This client supports the following operations/features of the API:
  7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
  8. WebHooks schema ready (The web hooks models/, ready for implementation)
  9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
-
+ 10. **Experimental** Query (using V1) for orders
  All operations supports sync and async!
 
 ----------
@@ -182,4 +188,33 @@ var tracking = client.GetTracking(trackingId);
 
 ## Collect Builder
 
-Example: **[TODO]**
+Example: **[TODO
+
+
+## Query for orders (V1 - Search) ##
+
+For the V1 you'll need the API key and token (this is not the V2 token, but you also need this one for instantiate the MandaClient class)
+Access your account at Mandaê platform and perform some search in the orders data, then open the Developer Tools (Chrome) or some network sniffer (Charles Proxy, Fiddler4)
+and locate the data (see image bellow using the Chrome Developer Tools)
+
+<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/MandaeV1." alt="GuiStracini.Mandae" width="450" height="450" />
+
+
+Example:
+
+```csharp
+//The MandaeClient
+var client = new MandaeClient("V2 API token");
+/*
+    The api key and the api token for the V1 can be grant by accessing your acocunt
+    in Mandae platform, and analysing the requests made by the plataform to the v1 server
+
+    Use the network tab of the Developers Tools (Chrome) or a web traffic/network sniffer (CharlesProxy, Fiddler4)
+    Each account has it own Token, the API key probably is unique accross all accounts
+*/
+client.ConfigureV1Authentication("V1 API key", "V1 API token");
+var trackingCode = "XYZ000001";//The tracking code of some order
+var result = client.Search(SearchMethod.RASTREAMENTO, trackingCode);
+if(result.Total == 1)
+    Console.WriteLine(result.Orders.Single().SituationDescription);    
+```

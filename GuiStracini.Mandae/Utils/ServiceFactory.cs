@@ -31,6 +31,8 @@ namespace GuiStracini.Mandae.Utils
     /// </summary>
     internal sealed class ServiceFactory
     {
+        #region Private fields
+
         /// <summary>
         /// The API environment
         /// </summary>
@@ -51,6 +53,10 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         private readonly Boolean _configureAwait;
 
+        #endregion
+
+        #region ~Ctor
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceFactory"/> class.
         /// </summary>
@@ -61,6 +67,10 @@ namespace GuiStracini.Mandae.Utils
             _environment = environment;
             _configureAwait = configureAwait;
         }
+
+        #endregion
+
+        #region Private methods
 
         /// <summary>
         /// Executes the request in the specified HTTP <paramref name="method"/>.
@@ -78,7 +88,6 @@ namespace GuiStracini.Mandae.Utils
                                    : SandboxServiceEndPoint;
             using (var client = new HttpClient())
             {
-
                 client.BaseAddress = new Uri(baseEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -115,7 +124,7 @@ namespace GuiStracini.Mandae.Utils
                             response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
                             return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
                         default:
-                            throw new HttpRequestException("Requested method not implemented");
+                            throw new HttpRequestException($"Requested method {method} not implemented in V2");
                     }
                     return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
                 }
@@ -125,6 +134,10 @@ namespace GuiStracini.Mandae.Utils
                 }
             }
         }
+
+        #endregion
+
+        #region Public methods
 
         /// <summary>
         /// Gets the specified request object.
@@ -225,5 +238,7 @@ namespace GuiStracini.Mandae.Utils
         {
             return await Execute<TOut, TIn>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
         }
+
+        #endregion
     }
 }
