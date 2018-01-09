@@ -78,8 +78,10 @@
     <Compile Include="Transport\OrderResponse.cs" />
     <Compile Include="Transport\SearchRequest.cs" />
     <Compile Include="Transport\SearchResponse.cs" />
+    <Compile Include="Utils\DateExtensions.cs" />
     <Compile Include="Utils\ServiceFactoryV1.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
+    <Compile Include="ValueObject\AddressV1.cs" />
     <Compile Include="ValueObject\Error.cs" />
     <Compile Include="Transport\BaseResponse.cs" />
     <Compile Include="Transport\LatestRequest.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="ValueObject\Phone.cs" />
     <Compile Include="Transport\RatesRequest.cs" />
     <Compile Include="Transport\RatesResponse.cs" />
+    <Compile Include="ValueObject\RecipientV1.cs" />
     <Compile Include="ValueObject\Recipient.cs" />
     <Compile Include="ValueObject\Sender.cs" />
     <Compile Include="ValueObject\ShippingServices.cs" />

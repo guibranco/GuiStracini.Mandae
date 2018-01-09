@@ -1,0 +1,69 @@
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 28/09/2017
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 28/09/2017
+// ***********************************************************************
+// <copyright file="Recipient.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.ValueObject
+{
+    using Newtonsoft.Json;
+    using System;
+
+    /// <summary>
+    /// Thre Recipient class
+    /// </summary>
+    public sealed class RecipientV1
+    {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        [JsonProperty("id")]
+        public Int32 Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        [JsonProperty("nome")]
+        public String Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the document.
+        /// </summary>
+        /// <value>
+        /// The document.
+        /// </value>
+        [JsonProperty("cpf")]
+        public String Document { get; set; }
+
+        /// <summary>
+        /// Gets or sets the telephone.
+        /// </summary>
+        /// <value>
+        /// The telephone.
+        /// </value>
+        [JsonProperty("telefone")]
+        public String Telephone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
+        [JsonProperty("endereco")]
+        public AddressV1 Address { get; set; }
+    }
+}

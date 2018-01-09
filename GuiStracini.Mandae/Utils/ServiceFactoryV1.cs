@@ -41,6 +41,19 @@ namespace GuiStracini.Mandae.Utils
 
         #endregion
 
+        #region ~Ctor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceFactoryV1"/> class.
+        /// </summary>
+        /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
+        public ServiceFactoryV1(Boolean configureAwait = false)
+        {
+            _configureAwait = configureAwait;
+        }
+
+        #endregion
+
         #region Private methods
 
         /// <summary>
