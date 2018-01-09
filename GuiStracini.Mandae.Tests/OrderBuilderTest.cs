@@ -34,7 +34,7 @@ namespace GuiStracini.Mandae.Test
         /// order builder validation
         /// </summary>
         [TestMethod]
-        public async void OrderBuilderValidation()
+        public void OrderBuilderValidation()
         {
             var random = new Random();
             var ordersRepository = new MockOrdersRepository();
@@ -138,8 +138,8 @@ namespace GuiStracini.Mandae.Test
                              source.Token);
 
 
-            await Task.WhenAll(vehiclesTask, availableHoursTask, ordersIdsTask); //await the main tasks
-            await Task.WhenAll(tasksSkus.ToArray()); //await the sku tasks
+            Task.WhenAll(vehiclesTask, availableHoursTask, ordersIdsTask).Wait(); //await the main tasks
+            Task.WhenAll(tasksSkus.ToArray()).Wait(); //await the sku tasks
 
             var response = builder.Build(); //builds the order and get the response
 
