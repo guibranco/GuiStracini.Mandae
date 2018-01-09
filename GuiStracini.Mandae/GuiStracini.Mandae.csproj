@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Attributes\RequestAdditionalParameter.cs" />
     <Compile Include="Attributes\RequestEndPoint.cs" />
+    <Compile Include="Attributes\RequestParameterDefaultValue.cs" />
     <Compile Include="Enums\ActionMethod.cs" />
     <Compile Include="Enums\Environment.cs" />
     <Compile Include="Enums\SearchMethod.cs" />

@@ -93,5 +93,21 @@ namespace GuiStracini.Mandae.Test
             var result = order.GetRequestAdditionalParameter(ActionMethod.POST);
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
         }
+
+        /// <summary>
+        /// Requests the parameter default value.
+        /// </summary>
+        [TestMethod]
+        public void RequestParameterDefaultValue()
+        {
+            const String expected = "encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
+            var request = new SearchRequest
+            {
+                Method = SearchMethod.RASTREAMENTO,
+                Value = "XYZ00001"
+            };
+            var result = request.GetRequestEndPoint();
+            Assert.AreEqual(expected, result);
+        }
     }
 }

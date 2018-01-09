@@ -63,13 +63,20 @@ namespace GuiStracini.Mandae.Utils
                     propertyType == typeof(Decimal) && Convert.ToDecimal(propertyValue) == new Decimal(0) ||
                     propertyType == typeof(String) && String.IsNullOrEmpty(propertyValue.ToString()))
                 {
-                    endpoint = endpoint.Replace(match.Value, "");
-                    if (skiped == 0)
+                    var defaultValue = String.Empty;
+                    if (property.GetCustomAttributes(typeof(RequestParameterDefaultValue), false) is
+                            RequestParameterDefaultValue[] defaultsValues)
+                        defaultValue = defaultsValues.Single().DefaultValue;
+                    endpoint = endpoint.Replace(match.Value, defaultValue);
+                    if (skiped == 0 && defaultValue == String.Empty)
                         skiped = counter;
                     continue;
                 }
                 used = counter;
-                endpoint = endpoint.Replace(match.Groups["pattern"].Value, propertyValue.ToString());
+                var value = propertyValue.ToString();
+                if (property.PropertyType.IsEnum)
+                    value = value.ToLower();
+                endpoint = endpoint.Replace(match.Groups["pattern"].Value, value);
             }
             if (skiped != 0 && skiped < used)
                 throw new InvalidRequestEndPointException(originalEndpoint, endpoint);

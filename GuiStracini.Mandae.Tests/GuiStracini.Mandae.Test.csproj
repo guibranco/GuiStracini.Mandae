@@ -55,6 +55,7 @@
     <Compile Include="FlowTest.cs" />
     <Compile Include="MockOrdersRepository.cs" />
     <Compile Include="OrderBuilderTest.cs" />
+    <Compile Include="SearchTest.cs" />
     <Compile Include="VehiclesTest.cs" />
     <Compile Include="RatesTest.cs" />
     <Compile Include="SchedulingTest.cs" />

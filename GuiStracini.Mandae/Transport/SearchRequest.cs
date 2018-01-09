@@ -21,7 +21,7 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1
     /// </summary>
-    /// <seealso cref="GuiStracini.Mandae.Transport.BaseRequestV1" />
+    /// <seealso cref="BaseRequestV1" />
     [RequestEndPoint("encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
     public sealed class SearchRequest : BaseRequestV1
     {
@@ -47,6 +47,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The offset.
         /// </value>
+        [RequestParameterDefaultValue("0")]
         public Int32 Offset { get; set; }
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>
         /// The limit.
         /// </value>
+        [RequestParameterDefaultValue("10")]
         public Int32 Limit { get; set; }
 
     }
