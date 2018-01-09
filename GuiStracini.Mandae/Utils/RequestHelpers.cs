@@ -65,7 +65,7 @@ namespace GuiStracini.Mandae.Utils
                 {
                     var defaultValue = String.Empty;
                     if (property.GetCustomAttributes(typeof(RequestParameterDefaultValue), false) is
-                            RequestParameterDefaultValue[] defaultsValues)
+                            RequestParameterDefaultValue[] defaultsValues && defaultsValues.Any())
                         defaultValue = defaultsValues.Single().DefaultValue;
                     endpoint = endpoint.Replace(match.Value, defaultValue);
                     if (skiped == 0 && defaultValue == String.Empty)
