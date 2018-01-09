@@ -12,8 +12,7 @@ This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
 
 ----------
-Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search (the same interface on the Mandaê adminstration panel)
-(see the docs of usage in the end of this readme).
+Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
 
 **The API V1 is not officially public, so there is no warranty that it will still working**
 
@@ -37,7 +36,7 @@ This client supports the following operations/features of the API:
  7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
  8. WebHooks schema ready (The web hooks models/, ready for implementation)
  9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
- 10. **Experimental** Query (using V1) for orders
+ 10. **Experimental** Querying orders (API V1 - non-public API)
  All operations supports sync and async!
 
 ----------
@@ -188,10 +187,10 @@ var tracking = client.GetTracking(trackingId);
 
 ## Collect Builder
 
-Example: **[TODO
+Example: **[TODO]**
 
 
-## Query for orders (V1 - Search) ##
+## Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API ##
 
 For the V1 you'll need the API key and token (this is not the V2 token, but you also need this one for instantiate the MandaClient class)
 Access your account at Mandaê platform and perform some search in the orders data, then open the Developer Tools (Chrome) or some network sniffer (Charles Proxy, Fiddler4)
