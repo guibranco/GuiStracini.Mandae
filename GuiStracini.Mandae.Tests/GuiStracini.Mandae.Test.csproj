@@ -65,7 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="orders.json" />
+    <None Include="orders.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
