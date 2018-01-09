@@ -15,6 +15,7 @@
         ///   <c>true</c> if asynchronous; otherwise, <c>false</c>.
         /// </value>
         [RequestAdditionalParameter(ActionMethod.POST, true)]
+        [JsonProperty("async")] //Used by RequestHelpers.GetRequestAdditionalParameter method
         [JsonIgnore]
         public Boolean Async => true;
     }
