@@ -197,7 +197,7 @@ For the V1 you'll need the API key and token (this is not the V2 token, but you 
 Access your account at Mandaê platform and perform some search in the orders data, then open the Developer Tools (Chrome) or some network sniffer (Charles Proxy, Fiddler4)
 and locate the data (see image bellow using the Chrome Developer Tools)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/MandaeV1Data.jpg" alt="GuiStracini.Mandae" width="450" height="450" />
+<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/MandaeV1Data.jpg" alt="GuiStracini.Mandae" width="1211" height="460" />
 
 
 Example:
