@@ -37,6 +37,7 @@ This client supports the following operations/features of the API:
  8. WebHooks schema ready (The web hooks models/, ready for implementation)
  9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
  10. **Experimental** Querying orders (API V1 - non-public API)
+
  All operations supports sync and async!
 
 ----------
@@ -130,7 +131,26 @@ Inform which type of Vehicle (GetVehicles), when (GetAvailableHours), which rate
 
 Each package means a order/volume, that can have one or more items (SKUs).
 
-Example: **[TODO]**
+Example:
+```csharp
+//The MandaeClient
+var client = new MandaeClient("my API token");
+
+//The OrderModel (order collect request model)
+var order = new OrderModel { ... };
+order.Items = new [] {
+    new NewItem 
+    {
+        ....
+        ShippingService = option
+    }
+};
+
+//Makes the request
+var order = client.RegisterOrderCollectRequest(order);
+
+//order.Id is the id for futher use (maybe cancel the request ?)
+```
 
 ## Get the latest order collect request status ##
 
@@ -152,7 +172,24 @@ var url = status.Url;
 
 ## Cancel a schedule collect request ##
 
-Example: **[TODO]**
+Cancels a previous scheduler collect request by it's identifier
+
+Example:
+```csharp
+//The MandaeClient
+var client = new MandaeClient("my API token");
+
+//The collect request id, saved from a create order collect request method
+var collectRequestId = 123456789;
+
+//Cancels the collect request
+var canceled = client.CancelORderCollectRequest(collectRequestId);
+
+if(canceled)
+    //canceled
+else
+    //error ? Order not canceled
+```
 
 ## Cancel a schedule item (package) collect request ##
 
