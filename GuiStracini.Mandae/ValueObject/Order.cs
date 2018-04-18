@@ -413,7 +413,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The minimum delivery time.
         /// </value>
         [JsonProperty("prazoMinimo")]
-        public Int32 MinDeliveryTime { get; set; }
+        public Int32? MinDeliveryTime { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum delivery time.
@@ -422,7 +422,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The maximum delivery time.
         /// </value>
         [JsonProperty("prazoMaximo")]
-        public Int32 MaxDeliveryTime { get; set; }
+        public Int32? MaxDeliveryTime { get; set; }
 
         /// <summary>
         /// Gets or sets the quantity printed by client.
