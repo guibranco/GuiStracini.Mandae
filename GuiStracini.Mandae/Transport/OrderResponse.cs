@@ -91,12 +91,6 @@ namespace GuiStracini.Mandae.Transport
         public String PartnerOrderId { get; set; }
 
         /// <summary>
-        /// The pickup date
-        /// </summary>
-        [JsonProperty("pickupDate")]
-        public DateTime PickupDate { get; set; }
-
-        /// <summary>
         /// The processing date
         /// </summary>
         [JsonProperty("processingDate")]
