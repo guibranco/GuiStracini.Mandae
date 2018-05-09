@@ -4,7 +4,7 @@
 // Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 09/05/2018
 // ***********************************************************************
 // <copyright file="SearchMethod.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -13,54 +13,65 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Enums
 {
+    using Attributes;
+
     /// <summary>
     /// The search method (API V1) enumeration
     /// </summary>
     public enum SearchMethod
     {
         /// <summary>
-        /// The rastreamento
+        /// The tracking code.
         /// </summary>
-        RASTREAMENTO,
+        [EnumRouteValue("rastreamento")]
+        TRACKING_CODE,
 
         /// <summary>
-        /// The nomedestinatario
+        /// The receiver name.
         /// </summary>
-        NOMEDESTINATARIO,
+        [EnumRouteValue("nomeDestinatario")]
+        RECEIVER_NAME,
 
         /// <summary>
-        /// The cepdestinatario
+        /// The postal code.
         /// </summary>
-        CEPDESTINATARIO,
+        [EnumRouteValue("cepDestinatario")]
+        POSTAL_CODE,
 
         /// <summary>
-        /// The numeropedido
+        /// The service order.
         /// </summary>
-        NUMEROPEDIDO,
+        [EnumRouteValue("numeroPedido")]
+        SERVICE_ORDER,
 
         /// <summary>
-        /// The jafoiimpresa
+        /// The label status.
         /// </summary>
-        JAFOIIMPRESA,
+        [EnumRouteValue("jaFoiImpressa")]
+        LABEL_STATUS,
 
         /// <summary>
-        /// The situacaopedido
+        /// The parcel status.
         /// </summary>
-        SITUACAOPEDIDO,
+        [EnumRouteValue("situacaoPedido")]
+        PARCEL_STATUS,
 
         /// <summary>
-        /// The codigorastreiotransportadora
+        /// The carrier tracking code.
         /// </summary>
-        CODIGORASTREIOTRANSPORTADORA,
+        [EnumRouteValue("codigoRastreioTransportadora")]
+        CARRIER_TRACKING_CODE,
 
         /// <summary>
-        /// The qrcode
+        /// The QR code.
         /// </summary>
-        QRCODE,
+        [EnumRouteValue("qrCode")]
+        QR_CODE,
 
         /// <summary>
-        /// The referencia
+        /// The reference.
         /// </summary>
-        REFERENCIA,
+        [EnumRouteValue("referencia")]
+        REFERENCE,
     }
 }

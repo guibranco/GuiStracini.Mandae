@@ -75,7 +75,15 @@ namespace GuiStracini.Mandae.Utils
                 used = counter;
                 var value = propertyValue.ToString();
                 if (property.PropertyType.IsEnum)
-                    value = value.ToLower();
+                {
+                    var field = property.PropertyType.GetField(value);
+                    if (field.GetCustomAttributes(typeof(EnumRouteValueAttribute), false) is EnumRouteValueAttribute[] enumRouteValue &&
+                        enumRouteValue.Any())
+                        value = enumRouteValue.Single().RouteValue;
+                    else
+                        value = value.ToLower();
+                }
+
                 endpoint = endpoint.Replace(match.Groups["pattern"].Value, value);
             }
             if (skiped != 0 && skiped < used)

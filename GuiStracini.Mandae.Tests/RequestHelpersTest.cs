@@ -103,7 +103,7 @@ namespace GuiStracini.Mandae.Test
             const String expected = "encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
             var request = new SearchRequest
             {
-                Method = SearchMethod.RASTREAMENTO,
+                Method = SearchMethod.TRACKING_CODE,
                 Value = "XYZ00001"
             };
             var result = request.GetRequestEndPoint();

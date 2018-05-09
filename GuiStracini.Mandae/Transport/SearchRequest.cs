@@ -4,7 +4,7 @@
 // Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 09/05/2018
 // ***********************************************************************
 // <copyright file="SearchRequest.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -16,7 +16,6 @@ namespace GuiStracini.Mandae.Transport
     using Attributes;
     using Enums;
     using System;
-
 
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1
