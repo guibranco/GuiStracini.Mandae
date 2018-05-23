@@ -1,13 +1,13 @@
 ﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
-// Created          : 03/10/2017
+// Created          : 2017-10-03
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 03/10/2017
+// Last Modified On : 2018-05-23
 // ***********************************************************************
 // <copyright file="OrderResponse.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+//     Copyright © 2017 - 2018 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -94,6 +94,6 @@ namespace GuiStracini.Mandae.Transport
         /// The processing date
         /// </summary>
         [JsonProperty("processingDate")]
-        public DateTime ProcessingDate { get; set; }
+        public DateTime? ProcessingDate { get; set; }
     }
 }
