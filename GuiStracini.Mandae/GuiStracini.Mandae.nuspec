@@ -14,4 +14,7 @@
         <copyright>Copyright 2017 Guilherme Branco Stracini. All rights reserved.</copyright>
         <tags>Mandae Carrier Courier Shipping API Wrapper Correios SDK</tags>
     </metadata>
+	<files>
+		<file src="bin\$configuration$\$id$.pdb" target="lib\net47\" />
+	</files>
 </package>
