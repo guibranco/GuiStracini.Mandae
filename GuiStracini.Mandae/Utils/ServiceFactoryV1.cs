@@ -32,7 +32,7 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The production service end point
         /// </summary>
-        private const String ProductionServiceEndPoint = "https://wtu1w6w2ll.execute-api.us-east-1.amazonaws.com/prd_app_mandae_com_br/v1/";
+        private const String ProductionServiceEndPoint = "https://pedido.api.mandae.com.br/v1/";
 
         /// <summary>
         /// The configure await flag.
