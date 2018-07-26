@@ -100,7 +100,7 @@ namespace GuiStracini.Mandae.Test
         [TestMethod]
         public void RequestParameterDefaultValue()
         {
-            const String expected = "encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
+            const String expected = "v1/encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
             var request = new SearchRequest
             {
                 Method = SearchMethod.TRACKING_CODE,

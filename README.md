@@ -39,9 +39,9 @@ This client supports the following operations/features of the API:
  8. WebHooks schema ready (The web hooks models/, ready for implementation)
  9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
  10. **Experimental** Querying orders (API V1 - non-public API)
- 11. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO v3.1]**
- 12. **Experimental** Querying reverses (API V1 - non-public API) **[TODO v3.1]**
- 13. **Experimental** Request reverse (API V1 - non-public API) **[TODO v3.2]**
+ 11. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO v3.2]**
+ 12. **Experimental** Querying reverses (API V1 - non-public API) **[TODO v3.2]**
+ 13. **Experimental** Request reverse (API V1 - non-public API) **[TODO v3.3]**
 
 
  All operations supports sync and async!
