@@ -21,8 +21,8 @@ namespace GuiStracini.Mandae.Transport
     /// The model for perform a search request in the Mandaê API V1
     /// </summary>
     /// <seealso cref="BaseRequestV1" />
-    [RequestEndPoint("encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
-    public sealed class SearchRequest : BaseRequestV1
+    [RequestEndPoint("v1/encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
+    public sealed class SearchRequest : BaseRequest
     {
         /// <summary>
         /// Gets or sets the method.

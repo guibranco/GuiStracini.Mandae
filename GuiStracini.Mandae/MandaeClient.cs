@@ -53,16 +53,6 @@ namespace GuiStracini.Mandae
         /// </summary>
         private ServiceFactoryV1 _serviceV1;
 
-        /// <summary>
-        /// The API key (V1)
-        /// </summary>
-        private String _apiKeyV1;
-
-        /// <summary>
-        /// The token (V1)
-        /// </summary>
-        private String _tokenV1;
-
         #endregion
 
         #region ~Ctor
@@ -382,13 +372,10 @@ namespace GuiStracini.Mandae
         /// <summary>
         /// Configures the v1 authentication.
         /// </summary>
-        /// <param name="apiKey">The API key.</param>
-        /// <param name="token">The token.</param>
-        public void ConfigureV1Authentication(String apiKey, String token)
+        public void ConfigureV1Authentication(String email, String password)
         {
             _serviceV1 = new ServiceFactoryV1();
-            _apiKeyV1 = apiKey;
-            _tokenV1 = token;
+            _serviceV1.Login(email, password);
         }
 
         #endregion
@@ -429,12 +416,10 @@ namespace GuiStracini.Mandae
         {
             var data = new SearchRequest
             {
-                APIKey = _apiKeyV1,
                 Method = method,
                 Value = value,
                 Limit = limit,
                 Offset = offset,
-                Token = _tokenV1
             };
 
             return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token);

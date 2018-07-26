@@ -72,11 +72,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\AvailableHoursRequest.cs" />
     <Compile Include="Transport\AvailableHoursResponse.cs" />
-    <Compile Include="Transport\BaseRequestV1.cs" />
     <Compile Include="Transport\CancelItemRequest.cs" />
     <Compile Include="Transport\LargeOrderRequest.cs" />
     <Compile Include="Transport\LargeOrderResponse.cs" />
     <Compile Include="Transport\CancelOrderRequest.cs" />
+    <Compile Include="Transport\LoginRequest.cs" />
+    <Compile Include="Transport\LoginResponse.cs" />
     <Compile Include="Transport\OrderResponse.cs" />
     <Compile Include="Transport\SearchRequest.cs" />
     <Compile Include="Transport\SearchResponse.cs" />

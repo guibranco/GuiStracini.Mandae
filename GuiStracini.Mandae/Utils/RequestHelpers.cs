@@ -29,6 +29,20 @@ namespace GuiStracini.Mandae.Utils
     public static class RequestHelpers
     {
         /// <summary>
+        /// Gets the request end point attribute.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
+        public static RequestEndPointAttribute GetRequestEndPointAttribute(this BaseRequest request)
+        {
+            if (!(request.GetType().GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[]
+                      endpoints) ||
+                !endpoints.Any())
+                return null;
+            return endpoints.Single();
+        }
+
+        /// <summary>
         /// Gets the request end point.
         /// </summary>
         /// <param name="request">The request.</param>
@@ -38,9 +52,10 @@ namespace GuiStracini.Mandae.Utils
         public static String GetRequestEndPoint(this BaseRequest request)
         {
             var type = request.GetType();
-            if (!(type.GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[] endpoints) || !endpoints.Any())
+            var endpointAttribute = request.GetRequestEndPointAttribute();
+            if (endpointAttribute == null)
                 return type.Name.ToUpper();
-            var originalEndpoint = endpoints.Single().EndPoint;
+            var originalEndpoint = endpointAttribute.EndPoint;
             var endpoint = originalEndpoint;
             var regex = new Regex(@"/?(?<pattern>{(?<propertyName>\w+?)})/?");
             if (!regex.IsMatch(endpoint))

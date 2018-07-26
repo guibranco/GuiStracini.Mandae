@@ -20,13 +20,10 @@ namespace GuiStracini.Mandae.Attributes
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class)]
-    internal sealed class RequestEndPointAttribute : Attribute
+    public sealed class RequestEndPointAttribute : Attribute
     {
-        /// <summary>
-        /// Gets the end point.
-        /// </summary>
-        /// <value>The end point path.</value>
-        public String EndPoint { get; private set; }
+
+        #region ~Ctor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.
@@ -36,5 +33,25 @@ namespace GuiStracini.Mandae.Attributes
         {
             EndPoint = endPoint;
         }
+
+        #endregion
+
+        #region Public properties
+
+        /// <summary>
+        /// Gets the end point.
+        /// </summary>
+        /// <value>The end point path.</value>
+        public String EndPoint { get; }
+
+        /// <summary>
+        /// Gets or sets the custom base.
+        /// </summary>
+        /// <value>
+        /// The custom base.
+        /// </value>
+        public String CustomBase { get; set; }
+        #endregion
+
     }
 }
