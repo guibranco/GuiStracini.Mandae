@@ -26,6 +26,8 @@ namespace GuiStracini.Mandae
     /// </summary>
     public interface IMandaeClient
     {
+        #region V2
+
         /// <summary>
         /// Gets the vehicles.
         /// </summary>
@@ -163,6 +165,10 @@ namespace GuiStracini.Mandae
         /// <returns></returns>
         Task<TrackingResponse> GetTrackingAsync(String trackingCode, CancellationToken token);
 
+        #endregion
+
+        #region V1
+
         /// <summary>
         /// Configures the v1 authentication.
         /// </summary>
@@ -195,5 +201,33 @@ namespace GuiStracini.Mandae
             CancellationToken token,
             Int32 limit,
             Int32 offset);
+
+        /// <summary>
+        /// Searches the reverse.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="offset">The offset.</param>
+        /// <returns></returns>
+        SearchReverseResponse SearchReverse(ReverseSearchMethod method, String value, Int32 limit, Int32 offset);
+
+        /// <summary>
+        /// Searches the reverse asynchronous.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="token">The token.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="offset">The offset.</param>
+        /// <returns></returns>
+        Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
+                                                       String value,
+                                                       CancellationToken token,
+                                                       Int32 limit,
+                                                       Int32 offset);
+
+
+        #endregion
     }
 }

@@ -1,10 +1,10 @@
 ﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
-// Created          : 05/01/2018
+// Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 09/05/2018
+// Last Modified On : 2018-07-27
 // ***********************************************************************
 // <copyright file="SearchRequest.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -20,7 +20,7 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1
     /// </summary>
-    /// <seealso cref="BaseRequestV1" />
+    /// <seealso cref="BaseRequest" />
     [RequestEndPoint("v1/encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
     public sealed class SearchRequest : BaseRequest
     {

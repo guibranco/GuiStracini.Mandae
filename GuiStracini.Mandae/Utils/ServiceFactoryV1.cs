@@ -31,7 +31,10 @@ namespace GuiStracini.Mandae.Utils
     {
         #region Private fields
 
-        private readonly Dictionary<String, String> Constants;
+        /// <summary>
+        /// The constants
+        /// </summary>
+        private readonly Dictionary<String, String> _constants;
 
         /// <summary>
         /// The configure await flag.
@@ -64,8 +67,7 @@ namespace GuiStracini.Mandae.Utils
         public ServiceFactoryV1(Boolean configureAwait = false)
         {
             _configureAwait = configureAwait;
-            Constants = new Dictionary<String, String>();
-            GetConstants().Wait();
+            _constants = new Dictionary<String, String>();
         }
 
         #endregion
@@ -73,32 +75,33 @@ namespace GuiStracini.Mandae.Utils
         #region Private methods
 
         /// <summary>
-        /// Gets the API token.
+        /// Gets the constants.
         /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException">
         /// Cannot get the constants path
         /// or
         /// Cannot get the constants
         /// </exception>
-        private async Task GetConstants()
+        private async Task GetConstants(CancellationToken cancellationToken)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://app.mandae.com.br/");
                 client.DefaultRequestHeaders.ExpectContinue = false;
-                var response = await client.GetAsync("login").ConfigureAwait(_configureAwait);
+                var response = await client.GetAsync("login", cancellationToken).ConfigureAwait(_configureAwait);
                 var content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
                 if (!_constantsPathPattern.IsMatch(content))
                     throw new InvalidOperationException("Cannot get the constants path");
                 var match = _constantsPathPattern.Match(content);
-                response = await client.GetAsync(match.Value).ConfigureAwait(_configureAwait);
+                response = await client.GetAsync(match.Value, cancellationToken).ConfigureAwait(_configureAwait);
                 content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
                 if (!_constantsPattern.IsMatch(content))
                     throw new InvalidOperationException("Cannot get the constants");
                 var matches = _constantsPattern.Matches(content);
                 foreach (Match m in matches)
-                    Constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
+                    _constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
             }
         }
 
@@ -119,11 +122,11 @@ namespace GuiStracini.Mandae.Utils
             where TOut : BaseResponse
         {
             var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
-            var baseEndpoint = Constants["URLAPIPEDIDO_NGINX"];
+            var baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
             var attribute = requestObject.GetRequestEndPointAttribute();
             if (attribute != null &&
                 !String.IsNullOrWhiteSpace(attribute.CustomBase))
-                baseEndpoint = Constants[attribute.CustomBase];
+                baseEndpoint = _constants[attribute.CustomBase];
 
             using (var client = new HttpClient())
             {
@@ -133,7 +136,7 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri("https://app.mandae.com.br/historico/encomendas");
-                client.DefaultRequestHeaders.Add("API-TOKEN", Constants["API_TOKEN"]);
+                client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
                 if (!String.IsNullOrWhiteSpace(_apiAuthorization))
                     client.DefaultRequestHeaders.Add("Authorization", _apiAuthorization);
                 try
@@ -168,14 +171,17 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
-        public void Login(String email, String password)
+        /// <param name="cancellationToken">The cancellation token</param>
+        public async Task Login(String email, String password, CancellationToken cancellationToken)
         {
+            if (_constants.Count == 0)
+                await GetConstants(cancellationToken);
             var request = new LoginRequest
             {
                 Username = email,
                 Password = password
             };
-            var response = Post<LoginResponse, LoginRequest>(request, CancellationToken.None).Result;
+            var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken);
             _apiAuthorization = response.Token;
         }
 

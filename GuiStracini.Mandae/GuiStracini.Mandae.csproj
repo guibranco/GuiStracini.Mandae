@@ -53,6 +53,7 @@
     <Compile Include="Attributes\RequestParameterDefaultValue.cs" />
     <Compile Include="Enums\ActionMethod.cs" />
     <Compile Include="Enums\Environment.cs" />
+    <Compile Include="Enums\ReverseSearchMethod.cs" />
     <Compile Include="Enums\SearchMethod.cs" />
     <Compile Include="Enums\Service.cs" />
     <Compile Include="Enums\ShippingService.cs" />
@@ -79,6 +80,9 @@
     <Compile Include="Transport\LoginRequest.cs" />
     <Compile Include="Transport\LoginResponse.cs" />
     <Compile Include="Transport\OrderResponse.cs" />
+    <Compile Include="Transport\ReverseRequest.cs" />
+    <Compile Include="Transport\SearchReverseRequest.cs" />
+    <Compile Include="Transport\SearchReverseResponse.cs" />
     <Compile Include="Transport\SearchRequest.cs" />
     <Compile Include="Transport\SearchResponse.cs" />
     <Compile Include="Utils\DateExtensions.cs" />
@@ -103,6 +107,7 @@
     <Compile Include="Transport\RatesResponse.cs" />
     <Compile Include="ValueObject\RecipientV1.cs" />
     <Compile Include="ValueObject\Recipient.cs" />
+    <Compile Include="ValueObject\Reverse.cs" />
     <Compile Include="ValueObject\Sender.cs" />
     <Compile Include="ValueObject\ShippingServices.cs" />
     <Compile Include="ValueObject\Sku.cs" />

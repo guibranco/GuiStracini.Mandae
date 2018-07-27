@@ -375,7 +375,8 @@ namespace GuiStracini.Mandae
         public void ConfigureV1Authentication(String email, String password)
         {
             _serviceV1 = new ServiceFactoryV1();
-            _serviceV1.Login(email, password);
+            var tokenSource = new CancellationTokenSource(new TimeSpan(0, 1, 0));
+            _serviceV1.Login(email, password, tokenSource.Token).Wait(tokenSource.Token);
         }
 
         #endregion
@@ -423,6 +424,54 @@ namespace GuiStracini.Mandae
             };
 
             return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token);
+        }
+
+        #endregion
+
+        #region Occurrences (V1)
+
+        #endregion
+
+        #region Reverses (V1)
+
+        /// <summary>
+        /// Searches the reverse.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="offset">The offset.</param>
+        /// <returns></returns>
+        public SearchReverseResponse SearchReverse(ReverseSearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
+        {
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            return SearchReverseAsync(method, value, source.Token, limit, offset).Result;
+        }
+
+        /// <summary>
+        /// Searches the reverse asynchronous.
+        /// </summary>
+        /// <param name="method">The method.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="token">The token.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="offset">The offset.</param>
+        /// <returns></returns>
+        public async Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
+                                                         String value,
+                                                         CancellationToken token,
+                                                         Int32 limit = 10,
+                                                         Int32 offset = 0)
+        {
+            var data = new SearchReverseRequest
+            {
+                Method = method,
+                Value = value,
+                Limit = limit,
+                Offset = offset
+            };
+
+            return await _serviceV1.Get<SearchReverseResponse, SearchReverseRequest>(data, token);
         }
 
         #endregion
