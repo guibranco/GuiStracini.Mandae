@@ -15,9 +15,12 @@ namespace GuiStracini.Mandae.Utils
 {
     using Enums;
     using GoodPractices;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Text.RegularExpressions;
     using System.Threading;
@@ -135,10 +138,21 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("GuiStracini.Mandae/3.0.0");
-                client.DefaultRequestHeaders.Referrer = new Uri("https://app.mandae.com.br/historico/encomendas");
+                client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
                 if (!String.IsNullOrWhiteSpace(_apiAuthorization))
                     client.DefaultRequestHeaders.Add("Authorization", _apiAuthorization);
+
+                var formatter = new JsonMediaTypeFormatter
+                {
+                    SerializerSettings = new JsonSerializerSettings
+                    {
+                        Formatting = Formatting.Indented,
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        NullValueHandling = NullValueHandling.Ignore
+                    }
+                };
+
                 try
                 {
                     HttpResponseMessage response;
@@ -148,12 +162,18 @@ namespace GuiStracini.Mandae.Utils
                             response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.POST:
-                            response = await client.PostAsJsonAsync(endpoint, requestObject, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client.PostAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
+                        case ActionMethod.PUT:
+                            response = await client.PutAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
+                            break;
+                        case ActionMethod.DELETE:
+                            response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
                         default:
                             throw new HttpRequestException($"Requested method {method} not implemented in V1");
                     }
-                    return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
+                    return await response.Content.ReadAsAsync<TOut>().ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
                 {
@@ -172,7 +192,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        public async Task Login(String email, String password, CancellationToken cancellationToken)
+        public async Task LoginAsync(String email, String password, CancellationToken cancellationToken)
         {
             if (_constants.Count == 0)
                 await GetConstants(cancellationToken);
@@ -181,7 +201,7 @@ namespace GuiStracini.Mandae.Utils
                 Username = email,
                 Password = password
             };
-            var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken);
+            var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
             _apiAuthorization = response.Token;
         }
 

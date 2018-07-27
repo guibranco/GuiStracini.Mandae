@@ -376,7 +376,7 @@ namespace GuiStracini.Mandae
         {
             _serviceV1 = new ServiceFactoryV1();
             var tokenSource = new CancellationTokenSource(new TimeSpan(0, 1, 0));
-            _serviceV1.Login(email, password, tokenSource.Token).Wait(tokenSource.Token);
+            _serviceV1.LoginAsync(email, password, tokenSource.Token).ConfigureAwait(_configureAwait).GetAwaiter();
         }
 
         #endregion
