@@ -13,6 +13,8 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
+    using Newtonsoft.Json;
+    using System;
     using ValueObject;
 
     /// <summary>
@@ -27,5 +29,14 @@ namespace GuiStracini.Mandae.Transport
         /// The error.
         /// </value>
         public Error Error { get; set; }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        [JsonProperty("message")]
+        public String Message { get; set; }
     }
 }
