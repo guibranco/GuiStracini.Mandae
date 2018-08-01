@@ -372,11 +372,13 @@ namespace GuiStracini.Mandae
         /// <summary>
         /// Configures the v1 authentication.
         /// </summary>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
         public void ConfigureV1Authentication(String email, String password)
         {
-            _serviceV1 = new ServiceFactoryV1();
+            _serviceV1 = new ServiceFactoryV1(_configureAwait);
             var tokenSource = new CancellationTokenSource(new TimeSpan(0, 1, 0));
-            _serviceV1.LoginAsync(email, password, tokenSource.Token).ConfigureAwait(_configureAwait).GetAwaiter();
+            _serviceV1.LoginAsync(email, password, tokenSource.Token).Wait(tokenSource.Token);
         }
 
         #endregion

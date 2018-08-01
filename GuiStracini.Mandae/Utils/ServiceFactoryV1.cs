@@ -67,7 +67,7 @@ namespace GuiStracini.Mandae.Utils
         /// Initializes a new instance of the <see cref="ServiceFactoryV1"/> class.
         /// </summary>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
-        public ServiceFactoryV1(Boolean configureAwait = false)
+        public ServiceFactoryV1(Boolean configureAwait = true)
         {
             _configureAwait = configureAwait;
             _constants = new Dictionary<String, String>();
