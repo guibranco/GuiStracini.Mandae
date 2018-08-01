@@ -125,10 +125,13 @@ namespace GuiStracini.Mandae.Utils
             where TOut : BaseResponse
         {
             var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
-            var baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
+            var baseEndpoint = "https://pedido.api.mandae.com.br";
+            if (_constants.ContainsKey("URLAPIPEDIDO_NGINX"))
+                baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
             var attribute = requestObject.GetRequestEndPointAttribute();
             if (attribute != null &&
-                !String.IsNullOrWhiteSpace(attribute.CustomBase))
+                !String.IsNullOrWhiteSpace(attribute.CustomBase) &&
+                _constants.ContainsKey(attribute.CustomBase))
                 baseEndpoint = _constants[attribute.CustomBase];
 
             using (var client = new HttpClient())
@@ -192,7 +195,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        public async Task LoginAsync(String email, String password, CancellationToken cancellationToken)
+        public async Task<String> LoginAsync(String email, String password, CancellationToken cancellationToken)
         {
             if (_constants.Count == 0)
                 await GetConstants(cancellationToken);
@@ -203,6 +206,7 @@ namespace GuiStracini.Mandae.Utils
             };
             var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
             _apiAuthorization = response.Token;
+            return _apiAuthorization;
         }
 
         /// <summary>
