@@ -32,7 +32,7 @@ namespace GuiStracini.Mandae.Test
         [TestMethod]
 		public void RequestEndPoint()
         {
-            const String expected = "tracking/SV123456789BR";
+            const String expected = "trackings/SV123456789BR";
             var tracking = new TrackingRequest
             {
                 TrackingCode = "SV123456789BR"
