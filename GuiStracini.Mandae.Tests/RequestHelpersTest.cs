@@ -29,7 +29,8 @@ namespace GuiStracini.Mandae.Test
         /// <summary>
         /// Validates the request end point.
         /// </summary>
-        public void RequestEndPoint()
+        [TestMethod]
+		public void RequestEndPoint()
         {
             const String expected = "tracking/SV123456789BR";
             var tracking = new TrackingRequest
