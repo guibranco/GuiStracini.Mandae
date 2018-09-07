@@ -47,5 +47,13 @@
         ///   <c>true</c> if pj; otherwise, <c>false</c>.
         /// </value>
         public Boolean Pj { get; set; }
+
+        /// <summary>
+        /// Gets or sets the erro.
+        /// </summary>
+        /// <value>
+        /// The erro.
+        /// </value>
+        public String Erro { get; set; }
     }
 }

@@ -205,6 +205,8 @@ namespace GuiStracini.Mandae.Utils
                 Password = password
             };
             var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
+            if(!String.IsNullOrWhiteSpace(response.Erro))
+                throw new InvalidOperationException(response.Erro);
             _apiAuthorization = response.Token;
             return _apiAuthorization;
         }

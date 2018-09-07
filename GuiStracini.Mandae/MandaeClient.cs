@@ -377,8 +377,7 @@ namespace GuiStracini.Mandae
         public void ConfigureV1Authentication(String email, String password)
         {
             _serviceV1 = new ServiceFactoryV1(_configureAwait);
-            var tokenSource = new CancellationTokenSource(new TimeSpan(0, 1, 0));
-            _serviceV1.LoginAsync(email, password, tokenSource.Token).Wait(tokenSource.Token);
+            _serviceV1.LoginAsync(email, password, CancellationToken.None).Wait();
         }
 
         #endregion
