@@ -140,7 +140,7 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("GuiStracini.Mandae/3.0.0");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
                 if (!String.IsNullOrWhiteSpace(_apiAuthorization))
@@ -176,7 +176,7 @@ namespace GuiStracini.Mandae.Utils
                         default:
                             throw new HttpRequestException($"Requested method {method} not implemented in V1");
                     }
-                    return await response.Content.ReadAsAsync<TOut>().ConfigureAwait(_configureAwait);
+                    return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
                 {
@@ -198,7 +198,7 @@ namespace GuiStracini.Mandae.Utils
         public async Task<String> LoginAsync(String email, String password, CancellationToken cancellationToken)
         {
             if (_constants.Count == 0)
-                await GetConstants(cancellationToken);
+                await GetConstants(cancellationToken).ConfigureAwait(_configureAwait);
             var request = new LoginRequest
             {
                 Username = email,
