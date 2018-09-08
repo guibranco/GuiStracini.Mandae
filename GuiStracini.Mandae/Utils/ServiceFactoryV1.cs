@@ -87,7 +87,7 @@ namespace GuiStracini.Mandae.Utils
         /// or
         /// Cannot get the constants
         /// </exception>
-        private async Task GetConstants(CancellationToken cancellationToken)
+        private async Task<Boolean> GetConstants(CancellationToken cancellationToken)
         {
             using (var client = new HttpClient())
             {
@@ -105,6 +105,7 @@ namespace GuiStracini.Mandae.Utils
                 var matches = _constantsPattern.Matches(content);
                 foreach (Match m in matches)
                     _constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
+                return true;
             }
         }
 
@@ -197,8 +198,8 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="cancellationToken">The cancellation token</param>
         public async Task<String> LoginAsync(String email, String password, CancellationToken cancellationToken)
         {
-            if (_constants.Count == 0)
-                await GetConstants(cancellationToken).ConfigureAwait(_configureAwait);
+            if (_constants.Count == 0 && !await GetConstants(cancellationToken).ConfigureAwait(_configureAwait))
+                throw new InvalidOperationException("Unable to get the constants");
             var request = new LoginRequest
             {
                 Username = email,
