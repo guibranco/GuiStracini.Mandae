@@ -174,7 +174,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="apiKey">The API key.</param>
         /// <param name="token">The token.</param>
-        void ConfigureV1Authentication(String apiKey, String token);
+        Task ConfigureV1Authentication(String apiKey, String token);
 
         /// <summary>
         /// Searches the specified method for the specified value.
