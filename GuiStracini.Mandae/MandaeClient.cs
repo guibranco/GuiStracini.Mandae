@@ -84,8 +84,7 @@ namespace GuiStracini.Mandae
         /// <returns>A list of <see cref="GuiStracini.Mandae.Enums.Vehicle"/></returns>
         public List<Vehicle> GetVehicles(String postalCode)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetVehiclesAsync(postalCode, source.Token).Result;
+            return GetVehiclesAsync(postalCode, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -117,8 +116,7 @@ namespace GuiStracini.Mandae
         /// <returns><see cref="RatesResponse"/></returns>
         public RatesResponse GetRates(RatesModel model)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetRatesAsync(model, source.Token).Result;
+            return GetRatesAsync(model, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -153,8 +151,7 @@ namespace GuiStracini.Mandae
         /// <returns></returns>
         public AvailableHoursResponse GetAvailableHours(DateTime date)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetAvailableHoursAsync(date, source.Token).Result;
+            return GetAvailableHoursAsync(date, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -184,8 +181,7 @@ namespace GuiStracini.Mandae
         /// <returns>The <see cref="OrderResponse"/> with the property id populated</returns>
         public OrderResponse CreateOrderCollectRequest(OrderModel model)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return CreateOrderCollectRequestAsync(model, source.Token).Result;
+          return CreateOrderCollectRequestAsync(model, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -219,8 +215,7 @@ namespace GuiStracini.Mandae
         /// <returns>The job identifier</returns>
         public Guid CreateLargeOrderCollectRequest(OrderModel model)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return CreateLargeOrderCollectRequestAsync(model, source.Token).Result;
+            return CreateLargeOrderCollectRequestAsync(model, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -255,8 +250,7 @@ namespace GuiStracini.Mandae
         /// <returns><see cref="LatestResponse"/></returns>
         public LatestResponse GetLatestOrderCollectStatus(String customerId)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetLatestOrderCollectStatusAsync(customerId, source.Token).Result;
+            return GetLatestOrderCollectStatusAsync(customerId, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -282,8 +276,7 @@ namespace GuiStracini.Mandae
         /// <returns><c>true</c> if the order collect request was cancelled, otherwise <c>false</c></returns>
         public Boolean CancelOrderCollectRequest(Int64 orderId)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return CancelOrderCollectRequestAsync(orderId, source.Token).Result;
+            return CancelOrderCollectRequestAsync(orderId, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -311,8 +304,7 @@ namespace GuiStracini.Mandae
         /// <returns><c>true</c> if the order item collect request was cancelled, otherwise <c>false</c></returns>
         public Boolean CancelOrderItemCollectRequest(Int64 orderId, Int64 itemId)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return CancelOrderItemCollectRequestAsync(orderId, itemId, source.Token).Result;
+            return CancelOrderItemCollectRequestAsync(orderId, itemId, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -345,8 +337,7 @@ namespace GuiStracini.Mandae
         /// <returns><see cref="TrackingResponse"/></returns>
         public TrackingResponse GetTracking(String trackingCode)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return GetTrackingAsync(trackingCode, source.Token).Result;
+            return GetTrackingAsync(trackingCode, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -374,10 +365,10 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
-        public async Task ConfigureV1Authentication(String email, String password)
+        public async Task<String> ConfigureV1Authentication(String email, String password)
         {
             _serviceV1 = new ServiceFactoryV1(_configureAwait);
-            await _serviceV1.LoginAsync(email, password, CancellationToken.None).ConfigureAwait(_configureAwait);
+            return await _serviceV1.LoginAsync(email, password, CancellationToken.None).ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -396,8 +387,7 @@ namespace GuiStracini.Mandae
         /// </returns>
         public SearchResponse Search(SearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return SearchAsync(method, value, source.Token, limit, offset).Result;
+            return SearchAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
 
         /// <summary>
@@ -424,13 +414,15 @@ namespace GuiStracini.Mandae
                 Offset = offset,
             };
 
-            return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token);
+            return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token).ConfigureAwait(_configureAwait);
         }
 
         #endregion
 
         #region Occurrences (V1)
 
+        //TODO
+        
         #endregion
 
         #region Reverses (V1)
@@ -445,8 +437,7 @@ namespace GuiStracini.Mandae
         /// <returns></returns>
         public SearchReverseResponse SearchReverse(ReverseSearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
         {
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            return SearchReverseAsync(method, value, source.Token, limit, offset).Result;
+            return SearchReverseAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
 
         /// <summary>
@@ -472,7 +463,7 @@ namespace GuiStracini.Mandae
                 Offset = offset
             };
 
-            return await _serviceV1.Get<SearchReverseResponse, SearchReverseRequest>(data, token);
+            return await _serviceV1.Get<SearchReverseResponse, SearchReverseRequest>(data, token).ConfigureAwait(_configureAwait);
         }
 
         #endregion
