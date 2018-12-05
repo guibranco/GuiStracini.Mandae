@@ -1,10 +1,10 @@
 ﻿// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
-// Created          : 05/01/2018
+// Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 2018-12-05
 // ***********************************************************************
 // <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -47,12 +47,17 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants pattern
         /// </summary>
-        private readonly Regex _constantsPathPattern = new Regex(@"(\/app\/(?:.+?)\.constants\.js)", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// The constants js pattern
+        /// </summary>
+        private readonly Regex _constantsJSPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
 
         /// <summary>
         /// The constant pattern
         /// </summary>
-        private readonly Regex _constantsPattern = new Regex(@"\.constant\(\'(?<key>.+?)\',\s?\'(?<value>.+?)\'\)", RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
 
         /// <summary>
         /// The API authorization
@@ -92,7 +97,11 @@ namespace GuiStracini.Mandae.Utils
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://app.mandae.com.br/");
+                client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.ExpectContinue = false;
+                client.DefaultRequestHeaders.Add("Connection", "Keep-Alive");
+                client.DefaultRequestHeaders.Add("Keep-Alive", "timeout=600");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 var response = await client.GetAsync("login", cancellationToken).ConfigureAwait(_configureAwait);
                 var content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
                 if (!_constantsPathPattern.IsMatch(content))
@@ -100,9 +109,10 @@ namespace GuiStracini.Mandae.Utils
                 var match = _constantsPathPattern.Match(content);
                 response = await client.GetAsync(match.Value, cancellationToken).ConfigureAwait(_configureAwait);
                 content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
-                if (!_constantsPattern.IsMatch(content))
-                    throw new InvalidOperationException("Cannot get the constants");
-                var matches = _constantsPattern.Matches(content);
+                if (!_constantsJSPattern.IsMatch(content))
+                    throw new InvalidOperationException($"Cannot get the constants from file {match.Value}");
+                match = _constantsJSPattern.Match(content);
+                var matches = _constantsPattern.Matches(match.Groups["constants"].Value);
                 foreach (Match m in matches)
                     _constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
                 return true;
@@ -206,7 +216,7 @@ namespace GuiStracini.Mandae.Utils
                 Password = password
             };
             var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
-            if(!String.IsNullOrWhiteSpace(response.Erro))
+            if (!String.IsNullOrWhiteSpace(response.Erro))
                 throw new InvalidOperationException(response.Erro);
             _apiAuthorization = response.Token;
             return _apiAuthorization;
