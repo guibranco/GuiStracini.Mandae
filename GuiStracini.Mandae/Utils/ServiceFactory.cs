@@ -126,7 +126,7 @@ namespace GuiStracini.Mandae.Utils
                         default:
                             throw new HttpRequestException($"Requested method {method} not implemented in V2");
                     }
-                    return await response.Content.ReadAsAsync<TOut>().ConfigureAwait(_configureAwait);
+                    return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
                 {

@@ -16,6 +16,7 @@ namespace GuiStracini.Mandae.Transport
     using Enums;
     using Newtonsoft.Json;
     using System;
+    using System.Globalization;
     using ValueObject;
 
     /// <summary>
@@ -93,7 +94,24 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// The processing date
         /// </summary>
-        [JsonProperty("processingDate")]
+        [JsonIgnore]
         public DateTime? ProcessingDate { get; set; }
+
+        [JsonProperty("processingDate")]
+        public String ProcessingDateInternal
+        {
+            get => ProcessingDate?.ToString("yyyy-MM-dd");
+            set
+            {
+                if (value == null)
+                    return;
+                if (DateTime.TryParseExact(value, "yyyy-MM-dd", null, DateTimeStyles.None, out var temp))
+                {
+                    ProcessingDate = temp;
+                    return;
+                }
+                ProcessingDate = JsonConvert.DeserializeObject<DateTime>($@"""/Date({value})/""");
+            }
+        }
     }
 }
