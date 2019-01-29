@@ -15,14 +15,12 @@ namespace GuiStracini.Mandae
 {
     using Enums;
     using Models;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using Transport;
+    using Transport.V1;
     using Utils;
 
     /// <summary>
@@ -75,38 +73,6 @@ namespace GuiStracini.Mandae
 
         #endregion
 
-        #region Vehicles
-
-        /// <summary>
-        /// Gets the vehicles availables for the supplied postal code.
-        /// </summary>
-        /// <param name="postalCode">The postal code of the collect location.</param>
-        /// <returns>A list of <see cref="GuiStracini.Mandae.Enums.Vehicle"/></returns>
-        public List<Vehicle> GetVehicles(String postalCode)
-        {
-            return GetVehiclesAsync(postalCode, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Gets the vehicles availables for the supplied postal code asynchronous.
-        /// </summary>
-        /// <param name="postalCode">The postal code of the collect location.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of list of <see cref="GuiStracini.Mandae.Enums.Vehicle"/></returns>
-        public async Task<List<Vehicle>> GetVehiclesAsync(String postalCode, CancellationToken token)
-        {
-            var data = new VehiclesRequest
-            {
-                Token = _token,
-                PostalCode = postalCode
-            };
-            var result = await _service.Get<Object, VehiclesRequest>(data, token).ConfigureAwait(_configureAwait);
-            var array = JArray.Parse(result.ToString());
-            return array.Select(v => (Vehicle)Enum.Parse(typeof(Vehicle), v.ToString().ToUpper())).ToList();
-        }
-
-        #endregion
-
         #region Rates
 
         /// <summary>
@@ -142,36 +108,6 @@ namespace GuiStracini.Mandae
 
         #endregion
 
-        #region Schedulings 
-
-        /// <summary>
-        /// Gets the available hours.
-        /// </summary>
-        /// <param name="date">The date.</param>
-        /// <returns></returns>
-        public AvailableHoursResponse GetAvailableHours(DateTime date)
-        {
-            return GetAvailableHoursAsync(date, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Gets the available hours for collect request asynchronous.
-        /// </summary>
-        /// <param name="date">The date of the collect.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="AvailableHoursResponse"/></returns>
-        public async Task<AvailableHoursResponse> GetAvailableHoursAsync(DateTime date, CancellationToken token)
-        {
-            var data = new AvailableHoursRequest
-            {
-                Token = _token,
-                Date = date.ToString("yyyy-MM-dd")
-            };
-            return await _service.Get<AvailableHoursResponse, AvailableHoursRequest>(data, token).ConfigureAwait(_configureAwait);
-        }
-
-        #endregion
-
         #region Orders 
 
         /// <summary>
@@ -181,7 +117,7 @@ namespace GuiStracini.Mandae
         /// <returns>The <see cref="OrderResponse"/> with the property id populated</returns>
         public OrderResponse CreateOrderCollectRequest(OrderModel model)
         {
-          return CreateOrderCollectRequestAsync(model, CancellationToken.None).Result;
+            return CreateOrderCollectRequestAsync(model, CancellationToken.None).Result;
         }
 
         /// <summary>
@@ -422,7 +358,7 @@ namespace GuiStracini.Mandae
         #region Occurrences (V1)
 
         //TODO
-        
+
         #endregion
 
         #region Reverses (V1)

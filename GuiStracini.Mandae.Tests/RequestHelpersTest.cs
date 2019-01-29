@@ -18,6 +18,7 @@ namespace GuiStracini.Mandae.Test
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using Transport;
+    using Transport.V1;
     using Utils;
 
     /// <summary>

@@ -16,10 +16,10 @@ namespace GuiStracini.Mandae
     using Enums;
     using Models;
     using System;
-    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
     using Transport;
+    using Transport.V1;
 
     /// <summary>
     /// The Mandaê API interface (also implements V1 methods - currently only Search supported)
@@ -27,21 +27,6 @@ namespace GuiStracini.Mandae
     public interface IMandaeClient
     {
         #region V2
-
-        /// <summary>
-        /// Gets the vehicles.
-        /// </summary>
-        /// <param name="postalCode">The postal code.</param>
-        /// <returns></returns>
-        List<Vehicle> GetVehicles(String postalCode);
-
-        /// <summary>
-        /// Gets the vehicles asynchronous.
-        /// </summary>
-        /// <param name="postalCode">The postal code.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<List<Vehicle>> GetVehiclesAsync(String postalCode, CancellationToken token);
 
         /// <summary>
         /// Gets the rates.
@@ -57,21 +42,6 @@ namespace GuiStracini.Mandae
         /// <param name="token">The token.</param>
         /// <returns></returns>
         Task<RatesResponse> GetRatesAsync(RatesModel model, CancellationToken token);
-
-        /// <summary>
-        /// Gets the available hours.
-        /// </summary>
-        /// <param name="date">The date.</param>
-        /// <returns></returns>
-        AvailableHoursResponse GetAvailableHours(DateTime date);
-
-        /// <summary>
-        /// Gets the available hours asynchronous.
-        /// </summary>
-        /// <param name="date">The date.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<AvailableHoursResponse> GetAvailableHoursAsync(DateTime date, CancellationToken token);
 
         /// <summary>
         /// Creates the order collect request.

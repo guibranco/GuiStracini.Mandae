@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Transport
+namespace GuiStracini.Mandae.Transport.V1
 {
-    using Newtonsoft.Json;
     using System;
+    using Newtonsoft.Json;
     using ValueObject;
 
     /// <summary>

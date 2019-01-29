@@ -1,8 +1,8 @@
-﻿namespace GuiStracini.Mandae.Transport
+﻿namespace GuiStracini.Mandae.Transport.V1
 {
+    using System;
     using Attributes;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The login request

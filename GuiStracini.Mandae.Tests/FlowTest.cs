@@ -22,8 +22,7 @@
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             const String customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
-
-            var vehicles = client.GetVehicles("03137020");
+            var rnd = new Random();
             var ratesModel = new RatesModel
             {
                 PostalCode = "22041080",
@@ -41,18 +40,12 @@
             Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
             var cheapAndFastDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
-            var schedulerDate = DateTime.Now.AddDays(1);
-            var availableHours = client.GetAvailableHours(schedulerDate);
-            Assert.IsNull(availableHours.Error);
-            Assert.IsTrue(availableHours.Hours.Any());
             var orderModel = new OrderModel
             {
                 CustomerId = customerId,
-                Vehicle = vehicles.Any(v => v == Vehicle.CAR)
-                              ? Vehicle.CAR
-                              : vehicles.First(),
+                Vehicle = Vehicle.CAR,
                 Observation = "Full flow validation test",
-                Scheduling = availableHours.Hours.First(),
+                Scheduling = DateTime.Now,
                 PartnerOrderId = "1234567890",
                 Sender = new Sender
                 {
@@ -72,6 +65,7 @@
                 {
                     new Item
                     {
+                        Id= rnd.Next(10000,99999),
                         Dimensions = ratesModel.Dimensions,
                         Observation = "Teste",
                         Recipient = new Recipient

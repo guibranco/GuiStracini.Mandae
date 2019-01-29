@@ -20,7 +20,6 @@ namespace GuiStracini.Mandae.Test
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
     using ValueObject;
 
     /// <summary>
@@ -31,12 +30,12 @@ namespace GuiStracini.Mandae.Test
         /// <summary>
         /// The orders
         /// </summary>
-        private MockOrders _orders;
+        private readonly MockOrders _orders;
 
         /// <summary>
         /// The orders items
         /// </summary>
-        private MockOrdersItems _ordersItems;
+        private readonly MockOrdersItems _ordersItems;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MockOrdersRepository"/> class.
@@ -45,28 +44,6 @@ namespace GuiStracini.Mandae.Test
         {
             _orders = JsonConvert.DeserializeObject<MockOrders>(File.ReadAllText("orders.json"));
             _ordersItems = JsonConvert.DeserializeObject<MockOrdersItems>(File.ReadAllText("items.json"));
-        }
-
-        /// <summary>
-        /// Gets the orders ids pending shipping asynchronous.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<IEnumerable<Int32>> GetOrdersIdsPendingShippingAsync()
-        {
-            await Task.Delay(5000);
-            return new[]
-            {
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10
-            };
         }
 
         /// <summary>
@@ -118,6 +95,7 @@ namespace GuiStracini.Mandae.Test
                 {
                     new Item
                     {
+                        Id= new Random().Next(10000,99999),
                         TrackingId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}", //The VTR prefix must be registred with Mandaê (sending null trackingId will force Mandaê to use it's onw tracking id sequence)
                         Dimensions = new Dimensions
                         {

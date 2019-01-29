@@ -26,6 +26,7 @@ namespace GuiStracini.Mandae.Utils
     using System.Threading;
     using System.Threading.Tasks;
     using Transport;
+    using Transport.V1;
 
     /// <summary>
     /// This class is a utility helper that performs the request to the API using an inherited <see cref = "BaseRequest" /> class

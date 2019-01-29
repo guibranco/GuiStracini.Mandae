@@ -1,4 +1,4 @@
-﻿namespace GuiStracini.Mandae.Transport
+﻿namespace GuiStracini.Mandae.Transport.V1
 {
     using System;
 

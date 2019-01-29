@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Transport
+namespace GuiStracini.Mandae.Transport.V1
 {
+    using System;
     using Attributes;
     using Enums;
-    using System;
 
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1

@@ -29,19 +29,17 @@ Install-Package GuiStracini.Mandae
 ## Features ##
 
 This client supports the following operations/features of the API:
- 1. Get available vehicles for a collect location (pickup packages from collect location based on postal code) 
- 2. Get rates for a delivery (postal code and package dimensions)
- 3. Get the available hours to pickup order(s) in a selected date
- 4. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
- 5. Cancel the whole collect schedule (Cancel a previous collect scheduler)
- 6. Cancel a schedule item (Cancel a item/package from a collect order)
- 7. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
- 8. WebHooks schema ready (The web hooks models/, ready for implementation)
- 9. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
- 10. **Experimental** Querying orders (API V1 - non-public API)
- 11. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO v3.2]**
- 12. **Experimental** Querying reverses (API V1 - non-public API) **[TODO v3.2]**
- 13. **Experimental** Request reverse (API V1 - non-public API) **[TODO v3.3]**
+ 1. Get rates for a delivery (postal code and package dimensions)
+ 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
+ 3. Cancel the whole collect schedule (Cancel a previous collect scheduler)
+ 4. Cancel a schedule item (Cancel a item/package from a collect order)
+ 5. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
+ 6. WebHooks schema ready (The web hooks models/, ready for implementation)
+ 7. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
+ 8. **Experimental** Querying orders (API V1 - non-public API)
+ 9. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO v4.2]**
+ 10. **Experimental** Querying reverses (API V1 - non-public API) **[TODO v4.2]**
+ 11. **Experimental** Request reverse (API V1 - non-public API) **[TODO v4.3]**
 
 
  All operations supports sync and async!
@@ -62,22 +60,6 @@ var apiToken = "my API token";
 //Call the constructor with the API token and de API environment (SANDBOX | PRODUCTION).
 //var client = new MandaeClient(apiToken); //<= Environment.SANDBOX is the default environment.
 var client = new MandaeClient(apiToken, Environment.PRODUCTION);
-```
-
-## Get available vehicles ##
-
-Get all available vehicles for a pickup in a source postal code (distribution center / origin location).
-
-Example:
-```csharp
-//The MandaeClient
-var client = new MandaeClient("my API token");
-
-var vehicles = client.GetVehicles("03137020");
-if(vehicles.Any(v=>v.CAR))
-{
-    //Car is available for the pickup in this postal code!
-}
 ```
 
 ## Get rates for a package/delivery ##
@@ -113,27 +95,11 @@ order.Items = new [] {
 var order = client.RegisterOrderCollectRequest(order);
 ```
 
-## Get available hours for pickup ##
-
-Gets the available hours for pickup/collect packages in the distribuiton center for a specified date.
-
-Example:
-```csharp
-//The MandaeClient
-var client = new MandaeClient("my API token");
-
-//Check the available hours for tomorrow
-var date= DateTime.Now.AddDays(1);
-
-//The list os avaiable hours for pickup tomorrow
-var avaiableHours = client.GetAvaiableHours(date);
-```
-
 ## Schedule a collect request ##
 
 Schedule a collect request (pickup in distribution center / origin location).
 
-Inform which type of Vehicle (GetVehicles), when (GetAvailableHours), which rate (Rapido | Economico) and the order items (a.k.a packages or clients orders).
+Inform which type of Vehicle, when, which rate (Rapido | Economico) and the order items (a.k.a packages or clients orders).
 
 Each package means a order/volume, that can have one or more items (SKUs).
 
@@ -227,12 +193,6 @@ var tracking = client.GetTracking(trackingId);
 //tracking.CarrierCode;
 //tracking.Events;
 ```
-
-## Collect Builder
-
-Example: **[TODO]**
-
-
 ## Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API ##
 
 For the V1 you'll need to use the e-mail/password combination of t he Mandaê painel to login in V1 API.
