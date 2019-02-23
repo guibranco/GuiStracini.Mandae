@@ -1,9 +1,15 @@
 version: 4.0.{build}
+branches:
+ only:
+   - master
 skip_tags: true
 image: Visual Studio 2017
 configuration: Release
 skip_commits:
   message: /(Created|Update).*\.(png|jpg|jpeg|bmp|gif|md)/
+environment:
+    SONAR_TOKEN: 
+        secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
@@ -12,6 +18,8 @@ assembly_info:
   assembly_informational_version: '{version}'
 before_build:
 - cmd: nuget restore
+- cmd: choco install opencover.portable
+- cmd: choco install codecov
 build:
   publish_nuget: true
   publish_nuget_symbols: true

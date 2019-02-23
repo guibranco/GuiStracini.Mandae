@@ -1,4 +1,4 @@
-# Mandaê API
+# Mandaê API Client
 The **(unofficial)** Mandaê API client
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
@@ -6,6 +6,13 @@ The **(unofficial)** Mandaê API client
 [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=flat)](https://github.com/guibranco/GuiStracini.Mandae)
 ![Last release](https://img.shields.io/github/release-date/guibranco/guistracini.mandae.svg?style=flat)
+
+[![codecov](https://codecov.io/gh/guistracini.mandae/viacep/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/guistracini.mandae)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_index)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
 <img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png" alt="GuiStracini.Mandae" width="150" height="150" />
 
