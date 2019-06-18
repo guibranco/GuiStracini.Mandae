@@ -41,15 +41,12 @@ Install-Package GuiStracini.Mandae
 This client supports the following operations/features of the API:
  1. Get rates for a delivery (postal code and package dimensions)
  2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
- 3. Cancel the whole collect schedule (Cancel a previous collect scheduler)
- 4. Cancel a schedule item (Cancel a item/package from a collect order)
- 5. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
- 6. WebHooks schema ready (The web hooks models/, ready for implementation)
- 7. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
- 8. **Experimental** Querying orders (API V1 - non-public API)
- 9. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO]**
- 10. **Experimental** Querying reverses (API V1 - non-public API) **[TODO]**
- 11. **Experimental** Request reverse (API V1 - non-public API) **[TODO]**
+ 4. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
+ 5. WebHooks schema ready (The web hooks models, ready for implementation)
+ 6. **Experimental** Querying orders (API V1 - non-public API)
+ 7. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO]**
+ 8. **Experimental** Querying reverses (API V1 - non-public API) **[TODO]**
+ 9. **Experimental** Request reverse (API V1 - non-public API) **[TODO]**
 
 
  All operations supports sync and async!
@@ -149,43 +146,6 @@ var status = client.GetLatestOrderCollectStatus(customerId);
 
 //Tracking url for the order collect request
 var url = status.Url;
-
-```
-
-## Cancel a schedule collect request ##
-
-Cancels a previous scheduler collect request by it's identifier
-
-Example:
-```csharp
-//The MandaeClient
-var client = new MandaeClient("my API token");
-
-//The collect request id, saved from a create order collect request method
-var collectRequestId = 123456789;
-
-//Cancels the collect request
-var canceled = client.CancelORderCollectRequest(collectRequestId);
-
-if(canceled)
-	//canceled
-else
-	//error ? Order not canceled
-```
-
-## Cancel a schedule item (package) collect request ##
-
-Example:
-```csharp
-//The MandaeClient
-var client = new MandaeClient("my API token");
-
-//The order identifier 
-var orderId = 1;
-var canceled = client.CancelOrderCollectRequest(orderId);
-
-//if(canceled)
-//  Debug.WriteLine("order canceled");
 
 ```
 
