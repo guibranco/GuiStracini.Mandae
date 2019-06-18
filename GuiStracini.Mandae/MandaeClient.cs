@@ -144,42 +144,6 @@ namespace GuiStracini.Mandae
         }
 
         /// <summary>
-        /// Creates the large order collect request.
-        /// This executes an asynchronous method inside the Mandaê API too, so the response is just a job identifier that will be sent to the order created web hook later
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <returns>The job identifier</returns>
-        public Guid CreateLargeOrderCollectRequest(OrderModel model)
-        {
-            return CreateLargeOrderCollectRequestAsync(model, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Creates the large order collect request asynchronous.
-        /// This executes an asynchronous method inside the Mandaê API too, so the response is just a job identifier that will be sent to the order created web hook later
-        /// </summary>
-        /// <param name="model">The order collect request model.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task with the <see cref="Guid"/> job identifier></returns>
-        public async Task<Guid> CreateLargeOrderCollectRequestAsync(OrderModel model, CancellationToken token)
-        {
-            var data = new LargeOrderRequest
-            {
-                Token = _token,
-                CustomerId = model.CustomerId,
-                Items = model.Items,
-                Label = model.Label,
-                Observation = model.Observation,
-                PartnerOrderId = model.PartnerOrderId,
-                Scheduling = model.Scheduling,
-                Sender = model.Sender,
-                Vehicle = model.Vehicle
-            };
-            var response = await _service.Post<LargeOrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response.JobId;
-        }
-
-        /// <summary>
         /// Gets the latest order collect status.
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>

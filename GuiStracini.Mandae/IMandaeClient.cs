@@ -59,21 +59,6 @@ namespace GuiStracini.Mandae
         Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
 
         /// <summary>
-        /// Creates the large order collect request
-        /// </summary>
-        /// <param name="model">The order request collect data</param>
-        /// <returns>A <see cref="Guid"/> identifier of the job id on the Mandaê platform</returns>
-        Guid CreateLargeOrderCollectRequest(OrderModel model);
-
-        /// <summary>
-        /// Creates the large order collect request asynchronous.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <param name="token">The token.</param>
-        /// <returns>A task containing the <see cref="Guid"/> identifier of the job id in the Mandaê platform</returns>
-        Task<Guid> CreateLargeOrderCollectRequestAsync(OrderModel model, CancellationToken token);
-
-        /// <summary>
         /// Gets the latest order collect status.
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
@@ -87,38 +72,6 @@ namespace GuiStracini.Mandae
         /// <param name="token">The token.</param>
         /// <returns></returns>
         Task<LatestResponse> GetLatestOrderCollectStatusAsync(String customerId, CancellationToken token);
-
-        /// <summary>
-        /// Cancels the order collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <returns></returns>
-        Boolean CancelOrderCollectRequest(Int64 orderId);
-
-        /// <summary>
-        /// Cancels the order collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<Boolean> CancelOrderCollectRequestAsync(Int64 orderId, CancellationToken token);
-
-        /// <summary>
-        /// Cancels the order item collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <returns></returns>
-        Boolean CancelOrderItemCollectRequest(Int64 orderId, Int64 itemId);
-
-        /// <summary>
-        /// Cancels the order item collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<Boolean> CancelOrderItemCollectRequestAsync(Int64 orderId, Int64 itemId, CancellationToken token);
 
         /// <summary>
         /// Gets the tracking.

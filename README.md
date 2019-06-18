@@ -26,6 +26,8 @@ Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint 
 
 **Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.**
 
+**Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request**
+
 ----------
 
 NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
@@ -45,9 +47,9 @@ This client supports the following operations/features of the API:
  6. WebHooks schema ready (The web hooks models/, ready for implementation)
  7. Collect builder (gets a builder for schedule a collect, allowing add items on-demand)
  8. **Experimental** Querying orders (API V1 - non-public API)
- 9. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO v4.2]**
- 10. **Experimental** Querying reverses (API V1 - non-public API) **[TODO v4.2]**
- 11. **Experimental** Request reverse (API V1 - non-public API) **[TODO v4.3]**
+ 9. **Experimental** Querying ocurrences (API V1 - non-public API) **[TODO]**
+ 10. **Experimental** Querying reverses (API V1 - non-public API) **[TODO]**
+ 11. **Experimental** Request reverse (API V1 - non-public API) **[TODO]**
 
 
  All operations supports sync and async!
@@ -89,16 +91,16 @@ var fast = rates.ShippingServices.Single(s => s.Name == "Rápido");
 var economic = rates.ShippingServices.Single(s => s.Name == "Econômico");
 var option = ShippingService.ECONOMICO;
 if(fast.Price < economic.Price)
-    option = ShippingService.RAPIDO;
+	option = ShippingService.RAPIDO;
 
 //The OrderModel (order collect request model)
 var order = new OrderModel { ... };
 order.Items = new [] {
-    new NewItem 
-    {
-        ....
-        ShippingService = option
-    }
+	new NewItem 
+	{
+		....
+		ShippingService = option
+	}
 };
 var order = client.RegisterOrderCollectRequest(order);
 ```
@@ -119,11 +121,11 @@ var client = new MandaeClient("my API token");
 //The OrderModel (order collect request model)
 var order = new OrderModel { ... };
 order.Items = new [] {
-    new NewItem 
-    {
-        ....
-        ShippingService = option
-    }
+	new NewItem 
+	{
+		....
+		ShippingService = option
+	}
 };
 
 //Makes the request
@@ -166,9 +168,9 @@ var collectRequestId = 123456789;
 var canceled = client.CancelORderCollectRequest(collectRequestId);
 
 if(canceled)
-    //canceled
+	//canceled
 else
-    //error ? Order not canceled
+	//error ? Order not canceled
 ```
 
 ## Cancel a schedule item (package) collect request ##
@@ -214,5 +216,5 @@ client.ConfigureV1Authentication("myEmail@example.com", "mypassword");
 var trackingCode = "XYZ000001";//The tracking code of some order
 var result = client.Search(SearchMethod.TRACKING_CODE, trackingCode);
 if(result.Total == 1)
-    Console.WriteLine(result.Orders.Single().SituationDescription);    
+	Console.WriteLine(result.Orders.Single().SituationDescription);    
 ```

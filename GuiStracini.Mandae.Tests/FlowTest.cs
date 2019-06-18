@@ -9,7 +9,7 @@
 
     /// <summary>
     /// Flow test validation class performs a full flow validations. 
-    /// Validates the vehicle, the rates, the avaiable hours, register a order collect request and check the lastest order status
+    /// Validates the vehicle, the rates, the available hours, register a order collect request and check the latest order status
     /// </summary>
     [TestClass]
     public class FlowTest

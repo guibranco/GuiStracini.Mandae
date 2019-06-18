@@ -31,7 +31,7 @@ namespace GuiStracini.Mandae.Test
         /// Validates the request end point.
         /// </summary>
         [TestMethod]
-		public void RequestEndPoint()
+        public void RequestEndPoint()
         {
             const String expected = "trackings/SV123456789BR";
             var tracking = new TrackingRequest
@@ -82,18 +82,6 @@ namespace GuiStracini.Mandae.Test
                 ItemId = 987654
             };
             cancelItem.GetRequestEndPoint();
-        }
-
-        /// <summary>
-        /// Validates the request additional parameter as query string.
-        /// </summary>
-        [TestMethod]
-        public void RequestAdditionalParameterAsQueryString()
-        {
-            const String expected = "/?async=true";
-            var order = new LargeOrderRequest();
-            var result = order.GetRequestAdditionalParameter(ActionMethod.POST);
-            Assert.AreEqual(expected, result, "The additional parameter should be query string");
         }
 
         /// <summary>
