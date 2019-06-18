@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="FlowTest.cs" />
     <Compile Include="MockOrdersRepository.cs" />
-    <Compile Include="OrderBuilderTest.cs" />
     <Compile Include="RatesTest.cs" />
     <Compile Include="OrdersTest.cs" />
     <Compile Include="TrackingTest.cs" />

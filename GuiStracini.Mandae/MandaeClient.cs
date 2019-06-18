@@ -167,64 +167,7 @@ namespace GuiStracini.Mandae
                 CustomerId = customerId
             };
             return await _service.Get<LatestResponse, LatestRequest>(data, token).ConfigureAwait(_configureAwait);
-        }
-
-        /// <summary>
-        /// Cancels the order collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <returns><c>true</c> if the order collect request was cancelled, otherwise <c>false</c></returns>
-        public Boolean CancelOrderCollectRequest(Int64 orderId)
-        {
-            return CancelOrderCollectRequestAsync(orderId, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Cancels the order collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="Boolean"/> indicating whetever the order collect request was canceled or not</returns>
-        public async Task<Boolean> CancelOrderCollectRequestAsync(Int64 orderId, CancellationToken token)
-        {
-            var data = new CancelOrderRequest
-            {
-                Token = _token,
-                OrderId = orderId
-            };
-            var response = await _service.Delete<Int32, CancelOrderRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response == 204;
-        }
-
-        /// <summary>
-        /// Cancels the order item collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <returns><c>true</c> if the order item collect request was cancelled, otherwise <c>false</c></returns>
-        public Boolean CancelOrderItemCollectRequest(Int64 orderId, Int64 itemId)
-        {
-            return CancelOrderItemCollectRequestAsync(orderId, itemId, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Cancels the order item collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="Boolean"/> indicating whetever the order item collect request was canceled or not</returns>
-        public async Task<Boolean> CancelOrderItemCollectRequestAsync(Int64 orderId, Int64 itemId, CancellationToken token)
-        {
-            var data = new CancelItemRequest
-            {
-                Token = _token,
-                OrderId = orderId,
-                ItemId = itemId
-            };
-            var response = await _service.Delete<Int32, CancelItemRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response == 204;
-        }
+        }       
 
         #endregion
 

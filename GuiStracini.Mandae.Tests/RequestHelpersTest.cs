@@ -43,22 +43,6 @@ namespace GuiStracini.Mandae.Test
         }
 
         /// <summary>
-        /// Validates the request end point with multiple parameters.
-        /// </summary>
-        [TestMethod]
-        public void RequestEndPointWithMultipleParameters()
-        {
-            const String expected = "orders/123456/items/987654";
-            var cancelItem = new CancelItemRequest
-            {
-                ItemId = 987654,
-                OrderId = 123456
-            };
-            var result = cancelItem.GetRequestEndPoint();
-            Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
-        }
-
-        /// <summary>
         /// Validates the request end point with null values.
         /// </summary>
         [TestMethod]
@@ -69,21 +53,7 @@ namespace GuiStracini.Mandae.Test
             var result = tracking.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
-
-        /// <summary>
-        /// Validates the request end point with multiple parameters with invalid data.
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(InvalidRequestEndPointException), "The endpoint was resolved with incorrect format")]
-        public void RequestEndPointWithMultipleParametersWithInvalidData()
-        {
-            var cancelItem = new CancelItemRequest
-            {
-                ItemId = 987654
-            };
-            cancelItem.GetRequestEndPoint();
-        }
-
+        
         /// <summary>
         /// Requests the parameter default value.
         /// </summary>

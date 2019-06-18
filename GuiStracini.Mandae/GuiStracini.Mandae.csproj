@@ -65,7 +65,6 @@
     <Compile Include="GoodPractices\OrderBuiltException.cs" />
     <Compile Include="GoodPractices\RequestEndPointBadFormatException.cs" />
     <Compile Include="IMandaeClient.cs" />
-    <Compile Include="IOrderBuilder.cs" />
     <Compile Include="MandaeClient.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\RatesModel.cs" />
