@@ -144,42 +144,6 @@ namespace GuiStracini.Mandae
         }
 
         /// <summary>
-        /// Creates the large order collect request.
-        /// This executes an asynchronous method inside the Mandaê API too, so the response is just a job identifier that will be sent to the order created web hook later
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <returns>The job identifier</returns>
-        public Guid CreateLargeOrderCollectRequest(OrderModel model)
-        {
-            return CreateLargeOrderCollectRequestAsync(model, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Creates the large order collect request asynchronous.
-        /// This executes an asynchronous method inside the Mandaê API too, so the response is just a job identifier that will be sent to the order created web hook later
-        /// </summary>
-        /// <param name="model">The order collect request model.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task with the <see cref="Guid"/> job identifier></returns>
-        public async Task<Guid> CreateLargeOrderCollectRequestAsync(OrderModel model, CancellationToken token)
-        {
-            var data = new LargeOrderRequest
-            {
-                Token = _token,
-                CustomerId = model.CustomerId,
-                Items = model.Items,
-                Label = model.Label,
-                Observation = model.Observation,
-                PartnerOrderId = model.PartnerOrderId,
-                Scheduling = model.Scheduling,
-                Sender = model.Sender,
-                Vehicle = model.Vehicle
-            };
-            var response = await _service.Post<LargeOrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response.JobId;
-        }
-
-        /// <summary>
         /// Gets the latest order collect status.
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
@@ -203,64 +167,7 @@ namespace GuiStracini.Mandae
                 CustomerId = customerId
             };
             return await _service.Get<LatestResponse, LatestRequest>(data, token).ConfigureAwait(_configureAwait);
-        }
-
-        /// <summary>
-        /// Cancels the order collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <returns><c>true</c> if the order collect request was cancelled, otherwise <c>false</c></returns>
-        public Boolean CancelOrderCollectRequest(Int64 orderId)
-        {
-            return CancelOrderCollectRequestAsync(orderId, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Cancels the order collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="Boolean"/> indicating whetever the order collect request was canceled or not</returns>
-        public async Task<Boolean> CancelOrderCollectRequestAsync(Int64 orderId, CancellationToken token)
-        {
-            var data = new CancelOrderRequest
-            {
-                Token = _token,
-                OrderId = orderId
-            };
-            var response = await _service.Delete<Int32, CancelOrderRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response == 204;
-        }
-
-        /// <summary>
-        /// Cancels the order item collect request.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <returns><c>true</c> if the order item collect request was cancelled, otherwise <c>false</c></returns>
-        public Boolean CancelOrderItemCollectRequest(Int64 orderId, Int64 itemId)
-        {
-            return CancelOrderItemCollectRequestAsync(orderId, itemId, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Cancels the order item collect request asynchronous.
-        /// </summary>
-        /// <param name="orderId">The order identifier.</param>
-        /// <param name="itemId">The item identifier.</param>
-        /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="Boolean"/> indicating whetever the order item collect request was canceled or not</returns>
-        public async Task<Boolean> CancelOrderItemCollectRequestAsync(Int64 orderId, Int64 itemId, CancellationToken token)
-        {
-            var data = new CancelItemRequest
-            {
-                Token = _token,
-                OrderId = orderId,
-                ItemId = itemId
-            };
-            var response = await _service.Delete<Int32, CancelItemRequest>(data, token).ConfigureAwait(_configureAwait);
-            return response == 204;
-        }
+        }       
 
         #endregion
 

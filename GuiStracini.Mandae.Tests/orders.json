@@ -15,7 +15,7 @@
     "Width": 40,
     "Length": 40,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009880,
+    "InvoiceNumber": 1009880,
     "Value": "478,44",
     "OrderId": 5624601
   },
@@ -35,7 +35,7 @@
     "Width": 40,
     "Length": 80,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009663,
+    "InvoiceNumber": 1009663,
     "Value": "239,4",
     "OrderId": 2059167
   },
@@ -55,7 +55,7 @@
     "Width": 50,
     "Length": 20,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009881,
+    "InvoiceNumber": 1009881,
     "Value": "19,72",
     "OrderId": 5624909
   },
@@ -75,7 +75,7 @@
     "Width": 50,
     "Length": 20,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009776,
+    "InvoiceNumber": 1009776,
     "Value": "112,42",
     "OrderId": 5624082
   },
@@ -95,7 +95,7 @@
     "Width": 30,
     "Length": 30,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1010014,
+    "InvoiceNumber": 1010014,
     "Value": "89,7",
     "OrderId": 5624886
   },
@@ -115,7 +115,7 @@
     "Width": 80,
     "Length": 60,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009664,
+    "InvoiceNumber": 1009664,
     "Value": "255,72",
     "OrderId": 2061292
   },
@@ -135,7 +135,7 @@
     "Width": 80,
     "Length": 60,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009882,
+    "InvoiceNumber": 1009882,
     "Value": "165,99",
     "OrderId": 5624888
   },
@@ -155,7 +155,7 @@
     "Width": 60,
     "Length": 10,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009777,
+    "InvoiceNumber": 1009777,
     "Value": "137,41",
     "OrderId": 5624322
   },
@@ -175,7 +175,7 @@
     "Width": 60,
     "Length": 10,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009665,
+    "InvoiceNumber": 1009665,
     "Value": "182,65",
     "OrderId": 5624582
   },
@@ -195,7 +195,7 @@
     "Width": 20,
     "Length": 20,
     "InvoiceKey": 3.5171005944298e+43,
-    "InvoiceNumbet": 1009883,
+    "InvoiceNumber": 1009883,
     "Value": "146,51",
     "OrderId": 5624878
   }

@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,15 +65,10 @@
     <Compile Include="GoodPractices\OrderBuiltException.cs" />
     <Compile Include="GoodPractices\RequestEndPointBadFormatException.cs" />
     <Compile Include="IMandaeClient.cs" />
-    <Compile Include="IOrderBuilder.cs" />
     <Compile Include="MandaeClient.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\RatesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transport\CancelItemRequest.cs" />
-    <Compile Include="Transport\LargeOrderRequest.cs" />
-    <Compile Include="Transport\LargeOrderResponse.cs" />
-    <Compile Include="Transport\CancelOrderRequest.cs" />
     <Compile Include="Transport\V1\LoginRequest.cs" />
     <Compile Include="Transport\V1\LoginResponse.cs" />
     <Compile Include="Transport\OrderResponse.cs" />

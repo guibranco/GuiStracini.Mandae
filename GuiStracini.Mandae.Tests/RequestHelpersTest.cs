@@ -31,7 +31,7 @@ namespace GuiStracini.Mandae.Test
         /// Validates the request end point.
         /// </summary>
         [TestMethod]
-		public void RequestEndPoint()
+        public void RequestEndPoint()
         {
             const String expected = "trackings/SV123456789BR";
             var tracking = new TrackingRequest
@@ -39,22 +39,6 @@ namespace GuiStracini.Mandae.Test
                 TrackingCode = "SV123456789BR"
             };
             var result = tracking.GetRequestEndPoint();
-            Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
-        }
-
-        /// <summary>
-        /// Validates the request end point with multiple parameters.
-        /// </summary>
-        [TestMethod]
-        public void RequestEndPointWithMultipleParameters()
-        {
-            const String expected = "orders/123456/items/987654";
-            var cancelItem = new CancelItemRequest
-            {
-                ItemId = 987654,
-                OrderId = 123456
-            };
-            var result = cancelItem.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
 
@@ -69,33 +53,7 @@ namespace GuiStracini.Mandae.Test
             var result = tracking.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
-
-        /// <summary>
-        /// Validates the request end point with multiple parameters with invalid data.
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(typeof(InvalidRequestEndPointException), "The endpoint was resolved with incorrect format")]
-        public void RequestEndPointWithMultipleParametersWithInvalidData()
-        {
-            var cancelItem = new CancelItemRequest
-            {
-                ItemId = 987654
-            };
-            cancelItem.GetRequestEndPoint();
-        }
-
-        /// <summary>
-        /// Validates the request additional parameter as query string.
-        /// </summary>
-        [TestMethod]
-        public void RequestAdditionalParameterAsQueryString()
-        {
-            const String expected = "/?async=true";
-            var order = new LargeOrderRequest();
-            var result = order.GetRequestAdditionalParameter(ActionMethod.POST);
-            Assert.AreEqual(expected, result, "The additional parameter should be query string");
-        }
-
+        
         /// <summary>
         /// Requests the parameter default value.
         /// </summary>
