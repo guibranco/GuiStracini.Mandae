@@ -1,4 +1,4 @@
-version: 5.0.{build}
+version: 6.0.{build}
 branches:
  only:
    - master
@@ -37,7 +37,11 @@ artifacts:
 deploy:
 - provider: Environment
   name: NuGet
+  on:
+   branch: master
 - provider: GitHub
+  on:
+   branch: master
   tag: $(appveyor_build_version)
   auth_token:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
