@@ -51,15 +51,6 @@ namespace GuiStracini.Mandae.ValueObject
         public string Reference { get; set; }
 
         /// <summary>
-        /// Gets or sets the qr codes.
-        /// </summary>
-        /// <value>
-        /// The qr codes.
-        /// </value>
-        [JsonProperty("qrCodes")]
-        public string[] QrCodes { get; set; }
-
-        /// <summary>
         /// Gets or sets the notes.
         /// </summary>
         /// <value>

@@ -13,11 +13,8 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
-    using Enums;
     using Newtonsoft.Json;
-    using System;
     using System.Globalization;
-    using Utils;
 
     /// <summary>
     /// The new item class
@@ -25,11 +22,6 @@ namespace GuiStracini.Mandae.ValueObject
     public sealed class Item
     {
         #region Private fields 
-
-        /// <summary>
-        /// The shipping service
-        /// </summary>
-        private ShippingService _shippingService;
 
         /// <summary>
         /// The total value
@@ -67,29 +59,8 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>
         /// The shipping service.
         /// </value>
-        [JsonIgnore]
-        public ShippingService ShippingService
-        {
-            get => _shippingService;
-            set => _shippingService = value;
-        }
-
-        /// <summary>
-        /// Gets or sets the shipping service internal.
-        /// </summary>
-        /// <value>
-        /// The shipping service internal.
-        /// </value>
         [JsonProperty("shippingService")]
-        public string ShippingServiceInternal
-        {
-            get => _shippingService.ToString().ToCamelCase();
-            set
-            {
-                var val = value.ToUpper().Replace("MANDAEEXPRESS", "RAPIDO").Replace("MANDAEECONOMICO", "ECONOMICO").ToUpper();
-                _shippingService = (ShippingService)Enum.Parse(typeof(ShippingService), val);
-            }
-        }
+        public string ShippingService => "Frete-Mandae";
 
         /// <summary>
         /// Gets or sets the value added services.
@@ -108,15 +79,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// </value>
         [JsonProperty("observation")]
         public string Observation { get; set; }
-
-        /// <summary>
-        /// Gets or sets the qr codes.
-        /// </summary>
-        /// <value>
-        /// The qr codes.
-        /// </value>
-        [JsonProperty("qrCodes")]
-        public string[] QrCodes { get; set; }
 
         /// <summary>
         /// Gets or sets the partner item identifier.

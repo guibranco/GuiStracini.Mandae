@@ -26,7 +26,7 @@ namespace GuiStracini.Mandae.Attributes
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.
+        /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.C:\Repositórios\GuiStracini.Mandae\GuiStracini.Mandae\Attributes\RequestEndPoint.cs
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
         public RequestEndPointAttribute(string endPoint)

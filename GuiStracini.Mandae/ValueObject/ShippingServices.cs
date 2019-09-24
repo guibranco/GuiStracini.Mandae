@@ -13,29 +13,13 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.ValueObject
 {
-    using Enums;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// Represents the shipping services data. 
     /// </summary>
     public sealed class ShippingServices
     {
-
-        #region Private fields
-
-        /// <summary>
-        /// The service
-        /// </summary>
-        private ShippingService _service;
-
-        /// <summary>
-        /// The service setted
-        /// </summary>
-        private bool _serviceSetted;
-
-        #endregion
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -49,45 +33,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// </value>
         [JsonProperty("id")]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the service
-        /// </summary>
-        /// <value>
-        /// The shipping service
-        /// </value>
-
-        [JsonIgnore]
-        public ShippingService Service
-        {
-            get => _service;
-            set
-            {
-                _service = value;
-                _serviceSetted = true;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        [JsonProperty("name")]
-        public string Name
-        {
-            get => _serviceSetted && _service == ShippingService.RAPIDO
-                       ? "Rapido"
-                       : "Economico";
-            set
-            {
-                _service = value.Equals("Rápido", StringComparison.InvariantCultureIgnoreCase)
-                               ? ShippingService.RAPIDO
-                               : ShippingService.ECONOMICO;
-                _serviceSetted = true;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the quantity days.

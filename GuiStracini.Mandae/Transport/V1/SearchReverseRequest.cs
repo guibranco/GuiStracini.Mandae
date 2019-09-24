@@ -2,6 +2,7 @@
 {
     using Attributes;
     using Enums;
+    using SDKBuilder.Routing;
 
     /// <summary>
     /// The reverse request class.
@@ -32,7 +33,7 @@
         /// <value>
         /// The offset.
         /// </value>
-        [RequestParameterDefaultValue("0")]
+        [DefaultRouteValue("0")]
         public int Offset { get; set; }
 
         /// <summary>
@@ -41,7 +42,7 @@
         /// <value>
         /// The limit.
         /// </value>
-        [RequestParameterDefaultValue("10")]
+        [DefaultRouteValue("10")]
         public int Limit { get; set; }
 
     }

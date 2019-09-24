@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GuiStracini.SDKBuilder.2.0.4\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=2.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GuiStracini.SDKBuilder.2.0.6\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -57,21 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\EnumRouteValue.cs" />
-    <Compile Include="Attributes\RequestAdditionalParameter.cs" />
     <Compile Include="Attributes\RequestEndPoint.cs" />
-    <Compile Include="Attributes\RequestParameterDefaultValue.cs" />
     <Compile Include="Enums\Environment.cs" />
     <Compile Include="Enums\ReverseSearchMethod.cs" />
     <Compile Include="Enums\SearchMethod.cs" />
     <Compile Include="Enums\Service.cs" />
-    <Compile Include="Enums\ShippingService.cs" />
     <Compile Include="Enums\ShippingSituation.cs" />
     <Compile Include="Enums\Vehicle.cs" />
-    <Compile Include="GoodPractices\InvalidRequestEndPointException.cs" />
     <Compile Include="GoodPractices\MandaeAPIException.cs" />
     <Compile Include="GoodPractices\OrderBuiltException.cs" />
-    <Compile Include="GoodPractices\RequestEndPointBadFormatException.cs" />
     <Compile Include="IMandaeClient.cs" />
     <Compile Include="MandaeClient.cs" />
     <Compile Include="Models\OrderModel.cs" />
@@ -116,7 +110,6 @@
     <Compile Include="Transport\VehiclesRequest.cs" />
     <Compile Include="Utils\ServiceFactory.cs" />
     <Compile Include="Transport\BaseRequest.cs" />
-    <Compile Include="Utils\RequestHelpers.cs" />
     <Compile Include="WebHook\OrderPickup.cs" />
     <Compile Include="WebHook\ProcessedItem.cs" />
   </ItemGroup>

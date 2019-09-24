@@ -35,11 +35,6 @@
                     Weight = 1.3
                 }
             };
-            var rates = client.GetRates(ratesModel);
-            Assert.IsNull(rates.Error);
-            Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
-            Assert.AreEqual(2, rates.ShippingServices.Length);
-            var cheapAndFastDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
             var orderModel = new OrderModel
             {
                 CustomerId = customerId,
@@ -86,9 +81,6 @@
                             Document = "05944298000101"
                         },
                         PartnerItemId = "12345",
-                        ShippingService = cheapAndFastDelivery.Name == "Rápido"
-                                              ? ShippingService.RAPIDO
-                                              : ShippingService.ECONOMICO,
                         Invoice = new Invoice
                         {
                             Id = "606620",

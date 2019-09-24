@@ -128,7 +128,6 @@ namespace GuiStracini.Mandae.Test
                             Document = "24580580001"
                         },
                         Observation = "Sample order test - 5607547",
-                        ShippingService = ShippingService.RAPIDO,
                         Skus = new[]
                         {
                             new Sku

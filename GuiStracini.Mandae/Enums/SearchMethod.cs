@@ -14,6 +14,7 @@
 namespace GuiStracini.Mandae.Enums
 {
     using Attributes;
+    using SDKBuilder.Routing;
 
     /// <summary>
     /// The search method (API V1) enumeration

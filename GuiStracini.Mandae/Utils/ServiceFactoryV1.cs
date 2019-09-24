@@ -16,6 +16,7 @@ namespace GuiStracini.Mandae.Utils
     using GoodPractices;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
+    using SDKBuilder;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -24,7 +25,6 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
-    using SDKBuilder;
     using Transport;
     using Transport.V1;
     using BaseResponse = Transport.BaseResponse;

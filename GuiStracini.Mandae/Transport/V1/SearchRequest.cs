@@ -15,6 +15,7 @@ namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
     using Enums;
+    using SDKBuilder.Routing;
 
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1
@@ -45,7 +46,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <value>
         /// The offset.
         /// </value>
-        [RequestParameterDefaultValue("0")]
+        [DefaultRouteValue("0")]
         public int Offset { get; set; }
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <value>
         /// The limit.
         /// </value>
-        [RequestParameterDefaultValue("10")]
+        [DefaultRouteValue("10")]
         public int Limit { get; set; }
 
     }
