@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The sender class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The full name.
         /// </value>
         [JsonProperty("fullName")]
-        public String FullName { get; set; }
+        public string FullName { get; set; }
         /// <summary>
         /// Gets or sets the address.
         /// </summary>

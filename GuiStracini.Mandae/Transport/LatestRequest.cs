@@ -15,15 +15,14 @@ namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// This service allows you to check the status of the last collection requested by the customer. 
     /// In the address returned in the url attribute it is possible to monitor the situation of the collection in real time, including to visualize in a map the location of the driver of the Mandaê who will make the collection
     /// </summary>
-    /// <seealso cref="BaseRequest" />
+    /// <seealso cref="Request" />
     [RequestEndPoint("customers/{CustomerId}/orders/latest")]
-    public sealed class LatestRequest : BaseRequest
+    public sealed class LatestRequest : Request
     {
         /// <summary>
         /// Gets or sets the customer identifier.
@@ -32,6 +31,6 @@ namespace GuiStracini.Mandae.Transport
         /// The customer identifier.
         /// </value>
         [JsonProperty("customerId")]
-        public String CustomerId { get; set; }
+        public string CustomerId { get; set; }
     }
 }

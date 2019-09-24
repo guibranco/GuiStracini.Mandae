@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The dimensions class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The type.
         /// </value>
         [JsonProperty("type")]
-        public String Type { get; set; }
+        public string Type { get; set; }
         /// <summary>
         /// Gets or sets the height.
         /// </summary>
@@ -36,7 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The height.
         /// </value>
         [JsonProperty("height")]
-        public Int32 Height { get; set; }
+        public int Height { get; set; }
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
@@ -44,7 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The width.
         /// </value>
         [JsonProperty("width")]
-        public Int32 Width { get; set; }
+        public int Width { get; set; }
         /// <summary>
         /// Gets or sets the length.
         /// </summary>
@@ -52,7 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The length.
         /// </value>
         [JsonProperty("length")]
-        public Int32 Length { get; set; }
+        public int Length { get; set; }
         /// <summary>
         /// Gets or sets the weight.
         /// </summary>
@@ -60,7 +59,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The weight.
         /// </value>
         [JsonProperty("weight")]
-        public Double Weight { get; set; }
+        public double Weight { get; set; }
         /// <summary>
         /// Gets or sets the volume.
         /// </summary>
@@ -68,6 +67,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The volume.
         /// </value>
         [JsonProperty("volume")]
-        public Int32 Volume { get; set; }
+        public int Volume { get; set; }
     }
 }

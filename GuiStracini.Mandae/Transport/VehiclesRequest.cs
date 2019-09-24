@@ -15,17 +15,16 @@ namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
-    /// This service makes it possible to verify that the Mandaê collection service is available in a particular ZIP code and which vehicles are available for withdrawal. 
+    /// This service makes it possible to verify that the Mandaê pickup service is available in a particular ZIP code and which vehicles are available for withdrawal. 
     /// Some addresses are serviced only by motorbikes, while others are serviced both by motorbike and by car. 
-    /// Currently the collection service is only available in the cities of São Paulo and Osasco. 
+    /// Currently the pickup service is only available in the cities of São Paulo and Osasco. 
     /// See our service area on the map.
     /// </summary>
-    /// <seealso cref="BaseRequest" />
+    /// <seealso cref="Request" />
     [RequestEndPoint("postalcodes/{PostalCode}/vehicles")]
-    public sealed class VehiclesRequest : BaseRequest
+    public sealed class VehiclesRequest : Request
     {
         /// <summary>
         /// Gets or sets the postal code.
@@ -34,6 +33,6 @@ namespace GuiStracini.Mandae.Transport
         /// The postal code.
         /// </value>
         [JsonProperty("postalCode")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
     }
 }

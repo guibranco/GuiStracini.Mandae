@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// Thre Recipient class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The full name.
         /// </value>
         [JsonProperty("fullName")]
-        public String FullName { get; set; }
+        public string FullName { get; set; }
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
@@ -44,7 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The document.
         /// </value>
         [JsonProperty("document")]
-        public String Document { get; set; }
+        public string Document { get; set; }
         /// <summary>
         /// Gets or sets the phone.
         /// </summary>
@@ -52,7 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The phone.
         /// </value>
         [JsonProperty("phone")]
-        public String Phone { get; set; }
+        public string Phone { get; set; }
         /// <summary>
         /// Gets or sets the email.
         /// </summary>
@@ -60,6 +59,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The email.
         /// </value>
         [JsonProperty("email")]
-        public String Email { get; set; }
+        public string Email { get; set; }
     }
 }

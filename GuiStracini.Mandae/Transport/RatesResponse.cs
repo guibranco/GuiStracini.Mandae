@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.Transport
 {
     using Newtonsoft.Json;
-    using System;
     using ValueObject;
 
     /// <summary>
@@ -29,7 +28,7 @@ namespace GuiStracini.Mandae.Transport
         /// The postal code.
         /// </value>
         [JsonProperty("postalCode")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
         /// <summary>
         /// Gets or sets the shipping services.
         /// </summary>

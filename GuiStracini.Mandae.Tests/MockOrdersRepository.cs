@@ -51,7 +51,7 @@ namespace GuiStracini.Mandae.Test
         /// </summary>
         /// <param name="orderId">The order identifier.</param>
         /// <returns></returns>
-        public MockOrder GetOrder(Int32 orderId)
+        public MockOrder GetOrder(int orderId)
         {
             return _orders.Orders.SingleOrDefault(o => o.OrderId == orderId);
         }
@@ -61,7 +61,7 @@ namespace GuiStracini.Mandae.Test
         /// </summary>
         /// <param name="orderId">The order identifier.</param>
         /// <returns></returns>
-        public IEnumerable<MockOrderItem> GetOrderItems(Int32 orderId)
+        public IEnumerable<MockOrderItem> GetOrderItems(int orderId)
         {
             return _ordersItems.Items.Where(i => i.OrderId == orderId);
         }
@@ -135,8 +135,8 @@ namespace GuiStracini.Mandae.Test
                             {
                                 Description = "Caneta Acrilpen",
                                 Ean = "7891153044392",
-                                Price = new Decimal(4.47),
-                                Freight = new Decimal(1.2),
+                                Price = new decimal(4.47),
+                                Freight = new decimal(1.2),
                                 Quantity = 2,
                                 SkuId = "3583"
                             },
@@ -144,8 +144,8 @@ namespace GuiStracini.Mandae.Test
                             {
                                 Description = "Tecido algodão crú sem risco",
                                 Ean = "789100031550",
-                                Price = new Decimal(15.43),
-                                Freight = new Decimal(6.8),
+                                Price = new decimal(15.43),
+                                Freight = new decimal(6.8),
                                 Quantity = 2,
                                 SkuId = "7522"
                             }
@@ -195,133 +195,133 @@ namespace GuiStracini.Mandae.Test
             /// <value>
             /// The order identifier.
             /// </value>
-            public Int32 OrderId { get; set; }
+            public int OrderId { get; set; }
             /// <summary>
             /// Gets or sets the value.
             /// </summary>
             /// <value>
             /// The value.
             /// </value>
-            public Decimal Value { get; set; }
+            public decimal Value { get; set; }
             /// <summary>
             /// Gets or sets the invoice number.
             /// </summary>
             /// <value>
             /// The invoice number.
             /// </value>
-            public String InvoiceNumber { get; set; }
+            public string InvoiceNumber { get; set; }
             /// <summary>
             /// Gets or sets the invoice key.
             /// </summary>
             /// <value>
             /// The invoice key.
             /// </value>
-            public String InvoiceKey { get; set; }
+            public string InvoiceKey { get; set; }
             /// <summary>
             /// Gets or sets the weight.
             /// </summary>
             /// <value>
             /// The weight.
             /// </value>
-            public Int32 Weight { get; set; }
+            public int Weight { get; set; }
             /// <summary>
             /// Gets or sets the width.
             /// </summary>
             /// <value>
             /// The width.
             /// </value>
-            public Int32 Width { get; set; }
+            public int Width { get; set; }
             /// <summary>
             /// Gets or sets the height.
             /// </summary>
             /// <value>
             /// The height.
             /// </value>
-            public Int32 Height { get; set; }
+            public int Height { get; set; }
             /// <summary>
             /// Gets or sets the length.
             /// </summary>
             /// <value>
             /// The length.
             /// </value>
-            public Int32 Length { get; set; }
+            public int Length { get; set; }
             /// <summary>
             /// Gets or sets the full name.
             /// </summary>
             /// <value>
             /// The full name.
             /// </value>
-            public String FullName { get; set; }
+            public string FullName { get; set; }
             /// <summary>
             /// Gets or sets the document.
             /// </summary>
             /// <value>
             /// The document.
             /// </value>
-            public String Document { get; set; }
+            public string Document { get; set; }
             /// <summary>
             /// Gets or sets the telephone.
             /// </summary>
             /// <value>
             /// The telephone.
             /// </value>
-            public String Telephone { get; set; }
+            public string Telephone { get; set; }
             /// <summary>
             /// Gets or sets the email.
             /// </summary>
             /// <value>
             /// The email.
             /// </value>
-            public String Email { get; set; }
+            public string Email { get; set; }
             /// <summary>
             /// Gets or sets the zip code.
             /// </summary>
             /// <value>
             /// The zip code.
             /// </value>
-            public String ZipCode { get; set; }
+            public string ZipCode { get; set; }
             /// <summary>
             /// Gets or sets the street.
             /// </summary>
             /// <value>
             /// The street.
             /// </value>
-            public String Street { get; set; }
+            public string Street { get; set; }
             /// <summary>
             /// Gets or sets the neighborhood.
             /// </summary>
             /// <value>
             /// The neighborhood.
             /// </value>
-            public String Neighborhood { get; set; }
+            public string Neighborhood { get; set; }
             /// <summary>
             /// Gets or sets the number.
             /// </summary>
             /// <value>
             /// The number.
             /// </value>
-            public Int32 Number { get; set; }
+            public int Number { get; set; }
             /// <summary>
             /// Gets or sets the complement.
             /// </summary>
             /// <value>
             /// The complement.
             /// </value>
-            public String Complement { get; set; }
+            public string Complement { get; set; }
             /// <summary>
             /// Gets or sets the city.
             /// </summary>
             /// <value>
             /// The city.
             /// </value>
-            public String City { get; set; }
+            public string City { get; set; }
             /// <summary>
             /// Gets or sets the state initials.
             /// </summary>
             /// <value>
             /// The state initials.
             /// </value>
-            public String StateInitials { get; set; }
+            public string StateInitials { get; set; }
         }
         /// <summary>
         /// The mock order item class
@@ -334,49 +334,49 @@ namespace GuiStracini.Mandae.Test
             /// <value>
             /// The order identifier.
             /// </value>
-            public Int32 OrderId { get; set; }
+            public int OrderId { get; set; }
             /// <summary>
             /// Gets or sets the sku identifier.
             /// </summary>
             /// <value>
             /// The sku identifier.
             /// </value>
-            public Int32 SkuId { get; set; }
+            public int SkuId { get; set; }
             /// <summary>
             /// Gets or sets the price.
             /// </summary>
             /// <value>
             /// The price.
             /// </value>
-            public Decimal Price { get; set; }
+            public decimal Price { get; set; }
             /// <summary>
             /// Gets or sets the price freight.
             /// </summary>
             /// <value>
             /// The price freight.
             /// </value>
-            public Decimal PriceFreight { get; set; }
+            public decimal PriceFreight { get; set; }
             /// <summary>
             /// Gets or sets the ean.
             /// </summary>
             /// <value>
             /// The ean.
             /// </value>
-            public String Ean { get; set; }
+            public string Ean { get; set; }
             /// <summary>
             /// Gets or sets the name.
             /// </summary>
             /// <value>
             /// The name.
             /// </value>
-            public String Name { get; set; }
+            public string Name { get; set; }
             /// <summary>
             /// Gets or sets the quantity.
             /// </summary>
             /// <value>
             /// The quantity.
             /// </value>
-            public Int32 Quantity { get; set; }
+            public int Quantity { get; set; }
         }
     }
 }

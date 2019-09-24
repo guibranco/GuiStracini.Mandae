@@ -29,7 +29,7 @@ namespace GuiStracini.Mandae.Attributes
         /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
-        public RequestEndPointAttribute(String endPoint)
+        public RequestEndPointAttribute(string endPoint)
         {
             EndPoint = endPoint;
         }
@@ -42,7 +42,7 @@ namespace GuiStracini.Mandae.Attributes
         /// Gets the end point.
         /// </summary>
         /// <value>The end point path.</value>
-        public String EndPoint { get; }
+        public string EndPoint { get; }
 
         /// <summary>
         /// Gets or sets the custom base.
@@ -50,7 +50,7 @@ namespace GuiStracini.Mandae.Attributes
         /// <value>
         /// The custom base.
         /// </value>
-        public String CustomBase { get; set; }
+        public string CustomBase { get; set; }
         #endregion
 
     }

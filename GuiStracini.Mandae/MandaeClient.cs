@@ -15,7 +15,6 @@ namespace GuiStracini.Mandae
 {
     using Enums;
     using Models;
-    using System;
     using System.Globalization;
     using System.Threading;
     using System.Threading.Tasks;
@@ -39,12 +38,12 @@ namespace GuiStracini.Mandae
         /// <summary>
         /// The Mandaê API token
         /// </summary>
-        private readonly String _token;
+        private readonly string _token;
 
         /// <summary>
         /// The configure await flag
         /// </summary>
-        private readonly Boolean _configureAwait;
+        private readonly bool _configureAwait;
 
         /// <summary>
         /// The service factory (V1) instance
@@ -62,9 +61,9 @@ namespace GuiStracini.Mandae
         /// <param name="environment">The environment.</param>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
         public MandaeClient(
-            String token,
-            Enums.Environment environment = Enums.Environment.SANDBOX,
-            Boolean configureAwait = true)
+            string token,
+            Environment environment = Environment.SANDBOX,
+            bool configureAwait = true)
         {
             _token = token;
             _configureAwait = configureAwait;
@@ -148,7 +147,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
         /// <returns><see cref="LatestResponse"/></returns>
-        public LatestResponse GetLatestOrderCollectStatus(String customerId)
+        public LatestResponse GetLatestOrderCollectStatus(string customerId)
         {
             return GetLatestOrderCollectStatusAsync(customerId, CancellationToken.None).Result;
         }
@@ -159,7 +158,7 @@ namespace GuiStracini.Mandae
         /// <param name="customerId">The customer identifier.</param>
         /// <param name="token">The token.</param>
         /// <returns>A task of <see cref="LatestResponse"/></returns>
-        public async Task<LatestResponse> GetLatestOrderCollectStatusAsync(String customerId, CancellationToken token)
+        public async Task<LatestResponse> GetLatestOrderCollectStatusAsync(string customerId, CancellationToken token)
         {
             var data = new LatestRequest
             {
@@ -178,7 +177,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
         /// <returns><see cref="TrackingResponse"/></returns>
-        public TrackingResponse GetTracking(String trackingCode)
+        public TrackingResponse GetTracking(string trackingCode)
         {
             return GetTrackingAsync(trackingCode, CancellationToken.None).Result;
         }
@@ -189,7 +188,7 @@ namespace GuiStracini.Mandae
         /// <param name="trackingCode">The tracking code.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns>A task of <see cref="TrackingResponse"/></returns>
-        public async Task<TrackingResponse> GetTrackingAsync(String trackingCode, CancellationToken token)
+        public async Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token)
         {
             var data = new TrackingRequest
             {
@@ -208,7 +207,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
-        public async Task<String> ConfigureV1Authentication(String email, String password)
+        public async Task<string> ConfigureV1Authentication(string email, string password)
         {
             _serviceV1 = new ServiceFactoryV1(_configureAwait);
             return await _serviceV1.LoginAsync(email, password, CancellationToken.None).ConfigureAwait(_configureAwait);
@@ -228,7 +227,7 @@ namespace GuiStracini.Mandae
         /// <returns>
         /// The search result
         /// </returns>
-        public SearchResponse Search(SearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
+        public SearchResponse Search(SearchMethod method, string value, int limit = 10, int offset = 0)
         {
             return SearchAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
@@ -244,10 +243,10 @@ namespace GuiStracini.Mandae
         /// <returns></returns>
         public async Task<SearchResponse> SearchAsync(
             SearchMethod method,
-            String value,
+            string value,
             CancellationToken token,
-            Int32 limit = 10,
-            Int32 offset = 0)
+            int limit = 10,
+            int offset = 0)
         {
             var data = new SearchRequest
             {
@@ -278,7 +277,7 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns></returns>
-        public SearchReverseResponse SearchReverse(ReverseSearchMethod method, String value, Int32 limit = 10, Int32 offset = 0)
+        public SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit = 10, int offset = 0)
         {
             return SearchReverseAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
@@ -293,10 +292,10 @@ namespace GuiStracini.Mandae
         /// <param name="offset">The offset.</param>
         /// <returns></returns>
         public async Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
-                                                         String value,
+                                                         string value,
                                                          CancellationToken token,
-                                                         Int32 limit = 10,
-                                                         Int32 offset = 0)
+                                                         int limit = 10,
+                                                         int offset = 0)
         {
             var data = new SearchReverseRequest
             {

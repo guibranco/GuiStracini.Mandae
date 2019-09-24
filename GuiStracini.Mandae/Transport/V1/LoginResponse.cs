@@ -1,7 +1,5 @@
 ﻿namespace GuiStracini.Mandae.Transport.V1
 {
-    using System;
-
     /// <summary>
     /// The login response class.
     /// </summary>
@@ -14,7 +12,7 @@
         /// <value>
         /// The identifier.
         /// </value>
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the email.
@@ -22,7 +20,7 @@
         /// <value>
         /// The email.
         /// </value>
-        public String Email { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// Gets or sets the token.
@@ -30,7 +28,7 @@
         /// <value>
         /// The token.
         /// </value>
-        public String Token { get; set; }
+        public string Token { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier mixpanel.
@@ -38,7 +36,7 @@
         /// <value>
         /// The identifier mixpanel.
         /// </value>
-        public String IdMixpanel { get; set; }
+        public string IdMixpanel { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="LoginResponse"/> is pj.
@@ -46,7 +44,7 @@
         /// <value>
         ///   <c>true</c> if pj; otherwise, <c>false</c>.
         /// </value>
-        public Boolean Pj { get; set; }
+        public bool Pj { get; set; }
 
         /// <summary>
         /// Gets or sets the erro.
@@ -54,6 +52,6 @@
         /// <value>
         /// The erro.
         /// </value>
-        public String Erro { get; set; }
+        public string Erro { get; set; }
     }
 }

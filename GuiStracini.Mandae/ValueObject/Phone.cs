@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The phone entity.
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The area code.
         /// </value>
         [JsonProperty("areaCode")]
-        public String AreaCode { get; set; }
+        public string AreaCode { get; set; }
         /// <summary>
         /// Gets or sets the number.
         /// </summary>
@@ -36,6 +35,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The number.
         /// </value>
         [JsonProperty("number")]
-        public String Number { get; set; }
+        public string Number { get; set; }
     }
 }

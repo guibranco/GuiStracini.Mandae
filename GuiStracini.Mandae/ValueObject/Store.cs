@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The store entity
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The name.
         /// </value>
         [JsonProperty("name")]
-        public String Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// Gets or sets the URL.
         /// </summary>
@@ -36,6 +35,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The URL.
         /// </value>
         [JsonProperty("url")]
-        public String Url { get; set; }
+        public string Url { get; set; }
     }
 }

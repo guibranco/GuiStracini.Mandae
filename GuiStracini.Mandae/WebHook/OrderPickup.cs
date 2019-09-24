@@ -26,14 +26,14 @@ namespace GuiStracini.Mandae.WebHook
         /// <value>
         /// The status.
         /// </value>
-        public String Status { get; set; }
+        public string Status { get; set; }
         /// <summary>
         /// Gets or sets the order identifier.
         /// </summary>
         /// <value>
         /// The order identifier.
         /// </value>
-        public Int64 OrderId { get; set; }
+        public long OrderId { get; set; }
         /// <summary>
         /// Gets or sets the job identifier.
         /// </summary>
@@ -47,6 +47,6 @@ namespace GuiStracini.Mandae.WebHook
         /// <value>
         /// The partner order identifier.
         /// </value>
-        public String PartnerOrderId { get; set; }
+        public string PartnerOrderId { get; set; }
     }
 }

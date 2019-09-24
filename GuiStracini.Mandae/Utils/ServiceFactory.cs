@@ -13,10 +13,10 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
-    using Enums;
     using GoodPractices;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
+    using SDKBuilder;
     using System;
     using System.Net.Http;
     using System.Net.Http.Formatting;
@@ -41,17 +41,17 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The sandbox environment service end point base address
         /// </summary>
-        private const String SandboxServiceEndPoint = "https://sandbox.api.mandae.com.br/v2/";
+        private const string SandboxServiceEndPoint = "https://sandbox.api.mandae.com.br/v2/";
 
         /// <summary>
         /// The production environment service end point base address
         /// </summary>
-        private const String ProductionServiceEndPoint = "https://api.mandae.com.br/v2/";
+        private const string ProductionServiceEndPoint = "https://api.mandae.com.br/v2/";
 
         /// <summary>
         /// The configure await flag.
         /// </summary>
-        private readonly Boolean _configureAwait;
+        private readonly bool _configureAwait;
 
         #endregion
 
@@ -62,7 +62,7 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         /// <param name="environment">The environment.</param>
         /// <param name="configureAwait">The value used for <see cref="Task.ConfigureAwait"/> method.</param>
-        public ServiceFactory(Environment environment, Boolean configureAwait = false)
+        public ServiceFactory(Environment environment, bool configureAwait = false)
         {
             _environment = environment;
             _configureAwait = configureAwait;
@@ -81,7 +81,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the response as <typeparamref name="TOut"/></returns>
-        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : BaseRequest
+        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
                                    ? ProductionServiceEndPoint
@@ -92,7 +92,7 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                if (!String.IsNullOrEmpty(requestObject.Token))
+                if (!string.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
 
                 var formatter = new JsonMediaTypeFormatter
@@ -105,7 +105,7 @@ namespace GuiStracini.Mandae.Utils
                     }
                 };
 
-                var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
+                var endpoint = string.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
                 try
                 {
                     HttpResponseMessage response;
@@ -146,7 +146,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Get<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        public async Task<T> Get<T>(T requestObject, CancellationToken token) where T : Request
         {
             return await Execute<T, T>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -159,7 +159,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
         {
             return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -171,7 +171,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Post<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        public async Task<T> Post<T>(T requestObject, CancellationToken token) where T : Request
         {
             return await Execute<T, T>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -184,7 +184,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
         {
             return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -196,7 +196,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Put<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        public async Task<T> Put<T>(T requestObject, CancellationToken token) where T : Request
         {
             return await Execute<T, T>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -209,7 +209,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Put<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        public async Task<TOut> Put<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
         {
             return await Execute<TOut, TIn>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -221,7 +221,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Delete<T>(T requestObject, CancellationToken token) where T : BaseRequest
+        public async Task<T> Delete<T>(T requestObject, CancellationToken token) where T : Request
         {
             return await Execute<T, T>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -234,7 +234,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Delete<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
+        public async Task<TOut> Delete<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
         {
             return await Execute<TOut, TIn>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
         }

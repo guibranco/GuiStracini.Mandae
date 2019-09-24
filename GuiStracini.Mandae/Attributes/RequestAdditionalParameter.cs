@@ -13,15 +13,15 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Attributes
 {
-    using Enums;
     using System;
+    using SDKBuilder;
 
     /// <summary>
     /// Use this attribute to include the value os the property in the request endpoint for specific action method.
     /// E.g. A GET/PUT request should include the field "Name" of a entity in the URL, so add this attribute to the Name property in the transport class, and set the ActionMethod to GET and PUT (2 attributes)
     /// </summary>
     /// <example>
-    /// Using a generic transport class, inherited from <see cref="GuiStracini.Mandae.Transport.BaseRequest"/>
+    /// Using a generic transport class, inherited from <see cref="BaseRequest"/>
     /// <code>
     /// [RequestEndPoint("/Sample/{id}")] //The id property is used in all requests if it's populated
     /// public class SampleTransport :BaseRequest 
@@ -72,14 +72,14 @@ namespace GuiStracini.Mandae.Attributes
         /// <value>
         ///   <c>true</c> if [as query string]; otherwise, <c>false</c>.
         /// </value>
-        public Boolean AsQueryString { get; set; }
+        public bool AsQueryString { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestAdditionalParameterAttribute" /> class.
         /// </summary>
         /// <param name="type">The type of request.</param>
         /// <param name="asQueryString">if set to <c>true</c> the additional parameter is added in the url as query string.</param>
-        public RequestAdditionalParameterAttribute(ActionMethod type, Boolean asQueryString = false)
+        public RequestAdditionalParameterAttribute(ActionMethod type, bool asQueryString = false)
         {
             AsQueryString = asQueryString;
             Type = type;

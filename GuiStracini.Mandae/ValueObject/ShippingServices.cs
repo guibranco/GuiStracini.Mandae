@@ -33,7 +33,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// The service setted
         /// </summary>
-        private Boolean _serviceSetted;
+        private bool _serviceSetted;
 
         #endregion
 
@@ -48,7 +48,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier.
         /// </value>
         [JsonProperty("id")]
-        public String Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the service
@@ -75,7 +75,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The name.
         /// </value>
         [JsonProperty("name")]
-        public String Name
+        public string Name
         {
             get => _serviceSetted && _service == ShippingService.RAPIDO
                        ? "Rapido"
@@ -99,7 +99,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The quantity days.
         /// </value>
         [JsonProperty("days")]
-        public Int32 Days { get; set; }
+        public int Days { get; set; }
 
         /// <summary>
         /// Gets or sets the price.
@@ -108,6 +108,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The price.
         /// </value>
         [JsonProperty("price")]
-        public Decimal Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

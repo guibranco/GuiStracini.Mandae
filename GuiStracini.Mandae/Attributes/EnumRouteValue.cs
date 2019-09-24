@@ -29,13 +29,13 @@ namespace GuiStracini.Mandae.Attributes
         /// <value>
         /// The route value.
         /// </value>
-        public String RouteValue { get; }
+        public string RouteValue { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EnumRouteValueAttribute"/> class.
         /// </summary>
         /// <param name="routeValue">The route value.</param>
-        public EnumRouteValueAttribute(String routeValue)
+        public EnumRouteValueAttribute(string routeValue)
         {
             RouteValue = routeValue;
         }

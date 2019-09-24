@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The invoice class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier.
         /// </value>
         [JsonProperty("id")]
-        public String Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// Gets or sets the key.
         /// </summary>
@@ -36,6 +35,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The key.
         /// </value>
         [JsonProperty("key")]
-        public String Key { get; set; }
+        public string Key { get; set; }
     }
 }

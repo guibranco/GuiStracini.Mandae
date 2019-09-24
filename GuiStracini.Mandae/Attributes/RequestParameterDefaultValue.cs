@@ -15,7 +15,7 @@ namespace GuiStracini.Mandae.Attributes
     using System;
 
     /// <summary>
-    /// The request paraemter default value attribute.
+    /// The request parameter default value attribute.
     /// This attribute is used when a parameter value is not supplied in the object, instead the default value is used to build de endpoint.
     /// </summary>
     /// <seealso cref="System.Attribute" />
@@ -28,13 +28,13 @@ namespace GuiStracini.Mandae.Attributes
         /// <value>
         /// The default value.
         /// </value>
-        public String DefaultValue { get; }
+        public string DefaultValue { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestParameterDefaultValue"/> class.
         /// </summary>
         /// <param name="defaultValue">The default value.</param>
-        public RequestParameterDefaultValue(String defaultValue)
+        public RequestParameterDefaultValue(string defaultValue)
         {
             DefaultValue = defaultValue;
         }

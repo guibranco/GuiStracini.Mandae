@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
-    using Enums;
     using GoodPractices;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
@@ -25,11 +24,13 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
+    using SDKBuilder;
     using Transport;
     using Transport.V1;
+    using BaseResponse = Transport.BaseResponse;
 
     /// <summary>
-    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "BaseRequest" /> class
+    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "SDKBuilder.BaseRequest" /> class
     /// </summary>
     public sealed class ServiceFactoryV1
     {
@@ -38,12 +39,12 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants
         /// </summary>
-        private readonly Dictionary<String, String> _constants;
+        private readonly Dictionary<string, string> _constants;
 
         /// <summary>
         /// The configure await flag.
         /// </summary>
-        private readonly Boolean _configureAwait;
+        private readonly bool _configureAwait;
 
         /// <summary>
         /// The constants pattern
@@ -63,7 +64,7 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The API authorization
         /// </summary>
-        private String _apiAuthorization;
+        private string _apiAuthorization;
 
         #endregion
 
@@ -73,10 +74,10 @@ namespace GuiStracini.Mandae.Utils
         /// Initializes a new instance of the <see cref="ServiceFactoryV1"/> class.
         /// </summary>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
-        public ServiceFactoryV1(Boolean configureAwait = true)
+        public ServiceFactoryV1(bool configureAwait = true)
         {
             _configureAwait = configureAwait;
-            _constants = new Dictionary<String, String>();
+            _constants = new Dictionary<string, string>();
         }
 
         #endregion
@@ -93,7 +94,7 @@ namespace GuiStracini.Mandae.Utils
         /// or
         /// Cannot get the constants
         /// </exception>
-        private async Task<Boolean> GetConstants(CancellationToken cancellationToken)
+        private async Task<bool> GetConstants(CancellationToken cancellationToken)
         {
             using (var client = new HttpClient())
             {
@@ -133,16 +134,16 @@ namespace GuiStracini.Mandae.Utils
             ActionMethod method,
             TIn requestObject,
             CancellationToken cancellationToken)
-            where TIn : BaseRequest
+            where TIn : Request
             where TOut : BaseResponse
         {
-            var endpoint = String.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
+            var endpoint = string.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
             var baseEndpoint = "https://pedido.api.mandae.com.br";
             if (_constants.ContainsKey("URLAPIPEDIDO_NGINX"))
                 baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
             var attribute = requestObject.GetRequestEndPointAttribute();
             if (attribute != null &&
-                !String.IsNullOrWhiteSpace(attribute.CustomBase) &&
+                !string.IsNullOrWhiteSpace(attribute.CustomBase) &&
                 _constants.ContainsKey(attribute.CustomBase))
                 baseEndpoint = _constants[attribute.CustomBase];
 
@@ -155,7 +156,7 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
-                if (!String.IsNullOrWhiteSpace(_apiAuthorization))
+                if (!string.IsNullOrWhiteSpace(_apiAuthorization))
                     client.DefaultRequestHeaders.Add("Authorization", _apiAuthorization);
 
                 var formatter = new JsonMediaTypeFormatter
@@ -207,7 +208,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        public async Task<String> LoginAsync(String email, String password, CancellationToken cancellationToken)
+        public async Task<string> LoginAsync(string email, string password, CancellationToken cancellationToken)
         {
             if (_constants.Count == 0 && !await GetConstants(cancellationToken).ConfigureAwait(_configureAwait))
                 throw new InvalidOperationException("Unable to get the constants");
@@ -217,7 +218,7 @@ namespace GuiStracini.Mandae.Utils
                 Password = password
             };
             var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
-            if (!String.IsNullOrWhiteSpace(response.Erro))
+            if (!string.IsNullOrWhiteSpace(response.Erro))
                 throw new InvalidOperationException(response.Erro);
             _apiAuthorization = response.Token;
             return _apiAuthorization;
@@ -231,7 +232,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest where TOut : BaseResponse
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
         {
             return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
         }
@@ -244,7 +245,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest where TOut : BaseResponse
+        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
         {
             return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
         }

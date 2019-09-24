@@ -14,9 +14,7 @@
 namespace GuiStracini.Mandae.Test
 {
     using Enums;
-    using GoodPractices;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
     using Transport;
     using Transport.V1;
     using Utils;
@@ -33,7 +31,7 @@ namespace GuiStracini.Mandae.Test
         [TestMethod]
         public void RequestEndPoint()
         {
-            const String expected = "trackings/SV123456789BR";
+            const string expected = "trackings/SV123456789BR";
             var tracking = new TrackingRequest
             {
                 TrackingCode = "SV123456789BR"
@@ -48,7 +46,7 @@ namespace GuiStracini.Mandae.Test
         [TestMethod]
         public void RequestEndPointWithNullValues()
         {
-            const String expected = "trackings";
+            const string expected = "trackings";
             var tracking = new TrackingRequest();
             var result = tracking.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
@@ -60,7 +58,7 @@ namespace GuiStracini.Mandae.Test
         [TestMethod]
         public void RequestParameterDefaultValue()
         {
-            const String expected = "v1/encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
+            const string expected = "v1/encomendas/historico?offset=0&limit=10&rastreamento=XYZ00001";
             var request = new SearchRequest
             {
                 Method = SearchMethod.TRACKING_CODE,

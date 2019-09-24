@@ -25,9 +25,9 @@ namespace GuiStracini.Mandae.Transport
     /// The requested collection may have one or more items. 
     /// We consider the term items as each sale made, which may contain one or more products for the same recipient.
     /// </summary>
-    /// <seealso cref="BaseRequest" />
+    /// <seealso cref="Request" />
     [RequestEndPoint("orders/add-parcel")]
-    public class OrderRequest : BaseRequest
+    public class OrderRequest : Request
     {
         #region Private fields 
 
@@ -45,7 +45,7 @@ namespace GuiStracini.Mandae.Transport
         /// The customer identifier.
         /// </value>
         [JsonProperty("customerId")]
-        public String CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the scheduling.
@@ -64,7 +64,7 @@ namespace GuiStracini.Mandae.Transport
         /// </value>
 
         [JsonProperty("scheduling")]
-        public String SchedulingInternal => Scheduling != DateTime.MinValue
+        public string SchedulingInternal => Scheduling != DateTime.MinValue
                                                 ? Scheduling.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")
                                                 : null;
 
@@ -106,7 +106,7 @@ namespace GuiStracini.Mandae.Transport
         /// The vehicle internal.
         /// </value>
         [JsonProperty("Vehicle")]
-        public String VehicleInternal
+        public string VehicleInternal
         {
             get => _vehicle.ToString().ToCamelCase();
             set => _vehicle = (Vehicle)Enum.Parse(typeof(Vehicle), value.ToUpper());
@@ -127,7 +127,7 @@ namespace GuiStracini.Mandae.Transport
         /// The observation.
         /// </value>
         [JsonProperty("observation")]
-        public String Observation { get; set; }
+        public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the partner order identifier.
@@ -136,6 +136,6 @@ namespace GuiStracini.Mandae.Transport
         /// The partner order identifier.
         /// </value>
         [JsonProperty("partnerOrderId")]
-        public String PartnerOrderId { get; set; }
+        public string PartnerOrderId { get; set; }
     }
 }

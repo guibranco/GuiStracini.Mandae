@@ -15,7 +15,6 @@ namespace GuiStracini.Mandae
 {
     using Enums;
     using Models;
-    using System;
     using System.Threading;
     using System.Threading.Tasks;
     using Transport;
@@ -63,7 +62,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="customerId">The customer identifier.</param>
         /// <returns></returns>
-        LatestResponse GetLatestOrderCollectStatus(String customerId);
+        LatestResponse GetLatestOrderCollectStatus(string customerId);
 
         /// <summary>
         /// Gets the latest order collect status asynchronous.
@@ -71,14 +70,14 @@ namespace GuiStracini.Mandae
         /// <param name="customerId">The customer identifier.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<LatestResponse> GetLatestOrderCollectStatusAsync(String customerId, CancellationToken token);
+        Task<LatestResponse> GetLatestOrderCollectStatusAsync(string customerId, CancellationToken token);
 
         /// <summary>
         /// Gets the tracking.
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
         /// <returns></returns>
-        TrackingResponse GetTracking(String trackingCode);
+        TrackingResponse GetTracking(string trackingCode);
 
         /// <summary>
         /// Gets the tracking asynchronous.
@@ -86,7 +85,7 @@ namespace GuiStracini.Mandae
         /// <param name="trackingCode">The tracking code.</param>
         /// <param name="token">The token.</param>
         /// <returns></returns>
-        Task<TrackingResponse> GetTrackingAsync(String trackingCode, CancellationToken token);
+        Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token);
 
         #endregion
 
@@ -97,7 +96,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="apiKey">The API key.</param>
         /// <param name="token">The token.</param>
-        Task<String> ConfigureV1Authentication(String apiKey, String token);
+        Task<string> ConfigureV1Authentication(string apiKey, string token);
 
         /// <summary>
         /// Searches the specified method for the specified value.
@@ -107,7 +106,7 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The results limit per page.</param>
         /// <param name="offset">The pagination offset (zero based index).</param>
         /// <returns>The search result</returns>
-        SearchResponse Search(SearchMethod method, String value, Int32 limit, Int32 offset);
+        SearchResponse Search(SearchMethod method, string value, int limit, int offset);
 
         /// <summary>
         /// Searches the specified method for the specified value asynchronous.
@@ -120,10 +119,10 @@ namespace GuiStracini.Mandae
         /// <returns></returns>
         Task<SearchResponse> SearchAsync(
             SearchMethod method,
-            String value,
+            string value,
             CancellationToken token,
-            Int32 limit,
-            Int32 offset);
+            int limit,
+            int offset);
 
         /// <summary>
         /// Searches the reverse.
@@ -133,7 +132,7 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns></returns>
-        SearchReverseResponse SearchReverse(ReverseSearchMethod method, String value, Int32 limit, Int32 offset);
+        SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit, int offset);
 
         /// <summary>
         /// Searches the reverse asynchronous.
@@ -145,10 +144,10 @@ namespace GuiStracini.Mandae
         /// <param name="offset">The offset.</param>
         /// <returns></returns>
         Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
-                                                       String value,
+                                                       string value,
                                                        CancellationToken token,
-                                                       Int32 limit,
-                                                       Int32 offset);
+                                                       int limit,
+                                                       int offset);
 
 
         #endregion

@@ -31,7 +31,7 @@ namespace GuiStracini.Mandae.GoodPractices
         /// </summary>
         /// <param name="endpointPattern">The endpoint pattern.</param>
         /// <param name="endpointResolved">The endpoint resolved.</param>
-        public InvalidRequestEndPointException(String endpointPattern, String endpointResolved)
+        public InvalidRequestEndPointException(string endpointPattern, string endpointResolved)
             : base($"The endpoint {endpointResolved} is not valid for the pattern {endpointPattern}")
         { }
 

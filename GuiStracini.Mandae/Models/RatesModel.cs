@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Models
 {
-    using System;
     using ValueObject;
 
     /// <summary>
@@ -27,14 +26,14 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The postal code.
         /// </value>
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
         /// <summary>
         /// Gets or sets the declared value.
         /// </summary>
         /// <value>
         /// The declared value.
         /// </value>
-        public Decimal DeclaredValue { get; set; }
+        public decimal DeclaredValue { get; set; }
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>

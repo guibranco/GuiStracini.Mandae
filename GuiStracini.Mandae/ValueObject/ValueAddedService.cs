@@ -15,7 +15,6 @@ namespace GuiStracini.Mandae.ValueObject
 {
     using Enums;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The value added service class.
@@ -38,6 +37,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The value.
         /// </value>
         [JsonProperty("value")]
-        public Decimal Value { get; set; }
+        public decimal Value { get; set; }
     }
 }

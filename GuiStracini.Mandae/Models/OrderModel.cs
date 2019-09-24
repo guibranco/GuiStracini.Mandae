@@ -29,7 +29,7 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The customer identifier.
         /// </value>
-        public String CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the scheduling.
@@ -77,7 +77,7 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The observation.
         /// </value>
-        public String Observation { get; set; }
+        public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the partner order identifier.
@@ -85,6 +85,6 @@ namespace GuiStracini.Mandae.Models
         /// <value>
         /// The partner order identifier.
         /// </value>
-        public String PartnerOrderId { get; set; }
+        public string PartnerOrderId { get; set; }
     }
 }

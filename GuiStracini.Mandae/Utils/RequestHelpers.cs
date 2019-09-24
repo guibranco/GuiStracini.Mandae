@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.Utils
 {
     using Attributes;
-    using Enums;
     using GoodPractices;
     using Newtonsoft.Json;
     using System;
@@ -22,6 +21,7 @@ namespace GuiStracini.Mandae.Utils
     using System.Text;
     using System.Text.RegularExpressions;
     using Transport;
+    using SDKBuilder;
 
     /// <summary>
     /// Class Extensions.
@@ -33,7 +33,7 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns></returns>
-        public static RequestEndPointAttribute GetRequestEndPointAttribute(this BaseRequest request)
+        public static RequestEndPointAttribute GetRequestEndPointAttribute(this Request request)
         {
             if (!(request.GetType().GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[]
                       endpoints) ||
@@ -49,7 +49,7 @@ namespace GuiStracini.Mandae.Utils
         /// <returns>String.</returns>
         /// <exception cref="RequestEndPointBadFormatException"></exception>
         /// <exception cref="InvalidRequestEndPointException"></exception>
-        public static String GetRequestEndPoint(this BaseRequest request)
+        public static string GetRequestEndPoint(this Request request)
         {
             var type = request.GetType();
             var endpointAttribute = request.GetRequestEndPointAttribute();
@@ -73,17 +73,17 @@ namespace GuiStracini.Mandae.Utils
                 var propertyType = property.PropertyType;
                 var propertyValue = property.GetValue(request, null);
                 if (propertyValue == null ||
-                    propertyType == typeof(Int32) && Convert.ToInt32(propertyValue) == 0 ||
-                    propertyType == typeof(Int64) && Convert.ToInt64(propertyValue) == 0 ||
-                    propertyType == typeof(Decimal) && Convert.ToDecimal(propertyValue) == new Decimal(0) ||
-                    propertyType == typeof(String) && String.IsNullOrEmpty(propertyValue.ToString()))
+                    propertyType == typeof(int) && Convert.ToInt32(propertyValue) == 0 ||
+                    propertyType == typeof(long) && Convert.ToInt64(propertyValue) == 0 ||
+                    propertyType == typeof(decimal) && Convert.ToDecimal(propertyValue) == new decimal(0) ||
+                    propertyType == typeof(string) && string.IsNullOrEmpty(propertyValue.ToString()))
                 {
-                    var defaultValue = String.Empty;
+                    var defaultValue = string.Empty;
                     if (property.GetCustomAttributes(typeof(RequestParameterDefaultValue), false) is
                             RequestParameterDefaultValue[] defaultsValues && defaultsValues.Any())
                         defaultValue = defaultsValues.Single().DefaultValue;
                     endpoint = endpoint.Replace(match.Value, defaultValue);
-                    if (skiped == 0 && defaultValue == String.Empty)
+                    if (skiped == 0 && defaultValue == string.Empty)
                         skiped = counter;
                     continue;
                 }
@@ -112,12 +112,12 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="request">The request.</param>
         /// <param name="requestMethod">The request method.</param>
         /// <returns>String.</returns>
-        public static String GetRequestAdditionalParameter(this BaseRequest request, ActionMethod requestMethod)
+        public static string GetRequestAdditionalParameter(this Request request, ActionMethod requestMethod)
         {
             var type = request.GetType();
             var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(RequestAdditionalParameterAttribute), false)).ToList();
             if (!properties.Any())
-                return String.Empty;
+                return string.Empty;
             var builder = new StringBuilder();
             foreach (var property in properties)
             {
@@ -128,17 +128,17 @@ namespace GuiStracini.Mandae.Utils
                 if (propertyValue == null)
                     continue;
 
-                if (property.PropertyType == typeof(Boolean))
+                if (property.PropertyType == typeof(bool))
                     propertyValue = propertyValue.ToString().ToLower();
                 var propertyName = property.Name;
                 if (property.GetCustomAttributes(typeof(JsonPropertyAttribute), false) is JsonPropertyAttribute[] attributesJson &&
                     attributesJson.Any())
                     propertyName = attributesJson.Single().PropertyName;
-                if (property.PropertyType == typeof(String) ||
-                    property.PropertyType == typeof(Boolean) ||
-                    property.PropertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0 ||
-                    property.PropertyType == typeof(Int64) && Convert.ToInt64(propertyValue) > 0)
-                    builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : String.Empty).Append(propertyValue);
+                if (property.PropertyType == typeof(string) ||
+                    property.PropertyType == typeof(bool) ||
+                    property.PropertyType == typeof(int) && Convert.ToInt32(propertyValue) > 0 ||
+                    property.PropertyType == typeof(long) && Convert.ToInt64(propertyValue) > 0)
+                    builder.Append("/").AppendFormat("{0}", addAsQueryString ? $"?{propertyName}=" : string.Empty).Append(propertyValue);
             }
             return builder.ToString();
         }

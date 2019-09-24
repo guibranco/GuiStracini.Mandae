@@ -13,16 +13,15 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport.V1
 {
-    using System;
     using Attributes;
     using Enums;
 
     /// <summary>
     /// The model for perform a search request in the Mandaê API V1
     /// </summary>
-    /// <seealso cref="BaseRequest" />
+    /// <seealso cref="Request" />
     [RequestEndPoint("v1/encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
-    public sealed class SearchRequest : BaseRequest
+    public sealed class SearchRequest : Request
     {
         /// <summary>
         /// Gets or sets the method.
@@ -38,7 +37,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <value>
         /// The value.
         /// </value>
-        public String Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets the offset.
@@ -47,7 +46,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// The offset.
         /// </value>
         [RequestParameterDefaultValue("0")]
-        public Int32 Offset { get; set; }
+        public int Offset { get; set; }
 
         /// <summary>
         /// Gets or sets the limit.
@@ -56,7 +55,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// The limit.
         /// </value>
         [RequestParameterDefaultValue("10")]
-        public Int32 Limit { get; set; }
+        public int Limit { get; set; }
 
     }
 }

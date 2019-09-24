@@ -14,18 +14,18 @@
 namespace GuiStracini.Mandae.Transport
 {
     using Newtonsoft.Json;
-    using System;
+    using SDKBuilder;
 
     /// <summary>
     /// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
     /// </summary>
-    public abstract class BaseRequest
+    public abstract class Request : BaseRequest
     {
         /// <summary>
         /// Gets or sets the token.
         /// </summary>
         /// <value>The token.</value>
         [JsonIgnore]
-        public String Token { get; set; }
+        public string Token { get; set; }
     }
 }

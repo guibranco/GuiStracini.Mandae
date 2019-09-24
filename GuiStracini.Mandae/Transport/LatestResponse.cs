@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.Transport
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <inheritdoc />
     /// <summary>
@@ -29,7 +28,7 @@ namespace GuiStracini.Mandae.Transport
         /// The identifier.
         /// </value>
         [JsonProperty("id")]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// Gets or sets the number.
         /// </summary>
@@ -37,7 +36,7 @@ namespace GuiStracini.Mandae.Transport
         /// The number.
         /// </value>
         [JsonProperty("number")]
-        public String Number { get; set; }
+        public string Number { get; set; }
         /// <summary>
         /// Gets or sets the URL.
         /// </summary>
@@ -45,6 +44,6 @@ namespace GuiStracini.Mandae.Transport
         /// The URL.
         /// </value>
         [JsonProperty("url")]
-        public String Url { get; set; }
+        public string Url { get; set; }
     }
 }

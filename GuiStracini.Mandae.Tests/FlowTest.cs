@@ -21,12 +21,12 @@
         public void FullFlowValidation()
         {
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            const String customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
+            const string customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
             var rnd = new Random();
             var ratesModel = new RatesModel
             {
                 PostalCode = "22041080",
-                DeclaredValue = new Decimal(215.15),
+                DeclaredValue = new decimal(215.15),
                 Dimensions = new Dimensions
                 {
                     Height = 60,
@@ -37,7 +37,7 @@
             };
             var rates = client.GetRates(ratesModel);
             Assert.IsNull(rates.Error);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(rates.PostalCode));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
             Assert.AreEqual(2, rates.ShippingServices.Length);
             var cheapAndFastDelivery = rates.ShippingServices.OrderBy(r => r.Price).ThenBy(r => r.Days).First();
             var orderModel = new OrderModel
@@ -100,15 +100,15 @@
                             {
                                 Description = "Caneta Acrilpen",
                                 Ean = "7891153044392",
-                                Price = new Decimal(4.47),
+                                Price = new decimal(4.47),
                                 Quantity = 2,
                                 SkuId = "3583"
                             },
                             new Sku
                             {
                                 Description = "Tecido algodão crú sem risco",
-                                Ean = String.Empty,
-                                Price = new Decimal(15.43),
+                                Ean = string.Empty,
+                                Price = new decimal(15.43),
                                 Quantity = 2,
                                 SkuId = "7522"
                             }

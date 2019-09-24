@@ -34,12 +34,12 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// The total value
         /// </summary>
-        private Decimal _totalValue;
+        private decimal _totalValue;
 
         /// <summary>
         /// The total freight
         /// </summary>
-        private Decimal _totalFreight;
+        private decimal _totalFreight;
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier
         /// </value>
         [JsonProperty("id")]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the recipient.
@@ -81,7 +81,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The shipping service internal.
         /// </value>
         [JsonProperty("shippingService")]
-        public String ShippingServiceInternal
+        public string ShippingServiceInternal
         {
             get => _shippingService.ToString().ToCamelCase();
             set
@@ -107,7 +107,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The observation.
         /// </value>
         [JsonProperty("observation")]
-        public String Observation { get; set; }
+        public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the qr codes.
@@ -116,7 +116,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The qr codes.
         /// </value>
         [JsonProperty("qrCodes")]
-        public String[] QrCodes { get; set; }
+        public string[] QrCodes { get; set; }
 
         /// <summary>
         /// Gets or sets the partner item identifier.
@@ -125,7 +125,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The partner item identifier.
         /// </value>
         [JsonProperty("partnerItemId")]
-        public String PartnerItemId { get; set; }
+        public string PartnerItemId { get; set; }
         /// <summary>
         /// Gets or sets the skus.
         /// </summary>
@@ -151,7 +151,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The tracking identifier.
         /// </value>
         [JsonProperty("trackingId")]
-        public String TrackingId { get; set; }
+        public string TrackingId { get; set; }
 
         /// <summary>
         /// Gets or sets the dimensions.
@@ -169,7 +169,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The sales channel (eg.: e-commerce, telemarketing, crm, etc)
         /// </value>
         [JsonProperty("channel")]
-        public String Channel { get; set; }
+        public string Channel { get; set; }
 
 
         /// <summary>
@@ -177,21 +177,21 @@ namespace GuiStracini.Mandae.ValueObject
         /// </summary>
         /// <value>The store name</value>
         [JsonProperty("store")]
-        public String Store { get; set; }
+        public string Store { get; set; }
 
         /// <summary>
         /// Gets or sets the total value internally
         /// </summary>
         /// <value>The total value of the item/order without freight value</value>
         [JsonProperty("totalValue")]
-        public String TotalValueInternal
+        public string TotalValueInternal
         {
             get => _totalValue.ToString(CultureInfo.InvariantCulture);
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value))
                     return;
-                if (Decimal.TryParse(value, out var v))
+                if (decimal.TryParse(value, out var v))
                     _totalValue = v;
             }
         }
@@ -201,7 +201,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// </summary>
         /// <value>The total value of the item/order without freight value</value>
         [JsonIgnore]
-        public Decimal TotalValue
+        public decimal TotalValue
         {
             get => _totalValue;
             set => _totalValue = value;
@@ -215,14 +215,14 @@ namespace GuiStracini.Mandae.ValueObject
         /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
         /// </remarks>
         [JsonProperty("totalFreight")]
-        public String TotalFreightInternal
+        public string TotalFreightInternal
         {
             get => _totalFreight.ToString(CultureInfo.InvariantCulture);
             set
             {
                 if (value == null)
                     return;
-                if (Decimal.TryParse(value, out var v))
+                if (decimal.TryParse(value, out var v))
                     _totalFreight = v;
             }
         }
@@ -236,7 +236,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// </remarks>
 
         [JsonIgnore]
-        public Decimal TotalFreight
+        public decimal TotalFreight
         {
             get => _totalFreight;
             set => _totalFreight = value;
