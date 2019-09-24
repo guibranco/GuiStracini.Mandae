@@ -20,7 +20,7 @@ namespace GuiStracini.Mandae.Transport
     /// This service allows you to get the complete listing of tracking events from the tracking code.
     /// </summary>
     /// <seealso cref="Request" />
-    [RequestEndPoint("trackings/{TrackingCode}")]
+    [ExtendedEndpointRoute("trackings/{TrackingCode}")]
     public sealed class TrackingRequest : Request
     {
         /// <summary>

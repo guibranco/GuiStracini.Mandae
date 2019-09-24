@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=2.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GuiStracini.SDKBuilder.2.0.6\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=2.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GuiStracini.SDKBuilder.2.0.8\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\RequestEndPoint.cs" />
+    <Compile Include="Attributes\ExtendedEndpointRouteAttribute.cs" />
     <Compile Include="Enums\Environment.cs" />
     <Compile Include="Enums\ReverseSearchMethod.cs" />
     <Compile Include="Enums\SearchMethod.cs" />
@@ -85,8 +85,6 @@
     <Compile Include="ValueObject\AddressV1.cs" />
     <Compile Include="ValueObject\Error.cs" />
     <Compile Include="Transport\BaseResponse.cs" />
-    <Compile Include="Transport\LatestRequest.cs" />
-    <Compile Include="Transport\LatestResponse.cs" />
     <Compile Include="Transport\TrackingRequest.cs" />
     <Compile Include="Transport\TrackingResponse.cs" />
     <Compile Include="ValueObject\Address.cs" />
@@ -107,7 +105,6 @@
     <Compile Include="ValueObject\Sku.cs" />
     <Compile Include="ValueObject\Store.cs" />
     <Compile Include="ValueObject\ValueAddedService.cs" />
-    <Compile Include="Transport\VehiclesRequest.cs" />
     <Compile Include="Utils\ServiceFactory.cs" />
     <Compile Include="Transport\BaseRequest.cs" />
     <Compile Include="WebHook\OrderPickup.cs" />

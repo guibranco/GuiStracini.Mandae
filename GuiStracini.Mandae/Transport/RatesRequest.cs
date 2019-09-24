@@ -21,7 +21,7 @@ namespace GuiStracini.Mandae.Transport
     /// Return is a list of shipping forms offered for the simulated zip code.
     /// </summary>
     /// <seealso cref="Request" />
-    [RequestEndPoint("/postalcodes/{PostalCode}/rates")]
+    [ExtendedEndpointRoute("/postalcodes/{PostalCode}/rates")]
     public sealed class RatesRequest : Request
     {
         [JsonProperty("postalCode")]

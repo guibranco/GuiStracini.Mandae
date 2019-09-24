@@ -114,9 +114,6 @@
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
-            var status = client.GetLatestOrderCollectStatus(customerId);
-            Assert.IsNull(status.Error);
-            Assert.IsNotNull(status.Url);
         }
     }
 }

@@ -13,36 +13,31 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Attributes
 {
+    using SDKBuilder.Routing;
     using System;
 
     /// <summary>
-    /// Class RequestEndPointAttribute. This class cannot be inherited.
+    /// Class ExtendedEndpointRouteAttribute. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="System.Attribute" />
     [AttributeUsage(AttributeTargets.Class)]
-    public sealed class RequestEndPointAttribute : Attribute
+    public sealed class ExtendedEndpointRouteAttribute : EndpointRouteAttribute
     {
 
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.C:\Repositórios\GuiStracini.Mandae\GuiStracini.Mandae\Attributes\RequestEndPoint.cs
+        /// Initializes a new instance of the <see cref="ExtendedEndpointRouteAttribute"/> class.C:\Repositórios\GuiStracini.Mandae\GuiStracini.Mandae\Attributes\RequestEndPoint.cs
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
-        public RequestEndPointAttribute(string endPoint)
-        {
-            EndPoint = endPoint;
-        }
+        public ExtendedEndpointRouteAttribute(string endPoint)
+            : base(endPoint)
+        { }
 
         #endregion
 
         #region Public properties
 
-        /// <summary>
-        /// Gets the end point.
-        /// </summary>
-        /// <value>The end point path.</value>
-        public string EndPoint { get; }
 
         /// <summary>
         /// Gets or sets the custom base.
@@ -51,6 +46,7 @@ namespace GuiStracini.Mandae.Attributes
         /// The custom base.
         /// </value>
         public string CustomBase { get; set; }
+
         #endregion
 
     }

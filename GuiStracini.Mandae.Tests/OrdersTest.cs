@@ -25,7 +25,6 @@ namespace GuiStracini.Mandae.Test
     [TestClass]
     public class OrdersTest
     {
-
         /// <summary>
         /// Validates register order collect request method.
         /// </summary>
@@ -54,32 +53,6 @@ namespace GuiStracini.Mandae.Test
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
-        }
-
-        /// <summary>
-        /// Validates get latest order collect status method.
-        /// </summary>
-        [TestMethod]
-        public void GetLatestOrderCollectStatus()
-        {
-            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var status = client.GetLatestOrderCollectStatus("182AC0ECDE0CA08A8B729733EBE8197D");
-            Assert.IsNull(status.Error);
-            Assert.IsNotNull(status.Url);
-        }
-
-        /// <summary>
-        /// Validates Get latest order collect status asynchronous method.
-        /// </summary>
-        /// <returns></returns>
-        [TestMethod]
-        public async Task GetLatestOrderCollectStatusAsync()
-        {
-            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-            var status = await client.GetLatestOrderCollectStatusAsync("182AC0ECDE0CA08A8B729733EBE8197D", source.Token);
-            Assert.IsNull(status.Error);
-            Assert.IsNotNull(status.Url);
         }
     }
 }

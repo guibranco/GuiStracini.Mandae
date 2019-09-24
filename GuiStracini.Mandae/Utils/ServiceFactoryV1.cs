@@ -13,6 +13,7 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
+    using Attributes;
     using GoodPractices;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
@@ -141,7 +142,7 @@ namespace GuiStracini.Mandae.Utils
             var baseEndpoint = "https://pedido.api.mandae.com.br";
             if (_constants.ContainsKey("URLAPIPEDIDO_NGINX"))
                 baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
-            var attribute = requestObject.GetRequestEndPointAttribute();
+            var attribute = (ExtendedEndpointRouteAttribute)requestObject.GetRequestEndPointAttribute();
             if (attribute != null &&
                 !string.IsNullOrWhiteSpace(attribute.CustomBase) &&
                 _constants.ContainsKey(attribute.CustomBase))

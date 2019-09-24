@@ -104,7 +104,6 @@ namespace GuiStracini.Mandae.Utils
                         NullValueHandling = NullValueHandling.Ignore
                     }
                 };
-
                 var endpoint = string.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
                 try
                 {

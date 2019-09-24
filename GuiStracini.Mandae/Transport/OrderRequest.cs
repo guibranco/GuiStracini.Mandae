@@ -26,7 +26,7 @@ namespace GuiStracini.Mandae.Transport
     /// We consider the term items as each sale made, which may contain one or more products for the same recipient.
     /// </summary>
     /// <seealso cref="Request" />
-    [RequestEndPoint("orders/add-parcel")]
+    [ExtendedEndpointRoute("orders/add-parcel")]
     public class OrderRequest : Request
     {
         #region Private fields 

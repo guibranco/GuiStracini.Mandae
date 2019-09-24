@@ -8,7 +8,7 @@
     /// The reverse request class.
     /// </summary>
     /// <seealso cref="GuiStracini.Mandae.Transport.Request" />
-    [RequestEndPoint("v1/reversas?offset={Offset}&limit={Limit}&{Method}={Value}")]
+    [ExtendedEndpointRoute("v1/reversas?offset={Offset}&limit={Limit}&{Method}={Value}")]
     public sealed class SearchReverseRequest : Request
     {
         /// <summary>

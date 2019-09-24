@@ -58,21 +58,6 @@ namespace GuiStracini.Mandae
         Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
 
         /// <summary>
-        /// Gets the latest order collect status.
-        /// </summary>
-        /// <param name="customerId">The customer identifier.</param>
-        /// <returns></returns>
-        LatestResponse GetLatestOrderCollectStatus(string customerId);
-
-        /// <summary>
-        /// Gets the latest order collect status asynchronous.
-        /// </summary>
-        /// <param name="customerId">The customer identifier.</param>
-        /// <param name="token">The token.</param>
-        /// <returns></returns>
-        Task<LatestResponse> GetLatestOrderCollectStatusAsync(string customerId, CancellationToken token);
-
-        /// <summary>
         /// Gets the tracking.
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>

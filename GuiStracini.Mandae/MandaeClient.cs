@@ -141,33 +141,7 @@ namespace GuiStracini.Mandae
             };
             return await _service.Post<OrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
         }
-
-        /// <summary>
-        /// Gets the latest order collect status.
-        /// </summary>
-        /// <param name="customerId">The customer identifier.</param>
-        /// <returns><see cref="LatestResponse"/></returns>
-        public LatestResponse GetLatestOrderCollectStatus(string customerId)
-        {
-            return GetLatestOrderCollectStatusAsync(customerId, CancellationToken.None).Result;
-        }
-
-        /// <summary>
-        /// Gets the latest collect order status asynchronous.
-        /// </summary>
-        /// <param name="customerId">The customer identifier.</param>
-        /// <param name="token">The token.</param>
-        /// <returns>A task of <see cref="LatestResponse"/></returns>
-        public async Task<LatestResponse> GetLatestOrderCollectStatusAsync(string customerId, CancellationToken token)
-        {
-            var data = new LatestRequest
-            {
-                Token = _token,
-                CustomerId = customerId
-            };
-            return await _service.Get<LatestResponse, LatestRequest>(data, token).ConfigureAwait(_configureAwait);
-        }       
-
+        
         #endregion
 
         #region Tracking

@@ -6,7 +6,7 @@
     /// <summary>
     /// The login request
     /// </summary>
-    [RequestEndPoint("lp/server/api/site/v1/login", CustomBase = "URL")]
+    [ExtendedEndpointRoute("lp/server/api/site/v1/login", CustomBase = "URL")]
     public sealed class LoginRequest : Request
     {
         /// <summary>
