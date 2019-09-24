@@ -15,14 +15,13 @@ namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// This service allows you to get the complete listing of tracking events from the tracking code.
     /// </summary>
-    /// <seealso cref="BaseRequest" />
-    [RequestEndPoint("trackings/{TrackingCode}")]
-    public sealed class TrackingRequest : BaseRequest
+    /// <seealso cref="Request" />
+    [ExtendedEndpointRoute("trackings/{TrackingCode}")]
+    public sealed class TrackingRequest : Request
     {
         /// <summary>
         /// Gets or sets the tracking code.
@@ -31,6 +30,6 @@ namespace GuiStracini.Mandae.Transport
         /// The tracking code.
         /// </value>
         [JsonProperty("trackingCode")]
-        public String TrackingCode { get; set; }
+        public string TrackingCode { get; set; }
     }
 }

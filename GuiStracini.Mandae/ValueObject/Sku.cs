@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The Stock keeping unit class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The sku identifier.
         /// </value>
         [JsonProperty("skuId")]
-        public String SkuId { get; set; }
+        public string SkuId { get; set; }
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
@@ -36,7 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The description.
         /// </value>
         [JsonProperty("description")]
-        public String Description { get; set; }
+        public string Description { get; set; }
         /// <summary>
         /// Gets or sets the ean.
         /// </summary>
@@ -44,7 +43,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The ean.
         /// </value>
         [JsonProperty("ean")]
-        public String Ean { get; set; }
+        public string Ean { get; set; }
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
@@ -52,7 +51,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The price.
         /// </value>
         [JsonProperty("price")]
-        public Decimal Price { get; set; }
+        public decimal Price { get; set; }
         /// <summary>
         /// Gets or sets the freight.
         /// </summary>
@@ -60,7 +59,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The freight.
         /// </value>
         [JsonProperty("freight")]
-        public Decimal Freight { get; set; }
+        public decimal Freight { get; set; }
         /// <summary>
         /// Gets or sets the quantity.
         /// </summary>
@@ -68,6 +67,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The quantity.
         /// </value>
         [JsonProperty("quantity")]
-        public Int32 Quantity { get; set; }
+        public int Quantity { get; set; }
     }
 }

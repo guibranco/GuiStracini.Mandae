@@ -36,7 +36,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The name.
         /// </value>
         [JsonProperty("name")]
-        public String Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
@@ -44,6 +44,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The description.
         /// </value>
         [JsonProperty("description")]
-        public String Description { get; set; }
+        public string Description { get; set; }
     }
 }

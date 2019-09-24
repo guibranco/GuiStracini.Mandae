@@ -12,7 +12,7 @@
         /// The postage authorization.
         /// </value>
         [JsonProperty("autorizacaoPostagem")]
-        public String PostageAuthorization { get; set; }
+        public string PostageAuthorization { get; set; }
 
         /// <summary>
         /// Gets or sets the delivery notification.
@@ -21,7 +21,7 @@
         /// The delivery notification.
         /// </value>
         [JsonProperty("avisorecebimento")]
-        public Boolean? DeliveryNotification { get; set; }
+        public bool? DeliveryNotification { get; set; }
 
         /// <summary>
         /// Gets or sets the channel.
@@ -30,7 +30,7 @@
         /// The channel.
         /// </value>
         [JsonProperty("canal")]
-        public String Channel { get; set; }
+        public string Channel { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking code.
@@ -39,7 +39,7 @@
         /// The tracking code.
         /// </value>
         [JsonProperty("codigoRastreamento")]
-        public String TrackingCode { get; set; }
+        public string TrackingCode { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking code courier.
@@ -48,7 +48,7 @@
         /// The tracking code courier.
         /// </value>
         [JsonProperty("codigoRastreioTransportadora")]
-        public String TrackingCodeCourier { get; set; }
+        public string TrackingCodeCourier { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [with packing].
@@ -57,7 +57,7 @@
         ///   <c>true</c> if [with packing]; otherwise, <c>false</c>.
         /// </value>
         [JsonProperty("comEmbalagem")]
-        public Boolean WithPacking { get; set; }
+        public bool WithPacking { get; set; }
 
         /// <summary>
         /// Gets or sets the internal cost.
@@ -66,7 +66,7 @@
         /// The internal cost.
         /// </value>
         [JsonProperty("custoInterno")]
-        public Decimal InternalCost { get; set; }
+        public decimal InternalCost { get; set; }
 
         /// <summary>
         /// Gets or sets the canceled date.

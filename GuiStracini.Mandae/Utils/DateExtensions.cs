@@ -10,9 +10,9 @@
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>The total seconds</returns>
-        public static Int32 ToUnixTimeStamp(this DateTime dateTime)
+        public static int ToUnixTimeStamp(this DateTime dateTime)
         {
-            return (Int32)dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return (int)dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
         /// <summary>
@@ -22,10 +22,10 @@
         /// <param name="epochTime">The Unix Timestamp</param>
         /// <returns>A DateTime instance of the epochTime</returns>
 
-        public static DateTime FromUnixTimeStamp(this Int32 epochTime)
+        public static DateTime FromUnixTimeStamp(this int epochTime)
         {
             return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                   .AddSeconds(Math.Round((Double)epochTime / 1000))
+                   .AddSeconds(Math.Round((double)epochTime / 1000))
                    .ToLocalTime();
         }
     }

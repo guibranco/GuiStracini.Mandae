@@ -15,18 +15,17 @@ namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// This entity allows a simulation of the value of a freight for a given ZIP code. 
     /// Return is a list of shipping forms offered for the simulated zip code.
     /// </summary>
-    /// <seealso cref="BaseRequest" />
-    [RequestEndPoint("/postalcodes/{PostalCode}/rates")]
-    public sealed class RatesRequest : BaseRequest
+    /// <seealso cref="Request" />
+    [ExtendedEndpointRoute("/postalcodes/{PostalCode}/rates")]
+    public sealed class RatesRequest : Request
     {
         [JsonProperty("postalCode")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
         /// <summary>
         /// Gets or sets the declared value.
         /// </summary>
@@ -34,7 +33,7 @@ namespace GuiStracini.Mandae.Transport
         /// The declared value.
         /// </value>
         [JsonProperty("declaredValue")]
-        public String DeclaredValue { get; set; }
+        public string DeclaredValue { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
@@ -43,7 +42,7 @@ namespace GuiStracini.Mandae.Transport
         /// The weight.
         /// </value>
         [JsonProperty("weight")]
-        public String Weight { get; set; }
+        public string Weight { get; set; }
 
         /// <summary>
         /// Gets or sets the height.
@@ -52,7 +51,7 @@ namespace GuiStracini.Mandae.Transport
         /// The height.
         /// </value>
         [JsonProperty("height")]
-        public String Height { get; set; }
+        public string Height { get; set; }
 
         /// <summary>
         /// Gets or sets the width.
@@ -61,7 +60,7 @@ namespace GuiStracini.Mandae.Transport
         /// The width.
         /// </value>
         [JsonProperty("width")]
-        public String Width { get; set; }
+        public string Width { get; set; }
 
         /// <summary>
         /// Gets or sets the length.
@@ -70,6 +69,6 @@ namespace GuiStracini.Mandae.Transport
         /// The length.
         /// </value>
         [JsonProperty("length")]
-        public String Length { get; set; }
+        public string Length { get; set; }
     }
 }

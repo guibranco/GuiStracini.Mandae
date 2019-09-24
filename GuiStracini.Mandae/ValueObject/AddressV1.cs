@@ -14,7 +14,6 @@
 namespace GuiStracini.Mandae.ValueObject
 {
     using Newtonsoft.Json;
-    using System;
 
     /// <summary>
     /// The address class
@@ -28,7 +27,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier.
         /// </value>
         [JsonProperty("id")]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the postal code.
@@ -37,7 +36,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The postal code.
         /// </value>
         [JsonProperty("cep")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or sets the street.
@@ -46,7 +45,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The street.
         /// </value>
         [JsonProperty("logradouro")]
-        public String Street { get; set; }
+        public string Street { get; set; }
 
         /// <summary>
         /// Gets or sets the number.
@@ -55,7 +54,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The number.
         /// </value>
         [JsonProperty("numero")]
-        public String Number { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// Gets or sets the neighborhood.
@@ -64,7 +63,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The neighborhood.
         /// </value>
         [JsonProperty("bairro")]
-        public String Neighborhood { get; set; }
+        public string Neighborhood { get; set; }
 
         /// <summary>
         /// Gets or sets the city.
@@ -73,7 +72,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The city.
         /// </value>
         [JsonProperty("cidade")]
-        public String City { get; set; }
+        public string City { get; set; }
 
         /// <summary>
         /// Gets or sets the state initials.
@@ -82,7 +81,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The state initials.
         /// </value>
         [JsonProperty("uf")]
-        public String StateInitials { get; set; }
+        public string StateInitials { get; set; }
 
         /// <summary>
         /// Gets or sets the country.
@@ -91,6 +90,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The country.
         /// </value>
         [JsonProperty("pais")]
-        public String Country { get; set; }
+        public string Country { get; set; }
     }
 }

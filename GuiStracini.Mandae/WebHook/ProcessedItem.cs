@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.WebHook
 {
-    using System;
     using ValueObject;
 
     /// <summary>
@@ -27,35 +26,35 @@ namespace GuiStracini.Mandae.WebHook
         /// <value>
         /// The identifier.
         /// </value>
-        public Int64 Id { get; set; }
+        public long Id { get; set; }
         /// <summary>
         /// Gets or sets the partner item identifier.
         /// </summary>
         /// <value>
         /// The partner item identifier.
         /// </value>
-        public String PartnerItemId { get; set; }
+        public string PartnerItemId { get; set; }
         /// <summary>
         /// Gets or sets the tracking code.
         /// </summary>
         /// <value>
         /// The tracking code.
         /// </value>
-        public String TrackingCode { get; set; }
+        public string TrackingCode { get; set; }
         /// <summary>
         /// Gets or sets the tracking URL.
         /// </summary>
         /// <value>
         /// The tracking URL.
         /// </value>
-        public String TrackingUrl { get; set; }
+        public string TrackingUrl { get; set; }
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
         /// <value>
         /// The price.
         /// </value>
-        public Decimal Price { get; set; }
+        public decimal Price { get; set; }
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>
@@ -69,13 +68,13 @@ namespace GuiStracini.Mandae.WebHook
         /// <value>
         /// The reference.
         /// </value>
-        public String Reference { get; set; }
+        public string Reference { get; set; }
         /// <summary>
         /// Gets or sets the qr codes.
         /// </summary>
         /// <value>
         /// The qr codes.
         /// </value>
-        public String[] QrCodes { get; set; }
+        public string[] QrCodes { get; set; }
     }
 }

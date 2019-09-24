@@ -1,6 +1,6 @@
 ﻿namespace GuiStracini.Mandae.Transport
 {
-    public sealed class ReverseRequest : BaseRequest
+    public sealed class ReverseRequest : Request
     {
 //        {
 //    "remetente": {

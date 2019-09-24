@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport.V1
 {
-    using System;
     using Newtonsoft.Json;
     using ValueObject;
 
@@ -30,7 +29,7 @@ namespace GuiStracini.Mandae.Transport.V1
         /// The total.
         /// </value>
         [JsonProperty("Total")]
-        public Int32 Total { get; set; }
+        public int Total { get; set; }
 
         /// <summary>
         /// Gets or sets the orders.

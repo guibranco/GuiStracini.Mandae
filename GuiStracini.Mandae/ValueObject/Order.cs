@@ -30,7 +30,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier.
         /// </value>
         [JsonProperty("id")]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the photo URL.
@@ -39,7 +39,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The photo URL.
         /// </value>
         [JsonProperty("urlFoto")]
-        public String PhotoUrl { get; set; }
+        public string PhotoUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the reference.
@@ -48,16 +48,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The reference.
         /// </value>
         [JsonProperty("referencia")]
-        public String Reference { get; set; }
-
-        /// <summary>
-        /// Gets or sets the qr codes.
-        /// </summary>
-        /// <value>
-        /// The qr codes.
-        /// </value>
-        [JsonProperty("qrCodes")]
-        public String[] QrCodes { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the notes.
@@ -66,7 +57,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The notes.
         /// </value>
         [JsonProperty("observacao")]
-        public String Notes { get; set; }
+        public string Notes { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier service order.
@@ -75,7 +66,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The identifier service order.
         /// </value>
         [JsonProperty("idOrdemServico")]
-        public Int32? IdServiceOrder { get; set; }
+        public int? IdServiceOrder { get; set; }
 
         /// <summary>
         /// Gets or sets the service order.
@@ -84,7 +75,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The service order.
         /// </value>
         [JsonProperty("NumeroOrdemServico")]
-        public String ServiceOrder { get; set; }
+        public string ServiceOrder { get; set; }
 
         /// <summary>
         /// Gets or sets the situation.
@@ -102,7 +93,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The situation description.
         /// </value>
         [JsonProperty("codigoSituacao")]
-        public String SituationDescription { get; set; }
+        public string SituationDescription { get; set; }
 
         /// <summary>
         /// Gets or sets the shipping service.
@@ -111,7 +102,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The shipping service.
         /// </value>
         [JsonProperty("servicoEnvio")]
-        public Int32 ShippingService { get; set; }
+        public int ShippingService { get; set; }
 
         /// <summary>
         /// Gets or sets the shipping service description.
@@ -120,7 +111,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The shipping service description.
         /// </value>
         [JsonProperty("codigoServicoEnvio")]
-        public String ShippingServiceDescription { get; set; }
+        public string ShippingServiceDescription { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the shipping service.
@@ -129,7 +120,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The name of the shipping service.
         /// </value>
         [JsonProperty("nomeExibicaoServicoEnvio")]
-        public String ShippingServiceName { get; set; }
+        public string ShippingServiceName { get; set; }
 
         /// <summary>
         /// Gets or sets the lenght.
@@ -138,7 +129,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The lenght.
         /// </value>
         [JsonProperty("comprimento")]
-        public Decimal? Lenght { get; set; }
+        public decimal? Lenght { get; set; }
 
         /// <summary>
         /// Gets or sets the height.
@@ -147,7 +138,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The height.
         /// </value>
         [JsonProperty("height")]
-        public Decimal? Height { get; set; }
+        public decimal? Height { get; set; }
 
         /// <summary>
         /// Gets or sets the diameter.
@@ -156,7 +147,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The diameter.
         /// </value>
         [JsonProperty("diametro")]
-        public Decimal? Diameter { get; set; }
+        public decimal? Diameter { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
@@ -165,7 +156,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The weight.
         /// </value>
         [JsonProperty("peso")]
-        public Decimal? Weight { get; set; }
+        public decimal? Weight { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking code.
@@ -174,7 +165,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The tracking code.
         /// </value>
         [JsonProperty("codigoRastreamento")]
-        public String TrackingCode { get; set; }
+        public string TrackingCode { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking code courier.
@@ -183,7 +174,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The tracking code courier.
         /// </value>
         [JsonProperty("codigoRastreioTransportadora")]
-        public String TrackingCodeCourier { get; set; }
+        public string TrackingCodeCourier { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
@@ -192,7 +183,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The value.
         /// </value>
         [JsonProperty("valor")]
-        public Decimal? Value { get; set; }
+        public decimal? Value { get; set; }
 
         /// <summary>
         /// Gets or sets the internal value.
@@ -201,7 +192,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The internal value.
         /// </value>
         [JsonProperty("custoInterno")]
-        public Decimal? InternalValue { get; set; }
+        public decimal? InternalValue { get; set; }
 
         /// <summary>
         /// Gets or sets the recipient.
@@ -219,7 +210,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The label URL.
         /// </value>
         [JsonProperty("urlEtiqueta")]
-        public String LabelUrl { get; set; }
+        public string LabelUrl { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [acknowledgment receipt].
@@ -228,7 +219,7 @@ namespace GuiStracini.Mandae.ValueObject
         ///   <c>true</c> if [acknowledgment receipt]; otherwise, <c>false</c>.
         /// </value>
         [JsonProperty("ar")]
-        public Boolean AcknowledgmentReceipt { get; set; }
+        public bool AcknowledgmentReceipt { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [own hands].
@@ -237,7 +228,7 @@ namespace GuiStracini.Mandae.ValueObject
         ///   <c>true</c> if [own hands]; otherwise, <c>false</c>.
         /// </value>
         [JsonProperty("maoPropria")]
-        public Boolean OwnHands { get; set; }
+        public bool OwnHands { get; set; }
 
         /// <summary>
         /// Gets or sets the declared value.
@@ -246,7 +237,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The declared value.
         /// </value>
         [JsonProperty("valorDeclarado")]
-        public Decimal? DeclaredValue { get; set; }
+        public decimal? DeclaredValue { get; set; }
 
         /// <summary>
         /// Gets or sets the packing.
@@ -255,7 +246,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The packing.
         /// </value>
         [JsonProperty("embalagem")]
-        public String Packing { get; set; }
+        public string Packing { get; set; }
 
         /// <summary>
         /// Gets or sets the packing code.
@@ -264,7 +255,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The packing code.
         /// </value>
         [JsonProperty("codigoEmbalagem")]
-        public String PackingCode { get; set; }
+        public string PackingCode { get; set; }
 
         /// <summary>
         /// Gets or sets the shipping label.
@@ -273,7 +264,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The shipping label.
         /// </value>
         [JsonProperty("etiquetaEmbalagem")]
-        public Int32? ShippingLabel { get; set; }
+        public int? ShippingLabel { get; set; }
 
         /// <summary>
         /// Gets or sets the shipping label description.
@@ -282,7 +273,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The shipping label description.
         /// </value>
         [JsonProperty("codigoEtiquetaEnvio")]
-        public String ShippingLabelDescription { get; set; }
+        public string ShippingLabelDescription { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking URL.
@@ -291,7 +282,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The tracking URL.
         /// </value>
         [JsonProperty("urlRastreamento")]
-        public String TrackingUrl { get; set; }
+        public string TrackingUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the date delivered.
@@ -309,7 +300,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The date delivered internal.
         /// </value>
         [JsonProperty("dataHoraEntrega")]
-        public Int64? DateDeliveredInternal
+        public long? DateDeliveredInternal
         {
             get => DateDelivered.ToUnixTimeStamp();
             set
@@ -335,7 +326,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The date lost internal.
         /// </value>
         [JsonProperty("dataHoraExtraviada")]
-        public Int64? DateLostInternal
+        public long? DateLostInternal
         {
             get => DateLost.ToUnixTimeStamp();
             set
@@ -361,7 +352,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The date first attempt internal.
         /// </value>
         [JsonProperty("dataHoraPrimeiraTentativaEntrega")]
-        public Int64? DateFirstAttemptInternal
+        public long? DateFirstAttemptInternal
         {
             get => DateFirstAttempt.ToUnixTimeStamp();
             set
@@ -387,7 +378,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The date expected delivery internal.
         /// </value>
         [JsonProperty("dataPrevisaoEntrega")]
-        public Int64? DateExpectedDeliveryInternal
+        public long? DateExpectedDeliveryInternal
         {
             get => DateExpectedDelivery.ToUnixTimeStamp();
             set
@@ -404,7 +395,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The courier.
         /// </value>
         [JsonProperty("transportadora")]
-        public String Courier { get; set; }
+        public string Courier { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum delivery time.
@@ -413,7 +404,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The minimum delivery time.
         /// </value>
         [JsonProperty("prazoMinimo")]
-        public Int32? MinDeliveryTime { get; set; }
+        public int? MinDeliveryTime { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum delivery time.
@@ -422,7 +413,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// The maximum delivery time.
         /// </value>
         [JsonProperty("prazoMaximo")]
-        public Int32? MaxDeliveryTime { get; set; }
+        public int? MaxDeliveryTime { get; set; }
 
         /// <summary>
         /// Gets or sets the quantity printed by client.
@@ -431,6 +422,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// The quantity printed by client.
         /// </value>
         [JsonProperty("quantidadeImpressaPeloCliente")]
-        public Int32? QuantityPrintedByClient { get; set; }
+        public int? QuantityPrintedByClient { get; set; }
     }
 }

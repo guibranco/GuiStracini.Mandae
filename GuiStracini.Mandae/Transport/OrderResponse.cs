@@ -29,13 +29,13 @@ namespace GuiStracini.Mandae.Transport
         /// The identifier
         /// </summary>
         [JsonProperty("id")]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// The customer identifier
         /// </summary>
         [JsonProperty("customerId")]
-        public String CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         /// <summary>
         /// The scheduling date
@@ -71,7 +71,7 @@ namespace GuiStracini.Mandae.Transport
         /// The observation
         /// </summary>
         [JsonProperty("observation")]
-        public String Observation { get; set; }
+        public string Observation { get; set; }
 
         /// <summary>
         /// The pickup vehicle
@@ -83,13 +83,13 @@ namespace GuiStracini.Mandae.Transport
         /// The partner identifier
         /// </summary>
         [JsonProperty("partnerId")]
-        public String PartnerId { get; set; }
+        public string PartnerId { get; set; }
 
         /// <summary>
         /// The partner order identifier
         /// </summary>
         [JsonProperty("partnerOrderId")]
-        public String PartnerOrderId { get; set; }
+        public string PartnerOrderId { get; set; }
 
         /// <summary>
         /// The processing date
@@ -98,7 +98,7 @@ namespace GuiStracini.Mandae.Transport
         public DateTime? ProcessingDate { get; set; }
 
         [JsonProperty("processingDate")]
-        public String ProcessingDateInternal
+        public string ProcessingDateInternal
         {
             get => ProcessingDate?.ToString("yyyy-MM-dd");
             set

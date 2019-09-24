@@ -1,15 +1,15 @@
 ﻿namespace GuiStracini.Mandae.Transport.V1
 {
-    using System;
     using Attributes;
     using Enums;
+    using SDKBuilder.Routing;
 
     /// <summary>
     /// The reverse request class.
     /// </summary>
-    /// <seealso cref="GuiStracini.Mandae.Transport.BaseRequest" />
-    [RequestEndPoint("v1/reversas?offset={Offset}&limit={Limit}&{Method}={Value}")]
-    public sealed class SearchReverseRequest : BaseRequest
+    /// <seealso cref="GuiStracini.Mandae.Transport.Request" />
+    [ExtendedEndpointRoute("v1/reversas?offset={Offset}&limit={Limit}&{Method}={Value}")]
+    public sealed class SearchReverseRequest : Request
     {
         /// <summary>
         /// Gets or sets the method.
@@ -25,7 +25,7 @@
         /// <value>
         /// The value.
         /// </value>
-        public String Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets the offset.
@@ -33,8 +33,8 @@
         /// <value>
         /// The offset.
         /// </value>
-        [RequestParameterDefaultValue("0")]
-        public Int32 Offset { get; set; }
+        [DefaultRouteValue("0")]
+        public int Offset { get; set; }
 
         /// <summary>
         /// Gets or sets the limit.
@@ -42,8 +42,8 @@
         /// <value>
         /// The limit.
         /// </value>
-        [RequestParameterDefaultValue("10")]
-        public Int32 Limit { get; set; }
+        [DefaultRouteValue("10")]
+        public int Limit { get; set; }
 
     }
 }

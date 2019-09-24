@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
-    using System;
     using System.Linq;
     using System.Text;
 
@@ -28,13 +27,13 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="str">The input string</param>
         /// <returns>The input string with Camel Case result</returns>
 
-        public static String ToCamelCase(this String str)
+        public static string ToCamelCase(this string str)
         {
-            if (String.IsNullOrEmpty(str))
-                return String.Empty;
+            if (string.IsNullOrEmpty(str))
+                return string.Empty;
             var words = str.Trim().Split(' ');
             var sb = new StringBuilder();
-            foreach (var s in words.Where(s => !String.IsNullOrEmpty(s)))
+            foreach (var s in words.Where(s => !string.IsNullOrEmpty(s)))
                 sb.AppendFormat("{0}{1} ", s.Substring(0, 1).ToUpper(), s.Substring(1, s.Length - 1).ToLower());
             return sb.ToString().Substring(0, sb.ToString().Length - 1);
         }

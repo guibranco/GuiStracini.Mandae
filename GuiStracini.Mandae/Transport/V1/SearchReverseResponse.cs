@@ -1,6 +1,5 @@
 ﻿namespace GuiStracini.Mandae.Transport.V1
 {
-    using System;
     using ValueObject;
 
     /// <summary>
@@ -15,7 +14,7 @@
         /// <value>
         /// The total.
         /// </value>
-        public Int32 Total { get; set; }
+        public int Total { get; set; }
 
         /// <summary>
         /// Gets or sets the reverses.
