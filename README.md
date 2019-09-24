@@ -31,7 +31,7 @@ Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint 
 
 **Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request**
 
-**Release v6.0.0 and higher DEPRECATE methods: Get Latest Order**
+**Release v6.0.0 and higher DEPRECATED methods: Get Latest Order**
 
 ----------
 
