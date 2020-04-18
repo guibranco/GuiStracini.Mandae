@@ -2,7 +2,7 @@
 
 Cliente (não oficial) da API da Mandaê para projetos .NET.
 
-For a english version, please [follow me](/README.md)
+For a english version, please [follow me](/readme.md)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
 [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
@@ -59,4 +59,4 @@ Este cliente suporta as seguintes operações/funcionalidades da API:
 
 ## Utilização
 
-Vide o arquivo em [inglês](/README.md) para exemplos de utilização.
+Vide o arquivo em [inglês](/readme.md) para exemplos de utilização.
