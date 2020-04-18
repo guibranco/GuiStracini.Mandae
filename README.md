@@ -24,7 +24,9 @@ This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com
 - Release v6.0.0 and higher DEPRECATED methods: Get Latest Order
 - Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request
 - Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.
-- Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).**The API V1 is not officially public, so there is no warranty that it will still working**
+- Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
+
+**The API V1 is not officially public, so there is no warranty that it will still working**
 
 ---
 
