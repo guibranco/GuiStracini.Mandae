@@ -2,7 +2,7 @@
 
 Cliente (não oficial) da API da Mandaê para projetos .NET.
 
-For a english version, please [follow me](/readme.md)
+For a english version, please [follow me](/README.md)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
 [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
