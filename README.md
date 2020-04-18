@@ -49,9 +49,9 @@ This client supports the following operations/features of the API:
  3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
  4. WebHooks schema ready (The web hooks models, ready for implementation)
  5. **Experimental** Querying orders (API V1 - non-public API)
- 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1)![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
- 7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2)![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
- 8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3)![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
 
 ---
 
