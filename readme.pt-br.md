@@ -1,6 +1,6 @@
 # Mandaê SDK
 
-Cliente (não oficial) da API da Mandaê.
+Cliente (não oficial) da API da Mandaê para projetos .NET.
 
 For a english version, please [follow me](/README.md)
 
