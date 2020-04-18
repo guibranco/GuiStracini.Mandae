@@ -21,9 +21,9 @@ This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 ## Release notes
 
-- **Release v6.0.0 and higher DEPRECATED methods: Get Latest Order**
-- **Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request**
-- **Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.**
+- Release v6.0.0 and higher DEPRECATED methods: Get Latest Order
+- Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request
+- Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.
 - Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).**The API V1 is not officially public, so there is no warranty that it will still working**
 
 ---
@@ -62,6 +62,7 @@ This client supports the following operations/features of the API:
 Initializes a new instance of **MandaeClient** class.
 
 Example:
+
 ```csharp
 //Request your API token to ti@mandae.com.br 
 //Each environment has it's own API token!
@@ -77,6 +78,7 @@ var client = new MandaeClient(apiToken, Environment.PRODUCTION);
 Get the rates (Rápido & Econômico) values and delivery time for a specified postal code and package dimensions.
 
 Example:
+
 ```csharp
 //The MandaeClient
 var client = new MandaeClient("my API token");
