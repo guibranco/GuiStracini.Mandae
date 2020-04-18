@@ -1,4 +1,4 @@
-# Mandaê API Client
+# Mandaê SDK
 
 The **(unofficial)** Mandaê API client for .NET projects.
 
