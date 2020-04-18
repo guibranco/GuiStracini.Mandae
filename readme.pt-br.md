@@ -59,4 +59,4 @@ Este cliente suporta as seguintes operações/funcionalidades da API:
 
 ## Utilização
 
-Vide o arquivo em [inglês](/readme.md) para exemplos de utilização.
+Vide o arquivo em [inglês](/readme.md#usage) para exemplos de utilização.
