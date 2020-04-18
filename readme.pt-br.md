@@ -24,7 +24,9 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 - Release v6.0.0 e superior - Métodos DEPRECIADOS: Get Latest Order
 - Release v5.0.0 e superior - Métodos DEPRECIADOS: Large Request, Cancel Request, Cancel Item Request 
 - Release v3.0.0 e superior alteram a forma de autenticação do endpoint V1. Agora use o par e-mail/senha do painel administrativo da Mandaê para se autenticar nos endpoints V1.
-- Release v1.4.1 e superior inclui uma versão experimental (privada) do endpoint V1 para busca/pesquisa de pedidos (o mesmo disponível no painel da Mandaê). **API V1 não é oficialmente pública, não existem garantias que essas funcionalidades irão continuar funcionando.**
+- Release v1.4.1 e superior inclui uma versão experimental (privada) do endpoint V1 para busca/pesquisa de pedidos (o mesmo disponível no painel da Mandaê). 
+
+**API V1 não é oficialmente pública, não existem garantias que essas funcionalidades irão continuar funcionando.**
 
 ---
 
