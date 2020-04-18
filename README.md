@@ -1,6 +1,6 @@
 # Mandaê API Client
 
-The **(unofficial)** Mandaê API client
+The **(unofficial)** Mandaê API client for .NET projects
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
 [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
