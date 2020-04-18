@@ -15,8 +15,7 @@ Para a versão em português, por favor [siga me](/readme.pt-br.md).
 
 <img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png" alt="GuiStracini.Mandae" width="150" height="150" />
 
-This is an **unnoficial** client for the **Mandaê API** *V2*.
-(https://dev.mandae.com.br/api/index.html)
+This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
 
 ---
 
