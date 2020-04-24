@@ -11,17 +11,18 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Test
-{
-    using Enums;
-    using Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using ValueObject;
 
+using GuiStracini.Mandae.Enums;
+using GuiStracini.Mandae.Models;
+using GuiStracini.Mandae.ValueObject;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace GuiStracini.Mandae.Test.V2
+{
     /// <summary>
     /// The mock orders repository
     /// </summary>

@@ -11,15 +11,16 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Test
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Models;
-    using System;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using ValueObject;
 
+using GuiStracini.Mandae.Models;
+using GuiStracini.Mandae.ValueObject;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace GuiStracini.Mandae.Test.V2
+{
     /// <summary>
     /// The rates test class
     /// </summary>

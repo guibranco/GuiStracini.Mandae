@@ -62,16 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlowTest.cs" />
-    <Compile Include="MockOrdersRepository.cs" />
-    <Compile Include="RatesTest.cs" />
-    <Compile Include="OrdersTest.cs" />
-    <Compile Include="TrackingTest.cs" />
+    <Compile Include="V2\FlowTest.cs" />
+    <Compile Include="V2\MockOrdersRepository.cs" />
+    <Compile Include="V2\RatesTest.cs" />
+    <Compile Include="V2\OrdersTest.cs" />
+    <Compile Include="V2\TrackingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="orders.json">
+    <None Include="V2\orders.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -81,6 +81,9 @@
       <Project>{d83ae6a7-43ce-4805-8ba7-9b6d1602cca1}</Project>
       <Name>GuiStracini.Mandae</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="V1\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
