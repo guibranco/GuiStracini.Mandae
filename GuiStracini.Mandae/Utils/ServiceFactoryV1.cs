@@ -55,7 +55,7 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants js pattern
         /// </summary>
-        private readonly Regex _constantsJSPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
 
         /// <summary>
         /// The constant pattern
@@ -112,9 +112,9 @@ namespace GuiStracini.Mandae.Utils
                 var match = _constantsPathPattern.Match(content);
                 response = await client.GetAsync(match.Value, cancellationToken).ConfigureAwait(_configureAwait);
                 content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
-                if (!_constantsJSPattern.IsMatch(content))
+                if (!_constantsJsPattern.IsMatch(content))
                     throw new InvalidOperationException($"Cannot get the constants from file {match.Value}");
-                match = _constantsJSPattern.Match(content);
+                match = _constantsJsPattern.Match(content);
                 var matches = _constantsPattern.Matches(match.Groups["constants"].Value);
                 foreach (Match m in matches)
                     _constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
