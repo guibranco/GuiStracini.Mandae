@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Enums
 {
-    using Attributes;
     using SDKBuilder.Routing;
 
     /// <summary>

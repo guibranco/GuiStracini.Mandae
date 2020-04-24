@@ -1,4 +1,5 @@
 # Mandaê API Client
+
 The **(unofficial)** Mandaê API client
 
 [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
@@ -7,17 +8,8 @@ The **(unofficial)** Mandaê API client
 [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=flat)](https://github.com/guibranco/GuiStracini.Mandae)
 ![Last release](https://img.shields.io/github/release-date/guibranco/guistracini.mandae.svg?style=flat)
 
-<!--
-Available only for .NET Standard / .NET Core
-[![codecov](https://codecov.io/gh/guistracini.mandae/viacep/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/guistracini.mandae)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_index)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
--->
+[![Mandaê logo]](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png" alt="GuiStracini.Mandae" width="150" height="150" />
 
 This is an **unnoficial** client for the **Mandaê API** *V2*.
 (https://dev.mandae.com.br/api/index.html)
@@ -38,10 +30,12 @@ Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint 
 NuGet package: https://www.nuget.org/packages/GuiStracini.Mandae
 
 ```ps
+
 Install-Package GuiStracini.Mandae
+
 ```
 
-## Features ##
+## Features
 
 This client supports the following operations/features of the API:
  1. Get rates for a delivery (postal code and package dimensions)
@@ -58,13 +52,14 @@ This client supports the following operations/features of the API:
 
 ----------
 
-
-## Setup the MandaeClient ##
+## Setup the MandaeClient
 
 Initializes a new instance of **MandaeClient** class.
 
 Example:
+
 ```csharp
+
 //Request your API token to ti@mandae.com.br 
 //Each environment has it's own API token!
 var apiToken = "my API token";
@@ -72,14 +67,17 @@ var apiToken = "my API token";
 //Call the constructor with the API token and de API environment (SANDBOX | PRODUCTION).
 //var client = new MandaeClient(apiToken); //<= Environment.SANDBOX is the default environment.
 var client = new MandaeClient(apiToken, Environment.PRODUCTION);
+
 ```
 
-## Get rates for a package/delivery ##
+## Get rates for a package/delivery
 
 Get the rates (Rápido & Econômico) values and delivery time for a specified postal code and package dimensions.
 
 Example:
+
 ```csharp
+
 //The MandaeClient
 var client = new MandaeClient("my API token");
 
@@ -105,9 +103,10 @@ order.Items = new [] {
 	}
 };
 var order = client.RegisterOrderCollectRequest(order);
+
 ```
 
-## Schedule a collect request ##
+## Schedule a collect request
 
 Schedule a collect request (pickup in distribution center / origin location).
 
@@ -116,7 +115,9 @@ Inform which type of Vehicle, when, which rate (Rapido | Economico) and the orde
 Each package means a order/volume, that can have one or more items (SKUs).
 
 Example:
+
 ```csharp
+
 //The MandaeClient
 var client = new MandaeClient("my API token");
 
@@ -134,12 +135,15 @@ order.Items = new [] {
 var order = client.RegisterOrderCollectRequest(order);
 
 //order.Id is the id for futher use (maybe cancel the request ?)
+
 ```
 
-## Get tracking of a package ##
+## Get tracking of a package
 
 Example:
+
 ```csharp
+
 //The MandaeClient
 var client = new MandaeClient("my API token");
 
@@ -149,14 +153,16 @@ var tracking = client.GetTracking(trackingId);
 //tracking.CarrierName;
 //tracking.CarrierCode;
 //tracking.Events;
+
 ```
-## Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API ##
+## Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API
 
 For the V1 you'll need to use the e-mail/password combination of t he Mandaê painel to login in V1 API.
 
 Example:
 
 ```csharp
+
 //The MandaeClient
 var client = new MandaeClient("V2 API token");
 client.ConfigureV1Authentication("myEmail@example.com", "mypassword");
@@ -164,4 +170,5 @@ var trackingCode = "XYZ000001";//The tracking code of some order
 var result = client.Search(SearchMethod.TRACKING_CODE, trackingCode);
 if(result.Total == 1)
 	Console.WriteLine(result.Orders.Single().SituationDescription);    
+
 ```
