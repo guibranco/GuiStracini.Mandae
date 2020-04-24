@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace GuiStracini.Mandae.Enums
 {
-    using Attributes;
     using SDKBuilder.Routing;
 
     /// <summary>
@@ -45,7 +44,7 @@ namespace GuiStracini.Mandae.Enums
         [EnumRouteValue("pedido")]
         ORDER_CODE,
 
-       /// <summary>
+        /// <summary>
         /// The carrier code.
         /// </summary>
         [EnumRouteValue("codigoTransportadora")]
