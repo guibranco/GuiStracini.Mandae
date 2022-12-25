@@ -2,45 +2,56 @@ version: 6.0.{build}
 skip_tags: true
 image: Visual Studio 2017
 configuration: Release
+
 skip_commits:
   message: /(Created|Update).*\.(png|jpg|jpeg|bmp|gif|md)/
+
 environment:
     SONAR_TOKEN: 
         secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
+    GITHUB_TOKEN: 
+        secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
+
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+
 before_build:
 - cmd: nuget restore
 - cmd: choco install opencover.portable
 - cmd: choco install codecov
+
 build:
   publish_nuget: true
   publish_nuget_symbols: true
   include_nuget_references: true
   parallel: true
   verbosity: normal
+
 after_build:
 - xcopy C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\*.* C:\projects\guistracini-mandae\Build\
 - rd /s /q C:\projects\guistracini-mandae\GuiStracini.Mandae\bin\Release\
 - cd C:\projects\guistracini-mandae\
 - 7z a -tzip -mx9 "GuiStracini.Mandae.%APPVEYOR_BUILD_VERSION%.zip" Build
+
 artifacts:
 - path: GuiStracini.Mandae.%APPVEYOR_BUILD_VERSION%.zip
   name: ZipFile
+
 deploy:
+
 - provider: Environment
   name: NuGet
   on:
    branch: master
+
 - provider: GitHub
   on:
    branch: master
   tag: $(appveyor_build_version)
-  auth_token:
-    secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
+  auth_token: $(GITHUB_TOKEN)
   force_update: true
   artifact: ZipFile
