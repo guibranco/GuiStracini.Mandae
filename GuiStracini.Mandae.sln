@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae", "GuiStracini.Mandae\GuiStracini.Mandae.csproj", "{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}"
 EndProject
@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		appveyor.yml = appveyor.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1098A1E2-3E18-4669-A0C1-7E6D7359DFBB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{090B10C7-F5E3-47BE-9378-C98FF116BB73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1} = {1098A1E2-3E18-4669-A0C1-7E6D7359DFBB}
+		{D91F4051-B4C2-4BB0-9B90-685643DD3F63} = {090B10C7-F5E3-47BE-9378-C98FF116BB73}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B80428A-0F5E-4E23-A826-9920B5B953DA}
