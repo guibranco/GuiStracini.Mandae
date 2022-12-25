@@ -41,7 +41,7 @@ namespace GuiStracini.Mandae.Test.V2
             var tracking = client.GetTracking(orderModel.Items.First().TrackingId);
             Assert.IsNull(tracking.Error);
             Assert.AreEqual(orderModel.Items.First().TrackingId, tracking.TrackingCode);
-            Assert.AreEqual("Indefinido", tracking.CarrierName);
+            Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
             Assert.IsTrue(tracking.Events.Any());
             var firstEvent = tracking.Events.Single();
@@ -66,7 +66,7 @@ namespace GuiStracini.Mandae.Test.V2
             var tracking = await client.GetTrackingAsync(orderModel.Items.First().TrackingId, source.Token);
             Assert.IsNull(tracking.Error);
             Assert.AreEqual(orderModel.Items.First().TrackingId, tracking.TrackingCode);
-            Assert.AreEqual("Indefinido", tracking.CarrierName);
+            Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
             Assert.IsTrue(tracking.Events.Any());
             var firstEvent = tracking.Events.Single();
