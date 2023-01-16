@@ -2,43 +2,40 @@
 
 The **(unofficial)** Mandaê API client for .NET projects.
 
-Para a versão em português, por favor [siga me](/readme.pt-br.md).
+Para a versão em português, por favor [siga me](/README.pt-br.md).
 
-[![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae)
-[![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
-[![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/)
-[![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=flat)](https://github.com/guibranco/GuiStracini.Mandae)
-![Last release](https://img.shields.io/github/release-date/guibranco/guistracini.mandae.svg?style=flat)
-![GitHub license](https://img.shields.io/github/license/guibranco/guistracini.mandae)
+[![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.Mandae)](https://github.com/guibranco/GuiStracini.Mandae)
+[![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/CGuiStracini.Mandae)
 [![GitHub issues by-label](https://img.shields.io/github/issues/guibranco/guistracini.mandae/help%20wanted.svg)](https://github.com/guibranco/guistracini.mandae/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
-![Mandaê logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png)
-
+<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/master/Mandae.png" alt="GuiStracini.Mandae" width="450" height="450" />
 
 This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
 
 ---
 
-## Release notes
+## CI/CD
 
-- Release v6.0.0 and higher DEPRECATED methods: Get Latest Order
-- Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request
-- Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.
-- Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
+| Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
+|--------------|-------------|-------|----------|-------------|-----|
+| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/master)](https://github.com/guibranco/GuiStracini.Mandae) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini.Mandae/master?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | 
 
-**The API V1 is not officially public, so there is no warranty that it will still working**
+## Code Quality (master branch)
 
----
+[[![Codacy Badge](https://app.codacy.com/project/badge/Grade/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/guibranco/GuiStracini.Mandae/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/GuiStracini.Mandae)
 
-## Installation
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
-NuGet package: [https://www.nuget.org/packages/GuiStracini.Mandae](https://www.nuget.org/packages/GuiStracini.Mandae)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_index)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
-```ps
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
-Install-Package GuiStracini.Mandae
-
-```
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
 ---
 
@@ -54,6 +51,22 @@ This client supports the following operations/features of the API:
  6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+
+---
+
+## Installation
+
+### Github Releases
+
+[![GitHub last release](https://img.shields.io/github/release-date/guibranco/GuiStracini.Mandae.svg?style=flat)](https://github.com/guibranco/GuiStracini.Mandae) [![Github All Releases](https://img.shields.io/github/downloads/guibranco/GuiStracini.Mandae/total.svg?style=flat)](https://github.com/guibranco/GuiStracini.Mandae)
+
+Download the latest zip file from the [Release](https://github.com/GuiBranco/GuiStracini.Mandae/releases) page.
+
+### Nuget package manager
+
+| Package | Version | Downloads |
+|------------------|:-------:|:-------:|
+| **GuiStracini.Mandae** | [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/) | [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/) |
 
 ---
 
@@ -169,3 +182,16 @@ var result = client.Search(SearchMethod.TRACKING_CODE, trackingCode);
 if(result.Total == 1)
 	Console.WriteLine(result.Orders.Single().SituationDescription);    
 ```
+
+---
+
+## Release notes
+
+- Release v6.0.0 and higher DEPRECATED methods: Get Latest Order
+- Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request
+- Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.
+- Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
+
+**The API V1 is not officially public, so there is no warranty that it will still working**
+
+---

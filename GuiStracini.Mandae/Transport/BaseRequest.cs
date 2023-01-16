@@ -4,9 +4,9 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="BaseTransport.cs" company="Guilherme Branco Stracini">
+// <copyright file="BaseRequest.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>

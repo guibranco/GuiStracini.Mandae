@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="ValueAddedService.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -25,17 +25,13 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// Gets or sets the service name.
         /// </summary>
-        /// <value>
-        /// The service name.
-        /// </value>
+        /// <value>The service name.</value>
         [JsonProperty("name")]
         public Service Name { get; set; }
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <value>The value.</value>
         [JsonProperty("value")]
         public decimal Value { get; set; }
     }

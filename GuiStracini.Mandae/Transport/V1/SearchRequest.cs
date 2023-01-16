@@ -4,7 +4,7 @@
 // Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-07-27
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="SearchRequest.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -27,34 +27,26 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <summary>
         /// Gets or sets the method.
         /// </summary>
-        /// <value>
-        /// The method.
-        /// </value>
+        /// <value>The method.</value>
         public SearchMethod Method { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <value>The value.</value>
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets the offset.
         /// </summary>
-        /// <value>
-        /// The offset.
-        /// </value>
+        /// <value>The offset.</value>
         [DefaultRouteValue("0")]
         public int Offset { get; set; }
 
         /// <summary>
         /// Gets or sets the limit.
         /// </summary>
-        /// <value>
-        /// The limit.
-        /// </value>
+        /// <value>The limit.</value>
         [DefaultRouteValue("10")]
         public int Limit { get; set; }
 

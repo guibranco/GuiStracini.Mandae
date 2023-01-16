@@ -4,7 +4,7 @@
 // Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 09/05/2018
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="SearchMethod.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini

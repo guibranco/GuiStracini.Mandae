@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 01-16-2023
 // ***********************************************************************
 // <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -27,7 +27,7 @@ namespace GuiStracini.Mandae.Utils
     using Environment = Enums.Environment;
 
     /// <summary>
-    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "BaseRequest" /> class
+    /// This class is a utility helper that performs the request to the API using an inherited <see cref="BaseRequest" /> class
     /// </summary>
     internal sealed class ServiceFactory
     {
@@ -58,10 +58,10 @@ namespace GuiStracini.Mandae.Utils
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServiceFactory"/> class.
+        /// Initializes a new instance of the <see cref="ServiceFactory" /> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
-        /// <param name="configureAwait">The value used for <see cref="Task.ConfigureAwait"/> method.</param>
+        /// <param name="configureAwait">The value used for <see cref="Task.ConfigureAwait" /> method.</param>
         public ServiceFactory(Environment environment, bool configureAwait = false)
         {
             _environment = environment;
@@ -73,14 +73,16 @@ namespace GuiStracini.Mandae.Utils
         #region Private methods
 
         /// <summary>
-        /// Executes the request in the specified HTTP <paramref name="method"/>.
+        /// Executes the request in the specified HTTP <paramref name="method" />.
         /// </summary>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="method">The request HTTP method.</param>
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>Returns the response as <typeparamref name="TOut"/></returns>
+        /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
+        /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V2</exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION

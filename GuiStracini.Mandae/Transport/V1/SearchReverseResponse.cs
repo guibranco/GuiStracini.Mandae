@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.Mandae.Transport.V1
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 12-26-2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 12-26-2022
+// ***********************************************************************
+// <copyright file="SearchReverseResponse.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017-2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Transport.V1
 {
     using ValueObject;
 
@@ -11,17 +24,13 @@
         /// <summary>
         /// Gets or sets the total.
         /// </summary>
-        /// <value>
-        /// The total.
-        /// </value>
+        /// <value>The total.</value>
         public int Total { get; set; }
 
         /// <summary>
         /// Gets or sets the reverses.
         /// </summary>
-        /// <value>
-        /// The reverses.
-        /// </value>
+        /// <value>The reverses.</value>
         public Reverse[] Reverses { get; set; }
     }
 }

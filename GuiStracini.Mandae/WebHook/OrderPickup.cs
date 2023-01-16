@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="OrderPickup.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -23,30 +23,22 @@ namespace GuiStracini.Mandae.WebHook
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
-        /// <value>
-        /// The status.
-        /// </value>
+        /// <value>The status.</value>
         public string Status { get; set; }
         /// <summary>
         /// Gets or sets the order identifier.
         /// </summary>
-        /// <value>
-        /// The order identifier.
-        /// </value>
+        /// <value>The order identifier.</value>
         public long OrderId { get; set; }
         /// <summary>
         /// Gets or sets the job identifier.
         /// </summary>
-        /// <value>
-        /// The job identifier.
-        /// </value>
+        /// <value>The job identifier.</value>
         public Guid JobId { get; set; }
         /// <summary>
         /// Gets or sets the partner order identifier.
         /// </summary>
-        /// <value>
-        /// The partner order identifier.
-        /// </value>
+        /// <value>The partner order identifier.</value>
         public string PartnerOrderId { get; set; }
     }
 }

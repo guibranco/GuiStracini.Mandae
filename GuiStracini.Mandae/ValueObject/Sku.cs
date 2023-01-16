@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="Sku.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -23,49 +23,37 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// Gets or sets the sku identifier.
         /// </summary>
-        /// <value>
-        /// The sku identifier.
-        /// </value>
+        /// <value>The sku identifier.</value>
         [JsonProperty("skuId")]
         public string SkuId { get; set; }
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        /// <value>
-        /// The description.
-        /// </value>
+        /// <value>The description.</value>
         [JsonProperty("description")]
         public string Description { get; set; }
         /// <summary>
         /// Gets or sets the ean.
         /// </summary>
-        /// <value>
-        /// The ean.
-        /// </value>
+        /// <value>The ean.</value>
         [JsonProperty("ean")]
         public string Ean { get; set; }
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
-        /// <value>
-        /// The price.
-        /// </value>
+        /// <value>The price.</value>
         [JsonProperty("price")]
         public decimal Price { get; set; }
         /// <summary>
         /// Gets or sets the freight.
         /// </summary>
-        /// <value>
-        /// The freight.
-        /// </value>
+        /// <value>The freight.</value>
         [JsonProperty("freight")]
         public decimal Freight { get; set; }
         /// <summary>
         /// Gets or sets the quantity.
         /// </summary>
-        /// <value>
-        /// The quantity.
-        /// </value>
+        /// <value>The quantity.</value>
         [JsonProperty("quantity")]
         public int Quantity { get; set; }
     }

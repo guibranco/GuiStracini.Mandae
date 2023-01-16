@@ -1,14 +1,30 @@
-﻿namespace GuiStracini.Mandae.Utils
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 12-26-2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 12-26-2022
+// ***********************************************************************
+// <copyright file="DateExtensions.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017-2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Utils
 {
     using System;
 
+    /// <summary>
+    /// Class DateExtensions.
+    /// </summary>
     public static class DateExtensions
     {
         /// <summary>
-        ///     Converts a DateTime instance to Unix Timestamp (number of seconds that have elapsed since 
-        ///     00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970)
+        /// Converts a DateTime instance to Unix Timestamp (number of seconds that have elapsed since
+        /// 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970)
         /// </summary>
-        /// <param name="dateTime"></param>
+        /// <param name="dateTime">The date time.</param>
         /// <returns>The total seconds</returns>
         public static int ToUnixTimeStamp(this DateTime dateTime)
         {
@@ -16,8 +32,8 @@
         }
 
         /// <summary>
-        ///     Converts a Unix Timestamp (number of seconds that have elapsed since 00:00:00 Coordinated 
-        ///     Universal Time (UTC), Thursday, 1 January 1970) to a DateTime instance
+        /// Converts a Unix Timestamp (number of seconds that have elapsed since 00:00:00 Coordinated
+        /// Universal Time (UTC), Thursday, 1 January 1970) to a DateTime instance
         /// </summary>
         /// <param name="epochTime">The Unix Timestamp</param>
         /// <returns>A DateTime instance of the epochTime</returns>

@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("Mandae API client test assembly")]
-[assembly: AssemblyCopyright("Copyright © 2017 - 2018")]
+[assembly: AssemblyCopyright("Copyright © 2017 - 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

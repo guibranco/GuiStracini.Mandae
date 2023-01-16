@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="ProcessedItem.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -23,58 +23,42 @@ namespace GuiStracini.Mandae.WebHook
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <value>The identifier.</value>
         public long Id { get; set; }
         /// <summary>
         /// Gets or sets the partner item identifier.
         /// </summary>
-        /// <value>
-        /// The partner item identifier.
-        /// </value>
+        /// <value>The partner item identifier.</value>
         public string PartnerItemId { get; set; }
         /// <summary>
         /// Gets or sets the tracking code.
         /// </summary>
-        /// <value>
-        /// The tracking code.
-        /// </value>
+        /// <value>The tracking code.</value>
         public string TrackingCode { get; set; }
         /// <summary>
         /// Gets or sets the tracking URL.
         /// </summary>
-        /// <value>
-        /// The tracking URL.
-        /// </value>
+        /// <value>The tracking URL.</value>
         public string TrackingUrl { get; set; }
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
-        /// <value>
-        /// The price.
-        /// </value>
+        /// <value>The price.</value>
         public decimal Price { get; set; }
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>
-        /// <value>
-        /// The dimensions.
-        /// </value>
+        /// <value>The dimensions.</value>
         public Dimensions Dimensions { get; set; }
         /// <summary>
         /// Gets or sets the reference.
         /// </summary>
-        /// <value>
-        /// The reference.
-        /// </value>
+        /// <value>The reference.</value>
         public string Reference { get; set; }
         /// <summary>
         /// Gets or sets the qr codes.
         /// </summary>
-        /// <value>
-        /// The qr codes.
-        /// </value>
+        /// <value>The qr codes.</value>
         public string[] QrCodes { get; set; }
     }
 }
