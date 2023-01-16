@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="MandaeClient.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -55,7 +55,7 @@ namespace GuiStracini.Mandae
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MandaeClient"/> class.
+        /// Initializes a new instance of the <see cref="MandaeClient" /> class.
         /// </summary>
         /// <param name="token">The token.</param>
         /// <param name="environment">The environment.</param>
@@ -78,7 +78,7 @@ namespace GuiStracini.Mandae
         /// Gets the rates for a specified postal code destination and package dimensions.
         /// </summary>
         /// <param name="model">The rates model.</param>
-        /// <returns><see cref="RatesResponse"/></returns>
+        /// <returns><see cref="RatesResponse" /></returns>
         public RatesResponse GetRates(RatesModel model)
         {
             return GetRatesAsync(model, CancellationToken.None).Result;
@@ -89,7 +89,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The rates model.</param>
         /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="RatesResponse"/></returns>
+        /// <returns>A task of <see cref="RatesResponse" /></returns>
         public async Task<RatesResponse> GetRatesAsync(RatesModel model, CancellationToken token)
         {
             var data = new RatesRequest
@@ -113,7 +113,7 @@ namespace GuiStracini.Mandae
         /// Creates the order collect request.
         /// </summary>
         /// <param name="model">The order collect model.</param>
-        /// <returns>The <see cref="OrderResponse"/> with the property id populated</returns>
+        /// <returns>The <see cref="OrderResponse" /> with the property id populated</returns>
         public OrderResponse CreateOrderCollectRequest(OrderModel model)
         {
             return CreateOrderCollectRequestAsync(model, CancellationToken.None).Result;
@@ -124,7 +124,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The order collect model.</param>
         /// <param name="token">The cancellation token.</param>
-        /// <returns>A task with the <see cref="OrderResponse"/> with the property id populated</returns>
+        /// <returns>A task with the <see cref="OrderResponse" /> with the property id populated</returns>
         public async Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token)
         {
             var data = new OrderRequest
@@ -141,7 +141,7 @@ namespace GuiStracini.Mandae
             };
             return await _service.Post<OrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
         }
-        
+
         #endregion
 
         #region Tracking
@@ -150,7 +150,7 @@ namespace GuiStracini.Mandae
         /// Gets the order tracking by the tracking code.
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
-        /// <returns><see cref="TrackingResponse"/></returns>
+        /// <returns><see cref="TrackingResponse" /></returns>
         public TrackingResponse GetTracking(string trackingCode)
         {
             return GetTrackingAsync(trackingCode, CancellationToken.None).Result;
@@ -161,7 +161,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
         /// <param name="token">The cancellation token.</param>
-        /// <returns>A task of <see cref="TrackingResponse"/></returns>
+        /// <returns>A task of <see cref="TrackingResponse" /></returns>
         public async Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token)
         {
             var data = new TrackingRequest
@@ -181,6 +181,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
+        /// <returns>System.String.</returns>
         public async Task<string> ConfigureV1Authentication(string email, string password)
         {
             _serviceV1 = new ServiceFactoryV1(_configureAwait);
@@ -198,9 +199,7 @@ namespace GuiStracini.Mandae
         /// <param name="value">The searched value.</param>
         /// <param name="limit">The results limit per page.</param>
         /// <param name="offset">The pagination offset (zero based index).</param>
-        /// <returns>
-        /// The search result
-        /// </returns>
+        /// <returns>The search result</returns>
         public SearchResponse Search(SearchMethod method, string value, int limit = 10, int offset = 0)
         {
             return SearchAsync(method, value, CancellationToken.None, limit, offset).Result;
@@ -214,7 +213,7 @@ namespace GuiStracini.Mandae
         /// <param name="token">The cancellation token</param>
         /// <param name="limit">The results limit per page.</param>
         /// <param name="offset">The pagination offset (zero based index).</param>
-        /// <returns></returns>
+        /// <returns>A Task&lt;SearchResponse&gt; representing the asynchronous operation.</returns>
         public async Task<SearchResponse> SearchAsync(
             SearchMethod method,
             string value,
@@ -250,7 +249,7 @@ namespace GuiStracini.Mandae
         /// <param name="value">The value.</param>
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <returns>SearchReverseResponse.</returns>
         public SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit = 10, int offset = 0)
         {
             return SearchReverseAsync(method, value, CancellationToken.None, limit, offset).Result;
@@ -264,7 +263,7 @@ namespace GuiStracini.Mandae
         /// <param name="token">The token.</param>
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <returns>A Task&lt;SearchReverseResponse&gt; representing the asynchronous operation.</returns>
         public async Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
                                                          string value,
                                                          CancellationToken token,

@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="Invoice.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -23,17 +23,13 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
+        /// <value>The identifier.</value>
         [JsonProperty("id")]
         public string Id { get; set; }
         /// <summary>
         /// Gets or sets the key.
         /// </summary>
-        /// <value>
-        /// The key.
-        /// </value>
+        /// <value>The key.</value>
         [JsonProperty("key")]
         public string Key { get; set; }
     }

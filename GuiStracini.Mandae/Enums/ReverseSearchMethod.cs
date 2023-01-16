@@ -4,9 +4,9 @@
 // Created          : 2018-07-27
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-07-27
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="ReveserSearchMethod.cs" company="Guilherme Branco Stracini">
+// <copyright file="ReverseSearchMethod.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>

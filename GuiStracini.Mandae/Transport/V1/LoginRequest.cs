@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.Mandae.Transport.V1
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 12-26-2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 12-26-2022
+// ***********************************************************************
+// <copyright file="LoginRequest.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017-2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
     using Newtonsoft.Json;
@@ -12,18 +25,14 @@
         /// <summary>
         /// Gets or sets the username.
         /// </summary>
-        /// <value>
-        /// The username.
-        /// </value>
+        /// <value>The username.</value>
         [JsonProperty("username")]
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
         /// </summary>
-        /// <value>
-        /// The password.
-        /// </value>
+        /// <value>The password.</value>
         [JsonProperty("password")]
         public string Password { get; set; }
     }

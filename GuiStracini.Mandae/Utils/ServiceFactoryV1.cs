@@ -4,7 +4,7 @@
 // Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-12-05
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -31,7 +31,7 @@ namespace GuiStracini.Mandae.Utils
     using BaseResponse = Transport.BaseResponse;
 
     /// <summary>
-    /// This class is a utility helper that performs the request to the API using an inherited <see cref = "SDKBuilder.BaseRequest" /> class
+    /// This class is a utility helper that performs the request to the API using an inherited <see cref="SDKBuilder.BaseRequest" /> class
     /// </summary>
     public sealed class ServiceFactoryV1
     {
@@ -72,7 +72,7 @@ namespace GuiStracini.Mandae.Utils
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServiceFactoryV1"/> class.
+        /// Initializes a new instance of the <see cref="ServiceFactoryV1" /> class.
         /// </summary>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
         public ServiceFactoryV1(bool configureAwait = true)
@@ -89,12 +89,9 @@ namespace GuiStracini.Mandae.Utils
         /// Gets the constants.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
-        /// <exception cref="InvalidOperationException">
-        /// Cannot get the constants path
-        /// or
-        /// Cannot get the constants
-        /// </exception>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="System.InvalidOperationException">Cannot get the constants path</exception>
+        /// <exception cref="System.InvalidOperationException">Cannot get the constants from file {match.Value}</exception>
         private async Task<bool> GetConstants(CancellationToken cancellationToken)
         {
             using (var client = new HttpClient())
@@ -130,7 +127,9 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="method">The method.</param>
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
+        /// <returns>TOut.</returns>
+        /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V1</exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(
             ActionMethod method,
             TIn requestObject,
@@ -209,6 +208,9 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
         /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A Task&lt;System.String&gt; representing the asynchronous operation.</returns>
+        /// <exception cref="System.InvalidOperationException">Unable to get the constants</exception>
+        /// <exception cref="System.InvalidOperationException"></exception>
         public async Task<string> LoginAsync(string email, string password, CancellationToken cancellationToken)
         {
             if (_constants.Count == 0 && !await GetConstants(cancellationToken).ConfigureAwait(_configureAwait))
@@ -232,7 +234,7 @@ namespace GuiStracini.Mandae.Utils
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>TOut.</returns>
         public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
         {
             return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
@@ -245,7 +247,7 @@ namespace GuiStracini.Mandae.Utils
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>TOut.</returns>
         public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
         {
             return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);

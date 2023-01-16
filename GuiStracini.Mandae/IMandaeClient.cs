@@ -4,7 +4,7 @@
 // Created          : 29/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="IMandaeClient.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -31,7 +31,7 @@ namespace GuiStracini.Mandae
         /// Gets the rates.
         /// </summary>
         /// <param name="model">The model.</param>
-        /// <returns></returns>
+        /// <returns>RatesResponse.</returns>
         RatesResponse GetRates(RatesModel model);
 
         /// <summary>
@@ -39,14 +39,14 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The model.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>Task&lt;RatesResponse&gt;.</returns>
         Task<RatesResponse> GetRatesAsync(RatesModel model, CancellationToken token);
 
         /// <summary>
         /// Creates the order collect request.
         /// </summary>
         /// <param name="model">The model.</param>
-        /// <returns></returns>
+        /// <returns>OrderResponse.</returns>
         OrderResponse CreateOrderCollectRequest(OrderModel model);
 
         /// <summary>
@@ -54,14 +54,14 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="model">The model.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>Task&lt;OrderResponse&gt;.</returns>
         Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
 
         /// <summary>
         /// Gets the tracking.
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
-        /// <returns></returns>
+        /// <returns>TrackingResponse.</returns>
         TrackingResponse GetTracking(string trackingCode);
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
         /// <param name="token">The token.</param>
-        /// <returns></returns>
+        /// <returns>Task&lt;TrackingResponse&gt;.</returns>
         Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token);
 
         #endregion
@@ -81,6 +81,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         /// <param name="apiKey">The API key.</param>
         /// <param name="token">The token.</param>
+        /// <returns>Task&lt;System.String&gt;.</returns>
         Task<string> ConfigureV1Authentication(string apiKey, string token);
 
         /// <summary>
@@ -101,7 +102,7 @@ namespace GuiStracini.Mandae
         /// <param name="token">The cancellation token</param>
         /// <param name="limit">The results limit per page.</param>
         /// <param name="offset">The pagination offset (zero based index).</param>
-        /// <returns></returns>
+        /// <returns>Task&lt;SearchResponse&gt;.</returns>
         Task<SearchResponse> SearchAsync(
             SearchMethod method,
             string value,
@@ -116,7 +117,7 @@ namespace GuiStracini.Mandae
         /// <param name="value">The value.</param>
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <returns>SearchReverseResponse.</returns>
         SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit, int offset);
 
         /// <summary>
@@ -127,7 +128,7 @@ namespace GuiStracini.Mandae
         /// <param name="token">The token.</param>
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
-        /// <returns></returns>
+        /// <returns>Task&lt;SearchReverseResponse&gt;.</returns>
         Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
                                                        string value,
                                                        CancellationToken token,

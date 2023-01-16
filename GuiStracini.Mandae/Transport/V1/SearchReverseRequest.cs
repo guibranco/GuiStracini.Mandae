@@ -1,4 +1,17 @@
-﻿namespace GuiStracini.Mandae.Transport.V1
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 12-26-2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 12-26-2022
+// ***********************************************************************
+// <copyright file="SearchReverseRequest.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017-2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
     using Enums;
@@ -14,34 +27,26 @@
         /// <summary>
         /// Gets or sets the method.
         /// </summary>
-        /// <value>
-        /// The method.
-        /// </value>
+        /// <value>The method.</value>
         public ReverseSearchMethod Method { get; set; }
 
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
+        /// <value>The value.</value>
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets the offset.
         /// </summary>
-        /// <value>
-        /// The offset.
-        /// </value>
+        /// <value>The offset.</value>
         [DefaultRouteValue("0")]
         public int Offset { get; set; }
 
         /// <summary>
         /// Gets or sets the limit.
         /// </summary>
-        /// <value>
-        /// The limit.
-        /// </value>
+        /// <value>The limit.</value>
         [DefaultRouteValue("10")]
         public int Limit { get; set; }
 

@@ -5,7 +5,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="OrderModel.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
@@ -26,65 +26,49 @@ namespace GuiStracini.Mandae.Models
         /// <summary>
         /// Gets or sets the customer identifier.
         /// </summary>
-        /// <value>
-        /// The customer identifier.
-        /// </value>
+        /// <value>The customer identifier.</value>
         public string CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the scheduling.
         /// </summary>
-        /// <value>
-        /// The scheduling.
-        /// </value>
+        /// <value>The scheduling.</value>
         public DateTime Scheduling { get; set; }
 
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
+        /// <value>The items.</value>
         public Item[] Items { get; set; }
 
         /// <summary>
         /// Gets or sets the sender.
         /// </summary>
-        /// <value>
-        /// The sender.
-        /// </value>
+        /// <value>The sender.</value>
         public Sender Sender { get; set; }
 
         /// <summary>
         /// Gets or sets the vehicle.
         /// </summary>
-        /// <value>
-        /// The vehicle.
-        /// </value>
+        /// <value>The vehicle.</value>
         public Vehicle Vehicle { get; set; }
 
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
+        /// <value>The label.</value>
         public Sender Label { get; set; }
 
         /// <summary>
         /// Gets or sets the observation.
         /// </summary>
-        /// <value>
-        /// The observation.
-        /// </value>
+        /// <value>The observation.</value>
         public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the partner order identifier.
         /// </summary>
-        /// <value>
-        /// The partner order identifier.
-        /// </value>
+        /// <value>The partner order identifier.</value>
         public string PartnerOrderId { get; set; }
     }
 }

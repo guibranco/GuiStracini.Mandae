@@ -4,9 +4,9 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="Order.cs" company="Guilherme Branco Stracini">
+// <copyright file="OrderRequest.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
@@ -21,8 +21,8 @@ namespace GuiStracini.Mandae.Transport
     using ValueObject;
 
     /// <summary>
-    /// This service allows you to create an order and request the collection of the previously registered customer. 
-    /// The requested collection may have one or more items. 
+    /// This service allows you to create an order and request the collection of the previously registered customer.
+    /// The requested collection may have one or more items.
     /// We consider the term items as each sale made, which may contain one or more products for the same recipient.
     /// </summary>
     /// <seealso cref="Request" />
@@ -41,27 +41,21 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// Gets or sets the customer identifier.
         /// </summary>
-        /// <value>
-        /// The customer identifier.
-        /// </value>
+        /// <value>The customer identifier.</value>
         [JsonProperty("customerId")]
         public string CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the scheduling.
         /// </summary>
-        /// <value>
-        /// The scheduling.
-        /// </value>
+        /// <value>The scheduling.</value>
         [JsonIgnore]
         public DateTime Scheduling { get; set; }
 
         /// <summary>
         /// Gets or sets the scheduling internal
         /// </summary>
-        /// <value>
-        /// The scheduling internal
-        /// </value>
+        /// <value>The scheduling internal</value>
 
         [JsonProperty("scheduling")]
         public string SchedulingInternal => Scheduling != DateTime.MinValue
@@ -71,27 +65,21 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
+        /// <value>The items.</value>
         [JsonProperty("items")]
         public Item[] Items { get; set; }
 
         /// <summary>
         /// Gets or sets the sender.
         /// </summary>
-        /// <value>
-        /// The sender.
-        /// </value>
+        /// <value>The sender.</value>
         [JsonProperty("sender")]
         public Sender Sender { get; set; }
 
         /// <summary>
         /// Gets or sets the vehicle.
         /// </summary>
-        /// <value>
-        /// The vehicle.
-        /// </value>
+        /// <value>The vehicle.</value>
         [JsonIgnore]
         public Vehicle Vehicle
         {
@@ -102,9 +90,7 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// Gets or sets the vehicle internal.
         /// </summary>
-        /// <value>
-        /// The vehicle internal.
-        /// </value>
+        /// <value>The vehicle internal.</value>
         [JsonProperty("Vehicle")]
         public string VehicleInternal
         {
@@ -114,27 +100,21 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
+        /// <value>The label.</value>
         [JsonProperty("label")]
         public Sender Label { get; set; }
 
         /// <summary>
         /// Gets or sets the observation.
         /// </summary>
-        /// <value>
-        /// The observation.
-        /// </value>
+        /// <value>The observation.</value>
         [JsonProperty("observation")]
         public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the partner order identifier.
         /// </summary>
-        /// <value>
-        /// The partner order identifier.
-        /// </value>
+        /// <value>The partner order identifier.</value>
         [JsonProperty("partnerOrderId")]
         public string PartnerOrderId { get; set; }
     }

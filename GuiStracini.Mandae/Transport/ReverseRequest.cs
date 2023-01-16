@@ -1,5 +1,23 @@
-﻿namespace GuiStracini.Mandae.Transport
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae
+// Author           : Guilherme Branco Stracini
+// Created          : 12-26-2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 12-26-2022
+// ***********************************************************************
+// <copyright file="ReverseRequest.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2017-2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace GuiStracini.Mandae.Transport
 {
+    /// <summary>
+    /// Class ReverseRequest. This class cannot be inherited.
+    /// Implements the <see cref="GuiStracini.Mandae.Transport.Request" />
+    /// </summary>
+    /// <seealso cref="GuiStracini.Mandae.Transport.Request" />
     public sealed class ReverseRequest : Request
     {
 //        {

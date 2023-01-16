@@ -4,7 +4,7 @@
 // Created          : 2017-09-28
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-0727
+// Last Modified On : 01-16-2023
 // ***********************************************************************
 // <copyright file="AssemblyInfo.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017- 2108 Guilherme Branco Stracini
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("Mandae API client library")]
-[assembly: AssemblyCopyright("Copyright © 2017-2018")]
+[assembly: AssemblyCopyright("Copyright © 2017-2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

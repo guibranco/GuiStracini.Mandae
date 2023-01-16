@@ -4,9 +4,9 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="NewItem.cs" company="Guilherme Branco Stracini">
+// <copyright file="Item.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
@@ -38,98 +38,76 @@ namespace GuiStracini.Mandae.ValueObject
         /// <summary>
         /// Gets or sets the identifier
         /// </summary>
-        /// <value>
-        /// The identifier
-        /// </value>
+        /// <value>The identifier</value>
         [JsonProperty("id")]
         public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the recipient.
         /// </summary>
-        /// <value>
-        /// The recipient.
-        /// </value>
+        /// <value>The recipient.</value>
         [JsonProperty("recipient")]
         public Recipient Recipient { get; set; }
 
         /// <summary>
         /// Gets or sets the shipping service.
         /// </summary>
-        /// <value>
-        /// The shipping service.
-        /// </value>
+        /// <value>The shipping service.</value>
         [JsonProperty("shippingService")]
         public string ShippingService => "Frete-Mandae";
 
         /// <summary>
         /// Gets or sets the value added services.
         /// </summary>
-        /// <value>
-        /// The value added services.
-        /// </value>
+        /// <value>The value added services.</value>
         [JsonProperty("valueAddedServices")]
         public ValueAddedService[] ValueAddedServices { get; set; }
 
         /// <summary>
         /// Gets or sets the observation.
         /// </summary>
-        /// <value>
-        /// The observation.
-        /// </value>
+        /// <value>The observation.</value>
         [JsonProperty("observation")]
         public string Observation { get; set; }
 
         /// <summary>
         /// Gets or sets the partner item identifier.
         /// </summary>
-        /// <value>
-        /// The partner item identifier.
-        /// </value>
+        /// <value>The partner item identifier.</value>
         [JsonProperty("partnerItemId")]
         public string PartnerItemId { get; set; }
         /// <summary>
         /// Gets or sets the skus.
         /// </summary>
-        /// <value>
-        /// The skus.
-        /// </value>
+        /// <value>The skus.</value>
         [JsonProperty("skus")]
         public Sku[] Skus { get; set; }
 
         /// <summary>
         /// Gets or sets the invoice.
         /// </summary>
-        /// <value>
-        /// The invoice.
-        /// </value>
+        /// <value>The invoice.</value>
         [JsonProperty("invoice")]
         public Invoice Invoice { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking identifier.
         /// </summary>
-        /// <value>
-        /// The tracking identifier.
-        /// </value>
+        /// <value>The tracking identifier.</value>
         [JsonProperty("trackingId")]
         public string TrackingId { get; set; }
 
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>
-        /// <value>
-        /// The dimensions.
-        /// </value>
+        /// <value>The dimensions.</value>
         [JsonProperty("dimensions")]
         public Dimensions Dimensions { get; set; }
 
         /// <summary>
         /// Gets or sets the channel
         /// </summary>
-        /// <value>
-        /// The sales channel (eg.: e-commerce, telemarketing, crm, etc)
-        /// </value>
+        /// <value>The sales channel (eg.: e-commerce, telemarketing, crm, etc)</value>
         [JsonProperty("channel")]
         public string Channel { get; set; }
 
@@ -159,7 +137,7 @@ namespace GuiStracini.Mandae.ValueObject
         }
 
         /// <summary>
-        /// Gets or sets the total value 
+        /// Gets or sets the total value
         /// </summary>
         /// <value>The total value of the item/order without freight value</value>
         [JsonIgnore]
@@ -173,9 +151,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// Gets or sets the total freight value internally
         /// </summary>
         /// <value>The total freight value</value>
-        /// <remarks>
-        /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
-        /// </remarks>
+        /// <remarks>If the <see cref="Sku" /> has freight declared, this should be the sum of all sku's freights values.</remarks>
         [JsonProperty("totalFreight")]
         public string TotalFreightInternal
         {
@@ -193,9 +169,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// Gets or sets the total freight value
         /// </summary>
         /// <value>The total freight value</value>
-        /// <remarks>
-        /// If the <see cref="Sku"/> has freight declared, this should be the sum of all sku's freights values.
-        /// </remarks>
+        /// <remarks>If the <see cref="Sku" /> has freight declared, this should be the sum of all sku's freights values.</remarks>
 
         [JsonIgnore]
         public decimal TotalFreight

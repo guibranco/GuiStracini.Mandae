@@ -4,7 +4,7 @@
 // Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 05/01/2018
+// Last Modified On : 12-26-2022
 // ***********************************************************************
 // <copyright file="SearchResponse.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -25,18 +25,14 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <summary>
         /// Gets or sets the total.
         /// </summary>
-        /// <value>
-        /// The total.
-        /// </value>
+        /// <value>The total.</value>
         [JsonProperty("Total")]
         public int Total { get; set; }
 
         /// <summary>
         /// Gets or sets the orders.
         /// </summary>
-        /// <value>
-        /// The orders.
-        /// </value>
+        /// <value>The orders.</value>
         [JsonProperty("Pedidos")]
         public Order[] Orders { get; set; }
     }

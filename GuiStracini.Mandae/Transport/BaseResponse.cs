@@ -4,9 +4,9 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="ErrorResponse.cs" company="Guilherme Branco Stracini">
+// <copyright file="BaseResponse.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
@@ -24,17 +24,13 @@ namespace GuiStracini.Mandae.Transport
         /// <summary>
         /// Gets or sets the error.
         /// </summary>
-        /// <value>
-        /// The error.
-        /// </value>
+        /// <value>The error.</value>
         public Error Error { get; set; }
 
         /// <summary>
         /// Gets or sets the message.
         /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
+        /// <value>The message.</value>
         [JsonProperty("message")]
         public string Message { get; set; }
     }

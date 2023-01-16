@@ -4,9 +4,9 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 12-26-2022
 // ***********************************************************************
-// <copyright file="RequestEndPoint.cs" company="Guilherme Branco Stracini">
+// <copyright file="ExtendedEndpointRouteAttribute.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2017 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
@@ -23,11 +23,10 @@ namespace GuiStracini.Mandae.Attributes
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class ExtendedEndpointRouteAttribute : EndpointRouteAttribute
     {
-
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtendedEndpointRouteAttribute"/> class.C:\Repositórios\GuiStracini.Mandae\GuiStracini.Mandae\Attributes\RequestEndPoint.cs
+        /// Initializes a new instance of the <see cref="ExtendedEndpointRouteAttribute" /> class.C:\Repositórios\GuiStracini.Mandae\GuiStracini.Mandae\Attributes\RequestEndPoint.cs
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
         public ExtendedEndpointRouteAttribute(string endPoint)
@@ -42,12 +41,9 @@ namespace GuiStracini.Mandae.Attributes
         /// <summary>
         /// Gets or sets the custom base.
         /// </summary>
-        /// <value>
-        /// The custom base.
-        /// </value>
+        /// <value>The custom base.</value>
         public string CustomBase { get; set; }
 
         #endregion
-
     }
 }
