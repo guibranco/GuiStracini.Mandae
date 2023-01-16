@@ -41,12 +41,12 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The sandbox environment service end point base address
         /// </summary>
-        private const string SandboxServiceEndPoint = "https://sandbox.api.mandae.com.br/v2/";
+        private const string _sandboxServiceEndPoint = "https://sandbox.api.mandae.com.br/v2/";
 
         /// <summary>
         /// The production environment service end point base address
         /// </summary>
-        private const string ProductionServiceEndPoint = "https://api.mandae.com.br/v2/";
+        private const string _productionServiceEndPoint = "https://api.mandae.com.br/v2/";
 
         /// <summary>
         /// The configure await flag.
@@ -84,8 +84,8 @@ namespace GuiStracini.Mandae.Utils
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
-                                   ? ProductionServiceEndPoint
-                                   : SandboxServiceEndPoint;
+                                   ? _productionServiceEndPoint
+                                   : _sandboxServiceEndPoint;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(baseEndPoint);
