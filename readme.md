@@ -18,11 +18,12 @@ This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/master)](https://github.com/guibranco/GuiStracini.Mandae) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini.Mandae/master?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | 
+| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/master)](https://github.com/guibranco/GuiStracini.Mandae) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/master?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=master)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | 
 
 ## Code Quality (master branch)
 
-[[![Codacy Badge](https://app.codacy.com/project/badge/Grade/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/guibranco/GuiStracini.Mandae/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/GuiStracini.Mandae)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
@@ -39,21 +40,6 @@ This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 ---
 
-## Features
-
-This client supports the following operations/features of the API:
-
- 1. Get rates for a delivery (postal code and package dimensions)
- 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
- 3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
- 4. WebHooks schema ready (The web hooks models, ready for implementation)
- 5. **Experimental** Querying orders (API V1 - non-public API)
- 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
- 7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
- 8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
-
----
-
 ## Installation
 
 ### Github Releases
@@ -67,6 +53,21 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/Gui
 | Package | Version | Downloads |
 |------------------|:-------:|:-------:|
 | **GuiStracini.Mandae** | [![GuiStracini.Mandae NuGet Version](https://img.shields.io/nuget/v/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/) | [![GuiStracini.Mandae NuGet Downloads](https://img.shields.io/nuget/dt/GuiStracini.Mandae.svg?style=flat)](https://www.nuget.org/packages/GuiStracini.Mandae/) |
+
+---
+
+## Features
+
+This client supports the following operations/features of the API:
+
+ 1. Get rates for a delivery (postal code and package dimensions)
+ 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
+ 3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
+ 4. WebHooks schema ready (The web hooks models, ready for implementation)
+ 5. **Experimental** Querying orders (API V1 - non-public API)
+ 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
 
 ---
 
