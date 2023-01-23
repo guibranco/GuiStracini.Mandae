@@ -4,25 +4,25 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-16-2023
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
     using GoodPractices;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
-    using SDKBuilder;
     using System;
     using System.Net.Http;
     using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
+    using GuiStracini.SDKBuilder;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using Transport;
     using Environment = Enums.Environment;
 

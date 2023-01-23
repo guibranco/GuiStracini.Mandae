@@ -4,10 +4,10 @@
 // Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -15,9 +15,6 @@ namespace GuiStracini.Mandae.Utils
 {
     using Attributes;
     using GoodPractices;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
-    using SDKBuilder;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -26,6 +23,9 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
+    using GuiStracini.SDKBuilder;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using Transport;
     using Transport.V1;
     using BaseResponse = Transport.BaseResponse;

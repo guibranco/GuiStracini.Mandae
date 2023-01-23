@@ -4,19 +4,19 @@
 // Created          : 2017-10-03
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="OrderResponse.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 - 2018 Guilherme Branco Stracini
+// <copyright file="OrderResponse.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 namespace GuiStracini.Mandae.Transport
 {
     using Enums;
-    using Newtonsoft.Json;
     using System;
     using System.Globalization;
+    using Newtonsoft.Json;
     using ValueObject;
 
     /// <summary>

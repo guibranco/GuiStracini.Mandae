@@ -4,10 +4,10 @@
 // Created          : 12-26-2022
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="SearchReverseRequest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017-2023
+// <copyright file="SearchReverseRequest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -15,7 +15,7 @@ namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
     using Enums;
-    using SDKBuilder.Routing;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The reverse request class.

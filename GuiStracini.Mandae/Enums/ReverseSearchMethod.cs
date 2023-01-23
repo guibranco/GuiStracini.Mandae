@@ -4,16 +4,16 @@
 // Created          : 2018-07-27
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="ReverseSearchMethod.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="ReverseSearchMethod.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 namespace GuiStracini.Mandae.Enums
 {
-    using SDKBuilder.Routing;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The search method (API V1) enumeration
