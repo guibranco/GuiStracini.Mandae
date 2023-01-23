@@ -78,6 +78,19 @@ namespace GuiStracini.Mandae.Test.V2
                 CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
                 PartnerOrderId = "teste-123456789",
                 Observation = "Test order - GuiStracini.Mandae.Test assembly",
+                Label = new Sender
+                {
+                    Address = new Address
+                    {
+                        PostalCode = "03137020",
+                        Number = "527",
+                        City = "São Paulo",
+                        Country = "BR",
+                        Neighborhood = "Vila Prudente",
+                        State = "SP",
+                        Street = "Rua Itanháem"
+                    }
+                },
                 Sender = new Sender
                 {
                     Address = new Address

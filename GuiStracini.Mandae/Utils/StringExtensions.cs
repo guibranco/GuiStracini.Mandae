@@ -30,11 +30,18 @@ namespace GuiStracini.Mandae.Utils
         public static string ToCamelCase(this string str)
         {
             if (string.IsNullOrEmpty(str))
+            {
                 return string.Empty;
+            }
+
             var words = str.Trim().Split(' ');
             var sb = new StringBuilder();
+
             foreach (var s in words.Where(s => !string.IsNullOrEmpty(s)))
+            {
                 sb.AppendFormat("{0}{1} ", s.Substring(0, 1).ToUpper(), s.Substring(1, s.Length - 1).ToLower());
+            }
+
             return sb.ToString().Substring(0, sb.ToString().Length - 1);
         }
 
