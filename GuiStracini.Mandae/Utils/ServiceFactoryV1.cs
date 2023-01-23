@@ -47,21 +47,7 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         private readonly bool _configureAwait;
 
-        /// <summary>
-        /// The constants pattern
-        /// </summary>
-        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
-
-        /// <summary>
-        /// The constants js pattern
-        /// </summary>
-        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline, TimeSpan.FromMilliseconds(100));
-
-        /// <summary>
-        /// The constant pattern
-        /// </summary>
-        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
-
+        
         /// <summary>
         /// The API authorization
         /// </summary>
@@ -96,23 +82,23 @@ namespace GuiStracini.Mandae.Utils
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://app.mandae.com.br/");
+                client.BaseAddress = new Uri(Constants.DashboardEndpoint);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Add("Connection", "Keep-Alive");
                 client.DefaultRequestHeaders.Add("Keep-Alive", "timeout=600");
-                client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
                 var response = await client.GetAsync("login", cancellationToken).ConfigureAwait(_configureAwait);
                 var content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
-                if (!_constantsPathPattern.IsMatch(content))
+                if (!Constants.PathPattern.IsMatch(content))
                     throw new InvalidOperationException("Cannot get the constants path");
-                var match = _constantsPathPattern.Match(content);
+                var match = Constants.PathPattern.Match(content);
                 response = await client.GetAsync(match.Value, cancellationToken).ConfigureAwait(_configureAwait);
                 content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
-                if (!_constantsJsPattern.IsMatch(content))
+                if (!Constants.JsPattern.IsMatch(content))
                     throw new InvalidOperationException($"Cannot get the constants from file {match.Value}");
-                match = _constantsJsPattern.Match(content);
-                var matches = _constantsPattern.Matches(match.Groups["constants"].Value);
+                match = Constants.JsPattern.Match(content);
+                var matches = Constants.Pattern.Matches(match.Groups["constants"].Value);
                 foreach (Match m in matches)
                     _constants.Add(m.Groups["key"].Value, m.Groups["value"].Value);
                 return true;
