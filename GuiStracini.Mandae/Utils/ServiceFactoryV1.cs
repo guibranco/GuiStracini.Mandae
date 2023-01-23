@@ -50,17 +50,17 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants pattern
         /// </summary>
-        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The constants js pattern
         /// </summary>
-        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The constant pattern
         /// </summary>
-        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The API authorization
@@ -129,7 +129,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>TOut.</returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V1</exception>
-        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(
             ActionMethod method,
             TIn requestObject,
@@ -193,7 +193,7 @@ namespace GuiStracini.Mandae.Utils
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new MandaeAPIException(requestObject.GetRequestEndPoint(), e);
+                    throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
                 }
             }
         }

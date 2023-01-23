@@ -82,7 +82,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V2</exception>
-        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
@@ -131,7 +131,7 @@ namespace GuiStracini.Mandae.Utils
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new MandaeAPIException(requestObject.GetRequestEndPoint(), e);
+                    throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
                 }
             }
         }

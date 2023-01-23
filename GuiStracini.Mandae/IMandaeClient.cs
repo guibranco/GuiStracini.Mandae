@@ -79,10 +79,10 @@ namespace GuiStracini.Mandae
         /// <summary>
         /// Configures the v1 authentication.
         /// </summary>
-        /// <param name="apiKey">The API key.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
         /// <returns>Task&lt;System.String&gt;.</returns>
-        Task<string> ConfigureV1Authentication(string apiKey, string token);
+        Task<string> ConfigureV1Authentication(string email, string password);
 
         /// <summary>
         /// Searches the specified method for the specified value.
