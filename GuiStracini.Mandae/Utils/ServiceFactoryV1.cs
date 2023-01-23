@@ -4,10 +4,10 @@
 // Created          : 2018-01-05
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="ServiceFactoryV1.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -15,9 +15,6 @@ namespace GuiStracini.Mandae.Utils
 {
     using Attributes;
     using GoodPractices;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
-    using SDKBuilder;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -26,6 +23,9 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
+    using GuiStracini.SDKBuilder;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using Transport;
     using Transport.V1;
     using BaseResponse = Transport.BaseResponse;
@@ -50,17 +50,17 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants pattern
         /// </summary>
-        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The constants js pattern
         /// </summary>
-        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+        private readonly Regex _constantsJsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The constant pattern
         /// </summary>
-        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase);
+        private readonly Regex _constantsPattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
 
         /// <summary>
         /// The API authorization
@@ -129,7 +129,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>TOut.</returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V1</exception>
-        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(
             ActionMethod method,
             TIn requestObject,
@@ -193,7 +193,7 @@ namespace GuiStracini.Mandae.Utils
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new MandaeAPIException(requestObject.GetRequestEndPoint(), e);
+                    throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
                 }
             }
         }

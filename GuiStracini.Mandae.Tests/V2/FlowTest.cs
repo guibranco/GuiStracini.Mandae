@@ -1,14 +1,29 @@
-﻿using GuiStracini.Mandae.Enums;
-using GuiStracini.Mandae.Models;
-using GuiStracini.Mandae.ValueObject;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-
+﻿// ***********************************************************************
+// Assembly         : GuiStracini.Mandae.Test
+// Author           : Guilherme Branco Stracini
+// Created          : 26/12/2022
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 26/12/2022
+// ***********************************************************************
+// <copyright file="FlowTest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017 - 2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace GuiStracini.Mandae.Test.V2
 {
+    using GuiStracini.Mandae.Enums;
+    using GuiStracini.Mandae.Models;
+    using GuiStracini.Mandae.ValueObject;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using System;
+    using System.Linq;
+
     /// <summary>
-    /// Flow test validation class performs a full flow validations. 
+    /// Flow test validation class performs a full flow validations.
     /// Validates the vehicle, the rates, the available hours, register a order collect request and check the latest order status
     /// </summary>
     [TestClass]

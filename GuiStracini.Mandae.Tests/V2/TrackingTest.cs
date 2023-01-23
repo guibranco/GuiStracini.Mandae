@@ -4,22 +4,23 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 26/12/2022
 // ***********************************************************************
-// <copyright file="TrackingTest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="TrackingTest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace GuiStracini.Mandae.Test.V2
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// The tracking test class
     /// </summary>
@@ -52,7 +53,7 @@ namespace GuiStracini.Mandae.Test.V2
         /// <summary>
         /// Validates the get tracking asynchronous method.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A Task representing the asynchronous operation.</returns>
         [TestMethod]
         public async Task GetTrackingAsync()
         {

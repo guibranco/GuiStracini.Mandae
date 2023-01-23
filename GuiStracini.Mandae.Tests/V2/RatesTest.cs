@@ -4,23 +4,25 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 28/09/2017
+// Last Modified On : 26/12/2022
 // ***********************************************************************
-// <copyright file="RatesTest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="RatesTest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using GuiStracini.Mandae.Models;
-using GuiStracini.Mandae.ValueObject;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace GuiStracini.Mandae.Test.V2
 {
+    using GuiStracini.Mandae.Models;
+    using GuiStracini.Mandae.ValueObject;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using System;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// The rates test class
     /// </summary>
@@ -57,7 +59,7 @@ namespace GuiStracini.Mandae.Test.V2
         /// <summary>
         /// Validate the get rates asynchronous method.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A Task representing the asynchronous operation.</returns>
         [TestMethod]
         public async Task GetRatesAsync()
         {

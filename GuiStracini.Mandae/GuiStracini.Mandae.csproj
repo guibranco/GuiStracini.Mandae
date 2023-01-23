@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GuiStracini.Mandae</RootNamespace>
     <AssemblyName>GuiStracini.Mandae</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.55.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.55\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.61.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.61\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -64,7 +64,7 @@
     <Compile Include="Enums\Service.cs" />
     <Compile Include="Enums\ShippingSituation.cs" />
     <Compile Include="Enums\Vehicle.cs" />
-    <Compile Include="GoodPractices\MandaeAPIException.cs" />
+    <Compile Include="GoodPractices\MandaeApiException.cs" />
     <Compile Include="GoodPractices\OrderBuiltException.cs" />
     <Compile Include="IMandaeClient.cs" />
     <Compile Include="MandaeClient.cs" />

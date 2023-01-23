@@ -4,25 +4,25 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-16-2023
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 namespace GuiStracini.Mandae.Utils
 {
     using GoodPractices;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
-    using SDKBuilder;
     using System;
     using System.Net.Http;
     using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
+    using GuiStracini.SDKBuilder;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
     using Transport;
     using Environment = Enums.Environment;
 
@@ -82,7 +82,7 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V2</exception>
-        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeAPIException"></exception>
+        /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
@@ -131,7 +131,7 @@ namespace GuiStracini.Mandae.Utils
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new MandaeAPIException(requestObject.GetRequestEndPoint(), e);
+                    throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
                 }
             }
         }

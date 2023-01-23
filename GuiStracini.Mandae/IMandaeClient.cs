@@ -4,10 +4,10 @@
 // Created          : 29/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="IMandaeClient.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2017 Guilherme Branco Stracini
+// <copyright file="IMandaeClient.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -79,10 +79,10 @@ namespace GuiStracini.Mandae
         /// <summary>
         /// Configures the v1 authentication.
         /// </summary>
-        /// <param name="apiKey">The API key.</param>
-        /// <param name="token">The token.</param>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
         /// <returns>Task&lt;System.String&gt;.</returns>
-        Task<string> ConfigureV1Authentication(string apiKey, string token);
+        Task<string> ConfigureV1Authentication(string email, string password);
 
         /// <summary>
         /// Searches the specified method for the specified value.

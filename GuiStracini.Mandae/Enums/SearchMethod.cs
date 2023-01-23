@@ -4,16 +4,16 @@
 // Created          : 05/01/2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 12-26-2022
+// Last Modified On : 23/01/2023
 // ***********************************************************************
-// <copyright file="SearchMethod.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="SearchMethod.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2017-2023 Guilherme Branco Stracini
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 namespace GuiStracini.Mandae.Enums
 {
-    using SDKBuilder.Routing;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The search method (API V1) enumeration
