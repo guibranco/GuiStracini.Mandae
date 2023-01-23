@@ -39,16 +39,6 @@ namespace GuiStracini.Mandae.Utils
         private readonly Environment _environment;
 
         /// <summary>
-        /// The sandbox environment service end point base address
-        /// </summary>
-        private const string _sandboxServiceEndPoint = "https://sandbox.api.mandae.com.br/v2/";
-
-        /// <summary>
-        /// The production environment service end point base address
-        /// </summary>
-        private const string _productionServiceEndPoint = "https://api.mandae.com.br/v2/";
-
-        /// <summary>
         /// The configure await flag.
         /// </summary>
         private readonly bool _configureAwait;
@@ -86,14 +76,15 @@ namespace GuiStracini.Mandae.Utils
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
         {
             var baseEndPoint = _environment == Environment.PRODUCTION
-                                   ? _productionServiceEndPoint
-                                   : _sandboxServiceEndPoint;
+                                   ? Constants.ProductionServiceEndpoint
+                                   : Constants.SandboxServiceEndpoint;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(baseEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
                 if (!string.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
 

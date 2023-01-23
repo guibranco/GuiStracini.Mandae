@@ -79,6 +79,7 @@
     <Compile Include="Transport\V1\SearchReverseResponse.cs" />
     <Compile Include="Transport\V1\SearchRequest.cs" />
     <Compile Include="Transport\V1\SearchResponse.cs" />
+    <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\DateExtensions.cs" />
     <Compile Include="Utils\ServiceFactoryV1.cs" />
     <Compile Include="Utils\StringExtensions.cs" />
