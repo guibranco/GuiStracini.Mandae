@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.61.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.61\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.62.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.62\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
