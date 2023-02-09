@@ -1,6 +1,6 @@
 # Mandaê SDK
 
-The **(unofficial)** Mandaê API client for .NET projects.
+The **(unofficial)** [Mandaê API](https://docs.mandae.com.br/) client for .NET projects.
 
 Para a versão em português, por favor [siga me](/README.pt-br.md).
 
