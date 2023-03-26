@@ -52,14 +52,14 @@ namespace GuiStracini.Mandae.Test.V2
                 return;
             }
             var tracking = client.GetTracking(trackingId);
-            Assert.IsNull(tracking.Error);
-            Assert.AreEqual(trackingId, tracking.TrackingCode);
+            Assert.IsNotNull(tracking.Error);
+            Assert.AreEqual("404", tracking.Error.Code);
+            Assert.AreEqual("br.com.mandae.rastreamento.domain.model.Encomenda not found", tracking.Error.Message);
+            Assert.IsNull(tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
-            Assert.IsTrue(tracking.Events.Any());
-            var firstEvent = tracking.Events.Single();
-            Assert.IsNull(firstEvent.Name);
-            Assert.AreEqual("Nenhuma atualização disponível ainda.", firstEvent.Description);
+            Assert.IsNull(tracking.Events);
+            Assert.IsNull(tracking.Message);
         }
 
         /// <summary>
@@ -90,14 +90,14 @@ namespace GuiStracini.Mandae.Test.V2
                 return;
             }
             var tracking = await client.GetTrackingAsync(trackingId, source.Token);
-            Assert.IsNull(tracking.Error);
-            Assert.AreEqual(trackingId, tracking.TrackingCode);
+            Assert.IsNotNull(tracking.Error);
+            Assert.AreEqual("404", tracking.Error.Code);
+            Assert.AreEqual("br.com.mandae.rastreamento.domain.model.Encomenda not found", tracking.Error.Message);
+            Assert.IsNull(tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
-            Assert.IsTrue(tracking.Events.Any());
-            var firstEvent = tracking.Events.Single();
-            Assert.IsNull(firstEvent.Name);
-            Assert.AreEqual("Nenhuma atualização disponível ainda.", firstEvent.Description);
+            Assert.IsNull(tracking.Events);
+            Assert.IsNull(tracking.Message);
         }
     }
 }
