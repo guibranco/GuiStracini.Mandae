@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : GuiStracini.Mandae
 // Author           : Guilherme Branco Stracini
 // Created          : 28/09/2017
@@ -43,11 +43,13 @@ namespace GuiStracini.Mandae.Test.V2
             if(item == null)
             {
                 Assert.Inconclusive("Invalid items returned");
+                return;
             }
             var trackingId = item.TrackingId;
             if(trackingId == null)
             {
                 Assert.Inconclusive("Null tracking id");
+                return;
             }
             var tracking = client.GetTracking(trackingId);
             Assert.IsNull(tracking.Error);
@@ -78,11 +80,14 @@ namespace GuiStracini.Mandae.Test.V2
             if(item == null)
             {
                 Assert.Inconclusive("Invalid items returned");
+                return;
+                
             }
             var trackingId = item.TrackingId;
             if(trackingId == null)
             {
                 Assert.Inconclusive("Null tracking id");
+                return;
             }
             var tracking = await client.GetTrackingAsync(trackingId, source.Token);
             Assert.IsNull(tracking.Error);
