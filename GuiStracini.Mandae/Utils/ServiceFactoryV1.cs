@@ -47,7 +47,7 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         private readonly bool _configureAwait;
 
-        
+
         /// <summary>
         /// The API authorization
         /// </summary>
