@@ -4,7 +4,7 @@
 // Created          : 28/09/2017
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 23/01/2023
+// Last Modified On : 26/03/2023
 // ***********************************************************************
 // <copyright file="ExtendedEndpointRouteAttribute.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2017-2023 Guilherme Branco Stracini
