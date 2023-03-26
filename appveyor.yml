@@ -3,9 +3,6 @@ skip_tags: true
 image: Visual Studio 2019
 configuration: Release
 
-skip_commits:
-  message: /(Created|Update).*\.(png|jpg|jpeg|bmp|gif|md)/
-
 environment:
     SONAR_TOKEN: 
         secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
