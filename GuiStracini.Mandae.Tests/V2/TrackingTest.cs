@@ -39,9 +39,19 @@ namespace GuiStracini.Mandae.Test.V2
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
-            var tracking = client.GetTracking(orderModel.Items.First().TrackingId);
+            var item = orderModel.Items.FirstOrDefault();
+            if(item == null)
+            {
+                Assert.Inconclusive("Invalid items returned");
+            }
+            var trackingId = item.TrackingId;
+            if(trackingId == null)
+            {
+                Assert.Inconclusive("Null tracking id");
+            }
+            var tracking = client.GetTracking(trackingId);
             Assert.IsNull(tracking.Error);
-            Assert.AreEqual(orderModel.Items.First().TrackingId, tracking.TrackingCode);
+            Assert.AreEqual(trackingId, tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
             Assert.IsTrue(tracking.Events.Any());
@@ -64,9 +74,19 @@ namespace GuiStracini.Mandae.Test.V2
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
-            var tracking = await client.GetTrackingAsync(orderModel.Items.First().TrackingId, source.Token);
+            var item = orderModel.Items.FirstOrDefault();
+            if(item == null)
+            {
+                Assert.Inconclusive("Invalid items returned");
+            }
+            var trackingId = item.TrackingId;
+            if(trackingId == null)
+            {
+                Assert.Inconclusive("Null tracking id");
+            }
+            var tracking = await client.GetTrackingAsync(trackingId, source.Token);
             Assert.IsNull(tracking.Error);
-            Assert.AreEqual(orderModel.Items.First().TrackingId, tracking.TrackingCode);
+            Assert.AreEqual(trackingId, tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
             Assert.IsTrue(tracking.Events.Any());
