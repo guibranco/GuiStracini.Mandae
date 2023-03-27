@@ -1,6 +1,6 @@
 version: 7.0.{build}
 skip_tags: true
-image: Visual Studio 2019
+image: Visual Studio 2022
 configuration: Release
 
 environment:
@@ -43,11 +43,11 @@ deploy:
 - provider: Environment
   name: NuGet
   on:
-   branch: master
+   branch: main
 
 - provider: GitHub
   on:
-   branch: master
+   branch: main
   tag: $(appveyor_build_version)
   auth_token: $(GITHUB_TOKEN)
   force_update: true
