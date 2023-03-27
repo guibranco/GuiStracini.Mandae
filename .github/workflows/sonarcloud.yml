@@ -1,10 +1,10 @@
-name: SonarCloud
+name: Sonar Cloud Analysis
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
     
 jobs:
   build:
@@ -55,7 +55,7 @@ jobs:
         uses: nuget/setup-nuget@v1    
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-         
+          
       - name: Restore NuGet packages
         run: nuget restore GuiStracini.Mandae.sln
       
