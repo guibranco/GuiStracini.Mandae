@@ -20,6 +20,7 @@ namespace GuiStracini.Mandae.Test.V2
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using GuiStracini.Mandae.Transport;
 
     /// <summary>
     /// The tracking test class
@@ -36,30 +37,9 @@ namespace GuiStracini.Mandae.Test.V2
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNull(order.Error);
-            Assert.IsTrue(order.Id > 0);
-            Assert.IsTrue(order.Items.First().Id > 0);
-            var item = orderModel.Items.FirstOrDefault();
-            if(item == null)
-            {
-                Assert.Inconclusive("Invalid items returned");
-                return;
-            }
-            var trackingId = item.TrackingId;
-            if(trackingId == null)
-            {
-                Assert.Inconclusive("Null tracking id");
-                return;
-            }
+            var trackingId = AssertOrderResult(order);
             var tracking = client.GetTracking(trackingId);
-            Assert.IsNotNull(tracking.Error);
-            Assert.AreEqual("404", tracking.Error.Code);
-            Assert.AreEqual("br.com.mandae.rastreamento.domain.model.Encomenda not found", tracking.Error.Message);
-            Assert.IsNull(tracking.TrackingCode);
-            Assert.IsNull(tracking.CarrierName);
-            Assert.IsNull(tracking.CarrierCode);
-            Assert.IsNull(tracking.Events);
-            Assert.IsNull(tracking.Message);
+            AssertTrackingResult(tracking, trackingId);
         }
 
         /// <summary>
@@ -73,31 +53,51 @@ namespace GuiStracini.Mandae.Test.V2
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
+            var trackingId = AssertOrderResult(order);
+            var tracking = await client.GetTrackingAsync(trackingId, source.Token);
+            AssertTrackingResult(tracking, trackingId);
+        }
+
+        /// <summary>
+        /// Asserts the order result.
+        /// </summary>
+        /// <param name="order">The order.</param>
+        /// <returns>System.String.</returns>
+        private static string AssertOrderResult(OrderResponse order)
+        {
             Assert.IsNull(order.Error);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
-            var item = orderModel.Items.FirstOrDefault();
-            if(item == null)
+            var item = order.Items.FirstOrDefault();
+            if (item == null)
             {
                 Assert.Inconclusive("Invalid items returned");
-                return;
-                
+                return string.Empty;
             }
             var trackingId = item.TrackingId;
-            if(trackingId == null)
+            if (trackingId != null)
             {
-                Assert.Inconclusive("Null tracking id");
-                return;
+                return trackingId;
             }
-            var tracking = await client.GetTrackingAsync(trackingId, source.Token);
-            Assert.IsNotNull(tracking.Error);
-            Assert.AreEqual("404", tracking.Error.Code);
-            Assert.AreEqual("br.com.mandae.rastreamento.domain.model.Encomenda not found", tracking.Error.Message);
-            Assert.IsNull(tracking.TrackingCode);
+            Assert.Inconclusive("Null tracking id");
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Asserts the tracking result.
+        /// </summary>
+        /// <param name="tracking">The tracking.</param>
+        /// <param name="trackingId">The tracking identifier.</param>
+        private static void AssertTrackingResult(TrackingResponse tracking, string trackingId)
+        {
+            Assert.IsNull(tracking.Error);
+            Assert.AreEqual(trackingId, tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
-            Assert.IsNull(tracking.Events);
-            Assert.IsNull(tracking.Message);
+            Assert.IsTrue(tracking.Events.Any());
+            var firstEvent = tracking.Events.Single();
+            Assert.IsNull(firstEvent.Name);
+            Assert.AreEqual("Nenhuma atualização disponível ainda.", firstEvent.Description);
         }
     }
 }
