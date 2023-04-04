@@ -24,7 +24,9 @@ This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
+
 [![codecov](https://codecov.io/gh/guibranco/GuiStracini.Mandae/branch/main/graph/badge.svg)](https://codecov.io/gh/guibranco/GuiStracini.Mandae)
+[![CodeFactor](https://www.codefactor.io/repository/github/guibranco/GuiStracini.Mandae/badge)](https://www.codefactor.io/repository/github/guibranco/GuiStracini.Mandae)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/5e1cd09aba4cc90d08d5/maintainability)](https://codeclimate.com/github/guibranco/GuiStracini.Mandae/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5e1cd09aba4cc90d08d5/test_coverage)](https://codeclimate.com/github/guibranco/GuiStracini.Mandae/test_coverage)
