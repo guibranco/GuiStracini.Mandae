@@ -24,7 +24,9 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/727443824fe244be840dc6ba2e444c9e)](https://www.codacy.com/gh/guibranco/GuiStracini.Mandae/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/GuiStracini.Mandae&amp;utm_campaign=Badge_Grade)
+
 [![codecov](https://codecov.io/gh/guibranco/GuiStracini.Mandae/branch/main/graph/badge.svg)](https://codecov.io/gh/guibranco/GuiStracini.Mandae)
+[![CodeFactor](https://www.codefactor.io/repository/github/guibranco/GuiStracini.Mandae/badge)](https://www.codefactor.io/repository/github/guibranco/GuiStracini.Mandae)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
