@@ -8,6 +8,8 @@ environment:
         secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
     GITHUB_TOKEN: 
         secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
+    CODECLIMATE_TOKEN:
+        secure: bMLsrkxnZp+93jXuRk2p3529vgcd7qt4BUqvS/lQx1R/UJBVw8CNi2ejzMDlkkn0Az4kFNWdNNMwl5Yz39jT4RKkvVL/P8lzyAuSiZaW6B8=
 
 assembly_info:
   patch: true
