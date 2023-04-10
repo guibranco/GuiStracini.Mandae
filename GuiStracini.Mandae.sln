@@ -10,8 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7164135-F036-4268-BED2-8FE87553DB1E}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
-		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\dependabot.yml = .github\dependabot.yml
 		README.md = README.md
+		.github\workflows\sonarcloud.yml = .github\workflows\sonarcloud.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1098A1E2-3E18-4669-A0C1-7E6D7359DFBB}"
