@@ -14,10 +14,10 @@
         <description>Mandae API Client. Mandaê is an intermediate order delivery company. It mediates between e-commerce and various freight companies, offering the lowest price and providing an API to schedule pick-ups and track deliveries from the vendor's distribution center to delivery to the end consumer.</description>
         <copyright>Copyright 2017-2023 Guilherme Branco Stracini. All rights reserved.</copyright>
         <tags>Mandae Carrier Courier Shipping API Wrapper Correios SDK</tags>
-	<readme>docs\README.md</readme>
+	<readme>readme.md</readme>
     </metadata>
     <files>
 	<file src="bin\$configuration$\$id$.pdb" target="lib\net47\" />
-	<file src="..\README.md" target="docs\" />
+	<file src="..\readme.md" target="\" />
     </files>
 </package>
