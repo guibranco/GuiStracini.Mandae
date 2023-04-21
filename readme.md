@@ -8,7 +8,7 @@ Para a versão em português, por favor [siga me](/README.pt-br.md).
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/CGuiStracini.Mandae)
 [![GitHub issues by-label](https://img.shields.io/github/issues/guibranco/guistracini.mandae/help%20wanted.svg)](https://github.com/guibranco/guistracini.mandae/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/Mandae.png" alt="GuiStracini.Mandae" width="450" height="450" />
+![Mandae logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/logo.png)
 
 This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
 
