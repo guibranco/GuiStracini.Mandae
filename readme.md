@@ -5,7 +5,7 @@ The **(unofficial)** [Mandaê API](https://docs.mandae.com.br/) client for .NET 
 Para a versão em português, por favor [siga me](/README.pt-br.md).
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.Mandae)](https://github.com/guibranco/GuiStracini.Mandae)
-[![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/CGuiStracini.Mandae)
+[![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae)
 [![GitHub issues by-label](https://img.shields.io/github/issues/guibranco/guistracini.mandae/help%20wanted.svg)](https://github.com/guibranco/guistracini.mandae/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 ![Mandae logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/logo.png)
