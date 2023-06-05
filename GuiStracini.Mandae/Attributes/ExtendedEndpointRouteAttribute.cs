@@ -30,8 +30,7 @@ namespace GuiStracini.Mandae.Attributes
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
         public ExtendedEndpointRouteAttribute(string endPoint)
-            : base(endPoint)
-        { }
+            : base(endPoint) { }
 
         #endregion
 
