@@ -44,17 +44,31 @@ namespace GuiStracini.Mandae.Utils
         /// <summary>
         /// The constants pattern
         /// </summary>
-        public static readonly Regex PathPattern = new Regex(@"(main\.(?:.+?)\.js)", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
+        public static readonly Regex PathPattern = new Regex(
+            @"(main\.(?:.+?)\.js)",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase,
+            TimeSpan.FromMilliseconds(100)
+        );
 
         /// <summary>
         /// The constants js pattern
         /// </summary>
-        public static readonly Regex JsPattern = new Regex("angularJSconstants: {(?<constants>.+?)},?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline, TimeSpan.FromMilliseconds(100));
+        public static readonly Regex JsPattern = new Regex(
+            "angularJSconstants: {(?<constants>.+?)},?",
+            RegexOptions.Compiled
+                | RegexOptions.CultureInvariant
+                | RegexOptions.IgnoreCase
+                | RegexOptions.Singleline,
+            TimeSpan.FromMilliseconds(100)
+        );
 
         /// <summary>
         /// The constant pattern
         /// </summary>
-        public static readonly Regex Pattern = new Regex(@"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(100));
-
+        public static readonly Regex Pattern = new Regex(
+            @"(?:[\s|\t]*)(?<key>.+?)\:\s?'(?<value>.+?)',?",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase,
+            TimeSpan.FromMilliseconds(100)
+        );
     }
 }

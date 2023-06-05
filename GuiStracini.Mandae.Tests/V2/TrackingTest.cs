@@ -94,10 +94,7 @@ namespace GuiStracini.Mandae.Test.V2
             Assert.AreEqual(trackingId, tracking.TrackingCode);
             Assert.IsNull(tracking.CarrierName);
             Assert.IsNull(tracking.CarrierCode);
-            Assert.IsTrue(tracking.Events.Any());
-            var firstEvent = tracking.Events.Single();
-            Assert.IsNull(firstEvent.Name);
-            Assert.AreEqual("Nenhuma atualização disponível ainda.", firstEvent.Description);
+            Assert.IsFalse(tracking.Events.Any());
         }
     }
 }

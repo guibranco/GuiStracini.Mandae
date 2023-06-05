@@ -28,6 +28,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The service name.</value>
         [JsonProperty("name")]
         public Service Name { get; set; }
+
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
