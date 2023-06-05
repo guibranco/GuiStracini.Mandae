@@ -47,7 +47,6 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         private readonly bool _configureAwait;
 
-
         /// <summary>
         /// The API authorization
         /// </summary>
@@ -88,15 +87,25 @@ namespace GuiStracini.Mandae.Utils
                 client.DefaultRequestHeaders.Add("Connection", "Keep-Alive");
                 client.DefaultRequestHeaders.Add("Keep-Alive", "timeout=600");
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
-                var response = await client.GetAsync("login", cancellationToken).ConfigureAwait(_configureAwait);
-                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
+                var response = await client
+                    .GetAsync("login", cancellationToken)
+                    .ConfigureAwait(_configureAwait);
+                var content = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(_configureAwait);
                 if (!Constants.PathPattern.IsMatch(content))
                     throw new InvalidOperationException("Cannot get the constants path");
                 var match = Constants.PathPattern.Match(content);
-                response = await client.GetAsync(match.Value, cancellationToken).ConfigureAwait(_configureAwait);
-                content = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
+                response = await client
+                    .GetAsync(match.Value, cancellationToken)
+                    .ConfigureAwait(_configureAwait);
+                content = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(_configureAwait);
                 if (!Constants.JsPattern.IsMatch(content))
-                    throw new InvalidOperationException($"Cannot get the constants from file {match.Value}");
+                    throw new InvalidOperationException(
+                        $"Cannot get the constants from file {match.Value}"
+                    );
                 match = Constants.JsPattern.Match(content);
                 var matches = Constants.Pattern.Matches(match.Groups["constants"].Value);
                 foreach (Match m in matches)
@@ -119,18 +128,25 @@ namespace GuiStracini.Mandae.Utils
         private async Task<TOut> Execute<TOut, TIn>(
             ActionMethod method,
             TIn requestObject,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken
+        )
             where TIn : Request
             where TOut : BaseResponse
         {
-            var endpoint = string.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
+            var endpoint = string.Concat(
+                requestObject.GetRequestEndPoint(),
+                requestObject.GetRequestAdditionalParameter(method)
+            );
             var baseEndpoint = "https://pedido.api.mandae.com.br";
             if (_constants.ContainsKey("URLAPIPEDIDO_NGINX"))
                 baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
-            var attribute = (ExtendedEndpointRouteAttribute)requestObject.GetRequestEndPointAttribute();
-            if (attribute != null &&
-                !string.IsNullOrWhiteSpace(attribute.CustomBase) &&
-                _constants.ContainsKey(attribute.CustomBase))
+            var attribute = (ExtendedEndpointRouteAttribute)
+                requestObject.GetRequestEndPointAttribute();
+            if (
+                attribute != null
+                && !string.IsNullOrWhiteSpace(attribute.CustomBase)
+                && _constants.ContainsKey(attribute.CustomBase)
+            )
                 baseEndpoint = _constants[attribute.CustomBase];
 
             using (var client = new HttpClient())
@@ -138,7 +154,9 @@ namespace GuiStracini.Mandae.Utils
                 client.BaseAddress = new Uri(baseEndpoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
@@ -161,21 +179,33 @@ namespace GuiStracini.Mandae.Utils
                     switch (method)
                     {
                         case ActionMethod.GET:
-                            response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .GetAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.POST:
-                            response = await client.PostAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .PostAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.PUT:
-                            response = await client.PutAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .PutAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.DELETE:
-                            response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .DeleteAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
                         default:
-                            throw new HttpRequestException($"Requested method {method} not implemented in V1");
+                            throw new HttpRequestException(
+                                $"Requested method {method} not implemented in V1"
+                            );
                     }
-                    return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
+                    return await response.Content
+                        .ReadAsAsync<TOut>(cancellationToken)
+                        .ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
                 {
@@ -197,16 +227,20 @@ namespace GuiStracini.Mandae.Utils
         /// <returns>A Task&lt;System.String&gt; representing the asynchronous operation.</returns>
         /// <exception cref="System.InvalidOperationException">Unable to get the constants</exception>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public async Task<string> LoginAsync(string email, string password, CancellationToken cancellationToken)
+        public async Task<string> LoginAsync(
+            string email,
+            string password,
+            CancellationToken cancellationToken
+        )
         {
-            if (_constants.Count == 0 && !await GetConstants(cancellationToken).ConfigureAwait(_configureAwait))
+            if (
+                _constants.Count == 0
+                && !await GetConstants(cancellationToken).ConfigureAwait(_configureAwait)
+            )
                 throw new InvalidOperationException("Unable to get the constants");
-            var request = new LoginRequest
-            {
-                Username = email,
-                Password = password
-            };
-            var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken).ConfigureAwait(_configureAwait);
+            var request = new LoginRequest { Username = email, Password = password };
+            var response = await Post<LoginResponse, LoginRequest>(request, cancellationToken)
+                .ConfigureAwait(_configureAwait);
             if (!string.IsNullOrWhiteSpace(response.Erro))
                 throw new InvalidOperationException(response.Erro);
             _apiAuthorization = response.Token;
@@ -221,9 +255,12 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>TOut.</returns>
-        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
+            where TOut : BaseResponse
         {
-            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -234,9 +271,12 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>TOut.</returns>
-        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request where TOut : BaseResponse
+        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
+            where TOut : BaseResponse
         {
-            return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion

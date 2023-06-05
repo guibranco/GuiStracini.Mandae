@@ -55,7 +55,10 @@ namespace GuiStracini.Mandae
         /// <param name="model">The model.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;OrderResponse&gt;.</returns>
-        Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token);
+        Task<OrderResponse> CreateOrderCollectRequestAsync(
+            OrderModel model,
+            CancellationToken token
+        );
 
         /// <summary>
         /// Gets the tracking.
@@ -108,7 +111,8 @@ namespace GuiStracini.Mandae
             string value,
             CancellationToken token,
             int limit,
-            int offset);
+            int offset
+        );
 
         /// <summary>
         /// Searches the reverse.
@@ -118,7 +122,12 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns>SearchReverseResponse.</returns>
-        SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit, int offset);
+        SearchReverseResponse SearchReverse(
+            ReverseSearchMethod method,
+            string value,
+            int limit,
+            int offset
+        );
 
         /// <summary>
         /// Searches the reverse asynchronous.
@@ -129,12 +138,13 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns>Task&lt;SearchReverseResponse&gt;.</returns>
-        Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
-                                                       string value,
-                                                       CancellationToken token,
-                                                       int limit,
-                                                       int offset);
-
+        Task<SearchReverseResponse> SearchReverseAsync(
+            ReverseSearchMethod method,
+            string value,
+            CancellationToken token,
+            int limit,
+            int offset
+        );
 
         #endregion
     }

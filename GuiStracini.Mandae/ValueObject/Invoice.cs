@@ -26,6 +26,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The identifier.</value>
         [JsonProperty("id")]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or sets the key.
         /// </summary>

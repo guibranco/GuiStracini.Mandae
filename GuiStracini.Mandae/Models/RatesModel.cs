@@ -25,11 +25,13 @@ namespace GuiStracini.Mandae.Models
         /// </summary>
         /// <value>The postal code.</value>
         public string PostalCode { get; set; }
+
         /// <summary>
         /// Gets or sets the declared value.
         /// </summary>
         /// <value>The declared value.</value>
         public decimal DeclaredValue { get; set; }
+
         /// <summary>
         /// Gets or sets the dimensions.
         /// </summary>

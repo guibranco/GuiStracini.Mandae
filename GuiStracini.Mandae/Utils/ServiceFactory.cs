@@ -73,17 +73,25 @@ namespace GuiStracini.Mandae.Utils
         /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V2</exception>
         /// <exception cref="GuiStracini.Mandae.GoodPractices.MandaeApiException"></exception>
-        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : Request
+        private async Task<TOut> Execute<TOut, TIn>(
+            ActionMethod method,
+            TIn requestObject,
+            CancellationToken cancellationToken
+        )
+            where TIn : Request
         {
-            var baseEndPoint = _environment == Environment.PRODUCTION
-                                   ? Constants.ProductionServiceEndpoint
-                                   : Constants.SandboxServiceEndpoint;
+            var baseEndPoint =
+                _environment == Environment.PRODUCTION
+                    ? Constants.ProductionServiceEndpoint
+                    : Constants.SandboxServiceEndpoint;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(baseEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
                 if (!string.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
@@ -97,28 +105,43 @@ namespace GuiStracini.Mandae.Utils
                         NullValueHandling = NullValueHandling.Ignore
                     }
                 };
-                var endpoint = string.Concat(requestObject.GetRequestEndPoint(), requestObject.GetRequestAdditionalParameter(method));
+                var endpoint = string.Concat(
+                    requestObject.GetRequestEndPoint(),
+                    requestObject.GetRequestAdditionalParameter(method)
+                );
                 try
                 {
                     HttpResponseMessage response;
                     switch (method)
                     {
                         case ActionMethod.GET:
-                            response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .GetAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.POST:
-                            response = await client.PostAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .PostAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.PUT:
-                            response = await client.PutAsync(endpoint, requestObject, formatter, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .PutAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             break;
                         case ActionMethod.DELETE:
-                            response = await client.DeleteAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .DeleteAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                             return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
                         default:
-                            throw new HttpRequestException($"Requested method {method} not implemented in V2");
+                            throw new HttpRequestException(
+                                $"Requested method {method} not implemented in V2"
+                            );
                     }
-                    return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
+                    return await response.Content
+                        .ReadAsAsync<TOut>(cancellationToken)
+                        .ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
                 {
@@ -138,9 +161,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Get<T>(T requestObject, CancellationToken token) where T : Request
+        public async Task<T> Get<T>(T requestObject, CancellationToken token)
+            where T : Request
         {
-            return await Execute<T, T>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<T, T>(ActionMethod.GET, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -151,9 +176,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
         {
-            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -163,9 +190,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Post<T>(T requestObject, CancellationToken token) where T : Request
+        public async Task<T> Post<T>(T requestObject, CancellationToken token)
+            where T : Request
         {
-            return await Execute<T, T>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<T, T>(ActionMethod.POST, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -176,9 +205,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
+        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
         {
-            return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.POST, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -188,9 +219,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Put<T>(T requestObject, CancellationToken token) where T : Request
+        public async Task<T> Put<T>(T requestObject, CancellationToken token)
+            where T : Request
         {
-            return await Execute<T, T>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<T, T>(ActionMethod.PUT, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -201,9 +234,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Put<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
+        public async Task<TOut> Put<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
         {
-            return await Execute<TOut, TIn>(ActionMethod.PUT, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.PUT, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -213,9 +248,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;T&gt;.</returns>
-        public async Task<T> Delete<T>(T requestObject, CancellationToken token) where T : Request
+        public async Task<T> Delete<T>(T requestObject, CancellationToken token)
+            where T : Request
         {
-            return await Execute<T, T>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<T, T>(ActionMethod.DELETE, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         /// <summary>
@@ -226,9 +263,11 @@ namespace GuiStracini.Mandae.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TOut&gt;.</returns>
-        public async Task<TOut> Delete<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : Request
+        public async Task<TOut> Delete<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : Request
         {
-            return await Execute<TOut, TIn>(ActionMethod.DELETE, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.DELETE, requestObject, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion

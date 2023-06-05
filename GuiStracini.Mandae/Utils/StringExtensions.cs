@@ -39,11 +39,14 @@ namespace GuiStracini.Mandae.Utils
 
             foreach (var s in words.Where(s => !string.IsNullOrEmpty(s)))
             {
-                sb.AppendFormat("{0}{1} ", s.Substring(0, 1).ToUpper(), s.Substring(1, s.Length - 1).ToLower());
+                sb.AppendFormat(
+                    "{0}{1} ",
+                    s.Substring(0, 1).ToUpper(),
+                    s.Substring(1, s.Length - 1).ToLower()
+                );
             }
 
             return sb.ToString().Substring(0, sb.ToString().Length - 1);
         }
-
     }
 }

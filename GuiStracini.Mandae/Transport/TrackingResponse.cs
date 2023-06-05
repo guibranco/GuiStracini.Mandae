@@ -27,18 +27,21 @@ namespace GuiStracini.Mandae.Transport
         /// <value>The tracking code.</value>
         [JsonProperty("trackingCode")]
         public string TrackingCode { get; set; }
+
         /// <summary>
         /// Gets or sets the carrier code.
         /// </summary>
         /// <value>The carrier code.</value>
         [JsonProperty("carrierCode")]
         public string CarrierCode { get; set; }
+
         /// <summary>
         /// Gets or sets the name of the carrier.
         /// </summary>
         /// <value>The name of the carrier.</value>
         [JsonProperty("carrierName")]
         public string CarrierName { get; set; }
+
         /// <summary>
         /// Gets or sets the events.
         /// </summary>
