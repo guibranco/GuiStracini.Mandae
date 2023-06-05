@@ -27,6 +27,7 @@ namespace GuiStracini.Mandae.Transport
         /// <value>The postal code.</value>
         [JsonProperty("postalCode")]
         public string PostalCode { get; set; }
+
         /// <summary>
         /// Gets or sets the shipping services.
         /// </summary>

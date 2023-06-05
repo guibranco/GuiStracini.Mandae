@@ -26,24 +26,28 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The full name.</value>
         [JsonProperty("fullName")]
         public string FullName { get; set; }
+
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
         [JsonProperty("address")]
         public Address Address { get; set; }
+
         /// <summary>
         /// Gets or sets the document.
         /// </summary>
         /// <value>The document.</value>
         [JsonProperty("document")]
         public string Document { get; set; }
+
         /// <summary>
         /// Gets or sets the phone.
         /// </summary>
         /// <value>The phone.</value>
         [JsonProperty("phone")]
         public string Phone { get; set; }
+
         /// <summary>
         /// Gets or sets the email.
         /// </summary>

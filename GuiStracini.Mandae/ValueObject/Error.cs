@@ -26,6 +26,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The code.</value>
         [JsonProperty("code")]
         public string Code { get; set; }
+
         /// <summary>
         /// Gets or sets the message.
         /// </summary>

@@ -20,7 +20,6 @@ namespace GuiStracini.Mandae.ValueObject
     /// </summary>
     public sealed class ShippingServices
     {
-
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
