@@ -114,7 +114,15 @@ namespace GuiStracini.Mandae.Transport
             {
                 if (value == null)
                     return;
-                if (DateTime.TryParseExact(value, "yyyy-MM-dd", null, DateTimeStyles.None, out var temp))
+                if (
+                    DateTime.TryParseExact(
+                        value,
+                        "yyyy-MM-dd",
+                        null,
+                        DateTimeStyles.None,
+                        out var temp
+                    )
+                )
                 {
                     ProcessingDate = temp;
                     return;

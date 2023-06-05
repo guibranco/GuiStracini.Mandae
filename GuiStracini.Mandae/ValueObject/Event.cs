@@ -27,12 +27,14 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The date.</value>
         [JsonProperty("date")]
         public DateTime? Date { get; set; }
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         [JsonProperty("name")]
         public string Name { get; set; }
+
         /// <summary>
         /// Gets or sets the description.
         /// </summary>

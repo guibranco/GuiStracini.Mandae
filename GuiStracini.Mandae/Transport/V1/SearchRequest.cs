@@ -21,7 +21,9 @@ namespace GuiStracini.Mandae.Transport.V1
     /// The model for perform a search request in the Mandaê API V1
     /// </summary>
     /// <seealso cref="Request" />
-    [ExtendedEndpointRoute("v1/encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}")]
+    [ExtendedEndpointRoute(
+        "v1/encomendas/historico?offset={Offset}&limit={Limit}&{Method}={Value}"
+    )]
     public sealed class SearchRequest : Request
     {
         /// <summary>
@@ -49,6 +51,5 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <value>The limit.</value>
         [DefaultRouteValue("10")]
         public int Limit { get; set; }
-
     }
 }
