@@ -21,7 +21,7 @@ namespace GuiStracini.Mandae.ValueObject
     /// </summary>
     public sealed class Item
     {
-        #region Private fields 
+        #region Private fields
 
         /// <summary>
         /// The total value
@@ -76,6 +76,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The partner item identifier.</value>
         [JsonProperty("partnerItemId")]
         public string PartnerItemId { get; set; }
+
         /// <summary>
         /// Gets or sets the skus.
         /// </summary>
@@ -110,7 +111,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The sales channel (eg.: e-commerce, telemarketing, crm, etc)</value>
         [JsonProperty("channel")]
         public string Channel { get; set; }
-
 
         /// <summary>
         /// Gets or sets the store name
@@ -177,6 +177,5 @@ namespace GuiStracini.Mandae.ValueObject
             get => _totalFreight;
             set => _totalFreight = value;
         }
-
     }
 }

@@ -49,6 +49,5 @@ namespace GuiStracini.Mandae.Transport.V1
         /// <value>The limit.</value>
         [DefaultRouteValue("10")]
         public int Limit { get; set; }
-
     }
 }

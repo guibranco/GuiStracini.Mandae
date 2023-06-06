@@ -76,7 +76,5 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The canceled date.</value>
         [JsonProperty("dataHoraCancelada")]
         public DateTime? CanceledDate { get; set; }
-
-
     }
 }

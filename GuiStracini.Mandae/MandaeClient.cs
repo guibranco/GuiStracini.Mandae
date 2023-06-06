@@ -63,7 +63,8 @@ namespace GuiStracini.Mandae
         public MandaeClient(
             string token,
             Environment environment = Environment.SANDBOX,
-            bool configureAwait = true)
+            bool configureAwait = true
+        )
         {
             _token = token;
             _configureAwait = configureAwait;
@@ -102,12 +103,14 @@ namespace GuiStracini.Mandae
                 Weight = model.Dimensions.Weight.ToString(CultureInfo.InvariantCulture),
                 Width = model.Dimensions.Width.ToString(CultureInfo.InvariantCulture)
             };
-            return await _service.Post<RatesResponse, RatesRequest>(data, token).ConfigureAwait(_configureAwait);
+            return await _service
+                .Post<RatesResponse, RatesRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion
 
-        #region Orders 
+        #region Orders
 
         /// <summary>
         /// Creates the order collect request.
@@ -125,7 +128,10 @@ namespace GuiStracini.Mandae
         /// <param name="model">The order collect model.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns>A task with the <see cref="OrderResponse" /> with the property id populated</returns>
-        public async Task<OrderResponse> CreateOrderCollectRequestAsync(OrderModel model, CancellationToken token)
+        public async Task<OrderResponse> CreateOrderCollectRequestAsync(
+            OrderModel model,
+            CancellationToken token
+        )
         {
             var data = new OrderRequest
             {
@@ -139,7 +145,9 @@ namespace GuiStracini.Mandae
                 Sender = model.Sender,
                 Vehicle = model.Vehicle
             };
-            return await _service.Post<OrderResponse, OrderRequest>(data, token).ConfigureAwait(_configureAwait);
+            return await _service
+                .Post<OrderResponse, OrderRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -162,14 +170,15 @@ namespace GuiStracini.Mandae
         /// <param name="trackingCode">The tracking code.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns>A task of <see cref="TrackingResponse" /></returns>
-        public async Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token)
+        public async Task<TrackingResponse> GetTrackingAsync(
+            string trackingCode,
+            CancellationToken token
+        )
         {
-            var data = new TrackingRequest
-            {
-                Token = _token,
-                TrackingCode = trackingCode
-            };
-            return await _service.Get<TrackingResponse, TrackingRequest>(data, token).ConfigureAwait(_configureAwait);
+            var data = new TrackingRequest { Token = _token, TrackingCode = trackingCode };
+            return await _service
+                .Get<TrackingResponse, TrackingRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -185,7 +194,9 @@ namespace GuiStracini.Mandae
         public async Task<string> ConfigureV1Authentication(string email, string password)
         {
             _serviceV1 = new ServiceFactoryV1(_configureAwait);
-            return await _serviceV1.LoginAsync(email, password, CancellationToken.None).ConfigureAwait(_configureAwait);
+            return await _serviceV1
+                .LoginAsync(email, password, CancellationToken.None)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -200,7 +211,12 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The results limit per page.</param>
         /// <param name="offset">The pagination offset (zero based index).</param>
         /// <returns>The search result</returns>
-        public SearchResponse Search(SearchMethod method, string value, int limit = 10, int offset = 0)
+        public SearchResponse Search(
+            SearchMethod method,
+            string value,
+            int limit = 10,
+            int offset = 0
+        )
         {
             return SearchAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
@@ -219,7 +235,8 @@ namespace GuiStracini.Mandae
             string value,
             CancellationToken token,
             int limit = 10,
-            int offset = 0)
+            int offset = 0
+        )
         {
             var data = new SearchRequest
             {
@@ -229,7 +246,9 @@ namespace GuiStracini.Mandae
                 Offset = offset,
             };
 
-            return await _serviceV1.Get<SearchResponse, SearchRequest>(data, token).ConfigureAwait(_configureAwait);
+            return await _serviceV1
+                .Get<SearchResponse, SearchRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion
@@ -250,7 +269,12 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns>SearchReverseResponse.</returns>
-        public SearchReverseResponse SearchReverse(ReverseSearchMethod method, string value, int limit = 10, int offset = 0)
+        public SearchReverseResponse SearchReverse(
+            ReverseSearchMethod method,
+            string value,
+            int limit = 10,
+            int offset = 0
+        )
         {
             return SearchReverseAsync(method, value, CancellationToken.None, limit, offset).Result;
         }
@@ -264,11 +288,13 @@ namespace GuiStracini.Mandae
         /// <param name="limit">The limit.</param>
         /// <param name="offset">The offset.</param>
         /// <returns>A Task&lt;SearchReverseResponse&gt; representing the asynchronous operation.</returns>
-        public async Task<SearchReverseResponse> SearchReverseAsync(ReverseSearchMethod method,
-                                                         string value,
-                                                         CancellationToken token,
-                                                         int limit = 10,
-                                                         int offset = 0)
+        public async Task<SearchReverseResponse> SearchReverseAsync(
+            ReverseSearchMethod method,
+            string value,
+            CancellationToken token,
+            int limit = 10,
+            int offset = 0
+        )
         {
             var data = new SearchReverseRequest
             {
@@ -278,7 +304,9 @@ namespace GuiStracini.Mandae
                 Offset = offset
             };
 
-            return await _serviceV1.Get<SearchReverseResponse, SearchReverseRequest>(data, token).ConfigureAwait(_configureAwait);
+            return await _serviceV1
+                .Get<SearchReverseResponse, SearchReverseRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
         }
 
         #endregion

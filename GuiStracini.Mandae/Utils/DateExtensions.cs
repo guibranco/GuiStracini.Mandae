@@ -41,8 +41,8 @@ namespace GuiStracini.Mandae.Utils
         public static DateTime FromUnixTimeStamp(this int epochTime)
         {
             return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                   .AddSeconds(Math.Round((double)epochTime / 1000))
-                   .ToLocalTime();
+                .AddSeconds(Math.Round((double)epochTime / 1000))
+                .ToLocalTime();
         }
     }
 }
