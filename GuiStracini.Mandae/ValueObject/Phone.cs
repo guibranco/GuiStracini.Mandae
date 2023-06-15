@@ -26,6 +26,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The area code.</value>
         [JsonProperty("areaCode")]
         public string AreaCode { get; set; }
+
         /// <summary>
         /// Gets or sets the number.
         /// </summary>

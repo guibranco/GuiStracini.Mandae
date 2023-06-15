@@ -29,7 +29,7 @@ namespace GuiStracini.Mandae.Transport
     [ExtendedEndpointRoute("orders/add-parcel")]
     public class OrderRequest : Request
     {
-        #region Private fields 
+        #region Private fields
 
         /// <summary>
         /// The vehicle
@@ -58,9 +58,10 @@ namespace GuiStracini.Mandae.Transport
         /// <value>The scheduling internal</value>
 
         [JsonProperty("scheduling")]
-        public string SchedulingInternal => Scheduling != DateTime.MinValue
-                                                ? Scheduling.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")
-                                                : null;
+        public string SchedulingInternal =>
+            Scheduling != DateTime.MinValue
+                ? Scheduling.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:sszzz")
+                : null;
 
         /// <summary>
         /// Gets or sets the items.
@@ -97,6 +98,7 @@ namespace GuiStracini.Mandae.Transport
             get => _vehicle.ToString().ToCamelCase();
             set => _vehicle = (Vehicle)Enum.Parse(typeof(Vehicle), value.ToUpper());
         }
+
         /// <summary>
         /// Gets or sets the label.
         /// </summary>

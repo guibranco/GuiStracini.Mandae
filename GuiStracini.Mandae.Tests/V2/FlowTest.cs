@@ -75,7 +75,7 @@ namespace GuiStracini.Mandae.Test.V2
                 {
                     new Item
                     {
-                        Id= rnd.Next(10000,99999),
+                        Id = rnd.Next(10000, 99999),
                         Dimensions = ratesModel.Dimensions,
                         Observation = "Teste",
                         Recipient = new Recipient
@@ -120,10 +120,8 @@ namespace GuiStracini.Mandae.Test.V2
                                 SkuId = "7522"
                             }
                         }
-
                     }
                 }
-
             };
             var order = client.CreateOrderCollectRequest(orderModel);
             Assert.IsNull(order.Error);
