@@ -36,7 +36,7 @@ namespace GuiStracini.Mandae.Test.V2
             var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
             var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = client.CreateOrderCollectRequest(orderModel);
-            Assert.IsNull(order.Error);
+            Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
         }
@@ -52,7 +52,7 @@ namespace GuiStracini.Mandae.Test.V2
             var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
             var orderModel = MockOrdersRepository.GetSampleOrderModel();
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
-            Assert.IsNull(order.Error);
+            Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
         }
