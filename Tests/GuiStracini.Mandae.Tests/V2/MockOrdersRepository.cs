@@ -75,7 +75,7 @@ namespace GuiStracini.Mandae.Test.V2
         /// <returns>An <see cref="OrderModel" /> instance populated with fake information</returns>
         public static OrderModel GetSampleOrderModel()
         {
-            var  t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
             var secondsSinceEpoch = (int)t.TotalSeconds;
             return new OrderModel
             {
@@ -127,7 +127,7 @@ namespace GuiStracini.Mandae.Test.V2
                             Id = "606620",
                             Key = "35170805944298000101550010006066201623434877"
                         },
-                        PartnerItemId =  $"VTR{DateTime.Now:ddMMyyHHmmssffff}",
+                        PartnerItemId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}",
                         Recipient = new Recipient
                         {
                             Address = new Address
