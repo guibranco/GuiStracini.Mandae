@@ -95,7 +95,7 @@ namespace GuiStracini.Mandae.Test.V2
                             Phone = "+551133822031",
                             Document = "05944298000101"
                         },
-                        PartnerItemId = "12345",
+                        PartnerItemId = rnd.Next(1, 9999999).ToString(),
                         Invoice = new Invoice
                         {
                             Id = "606620",
