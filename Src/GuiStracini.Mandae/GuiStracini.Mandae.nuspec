@@ -18,6 +18,6 @@
     </metadata>
     <files>
 	<file src="bin\$configuration$\$id$.pdb" target="lib\net47\" />
-	<file src="..\readme.md" target="\" />
+	<file src="..\..\readme.md" target="\" />
     </files>
 </package>
