@@ -10,7 +10,7 @@ Para a versão em português, por favor [siga me](/README.pt-br.md).
 
 ![Mandae logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/logo.png)
 
-This is an **unnoficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
+This is an **unofficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
 
 ---
 
@@ -66,11 +66,11 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/Gui
 This client supports the following operations/features of the API:
 
  1. Get rates for a delivery (postal code and package dimensions)
- 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/skus)
+ 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/sku)
  3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
  4. WebHooks schema ready (The web hooks models, ready for implementation)
  5. **Experimental** Querying orders (API V1 - non-public API)
- 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 6. **Experimental** Querying occurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  8. **Experimental** Request reverse (API V1 - non-public API). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
 
@@ -155,7 +155,7 @@ order.Items = new [] {
 //Makes the request
 var order = client.RegisterOrderCollectRequest(order);
 
-//order.Id is the id for futher use (maybe cancel the request ?)
+//order.Id is the id for further use (maybe cancel the request ?)
 ```
 
 ### Get tracking of a package
@@ -175,14 +175,14 @@ var tracking = client.GetTracking(trackingId);
 ```
 ### Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API
 
-For the V1 you'll need to use the e-mail/password combination of t he Mandaê painel to login in V1 API.
+For the V1 you'll need to use the e-mail/password combination of the Mandaê panel to login in V1 API.
 
 Example:
 
 ```csharp
 //The MandaeClient
 var client = new MandaeClient("V2 API token");
-client.ConfigureV1Authentication("myEmail@example.com", "mypassword");
+client.ConfigureV1Authentication("myEmail@example.com", "password");
 var trackingCode = "XYZ000001";//The tracking code of some order
 var result = client.Search(SearchMethod.TRACKING_CODE, trackingCode);
 if(result.Total == 1)
@@ -195,7 +195,7 @@ if(result.Total == 1)
 
 - Release v6.0.0 and higher DEPRECATED methods: Get Latest Order
 - Release v5.0.0 and higher DEPRECATED methods: Large Request, Cancel Request, Cancel Item Request
-- Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê painel to login in the V1 API.
+- Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê panel to login in the V1 API.
 - Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
 
 **The API V1 is not officially public, so there is no warranty that it will still working**
