@@ -75,10 +75,12 @@ namespace GuiStracini.Mandae.Test.V2
         /// <returns>An <see cref="OrderModel" /> instance populated with fake information</returns>
         public static OrderModel GetSampleOrderModel()
         {
+            var  t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            var secondsSinceEpoch = (int)t.TotalSeconds;
             return new OrderModel
             {
                 CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
-                PartnerOrderId = "teste-123456789",
+                PartnerOrderId = secondsSinceEpoch.ToString(),
                 Observation = "Test order - GuiStracini.Mandae.Test assembly",
                 Label = new Sender
                 {
@@ -112,7 +114,7 @@ namespace GuiStracini.Mandae.Test.V2
                     new Item
                     {
                         Id = new Random().Next(10000, 99999),
-                        TrackingId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}", //The VTR prefix must be registred with Mandaê (sending null trackingId will force Mandaê to use it's onw tracking id sequence)
+                        TrackingId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}", //The VTR prefix must be registered with Mandaê (sending null trackingId will force Mandaê to use it's onw tracking id sequence)
                         Dimensions = new Dimensions
                         {
                             Length = 30,
@@ -125,7 +127,7 @@ namespace GuiStracini.Mandae.Test.V2
                             Id = "606620",
                             Key = "35170805944298000101550010006066201623434877"
                         },
-                        PartnerItemId = "5607547",
+                        PartnerItemId =  $"VTR{DateTime.Now:ddMMyyHHmmssffff}",
                         Recipient = new Recipient
                         {
                             Address = new Address

@@ -65,7 +65,7 @@ namespace GuiStracini.Mandae.Test.V2
         /// <returns>System.String.</returns>
         private static string AssertOrderResult(OrderResponse order)
         {
-            Assert.IsNull(order.Error);
+            Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
             Assert.IsTrue(order.Id > 0);
             Assert.IsTrue(order.Items.First().Id > 0);
             var item = order.Items.FirstOrDefault();
