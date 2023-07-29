@@ -15,9 +15,7 @@
 namespace GuiStracini.Mandae.Tests.V2
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using System;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -25,7 +23,7 @@ namespace GuiStracini.Mandae.Tests.V2
     /// The orders test class
     /// </summary>
     [TestClass]
-    public class OrdersTest
+    public class OrdersTests
     {
         /// <summary>
         /// Validates register order collect request method.
@@ -38,7 +36,7 @@ namespace GuiStracini.Mandae.Tests.V2
             var order = client.CreateOrderCollectRequest(orderModel);
             Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
             Assert.IsTrue(order.Id > 0);
-            Assert.IsTrue(order.Items.First().Id > 0);
+            Assert.IsTrue(order.Items[0].Id > 0);
         }
 
         /// <summary>
@@ -54,7 +52,7 @@ namespace GuiStracini.Mandae.Tests.V2
             var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
             Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
             Assert.IsTrue(order.Id > 0);
-            Assert.IsTrue(order.Items.First().Id > 0);
+            Assert.IsTrue(order.Items[0].Id > 0);
         }
     }
 }

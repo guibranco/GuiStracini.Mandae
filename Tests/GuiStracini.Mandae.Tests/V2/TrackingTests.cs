@@ -15,18 +15,17 @@
 namespace GuiStracini.Mandae.Tests.V2
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using System;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using GuiStracini.Mandae.Transport;
+    using Transport;
 
     /// <summary>
     /// The tracking test class
     /// </summary>
     [TestClass]
-    public class TrackingTest
+    public class TrackingTests
     {
         /// <summary>
         /// Validates the get tracking method.
@@ -74,11 +73,13 @@ namespace GuiStracini.Mandae.Tests.V2
                 Assert.Inconclusive("Invalid items returned");
                 return string.Empty;
             }
+
             var trackingId = item.TrackingId;
             if (trackingId != null)
             {
                 return trackingId;
             }
+
             Assert.Inconclusive("Null tracking id");
             return string.Empty;
         }

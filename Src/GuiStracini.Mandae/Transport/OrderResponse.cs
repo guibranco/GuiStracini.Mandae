@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Transport
 {
     using Enums;
@@ -22,7 +23,6 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// The order response
     /// </summary>
-
     public sealed class OrderResponse : BaseResponse
     {
         /// <summary>
@@ -127,6 +127,7 @@ namespace GuiStracini.Mandae.Transport
                     ProcessingDate = temp;
                     return;
                 }
+
                 ProcessingDate = JsonConvert.DeserializeObject<DateTime>($@"""/Date({value})/""");
             }
         }
