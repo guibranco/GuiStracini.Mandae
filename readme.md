@@ -16,9 +16,9 @@ This is an **unofficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 ## CI/CD
 
-| Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
+| Build status | Last commit | Tests | Coverage | Code Smells | LoC |
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/main)](https://github.com/guibranco/GuiStracini.Mandae) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | 
+| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/main)](https://github.com/guibranco/GuiStracini.Mandae) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) |
 
 ## Code Quality (main branch)
 
@@ -42,6 +42,8 @@ This is an **unofficial** client for the [Mandaê API V2](https://dev.mandae.com
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+
+[![DeepSource](https://app.deepsource.com/gh/guibranco/GuiStracini.Mandae.svg/?label=active+issues&show_trend=true&token=IeLgGedanFVCj0wxFnPqF3V4)](https://app.deepsource.com/gh/guibranco/GuiStracini.Mandae/?ref=repository-badge)
 
 ---
 
@@ -106,24 +108,24 @@ var client = new MandaeClient("my API token");
 
 //The RatesModel
 var delivery = new RatesModel {
-	PostalCode = "22041080",
-	...
+    PostalCode = "22041080",
+    ...
 }
 var rates = client.GetRates(delivery);
 var fast = rates.ShippingServices.Single(s => s.Name == "Rápido");
 var economic = rates.ShippingServices.Single(s => s.Name == "Econômico");
 var option = ShippingService.ECONOMICO;
 if(fast.Price < economic.Price)
-	option = ShippingService.RAPIDO;
+    option = ShippingService.RAPIDO;
 
 //The OrderModel (order collect request model)
 var order = new OrderModel { ... };
 order.Items = new [] {
-	new NewItem 
-	{
-		....
-		ShippingService = option
-	}
+    new NewItem 
+    {
+        ....
+        ShippingService = option
+    }
 };
 var order = client.RegisterOrderCollectRequest(order);
 ```
@@ -145,16 +147,16 @@ var client = new MandaeClient("my API token");
 //The OrderModel (order collect request model)
 var order = new OrderModel { ... };
 order.Items = new [] {
-	new NewItem 
-	{
-		....
-		ShippingService = option
-	}
+    new NewItem 
+    {
+        ....
+        ShippingService = option
+    }
 };
 
 //Makes the request
 var order = client.RegisterOrderCollectRequest(order);
-
+**
 //order.Id is the id for further use (maybe cancel the request ?)
 ```
 
@@ -173,6 +175,7 @@ var tracking = client.GetTracking(trackingId);
 //tracking.CarrierCode;
 //tracking.Events;
 ```
+
 ### Querying orders (API V1 - Search) EXPERIMENTAL/NON-PUBLIC API
 
 For the V1 you'll need to use the e-mail/password combination of the Mandaê panel to login in V1 API.
@@ -186,7 +189,7 @@ client.ConfigureV1Authentication("myEmail@example.com", "password");
 var trackingCode = "XYZ000001";//The tracking code of some order
 var result = client.Search(SearchMethod.TRACKING_CODE, trackingCode);
 if(result.Total == 1)
-	Console.WriteLine(result.Orders.Single().SituationDescription);    
+    Console.WriteLine(result.Orders.Single().SituationDescription);    
 ```
 
 ---
@@ -198,6 +201,8 @@ if(result.Total == 1)
 - Release v3.0.0 and higher changes the V1 authentication method. Now use your e-mail/password of the Mandaê panel to login in the V1 API.
 - Release v1.4.1 and higher also includes a experimental (non-public) V1 endpoint for search/querying orders (the same interface as available through the Mandaê administration panel).
 
-**The API V1 is not officially public, so there is no warranty that it will still working**
+> **Warning**
+>
+> The API V1 is not officially public, so there is no warranty that it will still working
 
 ---

@@ -4,12 +4,12 @@ image: Visual Studio 2022
 configuration: Release
 
 environment:
-    SONAR_TOKEN: 
-        secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
-    CODACY_PROJECT_TOKEN:
-        secure: XmAiVpRIlQRVecWEI2Mtq9zWCedcCTTU5iT1CWWkxqtnSYi40+6D0nZjPXKysBvh
-    CODECLIMATE_TOKEN:
-        secure: bMLsrkxnZp+93jXuRk2p3529vgcd7qt4BUqvS/lQx1R/UJBVw8CNi2ejzMDlkkn0Az4kFNWdNNMwl5Yz39jT4RKkvVL/P8lzyAuSiZaW6B8=
+  CODACY_PROJECT_TOKEN:
+    secure: XmAiVpRIlQRVecWEI2Mtq9zWCedcCTTU5iT1CWWkxqtnSYi40+6D0nZjPXKysBvh
+  CODECLIMATE_TOKEN:
+    secure: bMLsrkxnZp+93jXuRk2p3529vgcd7qt4BUqvS/lQx1R/UJBVw8CNi2ejzMDlkkn0Az4kFNWdNNMwl5Yz39jT4RKkvVL/P8lzyAuSiZaW6B8=
+  SONAR_TOKEN:
+    secure: krNKoK2fQnJArtX0Q/j7o6sdTof3dHKdGHVOJGGLwnZRNFHnqlf4F9DWdbmXy6q6
 
 assembly_info:
   patch: true
@@ -26,6 +26,9 @@ before_build:
 - ps: $env:SOLUTION_NAME = $([io.path]::GetFileNameWithoutExtension($(Get-ChildItem -Path .\* -Include *.sln)))
 - ps: $env:SONAR_PROJECT = "$env:APPVEYOR_REPO_NAME" -replace "/","_"
 - ps: $env:SONAR_ORGANIZATION = "$env:APPVEYOR_REPO_NAME" -replace "/.*$","-github"
+- ps: $env:LOCAL_PR = 0
+- ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $env:LOCAL_PR = 1 }
+- ps: if($env:APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME -Eq $env:APPVEYOR_REPO_NAME) { $env:LOCAL_PR = 1 }
 - cmd: nuget restore
 - cmd: choco install "sonarscanner-msbuild-net46" -y
 - cmd: choco install opencover.portable
@@ -43,29 +46,30 @@ build:
 
 build_script:
 - ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
-- ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`"", "/d:sonar.login=`"$env:SONAR_TOKEN`""
+- ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`""
+- ps: if($env:LOCAL_PR -Eq 1) { $Params +=  "/d:sonar.token=`"$env:SONAR_TOKEN`"" }
 - ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Test.cs`""
 - ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
-- ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH`"" }
+- ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')" -NoNewWindow -PassThru -Wait
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- coverlet Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Test.dll
+- coverlet Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll
  -t "vstest.console.exe"
- -a "Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Test.dll"
+ -a "Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll"
  -o "Tests\%SOLUTION_NAME%.Tests\\"
  -f opencover
-- coverlet Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Test.dll
+- coverlet Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll
  -t "vstest.console.exe"
- -a "Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Test.dll"
+ -a "Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll"
  -o "Tests\%SOLUTION_NAME%.Tests\\"
  -f lcov
 - codeclimate-test-reporter format-coverage -t lcov -o "Tests\%SOLUTION_NAME%.Tests\code-climate.json" "Tests\%SOLUTION_NAME%.Tests\coverage.info"
-- codeclimate-test-reporter upload-coverage -i "Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
+- if %LOCAL_PR% EQU 1 codeclimate-test-reporter upload-coverage -i "Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
 - codecov -f "Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
-- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
-- SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
+- if %LOCAL_PR% EQU 1 java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- if %LOCAL_PR% EQU 1 SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 - nuget pack Src\%SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
 
 after_build:
@@ -75,7 +79,6 @@ after_build:
 
 - xcopy Tests\%SOLUTION_NAME%.Tests\*.xml Coverage\
 - xcopy Tests\%SOLUTION_NAME%.Tests\*.json Coverage\
-- xcopy Tests\%SOLUTION_NAME%.Tests\*.info Coverage\
 
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
@@ -96,7 +99,6 @@ deploy:
   skip_symbols: false
   on:
    branch: main
-  artifact: Package
 
 - provider: GitHub
   on:

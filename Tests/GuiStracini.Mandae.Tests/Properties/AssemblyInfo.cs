@@ -11,14 +11,15 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("GuiStracini.Mandae.Test")]
-[assembly: AssemblyDescription("The Mandaê API client test project")]
+[assembly: AssemblyTitle("GuiStracini.Mandae.Tests")]
+[assembly: AssemblyDescription("The Mandaê API client tests project")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini ME")]
-[assembly: AssemblyProduct("Mandae API client test assembly")]
+[assembly: AssemblyProduct("Mandae API client tests assembly")]
 [assembly: AssemblyCopyright("Copyright © 2017-2023 Guilherme Branco Stracini")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

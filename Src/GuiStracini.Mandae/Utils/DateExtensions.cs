@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Utils
 {
     using System;
@@ -37,7 +38,6 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         /// <param name="epochTime">The Unix Timestamp</param>
         /// <returns>A DateTime instance of the epochTime</returns>
-
         public static DateTime FromUnixTimeStamp(this int epochTime)
         {
             return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)

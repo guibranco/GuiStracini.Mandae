@@ -11,13 +11,14 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Transport
 {
     using Newtonsoft.Json;
     using ValueObject;
 
     /// <summary>
-    /// The error respose class, all classes that represents a response must inherit from this
+    /// The error response class, all classes that represents a response must inherit from this
     /// </summary>
     public class BaseResponse
     {

@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Transport
 {
     /// <summary>
@@ -164,10 +165,6 @@ namespace GuiStracini.Mandae.Transport
         //        "tipoDocumentoOrigem": "NFe"
         //    }
         //}
-
-
-
-
         //        {
         //    "remetente": {
         //        "endereco": {

@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Utils
 {
     using GoodPractices;
@@ -20,7 +21,7 @@ namespace GuiStracini.Mandae.Utils
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using GuiStracini.SDKBuilder;
+    using SDKBuilder;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
     using Transport;
@@ -139,6 +140,7 @@ namespace GuiStracini.Mandae.Utils
                                 $"Requested method {method} not implemented in V2"
                             );
                     }
+
                     return await response.Content
                         .ReadAsAsync<TOut>(cancellationToken)
                         .ConfigureAwait(_configureAwait);
