@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.GoodPractices
 {
     using System;
@@ -19,7 +20,6 @@ namespace GuiStracini.Mandae.GoodPractices
     /// <summary>
     /// Throws when an order build instance was already built
     /// </summary>
-
     [Serializable]
     public class OrderBuiltException : Exception
     {

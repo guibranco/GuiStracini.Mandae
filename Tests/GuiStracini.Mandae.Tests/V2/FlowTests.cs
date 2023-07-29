@@ -11,14 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-namespace GuiStracini.Mandae.Test.V2
+
+namespace GuiStracini.Mandae.Tests.V2
 {
-    using GuiStracini.Mandae.Enums;
-    using GuiStracini.Mandae.Models;
-    using GuiStracini.Mandae.ValueObject;
-
+    using Enums;
+    using Models;
+    using ValueObject;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using System;
     using System.Linq;
 
@@ -27,7 +26,7 @@ namespace GuiStracini.Mandae.Test.V2
     /// Validates the vehicle, the rates, the available hours, register a order collect request and check the latest order status
     /// </summary>
     [TestClass]
-    public class FlowTest
+    public class FlowTests
     {
         /// <summary>
         /// Full flow validation.

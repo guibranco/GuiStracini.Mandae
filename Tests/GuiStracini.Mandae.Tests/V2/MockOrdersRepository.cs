@@ -12,11 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Test.V2
+namespace GuiStracini.Mandae.Tests.V2
 {
-    using GuiStracini.Mandae.Enums;
-    using GuiStracini.Mandae.Models;
-    using GuiStracini.Mandae.ValueObject;
+    using Enums;
+    using Models;
+    using ValueObject;
     using System;
     using System.Collections.Generic;
     using System.IO;

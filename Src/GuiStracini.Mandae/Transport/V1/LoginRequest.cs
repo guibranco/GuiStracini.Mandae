@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;

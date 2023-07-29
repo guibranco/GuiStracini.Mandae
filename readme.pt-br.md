@@ -8,7 +8,7 @@ For a english version, please [follow me](/README.md)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/CGuiStracini.Mandae)
 [![GitHub issues by-label](https://img.shields.io/github/issues/guibranco/guistracini.mandae/help%20wanted.svg)](https://github.com/guibranco/guistracini.mandae/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
-<img src="https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/Mandae.png" alt="GuiStracini.Mandae" width="450" height="450" />
+![Mandae logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/logo.png)
 
 Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.com.br/api/index.html)
 
@@ -16,9 +16,9 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 
 ## CI/CD
 
-| Build status | Last commit | Tests | Coverage | Code Smells | LoC | 
+| Build status | Last commit | Tests | Coverage | Code Smells | LoC |
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/main)](https://github.com/guibranco/GuiStracini.Mandae) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | 
+| [![Build status](https://ci.appveyor.com/api/projects/status/2et11cwujyfnsruj/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/main)](https://github.com/guibranco/GuiStracini.Mandae) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) |
 
 ## Code Quality (main branch)
 
@@ -43,6 +43,8 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
+[![DeepSource](https://app.deepsource.com/gh/guibranco/GuiStracini.Mandae.svg/?label=active+issues&show_trend=true&token=IeLgGedanFVCj0wxFnPqF3V4)](https://app.deepsource.com/gh/guibranco/GuiStracini.Mandae/?ref=repository-badge)
+
 ---
 
 ## Funcionalidades
@@ -54,8 +56,7 @@ Este cliente suporta as seguintes operações/funcionalidades da API:
  3. Obtém acompanhamento da entrega (Obtém todas etapas disponíveis de um pacote - o código de rastreio pode ser informado no momento da criação pelo cliente ou gerado pela Mandaê e notificado via webhook).
  4. Esquema dos webhooks (Models para webhook, prontos para implementar).
  5. **Experimental** Pesquisa pedidos (API V1 - API privada - pode não funcionar).
- 6. **Experimental** Pesquisa ocorrênicas (API V1 - API privada - pode não funcionar). 
- 6. **Experimental** Querying ocurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
+ 6. **Experimental** Pesquisa ocorrências (API V1 - API privada - pode não funcionar) [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  7. **Experimental** Pesquisa devoluções (API V1 - API privada - pode não funcionar). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  8. **Experimental** Solicitar logística reversa (API V1 - API privada - pode não funcionar). [Issue #3](https://github.com/guibranco/GuiStracini.Mandae/issues/3) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
 
@@ -86,10 +87,12 @@ Vide o arquivo em [inglês](readme.md#usage) para exemplos de utilização.
 ## Release notes
 
 - Release v6.0.0 e superior - Métodos DEPRECIADOS: Get Latest Order
-- Release v5.0.0 e superior - Métodos DEPRECIADOS: Large Request, Cancel Request, Cancel Item Request 
+- Release v5.0.0 e superior - Métodos DEPRECIADOS: Large Request, Cancel Request, Cancel Item Request
 - Release v3.0.0 e superior alteram a forma de autenticação do endpoint V1. Agora use o par e-mail/senha do painel administrativo da Mandaê para se autenticar nos endpoints V1.
-- Release v1.4.1 e superior inclui uma versão experimental (privada) do endpoint V1 para busca/pesquisa de pedidos (o mesmo disponível no painel da Mandaê). 
+- Release v1.4.1 e superior inclui uma versão experimental (privada) do endpoint V1 para busca/pesquisa de pedidos (o mesmo disponível no painel da Mandaê).
 
-**API V1 não é oficialmente pública, não existem garantias que essas funcionalidades irão continuar funcionando.**
+> **Warning**
+>
+> API V1 não é oficialmente pública, não existem garantias que essas funcionalidades irão continuar funcionando.
 
 ---

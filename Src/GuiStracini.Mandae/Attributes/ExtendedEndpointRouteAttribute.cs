@@ -11,10 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Attributes
 {
     using System;
-    using GuiStracini.SDKBuilder.Routing;
+    using SDKBuilder.Routing;
 
     /// <summary>
     /// Class ExtendedEndpointRouteAttribute. This class cannot be inherited.
@@ -35,7 +36,6 @@ namespace GuiStracini.Mandae.Attributes
         #endregion
 
         #region Public properties
-
 
         /// <summary>
         /// Gets or sets the custom base.

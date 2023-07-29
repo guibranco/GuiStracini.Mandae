@@ -11,9 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Transport
 {
-    using GuiStracini.SDKBuilder;
+    using SDKBuilder;
     using Newtonsoft.Json;
 
     /// <summary>

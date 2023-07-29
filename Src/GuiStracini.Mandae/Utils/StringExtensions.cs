@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Utils
 {
     using System.Linq;
@@ -26,7 +27,6 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         /// <param name="str">The input string</param>
         /// <returns>The input string with Camel Case result</returns>
-
         public static string ToCamelCase(this string str)
         {
             if (string.IsNullOrEmpty(str))

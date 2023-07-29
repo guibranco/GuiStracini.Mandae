@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace GuiStracini.Mandae.Utils
 {
     using Attributes;
@@ -23,7 +24,7 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
-    using GuiStracini.SDKBuilder;
+    using SDKBuilder;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
     using Transport;
@@ -138,16 +139,16 @@ namespace GuiStracini.Mandae.Utils
                 requestObject.GetRequestAdditionalParameter(method)
             );
             var baseEndpoint = "https://pedido.api.mandae.com.br";
-            if (_constants.ContainsKey("URLAPIPEDIDO_NGINX"))
-                baseEndpoint = _constants["URLAPIPEDIDO_NGINX"];
+            if (_constants.TryGetValue("URLAPIPEDIDO_NGINX", out var constant))
+                baseEndpoint = constant;
             var attribute = (ExtendedEndpointRouteAttribute)
                 requestObject.GetRequestEndPointAttribute();
             if (
                 attribute != null
                 && !string.IsNullOrWhiteSpace(attribute.CustomBase)
-                && _constants.ContainsKey(attribute.CustomBase)
+                && _constants.TryGetValue(attribute.CustomBase, out var constant1)
             )
-                baseEndpoint = _constants[attribute.CustomBase];
+                baseEndpoint = constant1;
 
             using (var client = new HttpClient())
             {
@@ -203,6 +204,7 @@ namespace GuiStracini.Mandae.Utils
                                 $"Requested method {method} not implemented in V1"
                             );
                     }
+
                     return await response.Content
                         .ReadAsAsync<TOut>(cancellationToken)
                         .ConfigureAwait(_configureAwait);

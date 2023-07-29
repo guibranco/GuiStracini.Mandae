@@ -12,13 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Test.V2
+namespace GuiStracini.Mandae.Tests.V2
 {
-    using GuiStracini.Mandae.Models;
-    using GuiStracini.Mandae.ValueObject;
-
+    using Models;
+    using ValueObject;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -27,7 +25,7 @@ namespace GuiStracini.Mandae.Test.V2
     /// The rates test class
     /// </summary>
     [TestClass]
-    public class RatesTest
+    public class RatesTests
     {
         /// <summary>
         /// Valiudates the get rates method.
