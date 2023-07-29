@@ -79,7 +79,6 @@ after_build:
 
 - xcopy Tests\%SOLUTION_NAME%.Tests\*.xml Coverage\
 - xcopy Tests\%SOLUTION_NAME%.Tests\*.json Coverage\
-- xcopy Tests\%SOLUTION_NAME%.Tests\*.info Coverage\
 
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
