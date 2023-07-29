@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Test.V2
+namespace GuiStracini.Mandae.Tests.V2
 {
     using GuiStracini.Mandae.Enums;
     using GuiStracini.Mandae.Models;
