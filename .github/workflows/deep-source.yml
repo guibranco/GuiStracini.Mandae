@@ -58,14 +58,14 @@ jobs:
     name: Deep Source Coverage report
     needs: build
     runs-on: ubuntu-latest
-    
+
     steps:
-    
+
       - name: Download release
         uses: actions/download-artifact@v3
         with:
           name: coverage
-          
+
       - name: Install DeepSource scanner
         run: curl https://deepsource.io/cli | sh
 
