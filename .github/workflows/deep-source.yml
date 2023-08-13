@@ -46,7 +46,7 @@ jobs:
         run: msbuild GuiStracini.Mandae.sln /p:Configuration=Release
 
       - name: Test
-        run: coverlet Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll -t "vstest.console.exe" -a "\Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll" -o "\Tests\GuiStracini.Mandae.Tests\bin\Release\\"
+        run: coverlet Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll --collect:"XPlat Code Coverage" -t "vstest.console.exe" -a "Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll" -o "Tests\GuiStracini.Mandae.Tests\bin\Release\\"
 
       - name: Upload artifact test coverage
         uses: actions/upload-artifact@v3.1.2
