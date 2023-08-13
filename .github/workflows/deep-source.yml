@@ -44,7 +44,7 @@ jobs:
           echo "solution=$([io.path]::GetFileNameWithoutExtension($(Get-ChildItem -Path .\* -Include *.sln)))" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Restore NuGet Packages
-        run: nuget restore ${{ env.solution }}
+        run: nuget restore ${{ env.solution }}.sln
 
       - name: Build Release
         run: msbuild ${{ env.solution }}.sln /p:Configuration=Release
