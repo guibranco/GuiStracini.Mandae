@@ -39,20 +39,24 @@ jobs:
       - name: DotNet Tool Install Coverlet
         run: dotnet tool install --global coverlet.console
 
+      - name: Set solution name
+        run: |
+          echo "solution=$(([io.fileinfo]$(Get-ChildItem -Path .\* -Include *.sln)).name)" | Out-File -FilePath $env:GITHUB_ENV -Append
+
       - name: Restore NuGet Packages
-        run: nuget restore "${{ env.solution }}"
+        run: nuget restore ${{ env.solution }}
 
       - name: Build Release
-        run: msbuild GuiStracini.Mandae.sln /p:Configuration=Release
+        run: msbuild ${{ env.solution }}.sln /p:Configuration=Release
 
       - name: Test
-        run: coverlet Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll -t "vstest.console.exe" -a "Tests\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll" -o "Tests\GuiStracini.Mandae.Tests\bin\Release\\" -f cobertura
+        run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}Tests.dll" -o "Tests\${{ env.solution }}.Tests\bin\Release\\" -f cobertura
 
       - name: Upload artifact test coverage
         uses: actions/upload-artifact@v3.1.2
         with:
           name: coverage
-          path: Tests\GuiStracini.Mandae.Tests\bin\Release\coverage.cobertura.xml
+          path: Tests\${{ env.solution }}.Tests\bin\Release\coverage.cobertura.xml
   
   deep-source:
     name: Deep Source Coverage report
