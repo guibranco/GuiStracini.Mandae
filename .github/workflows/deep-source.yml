@@ -50,7 +50,7 @@ jobs:
         run: msbuild ${{ env.solution }}.sln /p:Configuration=Release
 
       - name: Test
-        run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}Tests.dll" -o "Tests\${{ env.solution }}.Tests\bin\Release\\" -f cobertura
+        run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll" -o "Tests\${{ env.solution }}.Tests\bin\Release\\" -f cobertura
 
       - name: Upload artifact test coverage
         uses: actions/upload-artifact@v3.1.2
