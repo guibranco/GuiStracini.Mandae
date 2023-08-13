@@ -7,15 +7,68 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  DeepSource:
+  build:
+    name: Build
+    runs-on: windows-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Setup MSBuild Path
+        uses: microsoft/setup-msbuild@v1.3
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+      - name: Setup Nuget
+        uses: NuGet/setup-nuget@v1.2
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1.2
+
+      - name: DotNet Tool Install Coverlet
+        run: dotnet tool install --global coverlet.console
+
+      - name: Restore NuGet Packages
+        run: nuget restore "${{ env.solution }}"
+
+      - name: Build Release
+        run: msbuild GuiStracini.Mandae.sln /p:Configuration=Release
+
+      - name: Test
+        run: |
+          coverlet Test\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll
+          -t "vstest.console.exe"
+          -a "\Test\GuiStracini.Mandae.Tests\bin\Release\GuiStracini.Mandae.Tests.dll"
+          -o "\Test\GuiStracini.Mandae.Tests\bin\Release\\"
+
+      - name: Upload artifact test coverage
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: coverage
+          path: \Test\GuiStracini.Mandae.Tests\bin]Release
+  
+  deep-source:
     name: Deep Source Coverage report
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v3
+    
+      - name: Download release
+        uses: actions/download-artifact@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
+          name: coverage
+          
       - name: Install DeepSource scanner
         run: curl https://deepsource.io/cli | sh
 
@@ -28,6 +81,4 @@ jobs:
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
         run: |
-          dotnet build -c Debug --verbosity minimal
-          dotnet test  -c Debug --verbosity minimal --no-build --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura"
-          ./bin/deepsource report --analyzer test-coverage --key csharp --value-file ./Tests/GuiStracini.Mandae.Tests/coverage.cobertura.xml
+          ./bin/deepsource report --analyzer test-coverage --key csharp --value-file coverage.cobertura.xml
