@@ -60,6 +60,7 @@ jobs:
   
   deep-source:
     name: Deep Source Coverage report
+    needs: build
     runs-on: ubuntu-latest
     
     steps:
