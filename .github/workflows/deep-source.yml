@@ -21,7 +21,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup MSBuild Path
         uses: microsoft/setup-msbuild@v1.3
@@ -65,7 +65,8 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
@@ -77,7 +78,7 @@ jobs:
       - name: Install DeepSource scanner
         run: curl https://deepsource.io/cli | sh
 
-      - name: Build and analyze
+      - name: Analyze
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
         run: ./bin/deepsource report --analyzer test-coverage --key csharp --value-file coverage.cobertura.xml
