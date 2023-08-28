@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
+title: Mandaê SDK (.NET)
+description: Mandaê API .NET client wrapper
 logo: https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/Mandae.png
 show_downloads: true
