@@ -3,7 +3,7 @@ name: Update packages
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 12 * * 2"
+    - cron: "45 16 * * 1"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
