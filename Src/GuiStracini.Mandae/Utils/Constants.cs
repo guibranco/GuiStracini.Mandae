@@ -57,9 +57,9 @@ namespace GuiStracini.Mandae.Utils
         public static readonly Regex JsPattern = new Regex(
             "angularJSconstants: {(?<constants>.+?)},?",
             RegexOptions.Compiled
-            | RegexOptions.CultureInvariant
-            | RegexOptions.IgnoreCase
-            | RegexOptions.Singleline,
+                | RegexOptions.CultureInvariant
+                | RegexOptions.IgnoreCase
+                | RegexOptions.Singleline,
             TimeSpan.FromMilliseconds(100)
         );
 
