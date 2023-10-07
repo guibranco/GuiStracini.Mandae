@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The sender class
-/// </summary>
-public sealed class Sender
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the full name.
-    /// </summary>
-    /// <value>The full name.</value>
-    [JsonProperty("fullName")]
-    public string FullName { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the address.
+    /// The sender class
     /// </summary>
-    /// <value>The address.</value>
-    [JsonProperty("address")]
-    public Address Address { get; set; }
+    public sealed class Sender
+    {
+        /// <summary>
+        /// Gets or sets the full name.
+        /// </summary>
+        /// <value>The full name.</value>
+        [JsonProperty("fullName")]
+        public string FullName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>The address.</value>
+        [JsonProperty("address")]
+        public Address Address { get; set; }
+    }
 }

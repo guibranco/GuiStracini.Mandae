@@ -12,119 +12,120 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Tests.V2;
-
-using Enums;
-using Models;
-using ValueObject;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-
-/// <summary>
-/// Flow test validation class performs a full flow validations.
-/// Validates the vehicle, the rates, the available hours, register a order collect request and check the latest order status
-/// </summary>
-[TestClass]
-public class FlowTests
+namespace GuiStracini.Mandae.Tests.V2
 {
+    using Enums;
+    using Models;
+    using ValueObject;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Linq;
+
     /// <summary>
-    /// Full flow validation.
+    /// Flow test validation class performs a full flow validations.
+    /// Validates the vehicle, the rates, the available hours, register a order collect request and check the latest order status
     /// </summary>
-    [TestMethod]
-    public void FullFlowValidation()
+    [TestClass]
+    public class FlowTests
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-        const string customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
-        var rnd = new Random();
-        var ratesModel = new RatesModel
+        /// <summary>
+        /// Full flow validation.
+        /// </summary>
+        [TestMethod]
+        public void FullFlowValidation()
         {
-            PostalCode = "22041080",
-            DeclaredValue = new decimal(215.15),
-            Dimensions = new Dimensions
+            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+            const string customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
+            var rnd = new Random();
+            var ratesModel = new RatesModel
             {
-                Height = 60,
-                Length = 60,
-                Width = 40,
-                Weight = 1.3
-            }
-        };
-        var orderModel = new OrderModel
-        {
-            CustomerId = customerId,
-            Vehicle = Vehicle.CAR,
-            Observation = "Full flow validation test",
-            Scheduling = DateTime.Now,
-            PartnerOrderId = "1234567890",
-            Sender = new Sender
-            {
-                Address = new Address
+                PostalCode = "22041080",
+                DeclaredValue = new decimal(215.15),
+                Dimensions = new Dimensions
                 {
-                    Number = "527",
-                    PostalCode = "03137020",
-                    Neighborhood = "Vila Prudente",
-                    City = "São Paulo",
-                    State = "SP",
-                    Street = "Rua Itanháem",
-                    Country = "BR"
+                    Height = 60,
+                    Length = 60,
+                    Width = 40,
+                    Weight = 1.3
+                }
+            };
+            var orderModel = new OrderModel
+            {
+                CustomerId = customerId,
+                Vehicle = Vehicle.CAR,
+                Observation = "Full flow validation test",
+                Scheduling = DateTime.Now,
+                PartnerOrderId = "1234567890",
+                Sender = new Sender
+                {
+                    Address = new Address
+                    {
+                        Number = "527",
+                        PostalCode = "03137020",
+                        Neighborhood = "Vila Prudente",
+                        City = "São Paulo",
+                        State = "SP",
+                        Street = "Rua Itanháem",
+                        Country = "BR"
+                    },
+                    FullName = "Editora Inovação"
                 },
-                FullName = "Editora Inovação"
-            },
-            Items = new[]
-            {
-                new Item
+                Items = new[]
                 {
-                    Id = rnd.Next(10000, 99999),
-                    Dimensions = ratesModel.Dimensions,
-                    Observation = "Teste",
-                    Recipient = new Recipient
+                    new Item
                     {
-                        Address = new Address
+                        Id = rnd.Next(10000, 99999),
+                        Dimensions = ratesModel.Dimensions,
+                        Observation = "Teste",
+                        Recipient = new Recipient
                         {
-                            PostalCode = "22041080",
-                            Number = "110",
-                            Neighborhood = "Copacabana",
-                            City = "Rio de Janeiro",
-                            State = "RJ",
-                            Street = "Rua Anita Garibaild",
-                            Country = "BR"
+                            Address = new Address
+                            {
+                                PostalCode = "22041080",
+                                Number = "110",
+                                Neighborhood = "Copacabana",
+                                City = "Rio de Janeiro",
+                                State = "RJ",
+                                Street = "Rua Anita Garibaild",
+                                Country = "BR"
+                            },
+                            FullName = "Vitrine do Artesanato",
+                            Email = "",
+                            Phone = "+551133822031",
+                            Document = "05944298000101"
                         },
-                        FullName = "Vitrine do Artesanato",
-                        Email = "",
-                        Phone = "+551133822031",
-                        Document = "05944298000101"
-                    },
-                    PartnerItemId = rnd.Next(1, 9999999).ToString(),
-                    Invoice = new Invoice
-                    {
-                        Id = "606620",
-                        Key = "35170805944298000101550010006066201623434877"
-                    },
-                    Skus = new[]
-                    {
-                        new Sku
+                        PartnerItemId = rnd.Next(1, 9999999).ToString(),
+                        Invoice = new Invoice
                         {
-                            Description = "Caneta Acrilpen",
-                            Ean = "7891153044392",
-                            Price = new decimal(4.47),
-                            Quantity = 2,
-                            SkuId = "3583"
+                            Id = "606620",
+                            Key = "35170805944298000101550010006066201623434877"
                         },
-                        new Sku
+                        Skus = new[]
                         {
-                            Description = "Tecido algodão crú sem risco",
-                            Ean = string.Empty,
-                            Price = new decimal(15.43),
-                            Quantity = 2,
-                            SkuId = "7522"
+                            new Sku
+                            {
+                                Description = "Caneta Acrilpen",
+                                Ean = "7891153044392",
+                                Price = new decimal(4.47),
+                                Quantity = 2,
+                                SkuId = "3583"
+                            },
+                            new Sku
+                            {
+                                Description = "Tecido algodão crú sem risco",
+                                Ean = string.Empty,
+                                Price = new decimal(15.43),
+                                Quantity = 2,
+                                SkuId = "7522"
+                            }
                         }
                     }
                 }
-            }
-        };
-        var order = client.CreateOrderCollectRequest(orderModel);
-        Assert.IsNull(order.Error);
-        Assert.IsTrue(order.Id > 0);
-        Assert.IsTrue(order.Items.First().Id > 0);
+            };
+            var order = client.CreateOrderCollectRequest(orderModel);
+            Assert.IsNull(order.Error);
+            Assert.IsTrue(order.Id > 0);
+            Assert.IsTrue(order.Items.First().Id > 0);
+        }
     }
 }

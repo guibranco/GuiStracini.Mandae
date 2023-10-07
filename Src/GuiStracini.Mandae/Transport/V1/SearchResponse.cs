@@ -12,28 +12,29 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport.V1;
-
-using Newtonsoft.Json;
-using ValueObject;
-
-/// <summary>
-/// The V1 Search response class
-/// </summary>
-/// <seealso cref="GuiStracini.Mandae.Transport.BaseResponse" />
-public sealed class SearchResponse : BaseResponse
+namespace GuiStracini.Mandae.Transport.V1
 {
-    /// <summary>
-    /// Gets or sets the total.
-    /// </summary>
-    /// <value>The total.</value>
-    [JsonProperty("Total")]
-    public int Total { get; set; }
+    using Newtonsoft.Json;
+    using ValueObject;
 
     /// <summary>
-    /// Gets or sets the orders.
+    /// The V1 Search response class
     /// </summary>
-    /// <value>The orders.</value>
-    [JsonProperty("Pedidos")]
-    public Order[] Orders { get; set; }
+    /// <seealso cref="GuiStracini.Mandae.Transport.BaseResponse" />
+    public sealed class SearchResponse : BaseResponse
+    {
+        /// <summary>
+        /// Gets or sets the total.
+        /// </summary>
+        /// <value>The total.</value>
+        [JsonProperty("Total")]
+        public int Total { get; set; }
+
+        /// <summary>
+        /// Gets or sets the orders.
+        /// </summary>
+        /// <value>The orders.</value>
+        [JsonProperty("Pedidos")]
+        public Order[] Orders { get; set; }
+    }
 }

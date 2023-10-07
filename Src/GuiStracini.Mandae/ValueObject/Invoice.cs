@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The invoice class
-/// </summary>
-public sealed class Invoice
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the identifier.
-    /// </summary>
-    /// <value>The identifier.</value>
-    [JsonProperty("id")]
-    public string Id { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the key.
+    /// The invoice class
     /// </summary>
-    /// <value>The key.</value>
-    [JsonProperty("key")]
-    public string Key { get; set; }
+    public sealed class Invoice
+    {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>The key.</value>
+        [JsonProperty("key")]
+        public string Key { get; set; }
+    }
 }

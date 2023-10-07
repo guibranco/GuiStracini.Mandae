@@ -12,41 +12,42 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport;
-
-using Newtonsoft.Json;
-using ValueObject;
-
-/// <summary>
-/// The tracking response class
-/// </summary>
-public sealed class TrackingResponse : BaseResponse
+namespace GuiStracini.Mandae.Transport
 {
-    /// <summary>
-    /// Gets or sets the tracking code.
-    /// </summary>
-    /// <value>The tracking code.</value>
-    [JsonProperty("trackingCode")]
-    public string TrackingCode { get; set; }
+    using Newtonsoft.Json;
+    using ValueObject;
 
     /// <summary>
-    /// Gets or sets the carrier code.
+    /// The tracking response class
     /// </summary>
-    /// <value>The carrier code.</value>
-    [JsonProperty("carrierCode")]
-    public string CarrierCode { get; set; }
+    public sealed class TrackingResponse : BaseResponse
+    {
+        /// <summary>
+        /// Gets or sets the tracking code.
+        /// </summary>
+        /// <value>The tracking code.</value>
+        [JsonProperty("trackingCode")]
+        public string TrackingCode { get; set; }
 
-    /// <summary>
-    /// Gets or sets the name of the carrier.
-    /// </summary>
-    /// <value>The name of the carrier.</value>
-    [JsonProperty("carrierName")]
-    public string CarrierName { get; set; }
+        /// <summary>
+        /// Gets or sets the carrier code.
+        /// </summary>
+        /// <value>The carrier code.</value>
+        [JsonProperty("carrierCode")]
+        public string CarrierCode { get; set; }
 
-    /// <summary>
-    /// Gets or sets the events.
-    /// </summary>
-    /// <value>The events.</value>
-    [JsonProperty("events")]
-    public Event[] Events { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the carrier.
+        /// </summary>
+        /// <value>The name of the carrier.</value>
+        [JsonProperty("carrierName")]
+        public string CarrierName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the events.
+        /// </summary>
+        /// <value>The events.</value>
+        [JsonProperty("events")]
+        public Event[] Events { get; set; }
+    }
 }

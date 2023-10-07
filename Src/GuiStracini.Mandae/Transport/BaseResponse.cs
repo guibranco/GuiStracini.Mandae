@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport;
-
-using Newtonsoft.Json;
-using ValueObject;
-
-/// <summary>
-/// The error response class, all classes that represents a response must inherit from this
-/// </summary>
-public class BaseResponse
+namespace GuiStracini.Mandae.Transport
 {
-    /// <summary>
-    /// Gets or sets the error.
-    /// </summary>
-    /// <value>The error.</value>
-    public Error Error { get; set; }
+    using Newtonsoft.Json;
+    using ValueObject;
 
     /// <summary>
-    /// Gets or sets the message.
+    /// The error response class, all classes that represents a response must inherit from this
     /// </summary>
-    /// <value>The message.</value>
-    [JsonProperty("message")]
-    public string Message { get; set; }
+    public class BaseResponse
+    {
+        /// <summary>
+        /// Gets or sets the error.
+        /// </summary>
+        /// <value>The error.</value>
+        public Error Error { get; set; }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>The message.</value>
+        [JsonProperty("message")]
+        public string Message { get; set; }
+    }
 }

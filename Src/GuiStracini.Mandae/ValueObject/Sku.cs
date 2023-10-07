@@ -12,54 +12,55 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The Stock keeping unit class
-/// </summary>
-public sealed class Sku
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the sku identifier.
-    /// </summary>
-    /// <value>The sku identifier.</value>
-    [JsonProperty("skuId")]
-    public string SkuId { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the description.
+    /// The Stock keeping unit class
     /// </summary>
-    /// <value>The description.</value>
-    [JsonProperty("description")]
-    public string Description { get; set; }
+    public sealed class Sku
+    {
+        /// <summary>
+        /// Gets or sets the sku identifier.
+        /// </summary>
+        /// <value>The sku identifier.</value>
+        [JsonProperty("skuId")]
+        public string SkuId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ean.
-    /// </summary>
-    /// <value>The ean.</value>
-    [JsonProperty("ean")]
-    public string Ean { get; set; }
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>The description.</value>
+        [JsonProperty("description")]
+        public string Description { get; set; }
 
-    /// <summary>
-    /// Gets or sets the price.
-    /// </summary>
-    /// <value>The price.</value>
-    [JsonProperty("price")]
-    public decimal Price { get; set; }
+        /// <summary>
+        /// Gets or sets the ean.
+        /// </summary>
+        /// <value>The ean.</value>
+        [JsonProperty("ean")]
+        public string Ean { get; set; }
 
-    /// <summary>
-    /// Gets or sets the freight.
-    /// </summary>
-    /// <value>The freight.</value>
-    [JsonProperty("freight")]
-    public decimal Freight { get; set; }
+        /// <summary>
+        /// Gets or sets the price.
+        /// </summary>
+        /// <value>The price.</value>
+        [JsonProperty("price")]
+        public decimal Price { get; set; }
 
-    /// <summary>
-    /// Gets or sets the quantity.
-    /// </summary>
-    /// <value>The quantity.</value>
-    [JsonProperty("quantity")]
-    public int Quantity { get; set; }
+        /// <summary>
+        /// Gets or sets the freight.
+        /// </summary>
+        /// <value>The freight.</value>
+        [JsonProperty("freight")]
+        public decimal Freight { get; set; }
+
+        /// <summary>
+        /// Gets or sets the quantity.
+        /// </summary>
+        /// <value>The quantity.</value>
+        [JsonProperty("quantity")]
+        public int Quantity { get; set; }
+    }
 }

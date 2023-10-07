@@ -12,46 +12,47 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Tests.V2;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-/// <summary>
-/// The orders test class
-/// </summary>
-[TestClass]
-public class OrdersTests
+namespace GuiStracini.Mandae.Tests.V2
 {
-    /// <summary>
-    /// Validates register order collect request method.
-    /// </summary>
-    [TestMethod]
-    public void RegisterOrderCollectRequest()
-    {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-        var orderModel = MockOrdersRepository.GetSampleOrderModel();
-        var order = client.CreateOrderCollectRequest(orderModel);
-        Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
-        Assert.IsTrue(order.Id > 0);
-        Assert.IsTrue(order.Items[0].Id > 0);
-    }
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
-    /// Validates register order collect request asynchronous method.
+    /// The orders test class
     /// </summary>
-    /// <returns>A Task representing the asynchronous operation.</returns>
-    [TestMethod]
-    public async Task RegisterOrderCollectRequestAsync()
+    [TestClass]
+    public class OrdersTests
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-        var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-        var orderModel = MockOrdersRepository.GetSampleOrderModel();
-        var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
-        Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
-        Assert.IsTrue(order.Id > 0);
-        Assert.IsTrue(order.Items[0].Id > 0);
+        /// <summary>
+        /// Validates register order collect request method.
+        /// </summary>
+        [TestMethod]
+        public void RegisterOrderCollectRequest()
+        {
+            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
+            var order = client.CreateOrderCollectRequest(orderModel);
+            Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
+            Assert.IsTrue(order.Id > 0);
+            Assert.IsTrue(order.Items[0].Id > 0);
+        }
+
+        /// <summary>
+        /// Validates register order collect request asynchronous method.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation.</returns>
+        [TestMethod]
+        public async Task RegisterOrderCollectRequestAsync()
+        {
+            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            var orderModel = MockOrdersRepository.GetSampleOrderModel();
+            var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
+            Assert.IsNull(order.Error, order.Error?.Message ?? string.Empty);
+            Assert.IsTrue(order.Id > 0);
+            Assert.IsTrue(order.Items[0].Id > 0);
+        }
     }
 }

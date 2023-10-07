@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The error model
-/// </summary>
-public sealed class Error
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the code.
-    /// </summary>
-    /// <value>The code.</value>
-    [JsonProperty("code")]
-    public string Code { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the message.
+    /// The error model
     /// </summary>
-    /// <value>The message.</value>
-    [JsonProperty("message")]
-    public string Message { get; set; }
+    public sealed class Error
+    {
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>The code.</value>
+        [JsonProperty("code")]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>The message.</value>
+        [JsonProperty("message")]
+        public string Message { get; set; }
+    }
 }

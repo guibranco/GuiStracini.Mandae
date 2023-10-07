@@ -12,30 +12,31 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Models;
-
-using ValueObject;
-
-/// <summary>
-/// The rates model
-/// </summary>
-public sealed class RatesModel
+namespace GuiStracini.Mandae.Models
 {
-    /// <summary>
-    /// Gets or sets the postal code.
-    /// </summary>
-    /// <value>The postal code.</value>
-    public string PostalCode { get; set; }
+    using ValueObject;
 
     /// <summary>
-    /// Gets or sets the declared value.
+    /// The rates model
     /// </summary>
-    /// <value>The declared value.</value>
-    public decimal DeclaredValue { get; set; }
+    public sealed class RatesModel
+    {
+        /// <summary>
+        /// Gets or sets the postal code.
+        /// </summary>
+        /// <value>The postal code.</value>
+        public string PostalCode { get; set; }
 
-    /// <summary>
-    /// Gets or sets the dimensions.
-    /// </summary>
-    /// <value>The dimensions.</value>
-    public Dimensions Dimensions { get; set; }
+        /// <summary>
+        /// Gets or sets the declared value.
+        /// </summary>
+        /// <value>The declared value.</value>
+        public decimal DeclaredValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dimensions.
+        /// </summary>
+        /// <value>The dimensions.</value>
+        public Dimensions Dimensions { get; set; }
+    }
 }

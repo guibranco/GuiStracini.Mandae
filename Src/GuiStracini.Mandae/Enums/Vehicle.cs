@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Enums;
-
-/// <summary>
-/// The vehicle enumeration.
-/// Represents which vehicles are available for withdrawal
-/// </summary>
-public enum Vehicle
+namespace GuiStracini.Mandae.Enums
 {
     /// <summary>
-    /// The car
+    /// The vehicle enumeration.
+    /// Represents which vehicles are available for withdrawal
     /// </summary>
-    CAR,
+    public enum Vehicle
+    {
+        /// <summary>
+        /// The car
+        /// </summary>
+        CAR,
 
-    /// <summary>
-    /// The motorcycle
-    /// </summary>
-    MOTORCYCLE,
+        /// <summary>
+        /// The motorcycle
+        /// </summary>
+        MOTORCYCLE,
 
-    /// <summary>
-    /// The dropoff
-    /// </summary>
-    DROPOFF
+        /// <summary>
+        /// The dropoff
+        /// </summary>
+        DROPOFF
+    }
 }

@@ -12,74 +12,75 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Tests.V2;
-
-using Models;
-using ValueObject;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-/// <summary>
-/// The rates test class
-/// </summary>
-[TestClass]
-public class RatesTests
+namespace GuiStracini.Mandae.Tests.V2
 {
-    /// <summary>
-    /// Valiudates the get rates method.
-    /// </summary>
-    [TestMethod]
-    public void GetRates()
-    {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-
-        var ratesModel = new RatesModel
-        {
-            PostalCode = "22041080",
-            DeclaredValue = new decimal(215.15),
-            Dimensions = new Dimensions
-            {
-                Height = 60,
-                Length = 60,
-                Width = 40,
-                Weight = 1
-            }
-        };
-
-        var rates = client.GetRates(ratesModel);
-        Assert.IsNull(rates.Error);
-        Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
-        //Assert.IsTrue(rates.ShippingServices.Any());
-    }
+    using Models;
+    using ValueObject;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
-    /// Validate the get rates asynchronous method.
+    /// The rates test class
     /// </summary>
-    /// <returns>A Task representing the asynchronous operation.</returns>
-    [TestMethod]
-    public async Task GetRatesAsync()
+    [TestClass]
+    public class RatesTests
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
-
-        var ratesModel = new RatesModel
+        /// <summary>
+        /// Valiudates the get rates method.
+        /// </summary>
+        [TestMethod]
+        public void GetRates()
         {
-            PostalCode = "22041080",
-            DeclaredValue = new decimal(215.15),
-            Dimensions = new Dimensions
+            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+
+            var ratesModel = new RatesModel
             {
-                Height = 60,
-                Length = 60,
-                Width = 40,
-                Weight = 1
-            }
-        };
+                PostalCode = "22041080",
+                DeclaredValue = new decimal(215.15),
+                Dimensions = new Dimensions
+                {
+                    Height = 60,
+                    Length = 60,
+                    Width = 40,
+                    Weight = 1
+                }
+            };
 
-        var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-        var rates = await client.GetRatesAsync(ratesModel, source.Token);
+            var rates = client.GetRates(ratesModel);
+            Assert.IsNull(rates.Error);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
+            //Assert.IsTrue(rates.ShippingServices.Any());
+        }
 
-        Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
-        //Assert.IsTrue(rates.ShippingServices.Any());
+        /// <summary>
+        /// Validate the get rates asynchronous method.
+        /// </summary>
+        /// <returns>A Task representing the asynchronous operation.</returns>
+        [TestMethod]
+        public async Task GetRatesAsync()
+        {
+            var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+
+            var ratesModel = new RatesModel
+            {
+                PostalCode = "22041080",
+                DeclaredValue = new decimal(215.15),
+                Dimensions = new Dimensions
+                {
+                    Height = 60,
+                    Length = 60,
+                    Width = 40,
+                    Weight = 1
+                }
+            };
+
+            var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+            var rates = await client.GetRatesAsync(ratesModel, source.Token);
+
+            Assert.IsFalse(string.IsNullOrWhiteSpace(rates.PostalCode));
+            //Assert.IsTrue(rates.ShippingServices.Any());
+        }
     }
 }

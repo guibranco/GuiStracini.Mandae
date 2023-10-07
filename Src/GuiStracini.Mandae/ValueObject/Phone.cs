@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The phone entity.
-/// </summary>
-public sealed class Phone
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the area code.
-    /// </summary>
-    /// <value>The area code.</value>
-    [JsonProperty("areaCode")]
-    public string AreaCode { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the number.
+    /// The phone entity.
     /// </summary>
-    /// <value>The number.</value>
-    [JsonProperty("number")]
-    public string Number { get; set; }
+    public sealed class Phone
+    {
+        /// <summary>
+        /// Gets or sets the area code.
+        /// </summary>
+        /// <value>The area code.</value>
+        [JsonProperty("areaCode")]
+        public string AreaCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the number.
+        /// </summary>
+        /// <value>The number.</value>
+        [JsonProperty("number")]
+        public string Number { get; set; }
+    }
 }

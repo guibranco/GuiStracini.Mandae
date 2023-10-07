@@ -12,26 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// The store entity
-/// </summary>
-public sealed class Store
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the name.
-    /// </summary>
-    /// <value>The name.</value>
-    [JsonProperty("name")]
-    public string Name { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the URL.
+    /// The store entity
     /// </summary>
-    /// <value>The URL.</value>
-    [JsonProperty("url")]
-    public string Url { get; set; }
+    public sealed class Store
+    {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        /// <value>The URL.</value>
+        [JsonProperty("url")]
+        public string Url { get; set; }
+    }
 }

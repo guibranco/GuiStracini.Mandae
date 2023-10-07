@@ -12,22 +12,23 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport;
-
-using Attributes;
-using Newtonsoft.Json;
-
-/// <summary>
-/// This service allows you to get the complete listing of tracking events from the tracking code.
-/// </summary>
-/// <seealso cref="Request" />
-[ExtendedEndpointRoute("trackings/{TrackingCode}")]
-public sealed class TrackingRequest : Request
+namespace GuiStracini.Mandae.Transport
 {
+    using Attributes;
+    using Newtonsoft.Json;
+
     /// <summary>
-    /// Gets or sets the tracking code.
+    /// This service allows you to get the complete listing of tracking events from the tracking code.
     /// </summary>
-    /// <value>The tracking code.</value>
-    [JsonProperty("trackingCode")]
-    public string TrackingCode { get; set; }
+    /// <seealso cref="Request" />
+    [ExtendedEndpointRoute("trackings/{TrackingCode}")]
+    public sealed class TrackingRequest : Request
+    {
+        /// <summary>
+        /// Gets or sets the tracking code.
+        /// </summary>
+        /// <value>The tracking code.</value>
+        [JsonProperty("trackingCode")]
+        public string TrackingCode { get; set; }
+    }
 }

@@ -12,20 +12,21 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Enums;
-
-/// <summary>
-/// The API environment enumeration
-/// </summary>
-public enum Environment
+namespace GuiStracini.Mandae.Enums
 {
     /// <summary>
-    /// The sandbox environment
+    /// The API environment enumeration
     /// </summary>
-    SANDBOX,
+    public enum Environment
+    {
+        /// <summary>
+        /// The sandbox environment
+        /// </summary>
+        SANDBOX,
 
-    /// <summary>
-    /// The production environment
-    /// </summary>
-    PRODUCTION
+        /// <summary>
+        /// The production environment
+        /// </summary>
+        PRODUCTION
+    }
 }

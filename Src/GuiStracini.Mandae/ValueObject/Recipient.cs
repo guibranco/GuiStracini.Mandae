@@ -12,47 +12,48 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject;
-
-using Newtonsoft.Json;
-
-/// <summary>
-/// Thre Recipient class
-/// </summary>
-public sealed class Recipient
+namespace GuiStracini.Mandae.ValueObject
 {
-    /// <summary>
-    /// Gets or sets the full name.
-    /// </summary>
-    /// <value>The full name.</value>
-    [JsonProperty("fullName")]
-    public string FullName { get; set; }
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or sets the address.
+    /// Thre Recipient class
     /// </summary>
-    /// <value>The address.</value>
-    [JsonProperty("address")]
-    public Address Address { get; set; }
+    public sealed class Recipient
+    {
+        /// <summary>
+        /// Gets or sets the full name.
+        /// </summary>
+        /// <value>The full name.</value>
+        [JsonProperty("fullName")]
+        public string FullName { get; set; }
 
-    /// <summary>
-    /// Gets or sets the document.
-    /// </summary>
-    /// <value>The document.</value>
-    [JsonProperty("document")]
-    public string Document { get; set; }
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>The address.</value>
+        [JsonProperty("address")]
+        public Address Address { get; set; }
 
-    /// <summary>
-    /// Gets or sets the phone.
-    /// </summary>
-    /// <value>The phone.</value>
-    [JsonProperty("phone")]
-    public string Phone { get; set; }
+        /// <summary>
+        /// Gets or sets the document.
+        /// </summary>
+        /// <value>The document.</value>
+        [JsonProperty("document")]
+        public string Document { get; set; }
 
-    /// <summary>
-    /// Gets or sets the email.
-    /// </summary>
-    /// <value>The email.</value>
-    [JsonProperty("email")]
-    public string Email { get; set; }
+        /// <summary>
+        /// Gets or sets the phone.
+        /// </summary>
+        /// <value>The phone.</value>
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the email.
+        /// </summary>
+        /// <value>The email.</value>
+        [JsonProperty("email")]
+        public string Email { get; set; }
+    }
 }

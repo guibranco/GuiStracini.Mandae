@@ -12,36 +12,37 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Attributes;
-
-using System;
-using SDKBuilder.Routing;
-
-/// <summary>
-/// Class ExtendedEndpointRouteAttribute. This class cannot be inherited.
-/// </summary>
-/// <seealso cref="System.Attribute" />
-[AttributeUsage(AttributeTargets.Class)]
-public sealed class ExtendedEndpointRouteAttribute : EndpointRouteAttribute
+namespace GuiStracini.Mandae.Attributes
 {
-    #region ~Ctor
+    using System;
+    using SDKBuilder.Routing;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExtendedEndpointRouteAttribute" /> class.
+    /// Class ExtendedEndpointRouteAttribute. This class cannot be inherited.
     /// </summary>
-    /// <param name="endPoint">The end point path of the request.</param>
-    public ExtendedEndpointRouteAttribute(string endPoint)
-        : base(endPoint) { }
+    /// <seealso cref="System.Attribute" />
+    [AttributeUsage(AttributeTargets.Class)]
+    public sealed class ExtendedEndpointRouteAttribute : EndpointRouteAttribute
+    {
+        #region ~Ctor
 
-    #endregion
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExtendedEndpointRouteAttribute" /> class.
+        /// </summary>
+        /// <param name="endPoint">The end point path of the request.</param>
+        public ExtendedEndpointRouteAttribute(string endPoint)
+            : base(endPoint) { }
 
-    #region Public properties
+        #endregion
 
-    /// <summary>
-    /// Gets or sets the custom base.
-    /// </summary>
-    /// <value>The custom base.</value>
-    public string CustomBase { get; set; }
+        #region Public properties
 
-    #endregion
+        /// <summary>
+        /// Gets or sets the custom base.
+        /// </summary>
+        /// <value>The custom base.</value>
+        public string CustomBase { get; set; }
+
+        #endregion
+    }
 }
