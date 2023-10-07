@@ -85,68 +85,70 @@ namespace GuiStracini.Mandae.Utils
                 _environment == Environment.PRODUCTION
                     ? Constants.ProductionServiceEndpoint
                     : Constants.SandboxServiceEndpoint;
-            using var client = new HttpClient();
-            client.BaseAddress = new Uri(baseEndPoint);
-            client.DefaultRequestHeaders.ExpectContinue = false;
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json")
-            );
-            client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
-            if (!string.IsNullOrEmpty(requestObject.Token))
-                client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseEndPoint);
+                client.DefaultRequestHeaders.ExpectContinue = false;
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
+                if (!string.IsNullOrEmpty(requestObject.Token))
+                    client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
 
-            var formatter = new JsonMediaTypeFormatter
-            {
-                SerializerSettings = new JsonSerializerSettings
+                var formatter = new JsonMediaTypeFormatter
                 {
-                    Formatting = Formatting.Indented,
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                    NullValueHandling = NullValueHandling.Ignore
-                }
-            };
-            var endpoint = string.Concat(
-                requestObject.GetRequestEndPoint(),
-                requestObject.GetRequestAdditionalParameter(method)
-            );
-            try
-            {
-                HttpResponseMessage response;
-                switch (method)
+                    SerializerSettings = new JsonSerializerSettings
+                    {
+                        Formatting = Formatting.Indented,
+                        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                        NullValueHandling = NullValueHandling.Ignore
+                    }
+                };
+                var endpoint = string.Concat(
+                    requestObject.GetRequestEndPoint(),
+                    requestObject.GetRequestAdditionalParameter(method)
+                );
+                try
                 {
-                    case ActionMethod.GET:
-                        response = await client
-                            .GetAsync(endpoint, cancellationToken)
-                            .ConfigureAwait(_configureAwait);
-                        break;
-                    case ActionMethod.POST:
-                        response = await client
-                            .PostAsync(endpoint, requestObject, formatter, cancellationToken)
-                            .ConfigureAwait(_configureAwait);
-                        break;
-                    case ActionMethod.PUT:
-                        response = await client
-                            .PutAsync(endpoint, requestObject, formatter, cancellationToken)
-                            .ConfigureAwait(_configureAwait);
-                        break;
-                    case ActionMethod.DELETE:
-                        response = await client
-                            .DeleteAsync(endpoint, cancellationToken)
-                            .ConfigureAwait(_configureAwait);
-                        return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
-                    default:
-                        throw new HttpRequestException(
-                            $"Requested method {method} not implemented in V2"
-                        );
-                }
+                    HttpResponseMessage response;
+                    switch (method)
+                    {
+                        case ActionMethod.GET:
+                            response = await client
+                                .GetAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
+                            break;
+                        case ActionMethod.POST:
+                            response = await client
+                                .PostAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
+                            break;
+                        case ActionMethod.PUT:
+                            response = await client
+                                .PutAsync(endpoint, requestObject, formatter, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
+                            break;
+                        case ActionMethod.DELETE:
+                            response = await client
+                                .DeleteAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
+                            return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
+                        default:
+                            throw new HttpRequestException(
+                                $"Requested method {method} not implemented in V2"
+                            );
+                    }
 
-                return await response.Content
-                    .ReadAsAsync<TOut>(cancellationToken)
-                    .ConfigureAwait(_configureAwait);
-            }
-            catch (HttpRequestException e)
-            {
-                throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
+                    return await response.Content
+                        .ReadAsAsync<TOut>(cancellationToken)
+                        .ConfigureAwait(_configureAwait);
+                }
+                catch (HttpRequestException e)
+                {
+                    throw new MandaeApiException(requestObject.GetRequestEndPoint(), e);
+                }
             }
         }
 
