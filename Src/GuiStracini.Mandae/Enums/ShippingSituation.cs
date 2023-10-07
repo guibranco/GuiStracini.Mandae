@@ -12,71 +12,70 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Enums;
+
+/// <summary>
+/// The shipping situation
+/// </summary>
+public enum ShippingSituation
 {
     /// <summary>
-    /// The shipping situation
+    /// The none
     /// </summary>
-    public enum ShippingSituation
-    {
-        /// <summary>
-        /// The none
-        /// </summary>
-        NONE = 0,
+    NONE = 0,
 
-        /// <summary>
-        /// The new
-        /// </summary>
-        NEW = 1,
+    /// <summary>
+    /// The new
+    /// </summary>
+    NEW = 1,
 
-        /// <summary>
-        /// The processing
-        /// </summary>
-        PROCESSING = 2,
+    /// <summary>
+    /// The processing
+    /// </summary>
+    PROCESSING = 2,
 
-        /// <summary>
-        /// The sent
-        /// </summary>
-        SENT = 4,
+    /// <summary>
+    /// The sent
+    /// </summary>
+    SENT = 4,
 
-        /// <summary>
-        /// The lost
-        /// </summary>
-        LOST = 5,
+    /// <summary>
+    /// The lost
+    /// </summary>
+    LOST = 5,
 
-        /// <summary>
-        /// The delivered
-        /// </summary>
-        DELIVERED = 6,
+    /// <summary>
+    /// The delivered
+    /// </summary>
+    DELIVERED = 6,
 
-        /// <summary>
-        /// The waiting withdrawal
-        /// </summary>
-        WAITING_WITHDRAWAL = 7,
+    /// <summary>
+    /// The waiting withdrawal
+    /// </summary>
+    WAITING_WITHDRAWAL = 7,
 
-        /// <summary>
-        /// The canceled
-        /// </summary>
-        CANCELED = 8,
+    /// <summary>
+    /// The canceled
+    /// </summary>
+    CANCELED = 8,
 
-        /// <summary>
-        /// The returning
-        /// </summary>
-        RETURNING = 9,
+    /// <summary>
+    /// The returning
+    /// </summary>
+    RETURNING = 9,
 
-        /// <summary>
-        /// The returned
-        /// </summary>
-        RETURNED = 10,
+    /// <summary>
+    /// The returned
+    /// </summary>
+    RETURNED = 10,
 
-        /// <summary>
-        /// The returned to sender
-        /// </summary>
-        RETURNED_TO_SENDER = 11,
+    /// <summary>
+    /// The returned to sender
+    /// </summary>
+    RETURNED_TO_SENDER = 11,
 
-        /// <summary>
-        /// The not collect
-        /// </summary>
-        NOT_COLLECT = 12
-    }
+    /// <summary>
+    /// The not collect
+    /// </summary>
+    NOT_COLLECT = 12
 }

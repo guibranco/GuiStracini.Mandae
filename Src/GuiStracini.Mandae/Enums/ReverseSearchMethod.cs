@@ -12,43 +12,42 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Enums;
+
+using SDKBuilder.Routing;
+
+/// <summary>
+/// The search method (API V1) enumeration
+/// </summary>
+public enum ReverseSearchMethod
 {
-    using SDKBuilder.Routing;
+    /// <summary>
+    /// The tracking code.
+    /// </summary>
+    [EnumRouteValue("rastreamento")]
+    TRACKING_CODE,
 
     /// <summary>
-    /// The search method (API V1) enumeration
+    /// The sender name.
     /// </summary>
-    public enum ReverseSearchMethod
-    {
-        /// <summary>
-        /// The tracking code.
-        /// </summary>
-        [EnumRouteValue("rastreamento")]
-        TRACKING_CODE,
+    [EnumRouteValue("nomeRemetente")]
+    SENDER_NAME,
 
-        /// <summary>
-        /// The sender name.
-        /// </summary>
-        [EnumRouteValue("nomeRemetente")]
-        SENDER_NAME,
+    /// <summary>
+    /// The postal code.
+    /// </summary>
+    [EnumRouteValue("cepRemetente")]
+    POSTAL_CODE,
 
-        /// <summary>
-        /// The postal code.
-        /// </summary>
-        [EnumRouteValue("cepRemetente")]
-        POSTAL_CODE,
+    /// <summary>
+    /// The order code.
+    /// </summary>
+    [EnumRouteValue("pedido")]
+    ORDER_CODE,
 
-        /// <summary>
-        /// The order code.
-        /// </summary>
-        [EnumRouteValue("pedido")]
-        ORDER_CODE,
-
-        /// <summary>
-        /// The carrier code.
-        /// </summary>
-        [EnumRouteValue("codigoTransportadora")]
-        CARRIER_CODE,
-    }
+    /// <summary>
+    /// The carrier code.
+    /// </summary>
+    [EnumRouteValue("codigoTransportadora")]
+    CARRIER_CODE,
 }

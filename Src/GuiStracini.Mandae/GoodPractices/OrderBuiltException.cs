@@ -12,31 +12,30 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.GoodPractices
+namespace GuiStracini.Mandae.GoodPractices;
+
+using System;
+using System.Runtime.Serialization;
+
+/// <summary>
+/// Throws when an order build instance was already built
+/// </summary>
+[Serializable]
+public class OrderBuiltException : Exception
 {
-    using System;
-    using System.Runtime.Serialization;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OrderBuiltException" /> class.
+    /// </summary>
+    public OrderBuiltException()
+        : base("The order was already built") { }
 
     /// <summary>
-    /// Throws when an order build instance was already built
+    /// Initializes a new instance of the <see cref="T:System.Exception" /> class with serialized data.
     /// </summary>
-    [Serializable]
-    public class OrderBuiltException : Exception
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OrderBuiltException" /> class.
-        /// </summary>
-        public OrderBuiltException()
-            : base("The order was already built") { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:System.Exception" /> class with serialized data.
-        /// </summary>
-        /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
-        /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
-        /// <exception cref="T:System.ArgumentNullException">The <paramref name="info" /> parameter is <see langword="null" />.</exception>
-        /// <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is <see langword="null" /> or <see cref="P:System.Exception.HResult" /> is zero (0).</exception>
-        protected OrderBuiltException(SerializationInfo info, StreamingContext context)
-            : base(info, context) { }
-    }
+    /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+    /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+    /// <exception cref="T:System.ArgumentNullException">The <paramref name="info" /> parameter is <see langword="null" />.</exception>
+    /// <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is <see langword="null" /> or <see cref="P:System.Exception.HResult" /> is zero (0).</exception>
+    protected OrderBuiltException(SerializationInfo info, StreamingContext context)
+        : base(info, context) { }
 }

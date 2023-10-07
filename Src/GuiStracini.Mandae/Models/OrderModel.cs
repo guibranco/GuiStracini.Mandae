@@ -12,63 +12,62 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Models
+namespace GuiStracini.Mandae.Models;
+
+using Enums;
+using System;
+using ValueObject;
+
+/// <summary>
+/// The order collect request model
+/// </summary>
+public sealed class OrderModel
 {
-    using Enums;
-    using System;
-    using ValueObject;
+    /// <summary>
+    /// Gets or sets the customer identifier.
+    /// </summary>
+    /// <value>The customer identifier.</value>
+    public string CustomerId { get; set; }
 
     /// <summary>
-    /// The order collect request model
+    /// Gets or sets the scheduling.
     /// </summary>
-    public sealed class OrderModel
-    {
-        /// <summary>
-        /// Gets or sets the customer identifier.
-        /// </summary>
-        /// <value>The customer identifier.</value>
-        public string CustomerId { get; set; }
+    /// <value>The scheduling.</value>
+    public DateTime Scheduling { get; set; }
 
-        /// <summary>
-        /// Gets or sets the scheduling.
-        /// </summary>
-        /// <value>The scheduling.</value>
-        public DateTime Scheduling { get; set; }
+    /// <summary>
+    /// Gets or sets the items.
+    /// </summary>
+    /// <value>The items.</value>
+    public Item[] Items { get; set; }
 
-        /// <summary>
-        /// Gets or sets the items.
-        /// </summary>
-        /// <value>The items.</value>
-        public Item[] Items { get; set; }
+    /// <summary>
+    /// Gets or sets the sender.
+    /// </summary>
+    /// <value>The sender.</value>
+    public Sender Sender { get; set; }
 
-        /// <summary>
-        /// Gets or sets the sender.
-        /// </summary>
-        /// <value>The sender.</value>
-        public Sender Sender { get; set; }
+    /// <summary>
+    /// Gets or sets the vehicle.
+    /// </summary>
+    /// <value>The vehicle.</value>
+    public Vehicle Vehicle { get; set; }
 
-        /// <summary>
-        /// Gets or sets the vehicle.
-        /// </summary>
-        /// <value>The vehicle.</value>
-        public Vehicle Vehicle { get; set; }
+    /// <summary>
+    /// Gets or sets the label.
+    /// </summary>
+    /// <value>The label.</value>
+    public Sender Label { get; set; }
 
-        /// <summary>
-        /// Gets or sets the label.
-        /// </summary>
-        /// <value>The label.</value>
-        public Sender Label { get; set; }
+    /// <summary>
+    /// Gets or sets the observation.
+    /// </summary>
+    /// <value>The observation.</value>
+    public string Observation { get; set; }
 
-        /// <summary>
-        /// Gets or sets the observation.
-        /// </summary>
-        /// <value>The observation.</value>
-        public string Observation { get; set; }
-
-        /// <summary>
-        /// Gets or sets the partner order identifier.
-        /// </summary>
-        /// <value>The partner order identifier.</value>
-        public string PartnerOrderId { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets the partner order identifier.
+    /// </summary>
+    /// <value>The partner order identifier.</value>
+    public string PartnerOrderId { get; set; }
 }

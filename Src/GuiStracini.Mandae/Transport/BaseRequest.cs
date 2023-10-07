@@ -12,21 +12,20 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport
-{
-    using SDKBuilder;
-    using Newtonsoft.Json;
+namespace GuiStracini.Mandae.Transport;
 
+using SDKBuilder;
+using Newtonsoft.Json;
+
+/// <summary>
+/// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
+/// </summary>
+public abstract class Request : BaseRequest
+{
     /// <summary>
-    /// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
+    /// Gets or sets the token.
     /// </summary>
-    public abstract class Request : BaseRequest
-    {
-        /// <summary>
-        /// Gets or sets the token.
-        /// </summary>
-        /// <value>The token.</value>
-        [JsonIgnore]
-        public string Token { get; set; }
-    }
+    /// <value>The token.</value>
+    [JsonIgnore]
+    public string Token { get; set; }
 }

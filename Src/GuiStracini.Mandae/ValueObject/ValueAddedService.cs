@@ -12,29 +12,28 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.ValueObject
+namespace GuiStracini.Mandae.ValueObject;
+
+using Enums;
+using Newtonsoft.Json;
+
+/// <summary>
+/// The value added service class.
+/// Allows to add a valuable service to the item
+/// </summary>
+public sealed class ValueAddedService
 {
-    using Enums;
-    using Newtonsoft.Json;
+    /// <summary>
+    /// Gets or sets the service name.
+    /// </summary>
+    /// <value>The service name.</value>
+    [JsonProperty("name")]
+    public Service Name { get; set; }
 
     /// <summary>
-    /// The value added service class.
-    /// Allows to add a valuable service to the item
+    /// Gets or sets the value.
     /// </summary>
-    public sealed class ValueAddedService
-    {
-        /// <summary>
-        /// Gets or sets the service name.
-        /// </summary>
-        /// <value>The service name.</value>
-        [JsonProperty("name")]
-        public Service Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>The value.</value>
-        [JsonProperty("value")]
-        public decimal Value { get; set; }
-    }
+    /// <value>The value.</value>
+    [JsonProperty("value")]
+    public decimal Value { get; set; }
 }

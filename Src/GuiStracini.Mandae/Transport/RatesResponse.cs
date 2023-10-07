@@ -12,28 +12,27 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Transport
+namespace GuiStracini.Mandae.Transport;
+
+using Newtonsoft.Json;
+using ValueObject;
+
+/// <summary>
+/// Represents the rates response. With the postal code and the rates available for that postal code
+/// </summary>
+public sealed class RatesResponse : BaseResponse
 {
-    using Newtonsoft.Json;
-    using ValueObject;
+    /// <summary>
+    /// Gets or sets the postal code.
+    /// </summary>
+    /// <value>The postal code.</value>
+    [JsonProperty("postalCode")]
+    public string PostalCode { get; set; }
 
     /// <summary>
-    /// Represents the rates response. With the postal code and the rates available for that postal code
+    /// Gets or sets the shipping services.
     /// </summary>
-    public sealed class RatesResponse : BaseResponse
-    {
-        /// <summary>
-        /// Gets or sets the postal code.
-        /// </summary>
-        /// <value>The postal code.</value>
-        [JsonProperty("postalCode")]
-        public string PostalCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the shipping services.
-        /// </summary>
-        /// <value>The shipping services.</value>
-        [JsonProperty("shippingServices")]
-        public ShippingServices[] ShippingServices { get; set; }
-    }
+    /// <value>The shipping services.</value>
+    [JsonProperty("shippingServices")]
+    public ShippingServices[] ShippingServices { get; set; }
 }

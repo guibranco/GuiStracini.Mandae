@@ -12,16 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace GuiStracini.Mandae.Enums
+namespace GuiStracini.Mandae.Enums;
+
+/// <summary>
+/// The service enumeration
+/// </summary>
+public enum Service
 {
     /// <summary>
-    /// The service enumeration
+    /// The valor declarado
     /// </summary>
-    public enum Service
-    {
-        /// <summary>
-        /// The valor declarado
-        /// </summary>
-        VALORDECLARADO
-    }
+    VALORDECLARADO
 }
