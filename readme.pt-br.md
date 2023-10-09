@@ -1,8 +1,8 @@
-# Mandaê SDK
+# Mandaê SDK .NET
 
 Cliente (não oficial) da API da Mandaê para projetos .NET.
 
-For a english version, please [follow me](/README.md)
+For a English version, please [follow me](/README.md)
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/GuiStracini.Mandae)](https://github.com/guibranco/GuiStracini.Mandae)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/GuiStracini.Mandae.svg)](https://wakatime.com/badge/github/guibranco/CGuiStracini.Mandae)
