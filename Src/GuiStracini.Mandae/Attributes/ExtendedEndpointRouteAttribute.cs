@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder.Routing;
+
 namespace GuiStracini.Mandae.Attributes
 {
     using System;
-    using SDKBuilder.Routing;
 
     /// <summary>
     /// Class ExtendedEndpointRouteAttribute. This class cannot be inherited.

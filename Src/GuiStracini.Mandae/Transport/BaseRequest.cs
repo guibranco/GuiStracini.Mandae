@@ -12,11 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport
 {
-    using SDKBuilder;
-    using Newtonsoft.Json;
-
     /// <summary>
     /// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
     /// </summary>

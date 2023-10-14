@@ -12,12 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Enums;
     using System;
-    using Newtonsoft.Json;
     using Utils;
     using ValueObject;
 

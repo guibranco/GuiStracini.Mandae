@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// This entity allows a simulation of the value of a freight for a given ZIP code.

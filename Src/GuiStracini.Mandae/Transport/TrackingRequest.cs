@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// This service allows you to get the complete listing of tracking events from the tracking code.

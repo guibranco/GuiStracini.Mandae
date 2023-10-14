@@ -12,6 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Net.Http.Formatting;
+using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 namespace GuiStracini.Mandae.Utils
 {
     using Attributes;
@@ -19,14 +24,10 @@ namespace GuiStracini.Mandae.Utils
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
-    using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
-    using SDKBuilder;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
     using Transport;
     using Transport.V1;
     using BaseResponse = Transport.BaseResponse;

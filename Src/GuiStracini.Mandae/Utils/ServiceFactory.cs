@@ -12,18 +12,19 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Net.Http.Formatting;
+using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 namespace GuiStracini.Mandae.Utils
 {
     using GoodPractices;
     using System;
     using System.Net.Http;
-    using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using SDKBuilder;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
     using Transport;
     using Environment = Enums.Environment;
 

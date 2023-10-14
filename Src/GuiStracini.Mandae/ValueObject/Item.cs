@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
     using System.Globalization;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// The new item class

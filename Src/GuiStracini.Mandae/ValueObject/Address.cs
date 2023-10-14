@@ -12,10 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// The address class
     /// </summary>
