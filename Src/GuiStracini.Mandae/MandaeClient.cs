@@ -51,7 +51,7 @@ namespace GuiStracini.Mandae
         /// </summary>
         private ServiceFactoryV1 _serviceV1;
 
-        #endregion
+        #endregion Private fields
 
         #region ~Ctor
 
@@ -72,7 +72,7 @@ namespace GuiStracini.Mandae
             _service = new ServiceFactory(environment, _configureAwait);
         }
 
-        #endregion
+        #endregion ~Ctor
 
         #region Rates
 
@@ -109,7 +109,7 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Rates
 
         #region Orders
 
@@ -151,7 +151,7 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Orders
 
         #region Tracking
 
@@ -182,7 +182,7 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Tracking
 
         #region Authentication (V1)
 
@@ -200,7 +200,7 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Authentication (V1)
 
         #region Search (V1)
 
@@ -252,13 +252,13 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Search (V1)
 
         #region Occurrences (V1)
 
         //TODO
 
-        #endregion
+        #endregion Occurrences (V1)
 
         #region Reverses (V1)
 
@@ -310,6 +310,6 @@ namespace GuiStracini.Mandae
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Reverses (V1)
     }
 }

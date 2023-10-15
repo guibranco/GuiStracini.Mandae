@@ -33,7 +33,7 @@ public class TrackingTests
     [SkippableFact]
     public void GetTracking()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
         var orderModel = MockOrdersRepository.GetSampleOrderModel();
         var order = client.CreateOrderCollectRequest(orderModel);
         var trackingId = AssertOrderResult(order);
@@ -48,7 +48,7 @@ public class TrackingTests
     [SkippableFact]
     public async Task GetTrackingAsync()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
         var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
         var orderModel = MockOrdersRepository.GetSampleOrderModel();
         var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);

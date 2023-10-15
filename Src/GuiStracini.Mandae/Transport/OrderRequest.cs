@@ -38,7 +38,7 @@ namespace GuiStracini.Mandae.Transport
         /// </summary>
         private Vehicle _vehicle;
 
-        #endregion
+        #endregion Private fields
 
         /// <summary>
         /// Gets or sets the customer identifier.

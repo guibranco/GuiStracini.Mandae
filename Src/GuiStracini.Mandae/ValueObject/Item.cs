@@ -35,7 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// </summary>
         private decimal _totalFreight;
 
-        #endregion
+        #endregion Private fields
 
         /// <summary>
         /// Gets or sets the identifier

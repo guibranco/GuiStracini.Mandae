@@ -76,7 +76,7 @@ namespace GuiStracini.Mandae
         /// <returns>Task&lt;TrackingResponse&gt;.</returns>
         Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token);
 
-        #endregion
+        #endregion V2
 
         #region V1
 
@@ -147,6 +147,6 @@ namespace GuiStracini.Mandae
             int offset
         );
 
-        #endregion
+        #endregion V1
     }
 }

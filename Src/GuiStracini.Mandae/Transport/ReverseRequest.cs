@@ -233,7 +233,6 @@ namespace GuiStracini.Mandae.Transport
         //    "original": null
         //}
 
-
         //original = Order.cs
         //destinatario = RecipientV1.cs
     }

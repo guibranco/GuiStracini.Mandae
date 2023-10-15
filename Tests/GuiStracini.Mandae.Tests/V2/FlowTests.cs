@@ -18,9 +18,9 @@ namespace GuiStracini.Mandae.Tests.V2;
 
 using Enums;
 using Models;
-using ValueObject;
 using System;
 using System.Linq;
+using ValueObject;
 
 /// <summary>
 /// Flow test validation class performs a full flow validations.
@@ -34,7 +34,7 @@ public class FlowTests
     [Fact]
     public void FullFlowValidation()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
         const string customerId = "182AC0ECDE0CA08A8B729733EBE8197D";
         var rnd = new Random();
         var ratesModel = new RatesModel

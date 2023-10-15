@@ -34,7 +34,7 @@ namespace GuiStracini.Mandae.Attributes
         public ExtendedEndpointRouteAttribute(string endPoint)
             : base(endPoint) { }
 
-        #endregion
+        #endregion ~Ctor
 
         #region Public properties
 
@@ -44,6 +44,6 @@ namespace GuiStracini.Mandae.Attributes
         /// <value>The custom base.</value>
         public string CustomBase { get; set; }
 
-        #endregion
+        #endregion Public properties
     }
 }

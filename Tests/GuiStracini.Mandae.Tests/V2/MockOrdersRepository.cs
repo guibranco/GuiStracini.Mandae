@@ -16,12 +16,12 @@ namespace GuiStracini.Mandae.Tests.V2;
 
 using Enums;
 using Models;
-using ValueObject;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
+using ValueObject;
 
 /// <summary>
 /// The mock orders repository
