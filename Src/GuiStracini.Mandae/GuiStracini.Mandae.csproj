@@ -1,12 +1,50 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+    <Authors>Guilherme Branco Stracini</Authors>
+    <Copyright>© 2023 Guilherme Branco Stracini. All rights reserved.</Copyright>
+    <Description>Mandae API Client. Mandaê is an intermediate order delivery company. It mediates between e-commerce and various freight companies, offering the lowest price and providing an API to schedule pick-ups and track deliveries from the vendor's distribution center to delivery to the end consumer.</Description>
+    <PackageProjectUrl>https://guibranco.github.io/GuiStracini.Mandae</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/guibranco/GuiStracini.Mandae</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Mandae Carrier Courier Shipping API Wrapper Correios SDK</PackageTags>
+    <PackageIcon>logo.png</PackageIcon>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Company>Guilherme Branco Stracini ME</Company>
+    <PackageReleaseNotes>Upgrade to .NET Standard 2.0 and 2.1</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>GuiStracini.Mandae</Title>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GuiStracini.SDKBuilder" Version="3.0.322" />
+    <!-- ReSharper disable once VulnerablePackage -->
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

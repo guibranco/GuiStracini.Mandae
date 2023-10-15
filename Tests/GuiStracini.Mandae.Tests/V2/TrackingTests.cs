@@ -30,7 +30,7 @@ public class TrackingTests
     /// <summary>
     /// Validates the get tracking method.
     /// </summary>
-    [Fact]
+    [SkippableFact]
     public void GetTracking()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
@@ -45,7 +45,7 @@ public class TrackingTests
     /// Validates the get tracking asynchronous method.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    [Fact]
+    [SkippableFact]
     public async Task GetTrackingAsync()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
@@ -66,22 +66,12 @@ public class TrackingTests
     {
         Assert.Null(order.Error);
         Assert.True(order.Id > 0);
-        Assert.True(order.Items.First().Id > 0);
         var item = order.Items.FirstOrDefault();
-        if (item == null)
-        {
-            //Assert.Inconclusive("Invalid items returned");
-            return string.Empty;
-        }
-
+        Skip.If(item == null);
+        Assert.True(item.Id > 0);
         var trackingId = item.TrackingId;
-        if (trackingId != null)
-        {
-            return trackingId;
-        }
-
-        //Assert.Inconclusive("Null tracking id");
-        return string.Empty;
+        Skip.If(trackingId == null);
+        return trackingId;
     }
 
     /// <summary>

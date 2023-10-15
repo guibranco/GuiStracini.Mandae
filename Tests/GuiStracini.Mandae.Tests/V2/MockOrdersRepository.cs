@@ -75,8 +75,8 @@ internal sealed class MockOrdersRepository
     /// <returns>An <see cref="OrderModel" /> instance populated with fake information</returns>
     public static OrderModel GetSampleOrderModel()
     {
-        var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
-        var secondsSinceEpoch = (int)t.TotalSeconds;
+        var timeSpan = DateTimeOffset.UtcNow - DateTimeOffset.UnixEpoch;
+        var secondsSinceEpoch = (int)timeSpan.TotalSeconds;
         return new OrderModel
         {
             CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
