@@ -16,7 +16,6 @@ using Xunit;
 
 namespace GuiStracini.Mandae.Tests.V2;
 
-using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,7 +32,7 @@ public class TrackingTests
     [SkippableFact]
     public void GetTracking()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
         var orderModel = MockOrdersRepository.GetSampleOrderModel();
         var order = client.CreateOrderCollectRequest(orderModel);
         var trackingId = AssertOrderResult(order);
@@ -48,12 +47,11 @@ public class TrackingTests
     [SkippableFact]
     public async Task GetTrackingAsync()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
-        var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
         var orderModel = MockOrdersRepository.GetSampleOrderModel();
-        var order = await client.CreateOrderCollectRequestAsync(orderModel, source.Token);
+        var order = await client.CreateOrderCollectRequestAsync(orderModel, CancellationToken.None);
         var trackingId = AssertOrderResult(order);
-        var tracking = await client.GetTrackingAsync(trackingId, source.Token);
+        var tracking = await client.GetTrackingAsync(trackingId, CancellationToken.None);
         AssertTrackingResult(tracking, trackingId);
     }
 

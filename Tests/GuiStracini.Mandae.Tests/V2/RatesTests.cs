@@ -17,7 +17,6 @@ using Xunit;
 namespace GuiStracini.Mandae.Tests.V2;
 
 using Models;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using ValueObject;
@@ -33,7 +32,7 @@ public class RatesTests
     [Fact]
     public void GetRates()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
 
         var ratesModel = new RatesModel
         {
@@ -60,7 +59,7 @@ public class RatesTests
     [Fact]
     public async Task GetRatesAsync()
     {
-        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42", configureAwait: true);
+        var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
 
         var ratesModel = new RatesModel
         {
@@ -74,9 +73,7 @@ public class RatesTests
                 Weight = 1
             }
         };
-
-        var source = new CancellationTokenSource(new TimeSpan(0, 5, 0));
-        var rates = await client.GetRatesAsync(ratesModel, source.Token);
+        var rates = await client.GetRatesAsync(ratesModel, CancellationToken.None);
 
         Assert.False(string.IsNullOrWhiteSpace(rates.PostalCode));
     }
