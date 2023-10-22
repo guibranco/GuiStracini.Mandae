@@ -47,6 +47,7 @@ public class TrackingTests
     [SkippableFact]
     public async Task GetTrackingAsync()
     {
+        await Task.Delay(500);
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
         var orderModel = MockOrdersRepository.GetSampleOrderModel();
         var order = await client.CreateOrderCollectRequestAsync(orderModel, CancellationToken.None);

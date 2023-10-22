@@ -14,13 +14,13 @@
 
 namespace GuiStracini.Mandae.Tests.V2;
 
-using Enums;
-using Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Enums;
+using Models;
+using Newtonsoft.Json;
 using ValueObject;
 
 /// <summary>
@@ -75,8 +75,8 @@ internal sealed class MockOrdersRepository
     /// <returns>An <see cref="OrderModel" /> instance populated with fake information</returns>
     public static OrderModel GetSampleOrderModel()
     {
-        var timeSpan = DateTimeOffset.UtcNow - DateTimeOffset.UnixEpoch;
-        var secondsSinceEpoch = (int)timeSpan.TotalSeconds;
+        var t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+        var secondsSinceEpoch = (int)t.TotalSeconds;
         return new OrderModel
         {
             CustomerId = "182AC0ECDE0CA08A8B729733EBE8197D",
