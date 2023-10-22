@@ -12,10 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder.Routing;
+
 namespace GuiStracini.Mandae.Enums
 {
-    using SDKBuilder.Routing;
-
     /// <summary>
     /// The search method (API V1) enumeration
     /// </summary>

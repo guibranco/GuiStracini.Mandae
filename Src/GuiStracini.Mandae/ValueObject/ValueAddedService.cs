@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
     using Enums;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// The value added service class.

@@ -12,10 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// The invoice class
     /// </summary>
@@ -34,5 +34,12 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The key.</value>
         [JsonProperty("key")]
         public string Key { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>The type.</value>
+        [JsonProperty("type")]
+        public string Type { get; set; }
     }
 }

@@ -12,12 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport
 {
     using Attributes;
     using Enums;
     using System;
-    using Newtonsoft.Json;
     using Utils;
     using ValueObject;
 
@@ -37,7 +38,7 @@ namespace GuiStracini.Mandae.Transport
         /// </summary>
         private Vehicle _vehicle;
 
-        #endregion
+        #endregion Private fields
 
         /// <summary>
         /// Gets or sets the customer identifier.

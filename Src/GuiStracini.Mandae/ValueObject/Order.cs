@@ -12,11 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
     using Enums;
     using System;
-    using Newtonsoft.Json;
     using Utils;
 
     /// <summary>

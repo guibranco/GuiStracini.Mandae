@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// The login request

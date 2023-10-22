@@ -12,11 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder.Routing;
+
 namespace GuiStracini.Mandae.Transport.V1
 {
     using Attributes;
     using Enums;
-    using SDKBuilder.Routing;
 
     /// <summary>
     /// The reverse request class.

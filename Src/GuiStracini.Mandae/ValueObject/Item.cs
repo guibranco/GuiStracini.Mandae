@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
     using System.Globalization;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// The new item class
@@ -34,7 +35,7 @@ namespace GuiStracini.Mandae.ValueObject
         /// </summary>
         private decimal _totalFreight;
 
-        #endregion
+        #endregion Private fields
 
         /// <summary>
         /// Gets or sets the identifier
@@ -91,6 +92,13 @@ namespace GuiStracini.Mandae.ValueObject
         /// <value>The invoice.</value>
         [JsonProperty("invoice")]
         public Invoice Invoice { get; set; }
+
+        /// <summary>
+        /// Gets or sets the carrier invoice.
+        /// </summary>
+        /// <value>The carrier invoice.</value>
+        [JsonProperty("carrierInvoice")]
+        public Invoice CarrierInvoice { get; set; }
 
         /// <summary>
         /// Gets or sets the tracking identifier.

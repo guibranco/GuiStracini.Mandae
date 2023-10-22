@@ -1,23 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae", "Src\GuiStracini.Mandae\GuiStracini.Mandae.csproj", "{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{0DB61BC0-7F1E-4EE6-9E01-B659F0B149A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae.Test", "Tests\GuiStracini.Mandae.Tests\GuiStracini.Mandae.Tests.csproj", "{D91F4051-B4C2-4BB0-9B90-685643DD3F63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae", "Src\GuiStracini.Mandae\GuiStracini.Mandae.csproj", "{65627CAC-61B4-46BC-B49F-19AAE9810C99}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7164135-F036-4268-BED2-8FE87553DB1E}"
-	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
-		.github\dependabot.yml = .github\dependabot.yml
-		README.md = README.md
-		.github\workflows\sonarcloud.yml = .github\workflows\sonarcloud.yml
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E67F3469-6CDE-4334-8B29-9392AEB59C51}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1098A1E2-3E18-4669-A0C1-7E6D7359DFBB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{090B10C7-F5E3-47BE-9378-C98FF116BB73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiStracini.Mandae.Tests", "Tests\GuiStracini.Mandae.Tests\GuiStracini.Mandae.Tests.csproj", "{5D773B62-CD30-4A62-AA52-AFCD6F1671ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,23 +17,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D91F4051-B4C2-4BB0-9B90-685643DD3F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D91F4051-B4C2-4BB0-9B90-685643DD3F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D91F4051-B4C2-4BB0-9B90-685643DD3F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D91F4051-B4C2-4BB0-9B90-685643DD3F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65627CAC-61B4-46BC-B49F-19AAE9810C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65627CAC-61B4-46BC-B49F-19AAE9810C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65627CAC-61B4-46BC-B49F-19AAE9810C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65627CAC-61B4-46BC-B49F-19AAE9810C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D773B62-CD30-4A62-AA52-AFCD6F1671ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D773B62-CD30-4A62-AA52-AFCD6F1671ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D773B62-CD30-4A62-AA52-AFCD6F1671ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D773B62-CD30-4A62-AA52-AFCD6F1671ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D83AE6A7-43CE-4805-8BA7-9B6D1602CCA1} = {1098A1E2-3E18-4669-A0C1-7E6D7359DFBB}
-		{D91F4051-B4C2-4BB0-9B90-685643DD3F63} = {090B10C7-F5E3-47BE-9378-C98FF116BB73}
+		{65627CAC-61B4-46BC-B49F-19AAE9810C99} = {0DB61BC0-7F1E-4EE6-9E01-B659F0B149A9}
+		{5D773B62-CD30-4A62-AA52-AFCD6F1671ED} = {E67F3469-6CDE-4334-8B29-9392AEB59C51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3B80428A-0F5E-4E23-A826-9920B5B953DA}
+		SolutionGuid = {8195DBE4-A6CC-44BE-BD4D-A06166EF616C}
 	EndGlobalSection
 EndGlobal

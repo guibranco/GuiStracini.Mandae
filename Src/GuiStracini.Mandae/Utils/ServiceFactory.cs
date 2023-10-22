@@ -12,18 +12,19 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Net.Http.Formatting;
+
 namespace GuiStracini.Mandae.Utils
 {
     using GoodPractices;
     using System;
     using System.Net.Http;
-    using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using SDKBuilder;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
     using Transport;
     using Environment = Enums.Environment;
 
@@ -44,7 +45,7 @@ namespace GuiStracini.Mandae.Utils
         /// </summary>
         private readonly bool _configureAwait;
 
-        #endregion
+        #endregion Private fields
 
         #region ~Ctor
 
@@ -59,7 +60,7 @@ namespace GuiStracini.Mandae.Utils
             _configureAwait = configureAwait;
         }
 
-        #endregion
+        #endregion ~Ctor
 
         #region Private methods
 
@@ -120,21 +121,25 @@ namespace GuiStracini.Mandae.Utils
                                 .GetAsync(endpoint, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
                             break;
+
                         case ActionMethod.POST:
                             response = await client
                                 .PostAsync(endpoint, requestObject, formatter, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
                             break;
+
                         case ActionMethod.PUT:
                             response = await client
                                 .PutAsync(endpoint, requestObject, formatter, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
                             break;
+
                         case ActionMethod.DELETE:
                             response = await client
                                 .DeleteAsync(endpoint, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
                             return (TOut)Convert.ChangeType(response.StatusCode, typeof(TOut));
+
                         default:
                             throw new HttpRequestException(
                                 $"Requested method {method} not implemented in V2"
@@ -152,7 +157,7 @@ namespace GuiStracini.Mandae.Utils
             }
         }
 
-        #endregion
+        #endregion Private methods
 
         #region Public methods
 
@@ -272,6 +277,6 @@ namespace GuiStracini.Mandae.Utils
                 .ConfigureAwait(_configureAwait);
         }
 
-        #endregion
+        #endregion Public methods
     }
 }

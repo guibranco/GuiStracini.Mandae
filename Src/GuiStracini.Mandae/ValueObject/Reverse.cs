@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace GuiStracini.Mandae.ValueObject
 {
     using System;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// Class Reverse. This class cannot be inherited.
