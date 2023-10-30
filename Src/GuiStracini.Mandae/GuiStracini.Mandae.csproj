@@ -27,7 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.0.330" />
+    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.0.333" />
     <!-- ReSharper disable once VulnerablePackage -->
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="9.12.0.78982">
