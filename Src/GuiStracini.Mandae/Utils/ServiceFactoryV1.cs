@@ -12,15 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Net.Http.Formatting;
 using GuiStracini.SDKBuilder;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Net.Http.Formatting;
 
 namespace GuiStracini.Mandae.Utils
 {
-    using Attributes;
-    using GoodPractices;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
@@ -28,6 +26,8 @@ namespace GuiStracini.Mandae.Utils
     using System.Text.RegularExpressions;
     using System.Threading;
     using System.Threading.Tasks;
+    using Attributes;
+    using GoodPractices;
     using Transport;
     using Transport.V1;
     using BaseResponse = Transport.BaseResponse;
@@ -92,7 +92,8 @@ namespace GuiStracini.Mandae.Utils
                 var response = await client
                     .GetAsync("login", cancellationToken)
                     .ConfigureAwait(_configureAwait);
-                var content = await response.Content
+                var content = await response
+                    .Content
                     .ReadAsStringAsync()
                     .ConfigureAwait(_configureAwait);
                 if (!Constants.PathPattern.IsMatch(content))
@@ -101,7 +102,8 @@ namespace GuiStracini.Mandae.Utils
                 response = await client
                     .GetAsync(match.Value, cancellationToken)
                     .ConfigureAwait(_configureAwait);
-                content = await response.Content
+                content = await response
+                    .Content
                     .ReadAsStringAsync()
                     .ConfigureAwait(_configureAwait);
                 if (!Constants.JsPattern.IsMatch(content))
@@ -156,9 +158,10 @@ namespace GuiStracini.Mandae.Utils
                 client.BaseAddress = new Uri(baseEndpoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client
+                    .DefaultRequestHeaders
+                    .Accept
+                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
@@ -210,7 +213,8 @@ namespace GuiStracini.Mandae.Utils
                             );
                     }
 
-                    return await response.Content
+                    return await response
+                        .Content
                         .ReadAsAsync<TOut>(cancellationToken)
                         .ConfigureAwait(_configureAwait);
                 }

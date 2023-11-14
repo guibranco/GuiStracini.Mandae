@@ -16,10 +16,10 @@ using Xunit;
 
 namespace GuiStracini.Mandae.Tests.V2;
 
-using Enums;
-using Models;
 using System;
 using System.Linq;
+using Enums;
+using Models;
 using ValueObject;
 
 /// <summary>
