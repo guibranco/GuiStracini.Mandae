@@ -14,8 +14,8 @@
 
 namespace GuiStracini.Mandae.Models
 {
-    using Enums;
     using System;
+    using Enums;
     using ValueObject;
 
     /// <summary>

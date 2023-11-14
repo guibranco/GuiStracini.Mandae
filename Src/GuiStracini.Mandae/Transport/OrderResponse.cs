@@ -16,9 +16,9 @@ using Newtonsoft.Json;
 
 namespace GuiStracini.Mandae.Transport
 {
-    using Enums;
     using System;
     using System.Globalization;
+    using Enums;
     using ValueObject;
 
     /// <summary>

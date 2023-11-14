@@ -16,8 +16,8 @@ using Newtonsoft.Json;
 
 namespace GuiStracini.Mandae.ValueObject
 {
-    using Enums;
     using System;
+    using Enums;
     using Utils;
 
     /// <summary>

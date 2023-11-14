@@ -14,11 +14,11 @@
 
 namespace GuiStracini.Mandae
 {
-    using Enums;
-    using Models;
     using System.Globalization;
     using System.Threading;
     using System.Threading.Tasks;
+    using Enums;
+    using Models;
     using Transport;
     using Transport.V1;
     using Utils;

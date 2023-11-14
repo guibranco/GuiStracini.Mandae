@@ -16,9 +16,9 @@ using Xunit;
 
 namespace GuiStracini.Mandae.Tests.V2;
 
-using Models;
 using System.Threading;
 using System.Threading.Tasks;
+using Models;
 using ValueObject;
 
 /// <summary>
