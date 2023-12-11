@@ -31,7 +31,7 @@ public class FlowTests
     /// <summary>
     /// Full flow validation.
     /// </summary>
-    [Fact]
+    [SkippableFact]
     public void FullFlowValidation()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
