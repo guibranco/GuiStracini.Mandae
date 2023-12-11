@@ -29,7 +29,6 @@ public class RatesTests
     /// <summary>
     /// Validates the get rates method.
     /// </summary>
-    [SkippableFact]
     public void GetRates()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
@@ -56,7 +55,6 @@ public class RatesTests
     /// Validate the get rates asynchronous method.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    [SkippableFact]
     public async Task GetRatesAsync()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
