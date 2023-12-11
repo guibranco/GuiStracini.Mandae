@@ -27,7 +27,7 @@ public class OrdersTests
     /// <summary>
     /// Validates register order collect request method.
     /// </summary>
-    [Fact]
+    [SkippableFact]
     public void RegisterOrderCollectRequest()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
@@ -42,7 +42,7 @@ public class OrdersTests
     /// Validates register order collect request asynchronous method.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    [Fact]
+    [SkippableFact]
     public async Task RegisterOrderCollectRequestAsync()
     {
         var client = new MandaeClient("0b5e2c6410cf0ac087ae7ace111dbd42");
