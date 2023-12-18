@@ -93,8 +93,7 @@ namespace GuiStracini.Mandae.Utils
                     .GetAsync("login", cancellationToken)
                     .ConfigureAwait(_configureAwait);
                 var content = await response
-                    .Content
-                    .ReadAsStringAsync()
+                    .Content.ReadAsStringAsync()
                     .ConfigureAwait(_configureAwait);
                 if (!Constants.PathPattern.IsMatch(content))
                     throw new InvalidOperationException("Cannot get the constants path");
@@ -103,8 +102,7 @@ namespace GuiStracini.Mandae.Utils
                     .GetAsync(match.Value, cancellationToken)
                     .ConfigureAwait(_configureAwait);
                 content = await response
-                    .Content
-                    .ReadAsStringAsync()
+                    .Content.ReadAsStringAsync()
                     .ConfigureAwait(_configureAwait);
                 if (!Constants.JsPattern.IsMatch(content))
                     throw new InvalidOperationException(
@@ -158,10 +156,9 @@ namespace GuiStracini.Mandae.Utils
                 client.BaseAddress = new Uri(baseEndpoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client
-                    .DefaultRequestHeaders
-                    .Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(@"GuiStracini.Mandae/3.0.0");
                 client.DefaultRequestHeaders.Referrer = new Uri(_constants["URL_SITE"]);
                 client.DefaultRequestHeaders.Add("API-TOKEN", _constants["API_TOKEN"]);
@@ -214,8 +211,7 @@ namespace GuiStracini.Mandae.Utils
                     }
 
                     return await response
-                        .Content
-                        .ReadAsAsync<TOut>(cancellationToken)
+                        .Content.ReadAsAsync<TOut>(cancellationToken)
                         .ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
