@@ -91,10 +91,9 @@ namespace GuiStracini.Mandae.Utils
                 client.BaseAddress = new Uri(baseEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client
-                    .DefaultRequestHeaders
-                    .Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
                 client.DefaultRequestHeaders.UserAgent.ParseAdd(Constants.UserAgent);
                 if (!string.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", requestObject.Token);
@@ -148,8 +147,7 @@ namespace GuiStracini.Mandae.Utils
                     }
 
                     return await response
-                        .Content
-                        .ReadAsAsync<TOut>(cancellationToken)
+                        .Content.ReadAsAsync<TOut>(cancellationToken)
                         .ConfigureAwait(_configureAwait);
                 }
                 catch (HttpRequestException e)
