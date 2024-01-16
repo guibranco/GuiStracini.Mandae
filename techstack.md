@@ -40,7 +40,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [guibranco/GuiStracini.Mandae](https://github.com/guibranco/GuiStracini.Mandae)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|14<br/>Tools used|12/14/23 <br/>Report generated|
+|14<br/>Tools used|01/11/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -133,7 +133,7 @@ Full tech stack [here](/techstack.md)
   <br>
   <sub><a href="http://xunit.github.io/">xUnit</a></sub>
   <br>
-  <sub>v2.6.3</sub>
+  <sub>v2.6.5</sub>
 </td>
 
 </tr>
@@ -160,8 +160,8 @@ Full tech stack [here](/techstack.md)
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
 |[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/Microsoft.AspNet.WebApi.Client)|v6.0.0|10/30/23|dependabot[bot] |Apache-2.0|N/A|
-|[SonarAnalyzer.CSharp](https://www.nuget.org/SonarAnalyzer.CSharp)|v9.15.0|12/12/23|dependabot[bot] |N/A|N/A|
-|[xunit.runner.visualstudio](https://www.nuget.org/xunit.runner.visualstudio)|v2.5.5|12/12/23|dependabot[bot] |Other|N/A|
+|[SonarAnalyzer.CSharp](https://www.nuget.org/SonarAnalyzer.CSharp)|v9.16.0|12/25/23|dependabot[bot] |N/A|N/A|
+|[xunit.runner.visualstudio](https://www.nuget.org/xunit.runner.visualstudio)|v2.5.6|01/08/24|dependabot[bot] |Other|N/A|
 
 <br/>
 <div align='center'>
