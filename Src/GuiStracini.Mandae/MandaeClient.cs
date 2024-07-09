@@ -13,6 +13,10 @@
 // ***********************************************************************
 
 namespace GuiStracini.Mandae
+public async Task<OccurrenceResponse> QueryOccurrencesAsync(OccurrenceRequest request) {
+    // Implement API call logic here
+    return await Task.FromResult(new OccurrenceResponse());
+}
 {
     using System.Globalization;
     using System.Threading;
