@@ -18,6 +18,7 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LoC |
 |--------------|-------------|-------|----------|-------------|-----|
+## Uso da API de Consulta de Ocorrências
 | [![Build status](https://ci.appveyor.com/api/projects/status/hgtsg00sd3ahykdw/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/guistracini-mandae/branch/main) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/GuiStracini.Mandae/main)](https://github.com/guibranco/GuiStracini.Mandae) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/GuiStracini-Mandae/main?compact_message)](https://ci.appveyor.com/project/guibranco/guistracini-mandae) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=coverage&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=code_smells&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=ncloc&branch=main)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae) |
 
 ## Code Quality (main branch)
@@ -38,6 +39,13 @@ Este é um cliente **não oficial** da [API da Mandaê V2](https://dev.mandae.co
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
+### Exemplo
+```csharp
+var request = new OccurrenceRequest {
+    // Definir propriedades da solicitação
+};
+var response = await client.QueryOccurrencesAsync(request);
+```
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_GuiStracini.Mandae&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_GuiStracini.Mandae)
