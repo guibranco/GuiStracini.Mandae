@@ -8,6 +8,7 @@
 // ***********************************************************************
 // <copyright file="IMandaeClient.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2017-2023 Guilherme Branco Stracini
+Task<OccurrenceResponse> QueryOccurrencesAsync(OccurrenceRequest request);
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
