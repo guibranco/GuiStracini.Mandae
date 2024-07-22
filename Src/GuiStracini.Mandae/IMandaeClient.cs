@@ -72,6 +72,20 @@ namespace GuiStracini.Mandae
         /// Gets the tracking asynchronous.
         /// </summary>
         /// <param name="trackingCode">The tracking code.</param>
+        SearchReverseResponse SearchReverse(
+            ReverseSearchMethod method,
+            string value,
+            int limit,
+            int offset
+        );
+
+        Task<SearchReverseResponse> SearchReverseAsync(
+            ReverseSearchMethod method,
+            string value,
+            CancellationToken token,
+            int limit,
+            int offset
+        );
         /// <param name="token">The token.</param>
         /// <returns>Task&lt;TrackingResponse&gt;.</returns>
         Task<TrackingResponse> GetTrackingAsync(string trackingCode, CancellationToken token);
