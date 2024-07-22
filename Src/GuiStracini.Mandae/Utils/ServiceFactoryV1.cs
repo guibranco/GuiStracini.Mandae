@@ -17,6 +17,18 @@ using GuiStracini.SDKBuilder;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
+        public async Task<TResponse> Get<TResponse, TRequest>(TRequest data, CancellationToken token) 
+            where TResponse : BaseResponse
+        {
+            // Implement actual HTTP GET logic here
+            // Example:
+            // var response = await _httpClient.GetAsync(BuildUri(data), token);
+            // response.EnsureSuccessStatusCode();
+            // return await response.Content.ReadAsAsync<TResponse>();
+            
+            throw new NotImplementedException();
+        }
+
 namespace GuiStracini.Mandae.Utils
 {
     using System;
