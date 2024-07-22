@@ -188,6 +188,40 @@ namespace GuiStracini.Mandae
 
         /// <summary>
         /// Configures the v1 authentication.
+        #region Reverses (V1)
+
+        public SearchReverseResponse SearchReverse(
+            ReverseSearchMethod method,
+            string value,
+            int limit = 10,
+            int offset = 0
+        )
+        {
+            return SearchReverseAsync(method, value, CancellationToken.None, limit, offset).Result;
+        }
+
+        public async Task<SearchReverseResponse> SearchReverseAsync(
+            ReverseSearchMethod method,
+            string value,
+            CancellationToken token,
+            int limit = 10,
+            int offset = 0
+        )
+        {
+            var data = new SearchReverseRequest
+            {
+                Method = method,
+                Value = value,
+                Limit = limit,
+                Offset = offset
+            };
+
+            return await _serviceV1
+                .Get<SearchReverseResponse, SearchReverseRequest>(data, token)
+                .ConfigureAwait(_configureAwait);
+        }
+
+        #endregion Reverses (V1)
         /// </summary>
         /// <param name="email">The email.</param>
         /// <param name="password">The password.</param>
