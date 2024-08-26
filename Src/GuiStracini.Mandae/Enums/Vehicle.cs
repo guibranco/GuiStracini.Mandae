@@ -33,6 +33,6 @@ namespace GuiStracini.Mandae.Enums
         /// <summary>
         /// The dropoff
         /// </summary>
-        DROPOFF
+        DROPOFF,
     }
 }

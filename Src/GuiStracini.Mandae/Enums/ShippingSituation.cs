@@ -77,6 +77,6 @@ namespace GuiStracini.Mandae.Enums
         /// <summary>
         /// The not collect
         /// </summary>
-        NOT_COLLECT = 12
+        NOT_COLLECT = 12,
     }
 }
