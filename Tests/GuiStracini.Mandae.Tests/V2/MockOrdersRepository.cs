@@ -92,8 +92,8 @@ internal sealed class MockOrdersRepository
                     Country = "BR",
                     Neighborhood = "Vila Prudente",
                     State = "SP",
-                    Street = "Rua Itanháem"
-                }
+                    Street = "Rua Itanháem",
+                },
             },
             Sender = new Sender
             {
@@ -105,9 +105,9 @@ internal sealed class MockOrdersRepository
                     Country = "BR",
                     Neighborhood = "Vila Prudente",
                     State = "SP",
-                    Street = "Rua Itanháem"
+                    Street = "Rua Itanháem",
                 },
-                FullName = "Editora Inovação"
+                FullName = "Editora Inovação",
             },
             Items = new[]
             {
@@ -120,12 +120,12 @@ internal sealed class MockOrdersRepository
                         Length = 30,
                         Width = 30,
                         Weight = 2.6,
-                        Height = 30
+                        Height = 30,
                     },
                     Invoice = new Invoice
                     {
                         Id = "606620",
-                        Key = "35170805944298000101550010006066201623434877"
+                        Key = "35170805944298000101550010006066201623434877",
                     },
                     PartnerItemId = $"VTR{DateTime.Now:ddMMyyHHmmssffff}",
                     Recipient = new Recipient
@@ -138,12 +138,12 @@ internal sealed class MockOrdersRepository
                             City = "Rio de Janeiro",
                             State = "RJ",
                             Street = "Rua Anita Garibaild",
-                            Country = "BR"
+                            Country = "BR",
                         },
                         FullName = "João destinatário",
                         Email = "exemplo-contato@mandae.com.br",
                         Phone = "(11) 3382-2031",
-                        Document = "24580580001"
+                        Document = "24580580001",
                     },
                     Observation = "Sample order test - 5607547",
                     Skus = new[]
@@ -155,7 +155,7 @@ internal sealed class MockOrdersRepository
                             Price = new decimal(4.47),
                             Freight = new decimal(1.2),
                             Quantity = 2,
-                            SkuId = "3583"
+                            SkuId = "3583",
                         },
                         new Sku
                         {
@@ -164,13 +164,13 @@ internal sealed class MockOrdersRepository
                             Price = new decimal(15.43),
                             Freight = new decimal(6.8),
                             Quantity = 2,
-                            SkuId = "7522"
-                        }
-                    }
-                }
+                            SkuId = "7522",
+                        },
+                    },
+                },
             },
             Vehicle = Vehicle.CAR,
-            Scheduling = DateTime.Today.AddDays(1)
+            Scheduling = DateTime.Today.AddDays(1),
         };
     }
 
