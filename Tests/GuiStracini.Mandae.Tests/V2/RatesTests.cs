@@ -42,8 +42,8 @@ public class RatesTests
                 Height = 60,
                 Length = 60,
                 Width = 40,
-                Weight = 1
-            }
+                Weight = 1,
+            },
         };
 
         var rates = client.GetRates(ratesModel);
@@ -68,8 +68,8 @@ public class RatesTests
                 Height = 60,
                 Length = 60,
                 Width = 40,
-                Weight = 1
-            }
+                Weight = 1,
+            },
         };
         var rates = await client.GetRatesAsync(ratesModel, CancellationToken.None);
 
