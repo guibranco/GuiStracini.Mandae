@@ -27,6 +27,6 @@ namespace GuiStracini.Mandae.Enums
         /// <summary>
         /// The production environment
         /// </summary>
-        PRODUCTION
+        PRODUCTION,
     }
 }

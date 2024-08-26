@@ -104,8 +104,8 @@ namespace GuiStracini.Mandae.Utils
                     {
                         Formatting = Formatting.Indented,
                         ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                        NullValueHandling = NullValueHandling.Ignore
-                    }
+                        NullValueHandling = NullValueHandling.Ignore,
+                    },
                 };
                 var endpoint = string.Concat(
                     requestObject.GetRequestEndPoint(),

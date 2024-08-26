@@ -102,7 +102,7 @@ namespace GuiStracini.Mandae
                 Height = model.Dimensions.Height.ToString(CultureInfo.InvariantCulture),
                 Length = model.Dimensions.Length.ToString(CultureInfo.InvariantCulture),
                 Weight = model.Dimensions.Weight.ToString(CultureInfo.InvariantCulture),
-                Width = model.Dimensions.Width.ToString(CultureInfo.InvariantCulture)
+                Width = model.Dimensions.Width.ToString(CultureInfo.InvariantCulture),
             };
             return await _service
                 .Post<RatesResponse, RatesRequest>(data, token)
@@ -144,7 +144,7 @@ namespace GuiStracini.Mandae
                 PartnerOrderId = model.PartnerOrderId,
                 Scheduling = model.Scheduling,
                 Sender = model.Sender,
-                Vehicle = model.Vehicle
+                Vehicle = model.Vehicle,
             };
             return await _service
                 .Post<OrderResponse, OrderRequest>(data, token)
@@ -302,7 +302,7 @@ namespace GuiStracini.Mandae
                 Method = method,
                 Value = value,
                 Limit = limit,
-                Offset = offset
+                Offset = offset,
             };
 
             return await _serviceV1
