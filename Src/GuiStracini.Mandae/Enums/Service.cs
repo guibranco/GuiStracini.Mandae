@@ -22,6 +22,6 @@ namespace GuiStracini.Mandae.Enums
         /// <summary>
         /// The valor declarado
         /// </summary>
-        VALORDECLARADO
+        VALORDECLARADO,
     }
 }
