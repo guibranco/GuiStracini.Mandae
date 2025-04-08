@@ -70,7 +70,7 @@ This client supports the following operations/features of the API:
  1. Get rates for a delivery (postal code and package dimensions)
  2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/SKU)
  3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
- 4. WebHooks schema ready (The webhooks models, ready for implementation)
+4. Webhooks schema ready (The webhooks models, ready for implementation)
  5. **Experimental** Querying orders (API V1 - non-public API)
  6. **Experimental** Querying occurrences (API V1 - non-public API). [Issue #1](https://github.com/guibranco/GuiStracini.Mandae/issues/1) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
  7. **Experimental** Querying reverses (API V1 - non-public API). [Issue #2](https://github.com/guibranco/GuiStracini.Mandae/issues/2) ![GitHub labels](https://img.shields.io/github/labels/guibranco/BancosBrasileiros/help%20wanted)
