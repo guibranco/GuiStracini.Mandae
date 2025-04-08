@@ -10,7 +10,7 @@ Para a versão em português, por favor [siga me](/README.pt-br.md).
 
 ![Mandae logo](https://raw.githubusercontent.com/guibranco/GuiStracini.Mandae/main/logo.png)
 
-This is an **unofficial** client for the [Mandaê API V2](https://dev.mandae.com.br/api/index.html)
+This is a client for the [Mandaê API V2](https://docs.mandae.com.br/doc/intro)
 
 ---
 
@@ -68,7 +68,7 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/Gui
 This client supports the following operations/features of the API:
 
  1. Get rates for a delivery (postal code and package dimensions)
- 2. Schedule a collect (register a collect in the customer distribution centre with one or more packages. Each package can have one or more items/SKU)
+ 2. Schedule a collect (register a collect in the customer distribution center with one or more packages. Each package can have one or more items/SKU)
  3. Get tracking data of a shipment (Get all tracking data available from one package - tracking code is set by the customer or provided by webhook)
  4. WebHooks schema ready (The webhooks models, ready for implementation)
  5. **Experimental** Querying orders (API V1 - non-public API)
@@ -82,7 +82,7 @@ This client supports the following operations/features of the API:
 
 ### Setup the MandaeClient
 
-Initializes a new instance of **MandaeClient** class.
+Initializes a new instance of the **MandaeClient** class.
 
 Example:
 
@@ -136,7 +136,7 @@ Schedule a collect request (pickup in a distribution center/origin location).
 
 Inform which type of Vehicle, when, which rate (Rapido | Economico) and the order items (a.k.a packages or clients orders).
 
-Each package means an order/volume, that can have one or more items (SKUs).
+Each package means an order/volume that can have one or more items (SKUs).
 
 Example:
 
