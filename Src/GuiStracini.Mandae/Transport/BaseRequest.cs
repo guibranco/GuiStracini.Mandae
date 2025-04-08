@@ -20,7 +20,7 @@ namespace GuiStracini.Mandae.Transport
     /// <summary>
     /// All classes that performs a direct request to the Mandaê API V2 or higher must inherit from this class.
     /// </summary>
-    public abstract class Request : BaseRequest
+    public abstract class Request : IBaseRequest
     {
         /// <summary>
         /// Gets or sets the token.
