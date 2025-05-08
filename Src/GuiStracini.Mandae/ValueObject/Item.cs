@@ -179,7 +179,6 @@ namespace GuiStracini.Mandae.ValueObject
         /// </summary>
         /// <value>The total freight value</value>
         /// <remarks>If the <see cref="Sku" /> has freight declared, this should be the sum of all sku's freights values.</remarks>
-
         [JsonIgnore]
         public decimal TotalFreight
         {
