@@ -58,7 +58,6 @@ namespace GuiStracini.Mandae.Transport
         /// Gets or sets the scheduling internal
         /// </summary>
         /// <value>The scheduling internal</value>
-
         [JsonProperty("scheduling")]
         public string SchedulingInternal =>
             Scheduling != DateTime.MinValue
