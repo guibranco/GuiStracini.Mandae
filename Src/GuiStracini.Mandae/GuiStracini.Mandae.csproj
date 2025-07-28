@@ -25,10 +25,10 @@
     <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.1.41" />
+    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.1.56" />
     <!-- ReSharper disable once VulnerablePackage -->
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.14.0.120626">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
